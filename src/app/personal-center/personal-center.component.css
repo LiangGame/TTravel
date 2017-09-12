@@ -1,0 +1,44 @@
+ul{
+  margin: 0;
+  padding: 0;
+}
+a:link,a:hover,a:active,a:visited{
+  text-decoration: none;
+}
+#user_nav{
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#user_icon{
+  border-bottom: 1px solid #d5d5d5;
+}
+#user_icon img{
+  border-radius: 50%;
+}
+#user_icon h4:first-child{
+  border-right: 1px solid #d5d5d5;
+}
+#user_nav ul{
+  list-style: none;
+  font-size: 21px;
+}
+#user_nav ul li{
+  padding: 8px;
+}
+#user_nav ul li a{
+  color: #666;
+}
+#user_nav ul li{
+  padding-left: 50%;
+  margin-left: -55px;
+}
+#user_nav ul li:first-child{
+  padding-top: 45px;
+}
+#user_nav ul li span{
+  margin-right: 15px;
+  color: #666;
+}
+

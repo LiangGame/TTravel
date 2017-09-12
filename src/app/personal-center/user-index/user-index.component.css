@@ -1,0 +1,63 @@
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+#notes{
+  padding: 20px;
+  height: 50px;
+  border-bottom: solid 1px #d5d5d5;
+}
+#notes h4,h5{
+  display: inline-block;
+}
+#notes span{
+  display: inline-block;
+  height: 30px;
+  line-height: 25px;
+  padding-left: 15px;
+}
+#notes h5{
+  font-size: 16px;
+}
+#notes_content{
+  /*height: 300px;*/
+  /*background: #999999;*/
+}
+#notes_content button{
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #eeeeee;
+  background: #3e8f3e;
+  border: none;
+  border-radius: 8px;
+  position: relative;
+  left: 50%;
+  top: 70%;
+  margin-left: -100px;
+  margin-top: 35px;
+}
+.content{
+  background: #ddd;
+  padding: 15px 10px 15px 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+.content .top{
+  overflow: hidden;
+}
+.content .middle{
+  text-indent: 2em;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+.content .bottom{
+  overflow: hidden;
+  padding-right: 35px;
+}
+.content .bottom span{
+  color: #666;
+  margin-right: 8px;
+}
