@@ -10,7 +10,6 @@ import { WantToGoComponent } from './want-to-go/want-to-go.component';
 import { NotesComponent } from './notes/notes.component';
 import { PhotoAlbumComponent } from './photo-album/photo-album.component';
 import { SettingComponent } from './setting/setting.component';
-import { MessageBoardComponent } from './message-board/message-board.component';
 
 // 导入路由模块
 import {PersonalCenterRoutingModule} from './personal-center-routing.module';
@@ -23,8 +22,7 @@ import {PersonalCenterRoutingModule} from './personal-center-routing.module';
     WantToGoComponent,
     NotesComponent,
     PhotoAlbumComponent,
-    SettingComponent,
-    MessageBoardComponent
+    SettingComponent
   ],
   imports: [
     BrowserModule,

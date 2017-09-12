@@ -1,6 +1,9 @@
-ul{
+body,h1,h2,h3,h4,h5,h6,p,ul,li{
   margin: 0;
   padding: 0;
+}
+ul{
+  list-style: none;
 }
 a:link,a:hover,a:active,a:visited{
   text-decoration: none;
@@ -10,6 +13,11 @@ a:link,a:hover,a:active,a:visited{
   border-radius: 8px;
   padding: 10px;
   box-sizing: border-box;
+  position: fixed;
+  min-width: 341px;
+  /*top: 0px;*/
+  right: 65%;
+  margin-right: 50px;
 }
 #user_icon{
   border-bottom: 1px solid #d5d5d5;
@@ -40,5 +48,13 @@ a:link,a:hover,a:active,a:visited{
 #user_nav ul li span{
   margin-right: 15px;
   color: #666;
+}
+#container{
+  position: relative;
+}
+#main{
+  position: absolute;
+  left: 50%;
+  margin-left: -250px;
 }
 

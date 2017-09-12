@@ -1,0 +1,49 @@
+#container .setting-container{
+  padding: 15px;
+}
+#container .setting-container h3{
+  border-bottom: dashed 1px #efefef;
+  padding-bottom: 8px;
+}
+input{
+  outline: none;
+  border: none;
+  background: #fff;
+  height: 25px;
+  line-height: 25px;
+  font-size: 18px;
+}
+label{
+  margin: 0;
+  padding-left: 15px;
+  max-width: 100px;
+  height: 25px;
+  line-height: 25px;
+  font-weight: 200;
+  text-align: right;
+}
+#userSex label,input{
+  height: auto;
+  line-height: normal;
+}
+textarea{
+  width: 300px;
+  height: 95px;
+  outline: none;
+  padding: 4px 10px;
+}
+#btn{
+  margin-left: 55px;
+}
+#btn input{
+  width: 100px;
+  height: 35px;
+  background: #d4d4d4;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+}
+#btn input:first-child{
+  background: #3e8f3e;
+  color: #eeeeee;
+}
