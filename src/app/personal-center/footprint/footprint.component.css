@@ -31,12 +31,12 @@ li{
 #container .content ul li{
   width: 180px;
   height: 300px;
-  background: #ededed;
+  background: #efefef;
   float: left;
-  margin: 15px 8px 0 0;
+  margin: 15px 10px 0 0;
   padding: 5px;
   border-radius: 4px;
-  box-shadow: 3px 3px 5px #aaa;
+  box-shadow: 6px 8px 10px -3px #aaa;
 }
 #container li .s{
   transform:rotate(90deg);

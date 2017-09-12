@@ -34,12 +34,15 @@
   top: 70%;
   margin-left: -100px;
   margin-top: 35px;
+  box-shadow: 3px 3px 10px -1px #666;
+  outline: none;
 }
 #notes_container .content{
   background: #efefef;
   padding: 15px 10px 15px 10px;
   border-radius: 8px;
   margin-top: 15px;
+  box-shadow: 8px 8px 10px -7px #999 ;
 }
 .content .top{
   overflow: hidden;
@@ -102,20 +105,22 @@
 }
 #board-container .board-left{
   position: absolute;
-  border: 1px solid #b4b4b4;
+  border: 1px solid #bbb;
   padding: 10px;
-  left: 5px;
+  left: 10px;
   top: 50%;
   margin-top: -20px;
   transform:rotate(45deg);
 }
 #message-board textarea{
   height: 150px;
-  padding-top: 8px;
+  padding: 4px 10px;
   box-sizing: border-box;
   outline: none;
   margin-top: 15px;
   font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #e3e3e3;
 }
 #board-container .bottom span,button{
   width: 80px;
@@ -140,6 +145,9 @@
 #message-main ul li{
   margin-bottom: 8px;
   height: 80px;
+  background: #dfdfdf;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px -3px #777 ;
 }
 #message-main li .board-icon{
   width: 50px;
@@ -151,7 +159,8 @@
   display: inline-block;
   position: relative;
   top: 50%;
-  margin-top: -35px;
+  margin-top: -27px;
+  left: 16px;
 }
 #message-main .content{
   /*padding: 10px;*/

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { PersonalCenterComponent } from '../personal-center/personal-center.component';
-import { NavComponent } from './nav/nav.component';
 import { UserIndexComponent } from './user-index/user-index.component';
 import { FootprintComponent } from './footprint/footprint.component';
 import { WantToGoComponent } from './want-to-go/want-to-go.component';
@@ -16,7 +15,6 @@ import {PersonalCenterRoutingModule} from './personal-center-routing.module';
 @NgModule({
   declarations: [
     PersonalCenterComponent,
-    NavComponent,
     UserIndexComponent,
     FootprintComponent,
     WantToGoComponent,
