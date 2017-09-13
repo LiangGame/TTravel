@@ -1,7 +1,7 @@
 #notes,#photo{
   padding: 20px;
   height: 50px;
-  border-bottom: solid 1px #d5d5d5;
+  border-bottom: dashed 1px #d4d4d4;
 }
 #notes h4,h5{
   display: inline-block;
@@ -9,7 +9,8 @@
 #notes span,#photo span{
   display: inline-block;
   height: 30px;
-  line-height: 25px;
+  font-size: 12px;
+  line-height: 20px;
   padding-left: 15px;
 }
 #notes h5,#photo h5{
@@ -26,7 +27,7 @@
   font-size: 20px;
   font-weight: 500;
   color: #eeeeee;
-  background: #3e8f3e;
+  background: #FF9D00;
   border: none;
   border-radius: 8px;
   position: relative;
@@ -128,7 +129,7 @@
   border: none;
 }
 #board-container .bottom button{
-  background: #3e8f3e;
+  background: #FF9D00;
   height: 25px;
   border-radius: 4px;
   color: #eeeeee;
@@ -166,7 +167,7 @@
   /*padding: 10px;*/
 }
 #message-main .content h4{
-  color: #198811;
+  color: #FF9D00;
 }
 #message-main .content p{
   text-indent: 2em;
