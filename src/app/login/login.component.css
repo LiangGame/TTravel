@@ -1,0 +1,29 @@
+/*背景图片*/
+.login-bgimg{
+  height: 900px;
+  width: 100%;
+  background:url(../../assets/user-img/login-img.jpg) no-repeat;
+
+}
+/*登录框位置*/
+.login-bgimg .login-position{
+padding-top: 100px;
+
+}
+/*登录框样式*/
+.login-css{
+  padding: 30px 30px;
+  background-color: white;
+  border-radius: 5px;
+}
+/*按钮*/
+#login_btn{
+  font-size: 18px;
+  color: white;
+  background-color: #FFA800;
+}
+
+.p1{
+  padding-top: 10px;
+}
+

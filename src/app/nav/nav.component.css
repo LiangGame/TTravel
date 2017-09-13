@@ -1,4 +1,12 @@
+.navs{
+  width: 100%;
+  float: left;
 
+}
+.nav-rg{
+  position: relative;
+  margin-left: 450px;
+}
 a{
-  color: black;
+  color: white;
 }
