@@ -1,0 +1,28 @@
+/*背景图片*/
+.res-bgimg{
+  height: 900px;
+  width: 100%;
+  background:url(../../assets/user-img/res-img.jpg) no-repeat;
+}
+/*注册框位置*/
+.res-position{
+  padding-top: 100px;
+}
+/*注册框样式*/
+.login-css{
+  padding: 30px 30px;
+  background-color: white;
+  border-radius: 5px;
+
+}
+/*按钮*/
+#sign_btn{
+  font-size: 18px;
+  color: white;
+  background-color: #FFA800;
+
+}
+
+.p1{
+  padding-top: 10px;
+}
