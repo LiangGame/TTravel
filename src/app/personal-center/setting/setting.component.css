@@ -57,3 +57,37 @@ textarea{
   background: #FF9D00;
   color: #eeeeee;
 }
+#address .container,#birthday .container{
+  width: 150px;
+  float: left;
+  position: relative;
+}
+#address input,#birthday input{
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: 1px solid #999;
+}
+#address .option,#birthday .option{
+  height: 160px;
+  position: absolute;
+  text-align: center;
+  border: solid 1px gainsboro;
+  /*display: none;*/
+  background: #fff;
+  z-index: 99;
+}
+#address ul,#birthday ul{
+  width: 118px;
+  height: 158px;
+  float: left;
+  list-style: none;
+  overflow-y: scroll;
+}
+#address ul li,#birthday ul li{
+  height: 25px;
+}
+#user_form ._float{
+  position: relative;
+}
