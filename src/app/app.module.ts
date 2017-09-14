@@ -47,4 +47,6 @@ import { TravelAlbumComponent } from './travel-album/travel-album.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

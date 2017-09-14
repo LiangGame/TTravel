@@ -14,7 +14,37 @@
   box-sizing: border-box;
   box-shadow: 8px 8px 10px -5px #999;
   background: #efefef;
+  position: relative;
 }
+
+
+/*========卷角========================*/
+/*#user_nav .cor{
+  width: 35px;
+  height: 35px;
+  !*background: red;*!
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  border-radius: 8px 0 8px 0;
+  transition-duration: 0.3s;
+  transition-property: width, height;
+  background: linear-gradient(135deg, #efefef 5%,#dfdfdf 28%,#ababab 45%,#aaa 48%,#f4f4f4 50%,#f4f4f4 60%);
+  box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+#user_nav .cor-y{
+  width: 35px;
+  height: 35px;
+  background: #f4f4f4;
+  position: absolute;
+  bottom: -1px;
+  right: 0px;
+  z-index: 0;
+  box-shadow: 5px 5px 3px 5px #f4f4f4;
+}*/
+/*====================================*/
+
 #user_icon{
   border-bottom: 1px solid #d5d5d5;
 }
@@ -30,7 +60,7 @@
 }
 #user_nav ul{
   list-style: none;
-  font-size: 21px;
+  font-size: 18px;
 }
 #user_nav ul li{
   padding: 8px;
@@ -43,7 +73,7 @@
   margin-left: -55px;
 }
 #user_nav ul li:first-child{
-  padding-top: 45px;
+  padding-top: 15px;
 }
 #user_nav ul li span{
   margin-right: 15px;

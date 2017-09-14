@@ -1,0 +1,28 @@
+.footer{
+  height: 115px;
+  background: #535353;
+  border-top: solid 3px #FF9D12;
+  margin-top: 35px;
+}
+.footer-content .nav{
+  text-align: center;
+  font-size: 14px;
+  font-weight:bold;
+  margin-top: 36px;
+  margin-bottom: 15px;
+}
+.nav a{
+  /*padding-right: 15px;*/
+  padding: 3px 10px;
+  /*border-right:solid 1.5px #FF9D12;*/
+  border-right:olid 1.5px #636363;
+  color: #B7C0C0;
+}
+.nav a:first-child{
+  border-left:solid 1.5px #FF9D12;
+}
+.footer-detail{
+  text-align: center;
+  color: #323232;
+  font-size: 12px;
+}
