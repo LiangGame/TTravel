@@ -5,8 +5,11 @@
   background:url(../../assets/images/background/res-img.jpg) no-repeat;
 }
 /*注册框位置*/
+.container{
+  width: 400px;
+}
 .res-position{
-  padding-top: 100px;
+  padding-top: 151px;
 }
 /*注册框样式*/
 .login-css{

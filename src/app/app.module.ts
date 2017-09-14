@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
 import { PersonalCenterModule } from './personal-center/personal-center.module';
+import { TravelAlbumComponent } from './travel-album/travel-album.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PersonalCenterModule } from './personal-center/personal-center.module';
     SearchComponent,
     PageNotFoundComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    TravelAlbumComponent
   ],
   imports: [
     BrowserModule,
