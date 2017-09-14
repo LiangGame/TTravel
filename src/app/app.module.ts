@@ -7,7 +7,7 @@ import { AppComponent } from './root/app.component';
 import { IndexComponent } from './index/index.component';
 // import { PersonalCenterComponent } from './personal-center/personal-center.component';
 import { ScenicComponent } from './scenic/scenic.component';
-import { TravelsComponent } from './travel-notes/travels.component';
+import { TravelNotesComponent } from './travel-notes/travel-notes.component';
 import { TravelStrategyComponent } from './travel-strategy/travel-strategy.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -26,7 +26,7 @@ import { FooterComponent } from './footer/footer.component';
     IndexComponent,
     // PersonalCenterComponent,
     ScenicComponent,
-    TravelsComponent,
+    TravelNotesComponent,
     TravelStrategyComponent,
     LoginComponent,
     RegisterComponent,
@@ -44,4 +44,6 @@ import { FooterComponent } from './footer/footer.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

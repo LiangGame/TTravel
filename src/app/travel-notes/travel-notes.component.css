@@ -1,0 +1,36 @@
+/*轮播图两边*/
+/*.carousel-control{*/
+ /*!*background-color: yellow;*!*/
+/*}*/
+/*.input-group{*/
+/*}*/
+
+.form-control{
+  position: relative;
+}
+.btn-group .key{
+  position: relative;
+  top:-20px;
+
+}
+
+
+.form-control,.input-group-btn .btn{
+  border:1px solid #FFA800;
+  outline: none;
+}
+.input-group-btn .btn{
+  color: #FFA800;
+  background: white;
+}
+.input-group-btn .btn:hover{
+  color: rgba(255, 168, 0, 0.04);
+  background: #FFA800;
+}
+.
+{
+  background: #F8F8F8;
+}
+
+
+
