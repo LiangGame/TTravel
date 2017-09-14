@@ -7,10 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelNotesComponent implements OnInit {
 
-<<<<<<< HEAD
 
-=======
->>>>>>> de443915655fcac2c9f61c56cbe34dfce0575802
   constructor() { }
 
   ngOnInit() {
