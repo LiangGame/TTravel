@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'scenic', component: ScenicComponent},
   {path: 'travels', component: TravelNotesComponent},
   {path: 'strategy', component: TravelStrategyComponent},
-  {path: '', redirectTo: '/index/', pathMatch: 'full'},
+  {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
 

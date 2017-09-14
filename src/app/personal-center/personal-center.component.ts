@@ -14,5 +14,4 @@ export class PersonalCenterComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

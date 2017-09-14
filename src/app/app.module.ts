@@ -13,12 +13,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 // 导入路由模块
 import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
 import { PersonalCenterModule } from './personal-center/personal-center.module';
-import { NavComponent } from './nav/nav.component';
-import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [

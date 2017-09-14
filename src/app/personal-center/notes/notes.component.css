@@ -1,0 +1,63 @@
+#container{
+  padding: 25px;
+}
+#container h5{
+  border-bottom: dashed 1px #d4d4d4;
+  padding: 8px 10px;
+  font-weight: 200;
+  font-size: 21px;
+}
+#container .title button{
+  margin-right: 50px;
+  background: #FF9D00;
+  border: none;
+  border-radius: 4px;
+  width: 80px;
+  height: 35px;
+  color: #eeeeee;
+  font-size: 16px;
+  position: relative;
+  top: -10px;
+}
+#container .content{
+  margin-top: 15px;
+  background: #d4d4d4;
+  height: 250px;
+  box-shadow: 8px 8px 10px -1px #bfbfbf;
+}
+#container .notes-left img{
+  width: 100%;
+  height: 250px;
+}
+#container .notes-right{
+  /*background: red;*/
+  height: 250px;
+  padding: 15px 8px 10px 8px;
+  position: relative;
+}
+#container .notes-right .top{
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+#container .notes-right h4{
+  display: inline-block;
+}
+#container .notes-right time{
+  padding-right: 35px;
+}
+#container .notes-right .middle{
+  text-indent: 2em;
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  padding: 0 15px;
+}
+#container .notes-right .bottom{
+  position: absolute;
+  bottom: 15px;
+  right: 45px;
+}
+#container .notes-right .bottom span{
+  margin-right: 8px;
+}

@@ -12,7 +12,6 @@ import { WantToGoComponent } from './want-to-go/want-to-go.component';
 import { NotesComponent } from './notes/notes.component';
 import { PhotoAlbumComponent } from './photo-album/photo-album.component';
 import { SettingComponent } from './setting/setting.component';
-import { MessageBoardComponent } from './message-board/message-board.component';
 // 配置路由表
 const routes: Routes = [
   {path: 'personal-center',
@@ -24,8 +23,7 @@ const routes: Routes = [
       {path: 'Notes', component: NotesComponent},
       {path: 'PhotoAlbum', component: PhotoAlbumComponent},
       {path: 'Setting', component: SettingComponent},
-      {path: 'MessageBoard', component: MessageBoardComponent},
-      {path: '', redirectTo: './index', pathMatch: 'full'}
+      {path: '', component: UserIndexComponent}
     ]
   }
 ];

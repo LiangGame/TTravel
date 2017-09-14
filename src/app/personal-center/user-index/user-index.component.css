@@ -1,35 +1,33 @@
-h1,h2,h3,h4,h5,h6{
-  margin: 0;
-  padding: 0;
-}
-#notes{
+#notes,#photo{
   padding: 20px;
   height: 50px;
-  border-bottom: solid 1px #d5d5d5;
+  border-bottom: dashed 1px #d4d4d4;
 }
 #notes h4,h5{
   display: inline-block;
 }
-#notes span{
+#notes span,#photo span{
   display: inline-block;
   height: 30px;
-  line-height: 25px;
+  font-size: 12px;
+  line-height: 20px;
   padding-left: 15px;
 }
-#notes h5{
+#notes h5,#photo h5{
   font-size: 16px;
 }
-#notes_content{
+#notes_container{
   /*height: 300px;*/
   /*background: #999999;*/
+  margin-bottom: 25px;
 }
-#notes_content button{
+#notes_container button{
   width: 200px;
   height: 50px;
   font-size: 20px;
   font-weight: 500;
   color: #eeeeee;
-  background: #3e8f3e;
+  background: #FF9D00;
   border: none;
   border-radius: 8px;
   position: relative;
@@ -37,12 +35,15 @@ h1,h2,h3,h4,h5,h6{
   top: 70%;
   margin-left: -100px;
   margin-top: 35px;
+  box-shadow: 3px 3px 10px -1px #666;
+  outline: none;
 }
-.content{
-  background: #ddd;
+#notes_container .content{
+  background: #efefef;
   padding: 15px 10px 15px 10px;
   border-radius: 8px;
   margin-top: 15px;
+  box-shadow: 8px 8px 10px -7px #999 ;
 }
 .content .top{
   overflow: hidden;
@@ -60,4 +61,118 @@ h1,h2,h3,h4,h5,h6{
 .content .bottom span{
   color: #666;
   margin-right: 8px;
+}
+#photo_container{
+  margin-top: 15px;
+}
+.photos-content{
+  padding-left: 7%;
+}
+.photo-img{
+  height: 150px;
+  overflow: hidden;
+  background: url("../../../assets/user-img/user-icon.png") no-repeat;
+  background-position: center;
+  margin: 8px;
+}
+#message-board{
+  overflow: hidden;
+  margin-top: 15px;
+}
+#message-board h4{
+  margin-bottom: 15px;
+  text-indent: 1em;
+}
+#message-board .content{
+  background: #efefef;
+  height: 205px;
+  border-radius: 4px 4px 0 0;
+}
+#message-board .board-icon{
+  width: 90px;
+  height: 90px;
+  background: url("../../../assets/user-img/user-icon.png") no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  position: relative;
+  top: 50%;
+  margin-top: -55px;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+#board-container{
+  position: relative;
+}
+#board-container .board-left{
+  position: absolute;
+  border: 1px solid #bbb;
+  padding: 10px;
+  left: 10px;
+  top: 50%;
+  margin-top: -20px;
+  transform:rotate(45deg);
+}
+#message-board textarea{
+  height: 150px;
+  padding: 4px 10px;
+  box-sizing: border-box;
+  outline: none;
+  margin-top: 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #e3e3e3;
+}
+#board-container .bottom span,button{
+  width: 80px;
+  margin-top: 8px;
+  border: none;
+}
+#board-container .bottom button{
+  background: #FF9D00;
+  height: 25px;
+  border-radius: 4px;
+  color: #eeeeee;
+  letter-spacing: 3px;
+}
+#message-main{
+  overflow: hidden;
+  position: relative;
+}
+#message-main ul{
+  border-radius: 0 0 4px 4px;
+  background: #efefef;
+}
+#message-main ul li{
+  margin-bottom: 8px;
+  height: 80px;
+  background: #dfdfdf;
+  border-radius: 4px;
+  box-shadow: 5px 5px 10px -3px #777 ;
+}
+#message-main li .board-icon{
+  width: 50px;
+  height: 50px;
+  background: url("../../../assets/user-img/user-icon.png") no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  margin-top: -27px;
+  left: 16px;
+}
+#message-main .content{
+  /*padding: 10px;*/
+}
+#message-main .content h4{
+  color: #FF9D00;
+}
+#message-main .content p{
+  text-indent: 2em;
+  padding: 4px 0 4px 0;
+}
+#message-main span{
+  margin-right: 120px;
 }
