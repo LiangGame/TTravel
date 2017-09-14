@@ -5,8 +5,10 @@
 }
 .nav-rg{
   position: relative;
-  margin-left: 450px;
+  margin-left: 400px;
 }
 a{
+  font-size: 18px;
   color: white;
 }
+
