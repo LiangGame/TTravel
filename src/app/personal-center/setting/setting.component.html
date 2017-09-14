@@ -1,3 +1,110 @@
-<p>
-  setting works!
-</p>
+<div id="container">
+  <div class="setting-container">
+    <h3>修改个人资料</h3>
+    <div class="container col-md-12 col-lg-12">
+      <form class="form-horizontal" id="user_form">
+        <!--用户名-->
+        <div class="form-group">
+          <label for="user_name" class="col-sm-2">用户昵称:</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <input type="text" class="text-left" id="user_name" name="userName"
+                     value="admin" readonly="readonly">
+            </div>
+          </div>
+        </div>
+        <!--性别-->
+        <div class="form-group">
+          <label class="col-sm-2">性别:</label>
+          <div class="col-sm-10">
+            <div id="userSex" class="row">
+              <label for="user_sex0">男 &nbsp;&nbsp;</label><input type="radio" id="user_sex0" name="userSex">
+              <label for="user_sex1">女 &nbsp;&nbsp;</label><input type="radio" id="user_sex1" name="userSex">
+            </div>
+          </div>
+        </div>
+        <!--生日-->
+        <div class="form-group">
+          <label class="col-sm-2">生日:</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <div id="birthday" class="row">
+                <!--年输入框-->
+                <div class="container">
+                  <input #years [(ngModel)]="year" id="years" name="years" type="text" readonly="readonly" placeholder="年"  (click)='show_toggle($event)'>
+                  <div id="year-list" class="option" *ngIf="_show">
+                    <ul class="provinceList">
+                      <li *ngFor="let item of _years" (click)="show_year($event)">
+                        {{item}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--月输入框-->
+                <div class="container">
+                  <input #month [(ngModel)]="_month" id="month" name="month" type="text" readonly="readonly" placeholder="月" (click)='_show=!_show'>
+                  <div class="option" *ngIf="_show">
+                    <ul id="month-ist" class="MonthList">
+                      <li *ngFor="let item of _months" (click)="show_month($event)">
+                        {{item}}
+                      </li>
+                    </ul>
+                  </div >
+                </div>
+                <!--日输入框-->
+                <div class="container">
+                  <input #day [(ngModel)]="_dy" id="day" name="day" type="text" readonly="readonly" placeholder="日" (click)="_show=!_show">
+                  <div class="option" *ngIf="_show">
+                    <ul id="day-ist" class="DayList">
+                      <li *ngFor="let item of _day" (click)="show_day($event)">
+                        {{item}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--居住地-->
+        <div class="form-group">
+          <label class="col-sm-2">居住地址:</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <div id="address" class="row">
+                <!--省份输入框-->
+                <div class="container">
+                  <input id="province" type="text" readonly="readonly" placeholder="省份" isHide="isHide" (click)="show_toggle()">
+                  <div id="list" class="option" *ngIf="false">
+                    <ul class="provinceList"></ul>
+                  </div>
+                </div>
+                <!--直辖市输入框-->
+                <div class="container">
+                  <input id="shi" type="text" readonly="readonly" placeholder="市(区)" (click)="show_toggle()">
+                  <div class="option" *ngIf="false">
+                    <ul id="shiList" class="shiList"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--个性签-->
+        <div class="form-group">
+          <label for="Signature" class="col-sm-2">个性签名:</label>
+          <div class="col-sm-10">
+            <div class="row">
+              <textarea type="text" class="text-left" id="Signature" name="Signature" placeholder="最多70个汉字..."></textarea>
+            </div>
+          </div>
+        </div>
+        <!--按钮-->
+        <div class="form-group" id="btn">
+          <input type="button" value="保存">
+          <input type="reset" value="取消">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
