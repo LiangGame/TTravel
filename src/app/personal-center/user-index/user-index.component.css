@@ -141,10 +141,11 @@
 }
 #message-main ul{
   border-radius: 0 0 4px 4px;
+  padding-top: 15px;
   background: #efefef;
 }
 #message-main ul li{
-  margin-bottom: 8px;
+  margin-bottom: 15px;
   height: 80px;
   background: #dfdfdf;
   border-radius: 4px;
