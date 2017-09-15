@@ -2,20 +2,23 @@
   margin: 0;
 }
 #head{
-  width: 1600px;
-  height: 600px;
+  width: 100%;
+  height: 500px;
   border: 2px solid red;
-  padding: 0 30px;
-  margin: 5px;
+  background: url("../../assets/images/linshide/lgh.jpg") no-repeat;
+  background-size: 100% 500px;
 }
 .pic_lgh{
-  width: 1550px;
-  height: 580px;
+  width: 100%;
+  height: 450px;
 }
 #head_search{
   width: 400px;
   height: 60px;
-  border:2px solid blue;
+  border:2px solid #ff92c4;
+  position: absolute;
+  left: 600px;
+  top: 260px;
 }
 
 #middle_head{
@@ -26,42 +29,50 @@
 }
 #middle_head_name{
   border: 1px solid red;
-  width: 110px;
-  height: 50px;
+  width: 160px;
+  height: 70px;
   float: left;
 }
+.middle_head_name{
+  font-size: 28px;
+  color: #2c002c;
+}
 #middle_head_list{
-  width: 550px;
+  width: 620px;
   height: 50px;
-  border: 2px solid teal;
+  border: 1px solid #3b1ee0;
   float: right;
 }
 #middle_head_list li{
-
   list-style: none;
-  width: 80px;
+  width: 120px;
   text-align: center;
-  float: right;
+  float: left;
+  border: 1px solid firebrick;
 }
-#middle a{
+#middle_head_list a{
   text-decoration: none;
+  font-size: 25px;
+  font-family: "黑体";
+
 }
 
 
 #middle_pic{
-  width: 1345px;
-  height: 755px;
-  border: 3px solid blue;
+  width: 1340px;
+  height: 740px;
+  border: 1px solid blue;
   margin:10px auto;
+}
+
+#middle_pic_left{
+  width: 763px;
+  height: 740px;
+  border: 1px solid blue;
+  float: left;
 }
 #middle_pic img{
   padding: 5px 5px;
-  float: left;
-}
-#middle_pic_left{
-  width: 780px;
-  height: 755px;
-  border: 1px solid blue;
   float: left;
 }
 .pic_hn{
@@ -81,27 +92,58 @@
   height: 240px;
 }
 .pic_zj{
-  width: 235px;
-  height: 230px;
+  width: 240px;
+  height: 240px;
 }
 .pic_hlj2{
-  width: 235px;
-  height: 230px;
+  width: 240px;
+  height: 240px;
 }
 
 .pic_hq{
   width: 260px;
-  height: 502px;
+  height: 490px;
 }
 .pic_xj1{
-  width: 280px;
-  height: 250px;
+  width: 290px;
+  height: 245px;
 }
 .pic_hlj{
-  width: 280px;
-  height: 240px;
+  width: 290px;
+  height: 245px;
 }
 .pic_xz{
   width: 550px;
-  height: 230px;
+  height: 240px;
+}
+
+#down{
+  width: 100%;
+  height: 2000px;
+  border: 1px solid #e0060c;
+}
+#down_head{
+  width: 80%;
+  height: 60px;
+  margin: 5px auto;
+  border: 1px solid indigo;
+}
+#down_inner{
+  width: 80%;
+  height: 1000px;
+  margin: 5px auto;
+  border: 1px solid darkgreen;
+}
+#down li{
+  list-style: none;
+  float: right;
+  width: 100px;
+  line-height: 10px;
+  font-size: 20px;
+
+
+}
+#down a{
+  text-decoration: none;
+
 }

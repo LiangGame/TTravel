@@ -15,6 +15,8 @@ import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { ScenicSearchComponent } from './scenic-search/scenic-search.component';
+import { ScenicResultComponent } from './scenic-result/scenic-result.component';
 // 导入路由模块
 import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
@@ -34,7 +36,9 @@ import { PersonalCenterModule } from './personal-center/personal-center.module';
     SearchComponent,
     PageNotFoundComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    ScenicSearchComponent,
+    ScenicResultComponent
   ],
   imports: [
     BrowserModule,
