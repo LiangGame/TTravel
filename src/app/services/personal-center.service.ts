@@ -5,7 +5,7 @@ import {GlobalPropertyService} from './global-property.service';
 
 @Injectable()
 export class PersonalCenterService {
-  url:string='http://localhost:8888/personal-center';
+  url:string='http://10.40.4.21:8889/personal-center';
   constructor(
     private http:HttpClient,
     private glo:GlobalPropertyService
@@ -33,7 +33,7 @@ export class PersonalCenterService {
   }
 
   show_notes(callback) {
-    this.http.post(this.url+'/notes').subscribe(
+    this.http.post(this.url+'/notes','').subscribe(
       function (result) {
         callback(result);
       },
