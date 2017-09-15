@@ -21,7 +21,6 @@ export class UserIndexComponent implements OnInit {
   getNotes(){
     let that = this;
     that.perSer.show_notes(function (result) {
-      console.log(result);
       if(result){
         that._notes=result;
         console.log(that._notes);

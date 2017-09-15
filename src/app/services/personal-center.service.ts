@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+declare var $:any;
 import {GlobalPropertyService} from './global-property.service';
 
 @Injectable()
 export class PersonalCenterService {
-  url:string='http://localhost:8889/personal-center';
+
+  // url:string='http://localhost:8889/personal-center';
+  url:string='http://10.40.4.21:8889/personal-center';
   constructor(
     private http:HttpClient,
     private glo:GlobalPropertyService
@@ -35,7 +37,6 @@ export class PersonalCenterService {
   show_notes(callback) {
     this.http.post(this.url+'/notes','').subscribe(
       function (result) {
-        // console.log(result);
         callback(result);
       },
       function (error) {
