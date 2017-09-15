@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ScenicSearchComponent } from './scenic-search/scenic-search.component';
+import { ScenicResultComponent } from './scenic-result/scenic-result.component';
 import { NotesChildComponent } from './notes-child/notes-child.component';
 
 // 配置路由表
@@ -29,6 +31,7 @@ const routes: Routes = [
   {path: 'travels', component: TravelNotesComponent},
   {path: 'strategy', component: TravelStrategyComponent},
   {path: 'noteschild', component: NotesChildComponent},
+  {path: 'scenic_search', component: ScenicSearchComponent},
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 
