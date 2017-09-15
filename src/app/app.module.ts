@@ -19,8 +19,12 @@ import { FooterComponent } from './footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
 import { PersonalCenterModule } from './personal-center/personal-center.module';
+
 // 导入服务
 import {GlobalPropertyService} from './services/global-property.service';
+
+import { TravelAlbumComponent } from './travel-album/travel-album.component';
+
 
 
 @NgModule({
@@ -36,7 +40,8 @@ import {GlobalPropertyService} from './services/global-property.service';
     SearchComponent,
     PageNotFoundComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    TravelAlbumComponent
   ],
   imports: [
     BrowserModule,
