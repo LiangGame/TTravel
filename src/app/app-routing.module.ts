@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NotesChildComponent } from './notes-child/notes-child.component';
+
 // 配置路由表
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
@@ -24,8 +26,10 @@ const routes: Routes = [
   {path: 'scenic', component: ScenicComponent},
   {path: 'travels', component: TravelNotesComponent},
   {path: 'strategy', component: TravelStrategyComponent},
+  {path: 'noteschild', component: NotesChildComponent},
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
+
 ];
 
 @NgModule({
