@@ -24,10 +24,12 @@
   background: #d4d4d4;
   height: 250px;
   box-shadow: 8px 8px 10px -1px #bfbfbf;
+  border-radius: 4px;
 }
 #container .notes-left img{
   width: 100%;
   height: 250px;
+  border-radius: 4px 0 0 4px;
 }
 #container .notes-right{
   /*background: red;*/
@@ -60,4 +62,7 @@
 }
 #container .notes-right .bottom span{
   margin-right: 8px;
+}
+#container .notes-right .bottom span:hover{
+  color: #ff9d00;
 }

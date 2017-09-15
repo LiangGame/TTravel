@@ -1,20 +1,19 @@
 <div>
   <div id="notes" class="text-center">
     <h4 class="pull-left">我的游记</h4>
-    <span class="pull-left"> &gt;&gt;&gt;更多 </span>
-    <h5 class="pull-right">0篇游记</h5>
+    <span class="pull-left"> <a routerLink="./Notes">&gt;&gt;&gt;更多</a> </span>
+    <h5 class="pull-right">{{_notes?.length}}篇游记</h5>
   </div>
   <div id="notes_container">
     <div class="content">
       <div class="top">
-        <h3 class="pull-left">游记标题</h3>
-        <time class="pull-right">2017-8-8</time>
+        <h3  class="pull-left">{{_notes[0]?.title}}</h3>
+        <time class="pull-right">
+          {{(_notes[0]?.pubtime)?.split('T')[0]}}
+        </time>
       </div>
       <div class="middle">
-        游记内容游记内容游记内容游记内容游记内容游记内容游记内容
-        游记内容游记内容游记内容游记内容游记内容游记内容游记内容
-        游记内容游记内容游记内容游记内容游记内容游记内容游记内容
-        游记内容游记内容游记内容游记内容游记内容游记内容游记内容
+        {{(_notes[0]?.content)?.substring(120)+'...'}}
       </div>
       <div class="bottom">
         <div class="pull-right">

@@ -3,5 +3,7 @@
  */
 exports.sql={
   getProvince:'select id,provincename from province',
-  getcitys:'select * from address where provincename=?'
+  getcitys:'select * from address where provincename=?',
+
+  getNotes:'select * from travelNotes'
 };
