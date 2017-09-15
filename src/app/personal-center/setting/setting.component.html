@@ -31,8 +31,8 @@
               <div id="birthday" class="row">
                 <!--年输入框-->
                 <div class="container">
-                  <input #years [(ngModel)]="year" id="years" name="years" type="text" readonly="readonly" placeholder="年"  (click)='show_toggle($event)'>
-                  <div id="year-list" class="option" [class.block]="block" >
+                  <input #years [(ngModel)]="year" id="years" name="years" type="text" readonly="readonly" placeholder="年"  (click)='show_year_toggle()'>
+                  <div id="year-list" class="option" [class.block]="year_block" >
                     <ul class="provinceList">
                       <li *ngFor="let item of _years" (click)="show_year($event)">
                         {{item}}
@@ -42,8 +42,8 @@
                 </div>
                 <!--月输入框-->
                 <div class="container">
-                  <input #month [(ngModel)]="_month" id="month" name="month" type="text" readonly="readonly" placeholder="月" (click)='show_toggle($event)'>
-                  <div class="option" [class.block]="block">
+                  <input #month [(ngModel)]="_month" id="month" name="month" type="text" readonly="readonly" placeholder="月" (click)='show_month_toggle()'>
+                  <div class="option" [class.block]="month_block">
                     <ul id="month-ist" class="MonthList">
                       <li *ngFor="let item of _months" (click)="show_month($event)">
                         {{item}}
@@ -53,8 +53,8 @@
                 </div>
                 <!--日输入框-->
                 <div class="container">
-                  <input #day [(ngModel)]="_dy" id="day" name="day" type="text" readonly="readonly" placeholder="日" (click)="show_toggle($event)">
-                  <div class="option" *ngIf="_show">
+                  <input #day [(ngModel)]="_dy" id="day" name="day" type="text" readonly="readonly" placeholder="日" (click)="show_day_toggle()">
+                  <div class="option" [class.block]="day_block">
                     <ul id="day-ist" class="DayList">
                       <li *ngFor="let item of _day" (click)="show_day($event)">
                         {{item}}
@@ -74,8 +74,8 @@
               <div id="address" class="row">
                 <!--省份输入框-->
                 <div class="container">
-                  <input [(ngModel)]="_province" id="province" name="province" type="text" readonly="readonly" placeholder="省份" isHide="isHide" (click)="show_toggle($event)">
-                  <div id="list" class="option" *ngIf="_show">
+                  <input [(ngModel)]="_province" id="province" name="province" type="text" readonly="readonly" placeholder="省份" isHide="isHide" (click)="show_province_toggle()">
+                  <div id="list" class="option" [class.block]="province_block">
                     <ul class="provinceList">
                       <li *ngFor="let item of _provinces" (click)="show_province($event)">
                         {{item}}
@@ -85,8 +85,8 @@
                 </div>
                 <!--市输入框-->
                 <div class="container">
-                  <input [(ngModel)]="_city" id="shi" name="city" type="text" readonly="readonly" placeholder="市(区)" (click)="show_toggle($event)">
-                  <div class="option" *ngIf="_show">
+                  <input [(ngModel)]="_city" id="shi" name="city" type="text" readonly="readonly" placeholder="市(区)" (click)="show_city_toggle()">
+                  <div class="option" [class.block]="city_block">
                     <ul id="shiList" class="shiList">
                       <li *ngFor="let item of _citys" (click)="show_city($event)">
                         {{item}}
