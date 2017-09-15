@@ -19,7 +19,7 @@ input{
   background: #efefef;
   height: 25px;
   line-height: 25px;
-  font-size: 18px;
+  font-size: 14px;
 }
 label{
   margin: 0;
@@ -77,6 +77,12 @@ textarea{
   /*display: none;*/
   background: #fff;
   z-index: 99;
+}
+.block{
+  display: none;
+}
+#address ._block,#birthday ._block{
+  display: block;
 }
 #address ul,#birthday ul{
   width: 118px;

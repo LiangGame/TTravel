@@ -14,9 +14,13 @@
   box-sizing: border-box;
   box-shadow: 8px 8px 10px -5px #999;
   background: #efefef;
-  position: relative;
+  max-width: 285px;
+  /*position: relative;*/
 }
-
+.fixed{
+  position: fixed;
+  top:0;
+}
 
 /*========卷角========================*/
 /*#user_nav .cor{

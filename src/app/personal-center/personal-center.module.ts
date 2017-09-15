@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PersonalCenterComponent } from '../personal-center/personal-center.component';
 import { UserIndexComponent } from './user-index/user-index.component';
@@ -25,6 +26,7 @@ import {PersonalCenterRoutingModule} from './personal-center-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     PersonalCenterRoutingModule
   ],
   providers: [],

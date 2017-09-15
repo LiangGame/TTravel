@@ -22,6 +22,12 @@ import { PersonalCenterModule } from './personal-center/personal-center.module';
 import { NotesChildComponent } from './notes-child/notes-child.component';
 import { StrategyChildComponent } from './travel-strategy/strategy-child/strategy-child.component';
 
+// 导入服务
+import {GlobalPropertyService} from './services/global-property.service';
+
+import { TravelAlbumComponent } from './travel-album/travel-album.component';
+
+
 
 @NgModule({
   declarations: [
@@ -38,7 +44,9 @@ import { StrategyChildComponent } from './travel-strategy/strategy-child/strateg
     NavComponent,
     FooterComponent,
     NotesChildComponent,
-    StrategyChildComponent
+    StrategyChildComponent,
+    TravelAlbumComponent
+
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,7 @@ import { StrategyChildComponent } from './travel-strategy/strategy-child/strateg
     PersonalCenterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GlobalPropertyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

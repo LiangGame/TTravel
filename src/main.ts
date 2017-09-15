@@ -9,3 +9,6 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
+// if(location.host.indexOf("/login")==-1){
+//
+// }

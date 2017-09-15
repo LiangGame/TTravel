@@ -1,13 +1,18 @@
 /*背景图片*/
+
 .login-bgimg{
   height: 900px;
   width: 100%;
   background:url(../../assets/images/background/login-img.jpg) no-repeat;
-
 }
+
 /*登录框位置*/
+.container{
+  width: 400px;
+  height: 100%;
+}
 .login-bgimg .login-position{
-padding-top: 100px;
+  padding-top: 151px;
 
 }
 /*登录框样式*/
@@ -15,6 +20,15 @@ padding-top: 100px;
   padding: 30px 30px;
   background-color: white;
   border-radius: 5px;
+}
+
+.prompt{
+  padding: 0;
+  margin-left: 20px;
+  margin-bottom: 0;
+  color: red;
+  box-shadow: none;
+
 }
 /*按钮*/
 #login_btn{

@@ -8,6 +8,7 @@ import {NgModule} from '@angular/core';
 import { IndexComponent } from './index/index.component';
 import { PersonalCenterComponent } from './personal-center/personal-center.component';
 import { ScenicComponent } from './scenic/scenic.component';
+import { TravelAlbumComponent } from './travel-album/travel-album.component';
 import { TravelNotesComponent } from './travel-notes/travel-notes.component';
 import { TravelStrategyComponent } from './travel-strategy/travel-strategy.component';
 import { LoginComponent } from './login/login.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'personal-center', component: PersonalCenterComponent},
   {path: 'scenic', component: ScenicComponent},
+  {path: 'travel-album', component: TravelAlbumComponent},
   {path: 'travels', component: TravelNotesComponent},
   {path: 'strategy', component: TravelStrategyComponent},
   {path: 'noteschild', component: NotesChildComponent},
