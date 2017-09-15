@@ -1,0 +1,227 @@
+/*.bg{*/
+  /*position: relative;*/
+  /*z-index: -1;*/
+/*}*/
+/*.head{*/
+  /*height: 125px;*/
+  /*width: 125px;*/
+  /*!*margin-left: 210px;*!*/
+  /*float: left;*/
+  /*border-bottom:1px solid #e8e8e6;*/
+  /*position: relative;*/
+  /*z-index: 2;*/
+  /*!*top: -85px;*!*/
+/*}*/
+
+  /*.container{*/
+    /*position: relative;*/
+    /*z-index: 2;*/
+    /*top: -85px;*/
+  /*}*/
+  /*.title{*/
+    /*padding-left: 14%;*/
+    /*padding-top:15px;*/
+    /*color: white;*/
+    /*font-size: 26px;*/
+    /*font-weight: bold;*/
+  /*border: solid 2px blue;*/
+  /*}*/
+  /*.author{*/
+    /*!*border: solid 2px blue;*!*/
+  /*margin-top:50px;*/
+  /*color: #FF8800;*/
+  /*padding-left: 14%;*/
+  /*!*float: left;*!*/
+/*}*/
+/*.author .level{*/
+  /*color: #EA3C1A;*/
+  /*font-size: 0.9em;*/
+  /*font-weight: bold;*/
+
+/*}*/
+/*.author .time{*/
+/*color: #999999;*/
+  /*font-size: 0.9em;*/
+/*}*/
+/*.icon-collect ul {*/
+  /*border-left: 1px solid #e8e8e6;*/
+  /*color: #1493E3;*/
+/*}*/
+/*.icon-share ul  {*/
+  /*color: #98BF37;*/
+/*}*/
+/*.icon-collect ul,.icon-share ul{*/
+  /*border-right: 1px solid #e8e8e6;*/
+  /*width: 120px;*/
+  /*height: 75px;*/
+  /*padding-top: 13px;*/
+  /*text-align: center;*/
+  /*margin-top: -39px;*/
+  /*float: right;*/
+/*}*/
+/*.author ul li:last-child{*/
+  /*color: #666666;*/
+  /*padding-top: 3px;*/
+/*}*/
+.head{
+  border-bottom:1px solid #e8e8e6;
+  position: relative;
+  z-index: 2;
+  /*top: -85px;*/
+}
+
+/*============*/
+.bg{
+  position: relative;
+  z-index: -1;
+}
+.head{
+  height: 125px;
+  width: 125px;
+  /*margin-left: 210px;*/
+  float: left;
+  border-bottom:1px solid #e8e8e6;
+  position: relative;
+  z-index: 2;
+  /*top: -85px;*/
+}
+
+.container-top{
+  position: relative;
+  z-index: 2;
+  top: -85px;
+  padding-left: 90px;
+}
+.title{
+  padding-left: 15%;
+  padding-top:15px;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  /*border: solid 2px blue;*/
+}
+.author{
+  /*border: solid 2px blue;*/
+  color: #FF8800;
+  /*padding-left: 16%;*/
+  padding-left: 380px;
+  margin-top: -105px;
+  height: 60px;
+
+  border-bottom:1px solid #e8e8e6;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+}
+.author .level{
+  color: #EA3C1A;
+  font-size: 0.9em;
+  font-weight: bold;
+
+}
+.author .time{
+  color: #999999;
+  font-size: 0.9em;
+}
+.icon{
+  margin-right: 200px;
+}
+.icon-collect ul {
+  border-left: 1px solid #e8e8e6;
+  color: #1493E3;
+}
+.icon-share ul  {
+  color: #98BF37;
+}
+.icon-collect ul,.icon-share ul{
+  border-right: 1px solid #e8e8e6;
+  width: 120px;
+  height: 75px;
+  padding-top: 13px;
+  text-align: center;
+  margin-top: -74px;
+  float: right;
+}
+.icon ul li:last-child{
+  color: #666666;
+  padding-top: 3px;
+}
+/*.icon-collect ul,.icon-share ul{*/
+  /*border-right: 1px solid #e8e8e6;*/
+  /*width: 120px;*/
+  /*height: 75px;*/
+  /*padding-top: 13px;*/
+  /*text-align: center;*/
+  /*margin-top: -39px;*/
+  /*float: right;*/
+  /*!*margin-right: ;*!*/
+/*}*/
+/*.container-content{*/
+  /*!*border-bottom:1px solid #e8e8e6;*!*/
+  /*position: relative;*/
+  /*z-index: 2;*/
+  /*top: -85px;*/
+/*}*/
+
+/*.container{*/
+  /*margin: auto;*/
+/*}*/
+.travel-list,.about{
+  border: dashed 1px #cdcdcd;
+  /*text-align:center ;*/
+
+}
+.travel-list ul{
+  margin-left: 20px;
+}
+
+.travel-list li{
+  font-size: 14px;
+  float: left;
+  width: 200px;
+  margin-top: 18px;
+  display: inline;
+  height: 22px;
+  line-height: 22px;
+  color: #666;
+  padding-left: 5%;
+  /*background: url(http://css.mafengwo.net/images/post/new_notes/151204sprite1.png)*/
+  /*no-repeat;*/
+  cursor: pointer;
+  /*margin-bottom: 20px;*/
+}
+.travel-list li:last-child {
+   margin-bottom: 20px;
+ }
+
+.travel-list span{
+  color: #ff9d00;
+  margin: 0 5px;
+}
+
+
+.container-main{
+  margin-left: 243px;
+  margin-top: 30px;
+}
+h3{
+   margin-top: 25px;
+
+ }
+p{
+  font-size: 14px;
+  line-height: 1.8em;
+  margin-top: 15px;
+}
+hr{
+  margin: 25px auto 25px 0px;
+  /*margin-top: 25px;*/
+  /*margin-bottom: 25px;*/
+
+  border: 3px solid #ff9d00;
+  border-radius: 5px;
+  width: 688px;
+}
+.container-main img{
+  margin-top: 30px;
+}
+
+

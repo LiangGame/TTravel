@@ -5,6 +5,7 @@
 /*.input-group{*/
 /*}*/
 
+
 .form-control{
   position: relative;
 }
@@ -27,13 +28,24 @@
   color: rgba(255, 168, 0, 0.04);
   background: #FFA800;
 }
+
+.container-left{
+  float: left;
+  width: 160px;
+  border: solid 1px blue;
+}
 .title{
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 16px ;
+
 }
+/*.content{*/
+  /*float: right;*/
+/*}*/
 .media
 {
   padding-bottom: 20px;
+  margin-top: 20px;
   /*box-sizing: border-box;*/
 
 }
@@ -122,6 +134,15 @@ color: #666;
   line-height: 40px;
 
 }
+.content{
+  padding-top: 10px;
+  color: #666;
+}
+.content a{
+  padding-right: 20px;
+  /*padding-top: 15px;*/
+}
+
 /*分页==============*/
 /*.pagination li a{*/
   /*border: solid 1px #d1d1d1;*/
