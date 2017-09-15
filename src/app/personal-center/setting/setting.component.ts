@@ -16,7 +16,6 @@ export class SettingComponent implements OnInit {
   _days: any = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];// 每月的天数,2月天数在面函数中判断
   _day: any = [];
   nowYear: number = new Date().getFullYear(); // 获取当前年份
-  _show: boolean = false;
   year: string = '';
   _month: string = '';
   _dy: string = '';
@@ -24,7 +23,11 @@ export class SettingComponent implements OnInit {
   _provinces: any = [];
   _city: string = '';
   _citys: any = [];
-  block: boolean=false;
+  year_block: boolean=true;
+  month_block: boolean=true;
+  day_block: boolean=true;
+  province_block: boolean=true;
+  city_block: boolean=true;
 
   constructor(private perSer: PersonalCenterService,
               private router: Router) {
@@ -74,29 +77,38 @@ export class SettingComponent implements OnInit {
     return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
   }
 // 下拉列表显示/隐藏
-  show_toggle(event) {
-    this.block=!this.block;
-    console.log(event.target)
+  show_year_toggle() {
+    this.year_block=!this.year_block;
+  }
+  show_month_toggle(){
+    this.month_block=!this.month_block;
+  }
+  show_day_toggle(){
+    this.day_block=!this.day_block;
+  }
+  show_province_toggle(){
+    this.province_block=!this.province_block;
+  }
+  show_city_toggle(){
+    this.city_block=!this.city_block;
   }
 // 获取选择的年月日信息
   show_year(event) {
     this.year = event.target.innerText;
-    this._show = !this._show;
+    this.year_block=!this.year_block;
   }
-
   show_month(event) {
     this._month = event.target.innerText;
-    this._show = !this._show;
+    this.month_block=!this.month_block;
   }
 
   show_day(event) {
     this._dy = event.target.innerText;
-    this._show = !this._show;
+    this.day_block=!this.day_block;
   }
 // 获取选择的地址信息
   show_province(event) {
     console.log(event);
-
     let that = this;
     that._province = event.target.innerText;
     console.log(that._province);
@@ -111,11 +123,11 @@ export class SettingComponent implements OnInit {
         console.log('here');
       }
     });
-    this._show = !this._show;
+    this.province_block=!this.province_block;
   }
 
   show_city(event) {
     this._city = event.target.innerText;
-    this._show = !this._show;
+    this.city_block=!this.city_block;
   }
 }

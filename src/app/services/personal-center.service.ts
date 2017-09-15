@@ -31,4 +31,15 @@ export class PersonalCenterService {
       }
     )
   }
+
+  show_notes(callback) {
+    this.http.post(this.url+'/notes').subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
 }

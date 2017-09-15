@@ -20,7 +20,7 @@ export class PersonalCenterComponent implements OnInit {
     let topNum = window.document.body.scrollTop;
     if ( topNum > 460 ) {
       this.fixed = true;
-      console.log(topNum)
+      // console.log(topNum)
     }else {
       this.fixed = false;
     }

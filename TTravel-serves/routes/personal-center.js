@@ -22,4 +22,18 @@ router.post('/citys', function(req, res, next) {
     });
   });
 });
+
+router.post('/notes',function (req,res,next) {
+  var notesBody = "";
+  req.on('data', function (chunk) {
+    notesBody += chunk;
+    console.log(notesBody);
+  });
+  req.on('end', function () {
+    personaldao.getNotes(notesBody,function (result) {
+      res.json(result)
+      console.log(result);
+    });
+  });
+})
 module.exports = router;
