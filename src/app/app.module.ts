@@ -22,6 +22,12 @@ import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
 import { PersonalCenterModule } from './personal-center/personal-center.module';
 
+// 导入服务
+import {GlobalPropertyService} from './services/global-property.service';
+
+import { TravelAlbumComponent } from './travel-album/travel-album.component';
+
+
 
 @NgModule({
   declarations: [
@@ -38,7 +44,8 @@ import { PersonalCenterModule } from './personal-center/personal-center.module';
     NavComponent,
     FooterComponent,
     ScenicSearchComponent,
-    ScenicResultComponent
+    ScenicResultComponent,
+    TravelAlbumComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,9 @@ import { PersonalCenterModule } from './personal-center/personal-center.module';
     PersonalCenterModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [GlobalPropertyService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
