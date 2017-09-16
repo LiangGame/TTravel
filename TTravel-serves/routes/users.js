@@ -1,10 +1,13 @@
 var express = require('express');
-var router = express.Router();
-var util = require('./../utils/util');
+var querystring = require('querystring');
 var formidable=require('formidable');
-var AVATAR_UPLOAD_FOLDER='/uploads/';
 var fs=require('fs');
+
 var userdao = require('./../dao/userDAO').userDao;
+var util = require('./../utils/util');
+
+var router = express.Router();
+var AVATAR_UPLOAD_FOLDER='/uploads/';
 router.get('/login', function (req, res, next) {
   var user = req.query;
   console.log('here');
@@ -16,13 +19,14 @@ router.post('/login', function (req, res, next) {
   if (user) {
     console.log(user);
     userdao.getPasswordById(user.telephone, function (result) {
+      console.log(result+'----->>>>getPwd');
       if (result == 'e004') {
         res.json({"stateCode": result});
       } else {
         if (result.length == 0) {
           res.json({"stateCode": 3});
         } else {
-          if (result[0].password == util.MD5(user.password)) {
+          if (result[0].userPassword == util.MD5(user.password)) {
 
             //产生令牌
             var _token = util.createUnique();
@@ -33,7 +37,6 @@ router.post('/login', function (req, res, next) {
                 res.json({"stateCode": 1, "token": _token});
               }
             });
-
           } else {
             res.json({"stateCode": 2});
           }
@@ -100,8 +103,28 @@ router.post('/upload', function (request, response, next) {
 
 
 });
-router.post('/adduser', function (req, res, next) {
-  res.send('respond with a resource');
+router.post('/register', function (req, res, next) {
+  var user = req.body;
+    if(user){
+      if(user.telephoone == '' || user.userPassword == ''){
+        res.end('0');
+        return;
+      }
+      user.userPassword = util.MD5(user.userPassword);
+      console.log(user.userPassword);
+      userdao.addUser(user,function (result) {
+        if(result){
+          if(result == 'e004'){
+            res.json({"stateCode":result});
+          }else if(result == '1'){
+            res.json({"stateCode":'6'});
+          }else if(result == '0'){
+            res.json({"stateCode":'5'});
+          }
+        }
+      });
+    }
+  // })
 });
 
 router.post('/getUserIcon', function (req, res, next) {

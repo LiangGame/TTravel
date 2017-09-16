@@ -2,7 +2,7 @@
  * Created by WWL on 2017/9/11.
  */
 var pool=require('./db_pool').pool;
-var userSql=require('./userSql').sql;
+var userSql=require('./SQL/userSql').sql;
 exports.userDao={
   getPasswordById:function (telephone,callback) {
     pool.getConnection(function (error,client) {
@@ -15,27 +15,27 @@ exports.userDao={
           callback('e004');
           return;
         }
-
+        // console.log(result[0].userPassword+'----->>>>userDAO.getPwd');
         callback(result);
         client.release();
       })
     })
   },
   addUser:function (user,callback) {
-
-    this.getPasswordById(userSql.getPasswordById.telephone,function (result) {
+    this.getPasswordById(user.telephone,function (result) {
+      console.log(result);
       if(result.length==0){
         pool.getConnection(function (error,client) {
           if(error){
             return
           }
-          client.query(userSql.addUser,[user.telephone,user.password,'',81],function (error,result) {
+          client.query(userSql.addUser,[user.telephone,user.userName,user.userPassword,1,1],function (error,result) {
             if(error){
               callback('e004');
               return;
             }
             callback(result.affectedRows);
-            client.end();
+            client.release();
           })
         })
       }else {

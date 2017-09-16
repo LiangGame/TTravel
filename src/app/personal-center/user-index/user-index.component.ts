@@ -11,6 +11,7 @@ import {PersonalCenterService} from './../../services/personal-center.service';
 })
 export class UserIndexComponent implements OnInit {
  _notes: any;
+ newNotes: string;
   constructor(
     private perSer: PersonalCenterService,
   ) { }
@@ -23,6 +24,7 @@ export class UserIndexComponent implements OnInit {
     that.perSer.show_notes(function (result) {
       if(result){
         that._notes=result;
+        that.newNotes=result[0];
         console.log(that._notes);
         // console.log();
       }else {

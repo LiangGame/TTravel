@@ -28,6 +28,7 @@ import { StrategyChildComponent } from './travel-strategy/strategy-child/strateg
 import {GlobalPropertyService} from './services/global-property.service';
 
 import { TravelAlbumComponent } from './travel-album/travel-album.component';
+// import { EditorComponent } from './editor/editor.component';
 
 
 
@@ -49,7 +50,8 @@ import { TravelAlbumComponent } from './travel-album/travel-album.component';
     StrategyChildComponent,
     ScenicSearchComponent,
     ScenicResultComponent,
-    TravelAlbumComponent
+    TravelAlbumComponent,
+    // EditorComponent
 
   ],
   imports: [

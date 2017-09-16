@@ -7,13 +7,13 @@
   <div id="notes_container">
     <div class="content">
       <div class="top">
-        <h3  class="pull-left">{{_notes[0]?.title}}</h3>
+        <h3  class="pull-left">{{newNotes?.title}}</h3>
         <time class="pull-right">
-          {{(_notes[0]?.pubtime)?.split('T')[0]}}
+          {{(newNotes?.pubtime)?.split('T')[0]}}
         </time>
       </div>
       <div class="middle">
-        {{(_notes[0]?.content)?.substring(120)+'...'}}
+        {{(newNotes?.content)?.substring(120)+'...'}}
       </div>
       <div class="bottom">
         <div class="pull-right">
