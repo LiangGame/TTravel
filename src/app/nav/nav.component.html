@@ -25,9 +25,12 @@
           <input type="text" class="form-control" placeholder="Search">
         </div>
       </form>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" *ngIf="noLogin">
         <li><a routerLink="register">注册</a></li>
         <li><a routerLink="login">登录</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="isLogin">
+        <li><a routerLink="personal-center">欢迎:{{userName}}</a></li>
       </ul>
     </div>
   </div>

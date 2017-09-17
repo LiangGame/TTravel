@@ -28,6 +28,10 @@ import { StrategyChildComponent } from './travel-strategy/strategy-child/strateg
 import {GlobalPropertyService} from './services/global-property.service';
 
 import { TravelAlbumComponent } from './travel-album/travel-album.component';
+// import { RoutingDirective } from './Directives/routing.directive';
+
+// 导入指令
+// import { RoutingDirective } from './../Directives/routing.directive';
 // import { EditorComponent } from './editor/editor.component';
 
 
@@ -51,6 +55,7 @@ import { TravelAlbumComponent } from './travel-album/travel-album.component';
     ScenicSearchComponent,
     ScenicResultComponent,
     TravelAlbumComponent,
+    // RoutingDirective,
     // EditorComponent
 
   ],

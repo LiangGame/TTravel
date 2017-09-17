@@ -31,4 +31,39 @@ export class UserService {
       }
     )
   }
+
+  getUserIcon(telephone,callback){
+    this.http.post(this.url+'/getUserIcon',telephone).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
+
+  addUserIcon(IconFile,callback){
+    this.http.post(this.url+'/upload',IconFile).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
+  updateUser(user,callback){
+    console.log(user+'---->>>user.service!!');
+    this.http.post(this.url+'/updateUser',user).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
 }

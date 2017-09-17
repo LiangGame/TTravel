@@ -19,7 +19,8 @@ router.post('/login', function (req, res, next) {
   if (user) {
     console.log(user);
     userdao.getPasswordById(user.telephone, function (result) {
-      console.log(result+'----->>>>getPwd');
+      console.log(result[0].userName+'----->>>>getPwd');
+      var userName = result[0].userName;
       if (result == 'e004') {
         res.json({"stateCode": result});
       } else {
@@ -32,9 +33,9 @@ router.post('/login', function (req, res, next) {
             var _token = util.createUnique();
             console.log(_token);
             userdao.createToken(user.telephone, _token, function (result) {
-              console.log(result);
+              // console.log(result[0].userName);
               if (result.affectedRows == 1) {
-                res.json({"stateCode": 1, "token": _token});
+                res.json({"stateCode": 1, "token": _token,"userName":userName});
               }
             });
           } else {
@@ -49,11 +50,13 @@ router.post('/upload', function (request, response, next) {
   var form = new formidable.IncomingForm();   //创建上传表单
   form.encoding = 'utf-8';
   form.parse(request, function (err, fields, files) {
+    console.log('here'+'----------/upload');
     if (err) {
       response.locals.error = err;
       response.json({"stateCode":'e005'});
       return;
     }
+
     console.log(fields);
     var extName = '';  //后缀名
     switch (files.user_icon.type) {
@@ -130,6 +133,7 @@ router.post('/register', function (req, res, next) {
 router.post('/getUserIcon', function (req, res, next) {
   var user_telephone=req.body.telephone;
   userdao.getUserIcon(user_telephone,function (result) {
+    console.log(result);
     if(result.length==0){
       res.json({"icon":"icon_default.jpg"});
     }else {
@@ -138,4 +142,26 @@ router.post('/getUserIcon', function (req, res, next) {
   })
 });
 
+router.post('/updateUser',function (req,res,next) {
+  var user = req.body;
+  console.log(user);
+  if(user) {
+    // if(user.telephoone == '' || user.userPassword == ''){
+    //   res.end('0');
+    //   return;
+    // }
+    userdao.updateUser(user, function (result) {
+      console.log(result+'---->>>users');
+      if (result) {
+        if (result == 'e004') {
+          res.json({"stateCode": result});
+        } else if (result == '1') {
+          res.json({"stateCode": '6'});
+        } else if (result == '0') {
+          res.json({"stateCode": '5'});
+        }
+      }
+    });
+  }
+})
 module.exports = router;

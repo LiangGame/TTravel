@@ -19,9 +19,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   toLogin(login_form){
+    // console.log(login_form.form.value.telephone);
     let that=this;
     that.userSer.getByPwd(login_form.form.value,function (result) {
+      console.log(result.userName);
       if(result.stateCode == '1'){
+        sessionStorage.setItem('userName',result.userName);
+        sessionStorage.setItem('userId',login_form.form.value.telephone);
         that.router.navigate(['/index']);
       }else {
         alert(result.stateCode);

@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule }     from '@angular/common';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { PersonalCenterComponent } from '../personal-center/personal-center.component';
 import { UserIndexComponent } from './user-index/user-index.component';
@@ -23,13 +25,15 @@ import {PersonalCenterRoutingModule} from './personal-center-routing.module';
     NotesComponent,
     PhotoAlbumComponent,
     SettingComponent,
-    EditorComponent
+    EditorComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
+    FileUploadModule,
     PersonalCenterRoutingModule
   ],
   providers: [],
