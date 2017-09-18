@@ -13,20 +13,20 @@ export class LoginComponent implements OnInit {
  login_res: string;
   constructor(
     private  userSer: UserService,
-    private router:Router
+    private router: Router
   ) { }
 
   ngOnInit() {
   }
   toLogin(login_form){
-    let that=this;
-    that.userSer.getByPwd(login_form.form.value,function (result) {
-      if(result.stateCode == '1'){
+    let that = this;
+    that.userSer.getByPwd(login_form.form.value, function (result) {
+      if (result.stateCode == '1'){
         that.router.navigate(['/index']);
       }else {
         alert(result.stateCode);
-        that.login_res='用户名或密码错误';
+        that.login_res = '用户名或密码错误';
       }
-    })
+    });
   }
 }
