@@ -3,12 +3,13 @@ import {Router} from '@angular/router';
 
 // 导入服务
 import {PersonalCenterService} from './../../services/personal-center.service';
+import { UserService } from './../../services/user.service';
 
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.css'],
-  providers: [PersonalCenterService]
+  providers: [PersonalCenterService,UserService]
 })
 export class SettingComponent implements OnInit {
   _years: any = [];
@@ -28,27 +29,34 @@ export class SettingComponent implements OnInit {
   day_block: boolean=true;
   province_block: boolean=true;
   city_block: boolean=true;
+  userName: string;
+  readonly: string='readonly';
+  nameBorder: boolean = false;
+  _telephone: string = sessionStorage.getItem('userId');
+
+
 
   constructor(private perSer: PersonalCenterService,
-              private router: Router) {
-  }
+              private router: Router,
+              private  userSer: UserService
+  ) {}
 
   ngOnInit() {
+    this.userName=sessionStorage.getItem('userName');
     // 循环至当前年份
     for (let i = 0, y = this.nowYear; y >= 1950; i++) {
       this._years[i] = y;
       y -= 1;
     };
     // 循环12个月
-    for (let i = 0; i <= 12; i++) {
-      this._months[i] = i + 1;
+    for (let i = 0; i < 12; i++) {
+      if(i < 9){
+         let m = '0' + (i + 1);
+        this._months[i] = m;
+      }else {
+        this._months[i] = i + 1;
+      }
     };
-    // 判断是否为闰年,决定2月天数
-    if (this.isLeap(this.year)) {
-      this._days[1] = 29;
-    } else {
-      this._days[1] = 28;
-    }
     // 调用获取地址函数
     this._address();
   }
@@ -96,6 +104,12 @@ export class SettingComponent implements OnInit {
   show_year(event) {
     this.year = event.target.innerText;
     this.year_block=!this.year_block;
+    // 判断是否为闰年,决定2月天数
+    if (this.isLeap(this.year)) {
+      this._days[1] = 29;
+    } else {
+      this._days[1] = 28;
+    }
   }
   show_month(event) {
     this._month = event.target.innerText;
@@ -129,5 +143,25 @@ export class SettingComponent implements OnInit {
   show_city(event) {
     this._city = event.target.innerText;
     this.city_block=!this.city_block;
+  }
+
+  check_name(){
+    this.readonly='';
+    this.nameBorder = true;
+  }
+  _submit(user_form){
+    let that = this;
+    // console.log(user_form.form.value);
+    let user = [user_form.form.value,{"telephone":sessionStorage.getItem('userId')}];
+    // console.log(user[1].telephone+'------>>>user');
+    that.userSer.updateUser(user,function (result) {
+      // if(result.stateCode == '6'){
+      //   that.router.navigate(['/index']);
+      // }else {
+      //   alert(result.stateCode);
+      //   that.register_res='用户名或密码错误';
+      // }
+      console.log(result+'---->>>_submit');
+    })
   }
 }

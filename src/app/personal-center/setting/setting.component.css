@@ -30,6 +30,18 @@ label{
   font-weight: 200;
   text-align: right;
 }
+.nameBorder{
+  border: 1px solid #ff9d00;
+  border-radius: 4px;
+  text-align: center;
+}
+.checkName {
+  font-size: 12px;
+  color: #4e91ff;
+}
+.checkName:hover{
+  color: #ff9d00;
+}
 #userSex label,input{
   height: auto;
   line-height: normal;

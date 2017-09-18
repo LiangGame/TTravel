@@ -13,6 +13,7 @@ import { EditorComponent } from './../../editor/editor.component'
 })
 export class NotesComponent implements OnInit {
  _notes:any;
+ _img: any = /<img\s+.*?>/;
 
   @ViewChild(EditorComponent) editor: EditorComponent;
   constructor(
@@ -28,7 +29,10 @@ export class NotesComponent implements OnInit {
     that.perSer.show_notes(function (result) {
       if(result){
         that._notes=result;
-        console.log(that._notes);
+        // that._notes[4].content= '<%='+result.content+'%>'
+        console.log(that._notes[4].content);
+        // console.log(that._notes[4].content.split("img"));
+        console.log(that._img.exec(that._notes[4].content));
         // console.log();
       }else {
         console.log("error")

@@ -4,8 +4,9 @@
   </div>
   <div class="content" *ngFor="let notes of _notes">
     <div class="col-md-5 col-lg-5 notes-left">
-      <div class="row">
+      <div class="row"> <!--[innerHTML]="_img.exec(notes.content)"-->
         <img src="../../../assets/images/XiZang/2.NaMuCuo/{{notes?.coverimg}}" alt="">
+
         <!--<img src="../../../assets/images/XiZang/2.NaMuCuo/NMC01.jpeg" alt="">-->
       </div>
     </div>
@@ -13,8 +14,8 @@
       <div class="top">
         <h4>{{notes?.title}}</h4><time class="pull-right">{{notes?.pubtime.split('T')[0]}}</time>
       </div>
-      <div class="middle">
-        {{(notes?.content).substring(0,175)+'...'}}
+      <div class="middle" [innerHTML]="(notes?.content).substring(0,175)+'...'">
+
       </div>
       <div class="bottom">
         <div class="pull-right">
