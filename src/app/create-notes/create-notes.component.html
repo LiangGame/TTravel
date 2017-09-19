@@ -1,0 +1,32 @@
+<div class="navZ"></div>
+<form #notesForm="ngForm">
+<!--  <div id="date" class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-push-2">
+        &lt;!&ndash;开始时间&ndash;&gt;
+        <h5>开始时间:</h5>
+        <input type="date">
+        &lt;!&ndash;结束时间&ndash;&gt;
+        <h5>结束时间:</h5>
+        <input type="date">
+      </div>
+    </div>
+  </div>-->
+  <div class="container create-container">
+      <input [(ngModel)]="title" name="notesTitle" class="title col-md-push-2 col-md-8" type="text" placeholder="填写游记标题">
+  </div>
+  <div class="container">
+    <div class="row" style="margin-left: -20px">
+      <app-editor class="col-md-push-2 col-md-8" (onPostData)="PostData($event)"></app-editor>
+    </div>
+  </div>
+  <div class="container">
+   <div class="col-md-8 col-md-push-2">
+     <div class="row">
+       <button class="btn" (click)="setNotes(notesForm)">发布</button>
+     </div>
+   </div>
+  </div>
+</form>
+
+

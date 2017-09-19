@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { EditorComponent } from './../../editor/editor.component'
 
 // 导入服务
 import {PersonalCenterService} from './../../services/personal-center.service';
@@ -11,6 +12,10 @@ import {PersonalCenterService} from './../../services/personal-center.service';
 })
 export class UserIndexComponent implements OnInit {
  _notes: any;
+ newNotes: string;
+
+  @ViewChild(EditorComponent) editor: EditorComponent;
+
   constructor(
     private perSer: PersonalCenterService,
   ) { }
@@ -23,11 +28,14 @@ export class UserIndexComponent implements OnInit {
     that.perSer.show_notes(function (result) {
       if(result){
         that._notes=result;
+        that.newNotes=result[0];
         console.log(that._notes);
         // console.log();
       }else {
         console.log("error")
       }
     })
-  }
+  };
+
+
 }

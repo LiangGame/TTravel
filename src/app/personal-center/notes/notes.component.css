@@ -27,9 +27,9 @@
   border-radius: 4px;
 }
 #container .notes-left img{
-  width: 100%;
-  height: 250px;
-  border-radius: 4px 0 0 4px;
+  max-width: 310px !important;
+  height: 250px !important;
+  border-radius: 4px 0 0 4px !important;
 }
 #container .notes-right{
   /*background: red;*/
@@ -65,4 +65,15 @@
 }
 #container .notes-right .bottom span:hover{
   color: #ff9d00;
+}
+/*分页==============*/
+.pagination li a{
+  border: solid 1px #d1d1d1;
+  color: #ff9d00;
+
+}
+.pagination li a:hover{
+  color: white;
+  background:#FFD891;
+  border: solid 1px #FFD891;
 }

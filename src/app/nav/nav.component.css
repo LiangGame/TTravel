@@ -1,13 +1,41 @@
 .navs{
   width: 100%;
   float: left;
-
 }
 .nav-rg{
   position: relative;
-  margin-left: 300px;
+  margin-left: 260px;
+}
+.left-nav{
+  margin-left: 50px;
+}
+.righht-nav{
+  margin-right: 50px;
 }
 a{
-  font-size: 18px;
+  font-size: 16px;
   color: white;
 }
+h1{
+  color: white;
+  font-size: 1.5em;
+}
+._float{
+  position: absolute;
+  z-index: 9999;
+}
+
+li a:hover{
+  background: rgba(255, 255, 255, 0);
+  color: #ff9d00;
+  border-bottom: 2px solid #ff9d00;
+}
+li a:visited{
+  background: #ff9d00;
+}
+
+.bgColor:hover,.bgColor:hover li>a{
+  background: #ffffff;
+  color: #373737;
+}
+

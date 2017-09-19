@@ -1,21 +1,13 @@
 *{
   margin: 0;
 }
-#head{
+.top{
+  height: 450px;
   width: 100%;
-  height: 500px;
-  border: 2px solid red;
-  background: url("../../assets/images/temporary/lgh.jpg") no-repeat;
-  background-size: 100% 500px;
 }
-
-#head_search{
-  width: 400px;
-  height: 60px;
-  border:2px solid #ff92c4;
-  position: absolute;
-  left: 600px;
-  top: 260px;
+.pic_lgh{
+  width: 100%;
+  height: 450px;
 }
 
 #middle_head{
