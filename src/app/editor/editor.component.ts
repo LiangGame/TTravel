@@ -1,6 +1,6 @@
 
-import {Component,OnInit, ElementRef, Renderer, Output, EventEmitter } from '@angular/core';
-import * as wangEditor from './../../assets/js/wangEditor.min.js';
+import {Component, OnInit, ElementRef, Renderer, Output, EventEmitter } from '@angular/core';
+import * as wangEditor from '../../assets/js/wangEditor.min.js';
 
 @Component({
   selector: 'app-editor',
@@ -8,7 +8,7 @@ import * as wangEditor from './../../assets/js/wangEditor.min.js';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  private editor:any;
+  private editor: any;
   @Output() onPostData = new EventEmitter();
   constructor(
     private el: ElementRef,
@@ -91,7 +91,7 @@ export class EditorComponent implements OnInit {
     this.editor.create();
   }
 
-  clickHandle():any {
+  clickHandle(): any {
     let data = this.editor.txt.html();
     return data;
   }

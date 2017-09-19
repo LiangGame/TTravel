@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { EqualValidator } from './register/equal-validator.directive';
 
 import { AppComponent } from './root/app.component';
 import { IndexComponent } from './index/index.component';
@@ -57,7 +57,7 @@ import { TravelAlbumComponent } from './travel-album/travel-album.component';
     TravelAlbumComponent,
     // RoutingDirective,
     // EditorComponent
-
+    EqualValidator
   ],
   imports: [
     BrowserModule,

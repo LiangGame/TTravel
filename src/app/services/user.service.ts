@@ -3,8 +3,8 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class UserService {
-  url:string='http://127.0.0.1:8889/users';
-  // url:string='http://10.40.4.21:8889/personal-center';
+  // url:string='http://127.0.0.1:8889/users';
+  url:string='http://10.40.4.21:8889/users';
 
   constructor(
     private http:HttpClient,
@@ -21,8 +21,8 @@ export class UserService {
     )
   }
 
-  getByPwd(user,callback){
-    this.http.post(this.url+'/login',user).subscribe(
+  getByPwd(user,callback) {
+    this.http.post(this.url + '/login', user ).subscribe(
       function (result) {
         callback(result);
       },
@@ -31,6 +31,7 @@ export class UserService {
       }
     )
   }
+
 
   getUser(telephone,callback){
     this.http.post(this.url+'/getUser',telephone).subscribe(

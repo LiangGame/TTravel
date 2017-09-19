@@ -7,8 +7,8 @@ import { Component, OnInit,ViewChild } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
- isLogin: boolean=false;
- noLogin: boolean=false;
+ isLogin: boolean = false;
+ noLogin: boolean = false;
  userName: string;
   constructor(
   ) {
@@ -18,22 +18,22 @@ export class NavComponent implements OnInit {
   ngOnInit() {
 
   }
-  ngAfterContentChecked(){
-    let that=this;
-    if(sessionStorage.getItem('userName')){
 
-      this.userName=sessionStorage.getItem('userName');
-      that.isLogin=true;
-      that.noLogin=false;
+  ngAfterContentChecked () {
+    let a = ('userName').length;
+    console.log('a');
+    let that = this;
+    if (sessionStorage.getItem('userName')) {
+      this.userName = sessionStorage.getItem('userName');
+      that.isLogin = true;
+      that.noLogin = false;
+    }else {
+      that.isLogin = false;
+      that.noLogin = true;
 
-    }else{
-
-      that.isLogin=false;
-      that.noLogin=true;
     }
 
   }
-
 
 
 }

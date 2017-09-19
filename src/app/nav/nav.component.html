@@ -30,7 +30,7 @@
         <li><a routerLink="login">登录</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="isLogin">
-        <li><a routerLink="personal-center">欢迎:{{userName}}</a></li>
+        <li><a routerLink="personal-center">欢迎:{{userName.substring(0,5)+"..."}}</a></li>
       </ul>
     </div>
   </div>
