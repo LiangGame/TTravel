@@ -1,6 +1,6 @@
 /*轮播图两边*/
 /*.carousel-control{*/
- /*!*background-color: yellow;*!*/
+ /*background-color:white;*/
 /*}*/
 /*.input-group{*/
 /*}*/
@@ -14,7 +14,6 @@
   top:-20px;
 
 }
-
 
 .input-group .form-control,.input-group-btn .btn{
   border:1px solid #FFA800;
@@ -59,10 +58,10 @@
 h3{
   border-top: 1px solid #E5E5E5;
 }
-h3:hover{
+.media:hover h3{
   color: #FFA800;
   cursor: pointer;
-
+ border-top: 1px solid #F8F8F8;
 }
 
 .state {float: right;
@@ -139,7 +138,7 @@ color: #666;
   color: #666;
 }
 .content a{
-  padding-right: 20px;
+  padding-right: 30px;
   /*padding-top: 15px;*/
 }
 

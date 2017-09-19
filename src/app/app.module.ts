@@ -22,7 +22,7 @@ import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
 import { PersonalCenterModule } from './personal-center/personal-center.module';
 import { NotesChildComponent } from './notes-child/notes-child.component';
-import { StrategyChildComponent } from './travel-strategy/strategy-child/strategy-child.component';
+import { StrategyChildComponent } from './strategy-child/strategy-child.component';
 
 // 导入服务
 import {GlobalPropertyService} from './services/global-property.service';
