@@ -16,8 +16,15 @@
             <input type="text" class="form-control" #tel="ngModel" pattern="^1[34578]\d{9}$" [(ngModel)]="_telephone"
                    id="telephone" name="telephone" placeholder="您的手机号" required>
           </div>
+        </div>
 
-
+        <div class="form-group">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+               class="alert prompt">
+            <div *ngIf="name.errors.required">
+              昵称不能为空
+            </div>
+          </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
             <input type="text" class="form-control" #name="ngModel" [(ngModel)]="_name" id="names" name="userName"
                    placeholder="您的昵称" required>
@@ -31,7 +38,7 @@
           </small>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
             <input type="password" class="form-control" minlength="6" name="password" [ngModel]="user.password"
-                   required #password="ngModel" validateEqual="confirmPassword" reverse="true">
+                   required #password="ngModel" validateEqual="confirmPassword" reverse="true" placeholder="您的密码">
           </div>
         </div>
 
@@ -42,7 +49,7 @@
           </small>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
             <input type="password" class="form-control" name="confirmPassword" [ngModel]="user.confirmPassword"
-                   required validateEqual="password" #confirmPassword="ngModel">
+                   required validateEqual="password" #confirmPassword="ngModel" placeholder="确认密码">
           </div>
         </div>
 
@@ -51,11 +58,10 @@
             <button type="button" id="sign_btn" class="btn col-lg-12 col-md-12 col-sm-12 col-xs-12"
                     (click)="addUser(registerForm)" [disabled]="registerForm.form.invalid">完成注册
             </button>
-            {{registerForm.form.invalid}}
-
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+
