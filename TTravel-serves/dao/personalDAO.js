@@ -38,6 +38,23 @@ exports.perDao={
       })
     })
   },
+  getCity:function (cityId,callback) {
+    pool.getConnection(function (error,client) {
+      if(error){
+        return
+      }
+      client.query(personalSql.gitcity,[cityId],function (error,result) {
+        if(error){
+          console.log(error.message+' from getCity');
+          callback('e004');
+          return;
+        }
+        callback(result);
+        console.log(result);
+        client.release()  ;
+      })
+    })
+  },
 
   getNotes:function (id,callback) {
     pool.getConnection(function (error,client) {

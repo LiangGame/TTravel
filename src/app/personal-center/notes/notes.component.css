@@ -66,3 +66,14 @@
 #container .notes-right .bottom span:hover{
   color: #ff9d00;
 }
+/*分页==============*/
+.pagination li a{
+  border: solid 1px #d1d1d1;
+  color: #ff9d00;
+
+}
+.pagination li a:hover{
+  color: white;
+  background:#FFD891;
+  border: solid 1px #FFD891;
+}

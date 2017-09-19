@@ -108,13 +108,14 @@ router.post('/upload', function (request, response, next) {
 });
 router.post('/register', function (req, res, next) {
   var user = req.body;
-    if(user){
-      if(user.telephoone == '' || user.userPassword == ''){
+  console.log(user);
+  if(user){
+      if(user.telephoone == '' || user.password == ''){
         res.end('0');
         return;
       }
-      user.userPassword = util.MD5(user.userPassword);
-      console.log(user.userPassword);
+      user.password = util.MD5(user.password);
+      console.log(user.password);
       userdao.addUser(user,function (result) {
         if(result){
           if(result == 'e004'){
@@ -130,14 +131,15 @@ router.post('/register', function (req, res, next) {
   // })
 });
 
-router.post('/getUserIcon', function (req, res, next) {
+router.post('/getUser', function (req, res, next) {
   var user_telephone=req.body.telephone;
-  userdao.getUserIcon(user_telephone,function (result) {
+  userdao.getUser(user_telephone,function (result) {
     console.log(result);
+    console.log('>>>>>>>getUser');
     if(result.length==0){
       res.json({"icon":"icon_default.jpg"});
     }else {
-      res.json({"icon":result[0].icon});
+      res.json(result);
     }
   })
 });
@@ -151,13 +153,15 @@ router.post('/updateUser',function (req,res,next) {
     //   return;
     // }
     userdao.updateUser(user, function (result) {
-      console.log(result+'---->>>users');
+      console.log(result);
+      // console.log(user);
+      console.log('---->>>users');
       if (result) {
-        if (result == 'e004') {
+        if (result.stateCode == 'e004') {
           res.json({"stateCode": result});
-        } else if (result == '1') {
-          res.json({"stateCode": '6'});
-        } else if (result == '0') {
+        } else if (result.stateCode == '1') {
+          res.json({"stateCode": '6',"userName":result.userName});
+        } else if (result.stateCode == '0') {
           res.json({"stateCode": '5'});
         }
       }

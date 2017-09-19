@@ -24,6 +24,8 @@ export class SettingComponent implements OnInit {
   _provinces: any = [];
   _city: string = '';
   _citys: any = [];
+  _cityId: any = [];
+  cityId: string;
   year_block: boolean=true;
   month_block: boolean=true;
   day_block: boolean=true;
@@ -33,7 +35,12 @@ export class SettingComponent implements OnInit {
   readonly: string='readonly';
   nameBorder: boolean = false;
   _telephone: string = sessionStorage.getItem('userId');
-
+  sex:string = sessionStorage.getItem('sex');
+  city_id: string = sessionStorage.getItem('city_id');
+  birthday: string = sessionStorage.getItem('birthday');
+  signature: string = sessionStorage.getItem('signature');
+  men: string;
+  wumen: string;
 
 
   constructor(private perSer: PersonalCenterService,
@@ -59,6 +66,33 @@ export class SettingComponent implements OnInit {
     };
     // 调用获取地址函数
     this._address();
+    // 判断性别
+    if(this.sex=='0'){
+      this.men="checked";
+    }else {
+      this.wumen="checked";
+    }
+    // 读取生日数据
+    if(this.birthday!='null'){
+      this.year = this.birthday.split('T')[0].split('-')[0];
+      this._month = this.birthday.split('T')[0].split('-')[1];
+      this._dy = ''+(+(this.birthday.split('T')[0].split('-')[2])+1);
+    }
+    // 居住地信息显示
+    if(this.city_id!='null'){
+      let that = this;
+      that.perSer.getCity(that.city_id,function (result) {
+        // console.log(result);
+        // console.log('>>>>>seeting>>>getCity');
+        if (result) {
+          that._province=result[0].provincename;
+          that._city=result[0].cityname;
+        } else {
+          console.log('error   >>>>>getCity');
+        }
+      });
+    }
+
   }
 // 循环当前月份天数
   ngDoCheck() {
@@ -115,23 +149,26 @@ export class SettingComponent implements OnInit {
     this._month = event.target.innerText;
     this.month_block=!this.month_block;
   }
-
   show_day(event) {
     this._dy = event.target.innerText;
     this.day_block=!this.day_block;
   }
 // 获取选择的地址信息
   show_province(event) {
-    console.log(event);
+    // console.log(event);
     let that = this;
     that._province = event.target.innerText;
-    console.log(that._province);
+    // console.log(that._province);
     that.perSer.show_citys(that._province, function (result) {
+      console.log(result);
+      console.log('>>>>>show_citys>>>setting');
       if (result) {
         that._citys = [];  // 初始化城市列表
         that._city = '';   // 清空已选择城市信息
+        that._cityId = [];
         for (let i = 0; i < result.length; i++) {
           that._citys[i] = result[i].cityname;
+          that._cityId[i] = result[i].cityid;
         }
       } else {
         console.log('here');
@@ -151,17 +188,28 @@ export class SettingComponent implements OnInit {
   }
   _submit(user_form){
     let that = this;
-    // console.log(user_form.form.value);
     let user = [user_form.form.value,{"telephone":sessionStorage.getItem('userId')}];
-    // console.log(user[1].telephone+'------>>>user');
+    user_form.form.value.city = that._cityId[that._citys.indexOf(that._city)];
+    if(!user_form.form.value.city){
+      user_form.form.value.city = that.city_id;
+    }
+    that.userName = user_form.form.value.userName;
+    that.sex = user_form.form.value.userSex;
+    that.birthday = user_form.form.value.birthday;
     that.userSer.updateUser(user,function (result) {
+
+      // console.log(that.city_id+'>>>>>>id');
+
       // if(result.stateCode == '6'){
       //   that.router.navigate(['/index']);
       // }else {
       //   alert(result.stateCode);
       //   that.register_res='用户名或密码错误';
       // }
-      console.log(result+'---->>>_submit');
+      sessionStorage.setItem('userName',that.userName);
+      // that.userName=sessionStorage.getItem('userName');
+      console.log(result);
+      console.log('>>>>>submit');
     })
   }
 }

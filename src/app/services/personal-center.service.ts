@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient,HttpHeaders,HttpParams} from '@angular/common/http';
 // declare var $:any;
 import {GlobalPropertyService} from './global-property.service';
 
@@ -33,7 +33,19 @@ export class PersonalCenterService {
       }
     )
   }
-
+  getCity(cityId,callback){
+    let params = new HttpParams().set('cityId',cityId);
+    this.http.get(this.url+'/getCity',{params:params}).subscribe(
+      function (result) {
+        callback(result);
+        // console.log(result);
+        // console.log('>>>>>>getCity>>>service');
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
   show_notes(callback) {
     this.http.post(this.url+'/notes','').subscribe(
       function (result) {

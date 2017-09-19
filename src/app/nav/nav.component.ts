@@ -21,13 +21,17 @@ export class NavComponent implements OnInit {
   ngAfterContentChecked(){
     let that=this;
     if(sessionStorage.getItem('userName')){
+
       this.userName=sessionStorage.getItem('userName');
       that.isLogin=true;
       that.noLogin=false;
+
     }else{
+
       that.isLogin=false;
       that.noLogin=true;
     }
+
   }
 
 

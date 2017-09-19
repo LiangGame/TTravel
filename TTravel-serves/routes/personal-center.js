@@ -2,6 +2,12 @@ var express = require('express');
 var querystring = require('querystring');
 var router = express.Router();
 var personaldao = require('./../dao/personalDAO').perDao;
+//产生令牌
+var jwt=require('jwt-simple');
+var moment = require('moment');
+
+var ct=require('./../utils/checkToken');
+
 
 /* GET home page. */
 router.get('/provinces', function(req, res, next) {
@@ -10,6 +16,13 @@ router.get('/provinces', function(req, res, next) {
     // console.log(result);
   });
 });
+router.get('/getCity',function (req,res,next) {
+  personaldao.getCity(req.query.cityId,function (result) {
+    res.json(result);
+    // console.log(result);
+    // console.log('>>>>>>personalRouter');
+  })
+})
 router.post('/citys', function(req, res, next) {
   var body = "";
   req.on('data', function (chunk) {

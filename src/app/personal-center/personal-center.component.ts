@@ -55,9 +55,14 @@ export class PersonalCenterComponent implements OnInit {
   checkLogin(){
     if(sessionStorage.getItem('userId')){
       let that=this;
-      that.userSer.getUserIcon({"telephone":sessionStorage.getItem('userId')},function (result) {
-        console.log(result)
-        that.Icon=`<img src='http://localhost:4200/assets/user-img/${result.icon}' width="100" height="100">`;
+      that.userSer.getUser({"telephone":sessionStorage.getItem('userId')},function (result) {
+        console.log(result);
+        sessionStorage.setItem("sex",result[0].sex);
+        sessionStorage.setItem("city_id",result[0].city_id);
+        sessionStorage.setItem("birthday",result[0].birthday);
+        sessionStorage.setItem("signature",result[0].signature);
+
+        that.Icon=`<img src='http://localhost:4200/assets/user-img/${result[0].icon}' width="100" height="100">`;
         // if(result.stateCode == '6'){
         //   that.router.navigate(['/index']);
         // }else {

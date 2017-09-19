@@ -18,8 +18,8 @@
           <label class="col-sm-2">性别:</label>
           <div class="col-sm-10">
             <div id="userSex" class="row">
-              <label for="user_sex0">男 &nbsp;&nbsp;</label><input [(ngModel)]="sex" type="radio" id="user_sex0" name="userSex" value="0" checked="checked">
-              <label for="user_sex1">女 &nbsp;&nbsp;</label><input [(ngModel)]="sex" type="radio" id="user_sex1" name="userSex" value="1">
+              <label for="user_sex0">男 &nbsp;&nbsp;</label><input [(ngModel)]="sex" type="radio" id="user_sex0" name="userSex" value="0" checked="{{men}}">
+              <label for="user_sex1">女 &nbsp;&nbsp;</label><input [(ngModel)]="sex" type="radio" id="user_sex1" name="userSex" value="1" checked="{{wumen}}">
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@
                   <input [(ngModel)]="_city" id="shi" name="city" type="text" readonly="readonly" placeholder="市(区)" (click)="show_city_toggle()">
                   <div class="option" [class.block]="city_block">
                     <ul id="shiList" class="shiList">
-                      <li *ngFor="let item of _citys" (click)="show_city($event)">
+                      <li *ngFor="let item of _citys;let index = index" (click)="show_city($event)">
                         {{item}}
                       </li>
                     </ul>

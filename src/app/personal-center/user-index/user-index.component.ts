@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { EditorComponent } from './../../editor/editor.component'
 
 // 导入服务
 import {PersonalCenterService} from './../../services/personal-center.service';
@@ -12,6 +13,9 @@ import {PersonalCenterService} from './../../services/personal-center.service';
 export class UserIndexComponent implements OnInit {
  _notes: any;
  newNotes: string;
+
+  @ViewChild(EditorComponent) editor: EditorComponent;
+
   constructor(
     private perSer: PersonalCenterService,
   ) { }
@@ -31,5 +35,23 @@ export class UserIndexComponent implements OnInit {
         console.log("error")
       }
     })
+  };
+
+  publishTopic() {
+    let topicContent = this.editor.clickHandle();
+
+    if(!topicContent){
+      alert('请输入内容！');
+      return;
+    }
+    console.log(topicContent);
+    let that = this;
+    that.perSer.addNotes(topicContent,function(result){
+      console.log(result);
+    })
+  };
+
+  PostData(event):void {
+    console.log(event+'---->>>postData');
   }
 }

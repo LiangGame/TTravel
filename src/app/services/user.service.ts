@@ -32,8 +32,8 @@ export class UserService {
     )
   }
 
-  getUserIcon(telephone,callback){
-    this.http.post(this.url+'/getUserIcon',telephone).subscribe(
+  getUser(telephone,callback){
+    this.http.post(this.url+'/getUser',telephone).subscribe(
       function (result) {
         callback(result);
       },
