@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class TravelNotesComponent implements OnInit {
 
 
-  constructor() { }
+  constructor() {
+
+
+  }
 
   ngOnInit() {
   }

@@ -1,0 +1,39 @@
+.content{
+  margin:30px auto;
+
+}
+
+.form-control{
+  position: relative;
+}
+.btn-group .key{
+  position: relative;
+  top:-20px;
+}
+
+.input-group .form-control,.input-group-btn .btn{
+  border:1px solid #FFA800;
+  outline: none;
+}
+.input-group-btn .btn{
+  color: #FFA800;
+  background: white;
+}
+.input-group-btn .btn:hover{
+  color: rgba(255, 168, 0, 0.04);
+  background: #FFA800;
+}
+
+.container-left{
+  float: left;
+  width: 160px;
+  border: solid 1px blue;
+}
+/*.title{*/
+  /*font-size: 20px;*/
+  /*margin-top: 16px ;*/
+/*}*/
+
+/*.thumbnail{*/
+  /*margin:auto 1px;*/
+/*}*/
