@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { EqualValidator } from './register/equal-validator.directive';
 
 import { AppComponent } from './root/app.component';
 import { IndexComponent } from './index/index.component';
@@ -28,6 +28,11 @@ import { StrategyChildComponent } from './strategy-child/strategy-child.componen
 import {GlobalPropertyService} from './services/global-property.service';
 
 import { TravelAlbumComponent } from './travel-album/travel-album.component';
+// import { RoutingDirective } from './Directives/routing.directive';
+
+// 导入指令
+// import { RoutingDirective } from './../Directives/routing.directive';
+// import { EditorComponent } from './editor/editor.component';
 
 
 
@@ -49,8 +54,10 @@ import { TravelAlbumComponent } from './travel-album/travel-album.component';
     StrategyChildComponent,
     ScenicSearchComponent,
     ScenicResultComponent,
-    TravelAlbumComponent
-
+    TravelAlbumComponent,
+    // RoutingDirective,
+    // EditorComponent
+    EqualValidator
   ],
   imports: [
     BrowserModule,

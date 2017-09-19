@@ -2,6 +2,12 @@ var express = require('express');
 var querystring = require('querystring');
 var router = express.Router();
 var personaldao = require('./../dao/personalDAO').perDao;
+//产生令牌
+var jwt=require('jwt-simple');
+var moment = require('moment');
+
+var ct=require('./../utils/checkToken');
+
 
 /* GET home page. */
 router.get('/provinces', function(req, res, next) {
@@ -10,6 +16,13 @@ router.get('/provinces', function(req, res, next) {
     // console.log(result);
   });
 });
+router.get('/getCity',function (req,res,next) {
+  personaldao.getCity(req.query.cityId,function (result) {
+    res.json(result);
+    // console.log(result);
+    // console.log('>>>>>>personalRouter');
+  })
+})
 router.post('/citys', function(req, res, next) {
   var body = "";
   req.on('data', function (chunk) {
@@ -27,11 +40,30 @@ router.post('/notes',function (req,res,next) {
   var notesBody = "";
   req.on('data', function (chunk) {
     notesBody += chunk;
-    console.log(notesBody);
+    // console.log(notesBody);
   });
   req.on('end', function () {
     personaldao.getNotes(notesBody,function (result) {
-      res.json(result)
+      if(result){
+        res.json(result)
+      }
+      console.log(result);
+    });
+  });
+});
+
+router.post('/addNotes',function (req,res,next) {
+  console.log('here');
+  var notesBody = "";
+  req.on('data', function (chunk) {
+    notesBody += chunk;
+    console.log(notesBody);
+  });
+  req.on('end', function () {
+    personaldao.addNotes(notesBody,function (result) {
+      if(result){
+        res.json(result)
+      }
       console.log(result);
     });
   });

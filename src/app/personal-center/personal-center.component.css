@@ -52,8 +52,56 @@
 #user_icon{
   border-bottom: 1px solid #d5d5d5;
 }
-#user_icon img{
+#user_icon .iconImg{
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: 50%;
+  margin-left: -50px;
+  overflow: hidden;
+  /*margin-left: -50px;*/
+}
+/*#user_icon .iconImg img{*/
+  /*border-radius: 50%;*/
+  /*width: 100px;*/
+  /*height: 100px;*/
+/*}*/
+#user_icon .icon-container{
+  position: relative;
+  /*overflow: hidden;*/
+  /*border: 1px dashed red;*/
+}
+#user_icon .icon-file{
+  width: 100px;
+  height: 100px;
+  /*background: blue;*/
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -50px;
+  outline: none;
+  opacity: 0;
+  z-index: 9999;
+}
+#user_icon .uplodBg{
+  width: 100px;
+  height: 100px;
+  background: rgba(51, 51, 51, 0.41);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -50px;
+}
+#user_icon .uplodBg span{
+  color: #eee;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  left: 50%;
+  margin-left: -14px;
 }
 #user_icon h4{
   margin-top: 15px;
