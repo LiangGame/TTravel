@@ -5,13 +5,10 @@
   width: 100%;
   height: 500px;
   border: 2px solid red;
-  background: url("../../assets/images/linshide/lgh.jpg") no-repeat;
+  background: url("../../assets/images/temporary/lgh.jpg") no-repeat;
   background-size: 100% 500px;
 }
-.pic_lgh{
-  width: 100%;
-  height: 450px;
-}
+
 #head_search{
   width: 400px;
   height: 60px;
@@ -22,52 +19,47 @@
 }
 
 #middle_head{
-  width:1340px ;
+  width:1000px ;
   height: 60px;
-  border: 1px solid deeppink;
   margin: 10px auto;
+  border: 1px solid deeppink;
 }
 #middle_head_name{
-  border: 1px solid red;
-  width: 160px;
-  height: 70px;
+  width: 120px;
+  height: 50px;
   float: left;
-}
-.middle_head_name{
-  font-size: 28px;
-  color: #2c002c;
+  border: 1px solid red;
 }
 #middle_head_list{
   width: 620px;
-  height: 50px;
-  border: 1px solid #3b1ee0;
+  height: 40px;
   float: right;
+  border: 1px solid #3b1ee0;
+
 }
 #middle_head_list li{
-  list-style: none;
   width: 120px;
+  list-style: none;
   text-align: center;
-  float: left;
+  float: right;
   border: 1px solid firebrick;
 }
 #middle_head_list a{
   text-decoration: none;
-  font-size: 25px;
-  font-family: "黑体";
-
+  font-size: 20px;
 }
 
 
 #middle_pic{
-  width: 1340px;
-  height: 740px;
+  width: 1040px;
+  height: 615px;
   border: 1px solid blue;
   margin:10px auto;
 }
 
 #middle_pic_left{
-  width: 763px;
-  height: 740px;
+  width: 635px;
+  height: 615px;
   border: 1px solid blue;
   float: left;
 }
@@ -75,46 +67,46 @@
   padding: 5px 5px;
   float: left;
 }
-.pic_hn{
-  width: 260px;
-  height: 250px;
-}
 .pic_cq{
-  width: 500px;
-  height: 250px;
+  width: 430px;
+  height: 190px;
+}
+.pic_hn{
+  width: 200px;
+  height: 190px;
 }
 .pic_hn1{
-  width: 280px;
-  height: 480px;
+  width: 200px;
+  height: 420px;
 }
 .pic_xj4{
-  width: 480px;
-  height: 240px;
+  width: 430px;
+  height: 210px;
 }
 .pic_zj{
-  width: 240px;
-  height: 240px;
+  width: 215px;
+  height: 210px;
 }
 .pic_hlj2{
-  width: 240px;
-  height: 240px;
+  width: 215px;
+  height: 210px;
 }
 
 .pic_hq{
-  width: 260px;
-  height: 490px;
+  width: 190px;
+  height: 400px;
 }
 .pic_xj1{
-  width: 290px;
-  height: 245px;
+  width: 210px;
+  height: 200px;
 }
 .pic_hlj{
-  width: 290px;
-  height: 245px;
-}
+  width: 210px;
+  height: 200px;}
+
 .pic_xz{
-  width: 550px;
-  height: 240px;
+  width: 400px;
+  height: 210px;
 }
 
 #down{

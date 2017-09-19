@@ -32,6 +32,7 @@ const routes: Routes = [
   {path: 'strategy', component: TravelStrategyComponent},
   {path: 'noteschild', component: NotesChildComponent},
   {path: 'scenic_search', component: ScenicSearchComponent},
+  {path: 'scenic-result', component: ScenicResultComponent},
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 
