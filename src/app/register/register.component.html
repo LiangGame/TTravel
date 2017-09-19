@@ -5,12 +5,12 @@
         <div class="form-group">
           <div *ngIf="tel.invalid && (tel.dirty || tel.touched)"
                class="alert prompt">
-            <div *ngIf="tel.errors.required">
-              号码不能为空
-            </div>
-            <div *ngIf="tel.errors.pattern">
-              号码格式不正确
-            </div>
+            <small *ngIf="tel.errors.required">
+              请输入您的手机号码
+            </small>
+            <small *ngIf="tel.errors.pattern">
+              手机号码格式错误
+            </small>
           </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
             <input type="text" class="form-control" #tel="ngModel" pattern="^1[34578]\d{9}$" [(ngModel)]="_telephone"
@@ -21,9 +21,9 @@
         <div class="form-group">
           <div *ngIf="name.invalid && (name.dirty || name.touched)"
                class="alert prompt">
-            <div *ngIf="name.errors.required">
-              昵称不能为空
-            </div>
+            <small *ngIf="name.errors.required">
+              请输入您的昵称
+            </small>
           </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
             <input type="text" class="form-control" #name="ngModel" [(ngModel)]="_name" id="names" name="userName"
@@ -32,10 +32,17 @@
         </div>
 
         <div class="form-group">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)"
+               class="alert prompt">
+            <small *ngIf="password.errors.required">
+              请输入您的密码
+            </small>
+          </div>
           <small [hidden]="password.valid || (password.pristine && !registerForm.submitted)"
                  class="alert prompt">
-            密码不小于6
+            输入密码不小于6
           </small>
+
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
             <input type="password" class="form-control" minlength="6" name="password" [ngModel]="user.password"
                    required #password="ngModel" validateEqual="confirmPassword" reverse="true" placeholder="您的密码">
@@ -52,7 +59,16 @@
                    required validateEqual="password" #confirmPassword="ngModel" placeholder="确认密码">
           </div>
         </div>
-
+        <div class="form-group">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <canvas id="canvas" width="120" height="40"></canvas><br>
+            <a href="#" id="changeImg">换一张</a>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <input type="text" class="form-control" id="code"  placeholder="请输入验证码">
+            <div class="text-danger" id="err_code"></div>
+          </div>
+        </div>
         <div class="form-group">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="button" id="sign_btn" class="btn col-lg-12 col-md-12 col-sm-12 col-xs-12"
@@ -61,6 +77,9 @@
           </div>
         </div>
       </form>
+      <div>
+        <p class=" p1 ">已经注册？<a routerLink="../login">马上登录</a></p>
+      </div>
     </div>
   </div>
 </div>
