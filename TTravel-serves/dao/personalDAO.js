@@ -79,14 +79,18 @@ exports.perDao={
       if (error) {
         return
       }
-      client.query(personalSql.addNotes,[body,1],function (error, result) {
+      console.log(body);
+      console.log(body.title);
+      console.log(body.title);
+      console.log('>>>>>>>>>>>>>>>>addNotes>>>>>>>>personalDAO');
+      client.query(personalSql.addNotes,[body.title,body.content,1],function (error, result) {
         if (error) {
-          console.log(error.message + ' from getNotes');
+          console.log(error.message + ' from addNotes');
           callback('e004');
           return;
         }
-        callback(result);
-        console.log(result);
+          callback(result.affectedRows)
+        // console.log(result.affectedRows);
         client.release();
       })
     })

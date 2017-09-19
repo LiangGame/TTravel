@@ -7,5 +7,5 @@ exports.sql={
   gitcity:'select * from address where cityid = ?',
   // gitcityId:'select * from address where cityname = ?',
   getNotes:'select * from travelNotes',
-  addNotes:'insert into user_travelnotes(content,user_id) values(?,?)'
+  addNotes:'insert into user_travelnotes(title,content,user_id) values(?,?,?)'
 };

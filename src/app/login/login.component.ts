@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
       if (result.stateCode == '1') {
         sessionStorage.setItem('userName', result.userName);
         sessionStorage.setItem('userId', login_form.form.value.telephone);
-
         that.router.navigate(['/index']);
       } else {
         that.login_res = '用户名或密码错误';

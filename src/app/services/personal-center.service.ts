@@ -58,6 +58,7 @@ export class PersonalCenterService {
   }
 
   addNotes(body,callback){
+    body.title=body.title.notesTitle
     this.http.post(this.url+'/addNotes',body).subscribe(
       function (result) {
         callback(result);
