@@ -1,10 +1,14 @@
 /*轮播图两边*/
-/*.carousel-control{*/
- /*background-color:white;*/
-/*}*/
+.carousel-control{
+ background-color: rgba(255, 255, 255, 0);
+}
 /*.input-group{*/
 /*}*/
 
+/*.img{*/
+  /*background:url("../../assets/images/background/lunbo03.jpeg")no-repeat;*/
+  /*background-size: cover;*/
+/*}*/
 
 .form-control{
   position: relative;
