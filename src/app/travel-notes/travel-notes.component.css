@@ -1,5 +1,5 @@
 /*轮播图两边*/
-<<<<<<< HEAD
+
 .carousel-control{
  background-color: rgba(255, 255, 255, 0);
 }
@@ -12,14 +12,13 @@
 /*}*/
 
 .form-control{
-=======
 /*.carousel-control{*/
 /*background-color:white;*/
 /*}*/
 /*.input-group{*/
-/*}*/
+}
 .form-control {
->>>>>>> 3b6b1b86b4819cfe7024da10405ce8737b1ad819
+
   position: relative;
 }
 
