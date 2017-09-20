@@ -1,6 +1,7 @@
 
 import {Component, OnInit, ElementRef, Renderer, Output, EventEmitter } from '@angular/core';
-import * as wangEditor from '../../assets/js/wangEditor.min.js';
+import * as wangEditor from '../../assets/js/wangEditor.js';
+// import wangEditorCss as wangEditor from '../../assets/css/wangEditor.css';
 
 @Component({
   selector: 'app-editor',
@@ -93,6 +94,10 @@ export class EditorComponent implements OnInit {
 
   clickHandle(): any {
     let data = this.editor.txt.html();
+    return data;
+  }
+  clear(): any{
+    let data = this.editor.txt.clear();
     return data;
   }
 }

@@ -37,21 +37,5 @@ export class UserIndexComponent implements OnInit {
     })
   };
 
-  publishTopic() {
-    let topicContent = this.editor.clickHandle();
 
-    if(!topicContent){
-      alert('请输入内容！');
-      return;
-    }
-    console.log(topicContent);
-    let that = this;
-    that.perSer.addNotes(topicContent,function(result){
-      console.log(result);
-    })
-  };
-
-  PostData(event):void {
-    console.log(event+'---->>>postData');
-  }
 }

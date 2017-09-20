@@ -5,16 +5,19 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 // 导入组件
-import { PersonalCenterComponent } from './personal-center.component';
-import { UserIndexComponent } from './user-index/user-index.component';
-import { FootprintComponent } from './footprint/footprint.component';
-import { WantToGoComponent } from './want-to-go/want-to-go.component';
-import { NotesComponent } from './notes/notes.component';
-import { PhotoAlbumComponent } from './photo-album/photo-album.component';
-import { SettingComponent } from './setting/setting.component';
+import {PersonalCenterComponent} from './personal-center.component';
+import {UserIndexComponent} from './user-index/user-index.component';
+import {FootprintComponent} from './footprint/footprint.component';
+import {WantToGoComponent} from './want-to-go/want-to-go.component';
+import {NotesComponent} from './notes/notes.component';
+import {PhotoAlbumComponent} from './photo-album/photo-album.component';
+import {SettingComponent} from './setting/setting.component';
+// import { CreateNotesComponent } from '../create-notes/create-notes.component';
+
 // 配置路由表
 const routes: Routes = [
-  {path: 'personal-center',
+  {
+    path: 'personal-center',
     component: PersonalCenterComponent,
     children: [
       {path: 'index', component: UserIndexComponent},
@@ -23,6 +26,7 @@ const routes: Routes = [
       {path: 'Notes', component: NotesComponent},
       {path: 'PhotoAlbum', component: PhotoAlbumComponent},
       {path: 'Setting', component: SettingComponent},
+      // {path: 'CreateNotes', component: CreateNotesComponent},
       {path: '', component: UserIndexComponent}
     ]
   }

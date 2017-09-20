@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 
 // 导入服务
-import { UserService } from './../services/user.service';
-import { User } from './user.interface';
+import {UserService} from './../services/user.service';
+import {User} from './user.interface';
 
 @Component({
   moduleId: module.id,
@@ -13,13 +13,14 @@ import { User } from './user.interface';
   styleUrls: ['./register.component.css'],
   providers: [UserService]
 })
+
 export class RegisterComponent implements OnInit {
   public user: User;
   register_res: string;
-  constructor(
-    private  userSer: UserService,
-    private router: Router
-  ) { }
+
+  constructor(private  userSer: UserService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.user = {
@@ -28,7 +29,6 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ''
     }
   }
-
 
 
   // 判断两次密码是否一致
@@ -46,11 +46,12 @@ export class RegisterComponent implements OnInit {
         sessionStorage.setItem('userName', confirmPassword_from.form.value.userName);
         sessionStorage.setItem('userId', confirmPassword_from.form.value.telephone);
         that.router.navigate(['/index']);
-      }else {
+      } else {
         that.register_res = '用户名或密码错误';
       }
     });
   }
+
   save(model: User, isValid: boolean) {
     // call API to save customer
     console.log(model, isValid);

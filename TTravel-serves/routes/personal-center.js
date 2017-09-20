@@ -53,19 +53,31 @@ router.post('/notes',function (req,res,next) {
 });
 
 router.post('/addNotes',function (req,res,next) {
-  console.log('here');
-  var notesBody = "";
-  req.on('data', function (chunk) {
-    notesBody += chunk;
-    console.log(notesBody);
-  });
-  req.on('end', function () {
+  var notesBody = req.body;
+  // console.log(notesBody);
+  // console.log('>>>>>>>>>>>>>>>>addNotes');
     personaldao.addNotes(notesBody,function (result) {
       if(result){
-        res.json(result)
+        if(result==1  ){
+          res.json({"stateCode":'001'});
+        }else {
+          res.json({"stateCode":'002'});
+        }
+        // res.json(result)
       }
-      console.log(result);
+
     });
-  });
+  // req.on('data', function (chunk) {
+  //   notesBody += chunk;
+  //   console.log(notesBody);
+  // });
+  // req.on('end', function () {
+  //   personaldao.addNotes(notesBody,function (result) {
+  //     if(result){
+  //       res.json(result)
+  //     }
+  //     console.log(result);
+  //   });
+  // });
 })
 module.exports = router;

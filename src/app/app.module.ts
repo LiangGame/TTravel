@@ -17,6 +17,9 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ScenicSearchComponent } from './scenic-search/scenic-search.component';
 import { ScenicResultComponent } from './scenic-result/scenic-result.component';
+import {CreateNotesComponent} from './create-notes/create-notes.component';
+import { EditorComponent } from './editor/editor.component';
+
 // 导入路由模块
 import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
@@ -28,11 +31,12 @@ import { StrategyChildComponent } from './strategy-child/strategy-child.componen
 import {GlobalPropertyService} from './services/global-property.service';
 
 import { TravelAlbumComponent } from './travel-album/travel-album.component';
+import { LoopImgComponent } from './loop-img/loop-img.component';
+
 // import { RoutingDirective } from './Directives/routing.directive';
 
 // 导入指令
 // import { RoutingDirective } from './../Directives/routing.directive';
-// import { EditorComponent } from './editor/editor.component';
 
 
 
@@ -56,8 +60,10 @@ import { TravelAlbumComponent } from './travel-album/travel-album.component';
     ScenicResultComponent,
     TravelAlbumComponent,
     // RoutingDirective,
-    // EditorComponent
-    EqualValidator
+    EditorComponent,
+    EqualValidator,
+    LoopImgComponent,
+    CreateNotesComponent
   ],
   imports: [
     BrowserModule,
