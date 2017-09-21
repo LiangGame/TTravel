@@ -11,7 +11,9 @@ import { IndexService } from './../services/index.service';
   providers: [IndexService]
 })
 export class IndexComponent implements OnInit {
+  _scenic: any;
   _notes: any;
+  newscenic: string;
   newNotes: string;
 
   constructor( private indexSer: IndexService
@@ -19,7 +21,22 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getScenic();
     this.getNotes();
+  }
+  getScenic(){
+    let that = this;
+    that.indexSer.show_scenic(function (result) {
+      console.log('成功')
+      if(result){
+        that._scenic=result;
+        // that.newscenic=result[0];
+        console.log(that._scenic);
+        // console.log();
+      }else {
+        console.log("error")
+      }
+    })
   }
   getNotes(){
     let that = this;
@@ -30,9 +47,10 @@ export class IndexComponent implements OnInit {
         console.log(that._notes);
         // console.log();
       }else {
-        console.log("error")
+        console.log("error");
       }
     })
   };
+
 
 }

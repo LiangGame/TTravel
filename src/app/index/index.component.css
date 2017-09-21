@@ -2,8 +2,13 @@
   height: 450px;
   width: 100%;
 }
+.p1:hover{
+  color: #FFA800;
+}
+.travels span a:hover{
+  color: #FFA800;
+}
 ul{
-
   list-style: none;
   margin: 0;
   padding: 0;
@@ -39,7 +44,7 @@ ul:after {
   transition: all 1.2s ease;
   vertical-align: top;
   width: 100%;
-  height: 100%;
+  height: 185px;
 }
 .recommend .item .info{
   border: 1px solid #ececec;
@@ -50,6 +55,7 @@ ul:after {
   overflow: hidden;
 }
 .recommend .item .info .p1{
+  padding-top: 5px;
   font-size: 16px;
   font-weight:bold;
 }
