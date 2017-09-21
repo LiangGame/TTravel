@@ -2,11 +2,11 @@
   margin-top:30px;
 
 }
-.list,.about {
+.main .top,.about {
   border:solid 1px #ECECEC;
   border-radius: 5px; ;
 }
-.list{
+.main .top{
   width: 738px;
   float: left;
   margin-right: 27px;
@@ -125,6 +125,104 @@ background: #f8f8f8;
   font-size: 16px;
   line-height: 26px;
   color: #323232;
-  /*word-wrap: break-word;*/
-  /*word-break: break-all;*/
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-top: 20px;
+}
+.content img{
+  margin:20px auto ;
+}
+/*.content p{*/
+  /*line-height: 26px;*/
+/*}*/
+h1{
+  font-size: 18px;
+  line-height: 26px;
+  padding: 5px;
+  color: #df9a00;
+}
+hr{
+  margin: 25px auto 25px 0px;
+  /*margin-top: 25px;*/
+  /*margin-bottom: 25px;*/
+  border: 3px solid #ff9d00;
+  border-radius: 5px;
+  width: 688px;
+}
+
+.siderbar{
+  width: 370px;
+  float: right;
+  background-color: #00B7FF;
+}
+.elevator{
+  /*display: block;*/
+  /*background-color: rgb(253, 255, 136);*/
+  bottom:100px;
+  /*z-index: 11;*/
+  position: fixed;
+  right: 150px;
+  width: 368px;
+}
+.tel{
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 20px;
+}
+.noborder{
+  height: 124px;
+  position: relative;
+  left: 25px;
+  width: 358px;
+  /*height: 395px;*/
+  overflow: hidden;
+}
+.list{
+  position: relative;
+  width: 368px;
+  height: 240px;
+  /*overflow: hidden;*/
+
+  /*position: absolute;*/
+  /*background: #fff;*/
+  left: 14px;
+  /*top: 10px;*/
+  /*width: 385px;*/
+  /*height: 100%;*/
+  /*overflow-x: hidden;*/
+  overflow-y: scroll;
+}
+.eleitem{
+
+}
+.eline{
+  position: absolute;
+  height: 100%;
+  /*left: 30px;*/
+  top: 7px;
+  /*bottom: ;*/
+  border-left: 1px solid #ececec;
+  /*z-index: 3;*/
+
+}
+.eleline{
+  display: inline-block;
+  width: 28px;
+  margin-right: 5px;
+  border-bottom: 1px dashed #ececec;
+  vertical-align: middle;
+}
+.submit{
+  display: inline-block;
+  width: 270px;
+  vertical-align: middle;
+}
+.subtle{
+  display: block;
+  line-height: 30px;
+  font-size: 14px;
+  color: #636363;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
