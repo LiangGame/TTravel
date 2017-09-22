@@ -22,14 +22,6 @@ export class TravelNotesComponent implements OnInit {
       } else {
         $('.about').removeClass('about_fix');
       }
-
-      // let that = this;
-      // let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      // if (scrollTop > 200) {
-      //   that.showTotop(that.oTop);
-      // } else if (scrollTop <= 200) {
-      //   that.hideTotop(that.oTop);
-      // }
     });
     /*返回顶部*/
     $(window).scroll(function () {

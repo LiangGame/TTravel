@@ -6,6 +6,6 @@ exports.sql={
   addUser:'insert into user(telephone,username,userPassword,city_id,userlv_id)values(?,?,?,?,?)',
   createToken:'update user set token=? where telephone=?',
   getUser:'select id,userName,birthday,city_id,sex,icon,signature from `user` where telephone = ?',
-  addUserIcon:'call addUserIcon(?,?,@res)',
+  addUserIcon:'UPDATE `user` set icon=? where telephone=?',
   updateUser:'UPDATE `user` set userName=?,sex=?,birthday=?,city_id=?,signature=? where telephone = ?'
 };

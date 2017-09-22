@@ -37,19 +37,15 @@ router.post('/citys', function(req, res, next) {
 });
 
 router.post('/notes',function (req,res,next) {
-  var notesBody = "";
-  req.on('data', function (chunk) {
-    notesBody += chunk;
-    // console.log(notesBody);
-  });
-  req.on('end', function () {
+  var notesBody = req.body;
+  if(notesBody){
     personaldao.getNotes(notesBody,function (result) {
       if(result){
         res.json(result)
       }
       console.log(result);
     });
-  });
+  }
 });
 
 router.post('/addNotes',function (req,res,next) {
@@ -63,21 +59,7 @@ router.post('/addNotes',function (req,res,next) {
         }else {
           res.json({"stateCode":'002'});
         }
-        // res.json(result)
       }
-
     });
-  // req.on('data', function (chunk) {
-  //   notesBody += chunk;
-  //   console.log(notesBody);
-  // });
-  // req.on('end', function () {
-  //   personaldao.addNotes(notesBody,function (result) {
-  //     if(result){
-  //       res.json(result)
-  //     }
-  //     console.log(result);
-  //   });
-  // });
 })
 module.exports = router;

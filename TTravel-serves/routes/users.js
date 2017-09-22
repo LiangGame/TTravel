@@ -50,16 +50,17 @@ router.post('/upload', function (request, response, next) {
   var form = new formidable.IncomingForm();   //创建上传表单
   form.encoding = 'utf-8';
   form.parse(request, function (err, fields, files) {
-    console.log('here'+'----------/upload');
+    // console.log(fields);
+    // console.log('here'+'----------/upload');
     if (err) {
       response.locals.error = err;
       response.json({"stateCode":'e005'});
       return;
     }
 
-    console.log(fields);
+    // console.log(files.uploadedfile);
     var extName = '';  //后缀名
-    switch (files.user_icon.type) {
+    switch (files.uploadedfile.type) {
       case 'image/jpeg':
         extName = 'jpeg';
         break;
@@ -79,14 +80,38 @@ router.post('/upload', function (request, response, next) {
     } else{
       form.uploadDir = "../public"+AVATAR_UPLOAD_FOLDER;     //设置上传目录
       form.keepExtensions = true;     //保留后缀
-      form.maxFieldsSize = 2 * 1024;   //文件大小
+      form.maxFieldsSize = 3 * 1024;   //文件大小
       var avatarName = util.createUnique() + '.' + extName;
       // 'public/uploads/d23242343242.jpg'
       var newPath = form.uploadDir + avatarName;
       // console.log("newpath---"+newPath);
       // fs.renameSync(files.user_icon.path, newPath);  //重命名
-      fs.rename(files.user_icon.path, newPath,function (error) {
+      fs.readFile(files.uploadedfile.path,function (error,data) {
         if(error){
+          return;
+        }
+        fs.writeFile(newPath,data,function (error) {
+          if(error){
+            return;
+          }
+          userdao.addUserIcon(fields.telephone,avatarName,function (result) {
+            // console.log(fields.telephone);
+            // console.log(avatarName);
+            if(result.affectedRows==1){
+              response.json(result);
+            }else{
+              response.json({"stateCode":0});
+            }
+          })
+        })
+      });
+      /*fs.rename(files.uploadedfile.path, newPath,function (error) {
+        console.log(files.uploadedfile.path);
+        console.log(newPath);
+        console.log(error);
+        if(error){
+          console.log('here'+'>>>>>>>>>>>>>>>files');
+
           response.json({"stateCode":'e005'});
           return
         }
@@ -97,7 +122,7 @@ router.post('/upload', function (request, response, next) {
             response.json({"stateCode":0});
           }
         })
-      })
+      })*/
 
     }
 
@@ -124,6 +149,8 @@ router.post('/register', function (req, res, next) {
             res.json({"stateCode":'6'});
           }else if(result == '0'){
             res.json({"stateCode":'5'});
+          }else if(result == '5'){
+            res.json({"stateCode":'7'})
           }
         }
       });
@@ -133,15 +160,17 @@ router.post('/register', function (req, res, next) {
 
 router.post('/getUser', function (req, res, next) {
   var user_telephone=req.body.telephone;
-  userdao.getUser(user_telephone,function (result) {
-    console.log(result);
-    console.log('>>>>>>>getUser');
-    if(result.length==0){
-      res.json({"icon":"icon_default.jpg"});
-    }else {
-      res.json(result);
-    }
-  })
+  if(user_telephone){
+    userdao.getUser(user_telephone,function (result) {
+      console.log(result);
+      console.log('>>>>>>>getUser');
+      if(result.length==0){
+        res.json({"icon":"icon_default.jpg"});
+      }else {
+        res.json(result);
+      }
+    })
+  }
 });
 
 router.post('/updateUser',function (req,res,next) {

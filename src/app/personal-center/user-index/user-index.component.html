@@ -12,8 +12,8 @@
           {{(newNotes?.pubtime)?.split('T')[0]}}
         </time>
       </div>
-      <div class="middle">
-        {{(newNotes?.content)?.substring(120)+'...'}}
+      <div class="middle" [innerHTML]="(newNotes?.content)?.substring(0,260)+'...'">
+
       </div>
       <div class="bottom">
         <div class="pull-right">
@@ -31,25 +31,25 @@
   <div id="photo" class="text-center">
     <h4 class="pull-left">我的照片</h4>
     <span class="pull-left"> &gt;&gt;&gt;更多 </span>
-    <h5 class="pull-right">0张照片</h5>
+    <h5 class="pull-right">25张照片</h5>
   </div>
   <div id="photo_container">
     <div class="photos-content">
-      <div class="col-md-2 col-lg-2 photo-img">
-        <!--<img src="../../../assets/user-img/user-icon.png">-->
+      <div class="col-md-3 col-lg-3 photo-img row">
+        <img class="img-responsive" src="../../../assets/images/temporary/small/gg0.png">
       </div>
-      <div class="col-md-2 col-lg-2 photo-img">
-        <!--<img src="../../../assets/user-img/user-icon.png">-->
+      <div class="col-md-3 col-lg-3 photo-img">
+        <img  class="img-responsive" src="../../../assets/images/temporary/small/tt0.jpeg">
       </div>
-      <div class="col-md-2 col-lg-2 photo-img">
-        <!--<img src="../../../assets/user-img/user-icon.png">-->
+      <div class="col-md-3 col-lg-3 photo-img">
+        <img class="img-responsive" src="../../../assets/images/temporary/small/ymy1.jpeg">
       </div>
-      <div class="col-md-2 col-lg-2 photo-img">
-        <!--<img src="../../../assets/user-img/user-icon.png">-->
+      <div class="col-md-3 col-lg-3 photo-img">
+        <img class="img-responsive" src="../../../assets/images/temporary/cq.jpg">
       </div>
-      <div class="col-md-2 col-lg-2 photo-img">
-        <!--<img src="../../../assets/user-img/user-icon.png">-->
-      </div>
+      <!--<div class="col-md-3 col-lg-3 photo-img">-->
+        <!--<img class="img-responsive" src="../../../assets/images/temporary/small/tam1.jpeg">-->
+      <!--</div>-->
     </div>
   </div>
   <div id="message-board" class="col-md-12 col-lg-12">
