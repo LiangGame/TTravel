@@ -201,5 +201,19 @@ hr{
 .container-main img{
   margin-top: 30px;
 }
+/*!*返回顶部*!*/
+/*#to_top {*/
+  /*position: fixed;*/
+  /*right: 50px;*/
+  /*bottom: 130px;*/
+  /*width: 30px;*/
+  /*height: 64px;*/
+  /*background: url("../../assets/images/goTop.png") no-repeat;*/
+  /*background-position: 0;*/
+  /*cursor: pointer;*/
+/*}*/
+/*#to_top:hover {*/
+  /*background-position: -28px 0;*/
+/*}*/
 
 

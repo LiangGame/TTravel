@@ -3,8 +3,16 @@
   height: 450px;
 }
 #main{
-  margin-top: 35px;
+  margin-top: 90px;
 }
+/*.caption h4{*/
+  /*font-weight: bold;*/
+/*}*/
+.caption p{
+  font-size: 16px;
+  margin: 5px;
+}
+
 .content{
   margin:30px auto;
 
