@@ -70,7 +70,7 @@ export class PersonalCenterComponent implements OnInit {
         sessionStorage.setItem("birthday",result[0].birthday);
         sessionStorage.setItem("signature",result[0].signature);
 
-        that.Icon=`<img src=''http://localhost:8889/uploads/${result[0].icon}' width="100" height="100">`;
+        that.Icon=`<img src='http://localhost:8889/uploads/${result[0].icon}' width="100" height="100">`;
         // if(result.stateCode == '6'){
         //   that.router.navigate(['/index']);
         // }else {
