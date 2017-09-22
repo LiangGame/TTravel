@@ -6,7 +6,9 @@
   width: 100%;
   background:url(../../assets/images/background/login-img.jpg) no-repeat;
 }
-
+li:hover{
+  cursor: Pointer;
+}
 .main{
   width: 100%;
   margin: 40px 0;

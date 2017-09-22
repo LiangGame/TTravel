@@ -6,45 +6,39 @@
         <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  login-css">
           <form class="form-horizontal" id="login_form" #loginForm="ngForm">
             <div class="form-group">
-              <div *ngIf="login_res"
-                   class="alert prompt">
+              <div class="alert prompt">
+                <small *ngIf="!istelempty">
+                  账号不能为空
+                </small>
                 {{login_res}}
               </div>
-              <div *ngIf="tel.invalid && (tel.dirty || tel.touched)"
-                   class="alert prompt">
-                <small *ngIf="tel.errors.required">
-                  请输入您的手机号码
-                </small>
-                <small *ngIf="tel.errors.pattern">
-                  手机号码格式错误
-                </small>
-              </div>
               <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                <input type="text" class="form-control" #tel="ngModel" pattern="^1[34578]\d{9}$"
+                <input type="text" (keyup.enter)="ontel(tel.value)"
+                       (blur)="ontel(tel.value)" class="form-control" #tel="ngModel" pattern="^1[34578]\d{9}$"
                        [(ngModel)]="_telephone"
                        id="telephone" name="telephone" placeholder="您的手机号" required>
               </div>
 
             </div>
             <div class="form-group">
-              <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
-                   class="alert prompt">
-                <small *ngIf="pass.errors.required">
-                  请输入您的密码
+              <div class="alert prompt">
+                <small *ngIf="!ispassempty">
+                  密码不能为空
                 </small>
-                <small *ngIf="pass.errors.minlength">
-                  输入密码不小于6
+                <small *ngIf="!ispassformat">
+                  密码不能小于6个字符
                 </small>
               </div>
               <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                <input type="password" class="form-control" #pass="ngModel" minlength="6" [(ngModel)]="_password"
+                <input type="password" (keyup.enter)="onpass(pass.value)"
+                       (blur)="onpass(pass.value)" class="form-control" #pass="ngModel" minlength="6" [(ngModel)]="_password"
                        id="password" name="password" placeholder="您的密码" required>
               </div>
 
             </div>
             <div class="form-group">
               <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <button type="button" (click)="toLogin(loginForm)" [disabled]="loginForm.form.invalid"
+                <button type="button" (click)="toLogin(loginForm)"
                         class="btn col-lg-12 col-md-12 col-sm-12 col-xs-12" id="login_btn">登录
                 </button>
               </div>

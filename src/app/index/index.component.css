@@ -2,42 +2,79 @@
   height: 450px;
   width: 100%;
 }
-
+.p1:hover{
+  color: #FFA800;
+}
+.travels span a:hover{
+  color: #FFA800;
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+ul:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+.container{
+  padding: 20px 0;
+  width: 1200px;
+}
 .h11{
   padding: 43px 0;
   text-align: center;
 }
-
-.item{
+.recommend ul li{
+  float: left!important;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 20px;
   width: 275px;
-  margin-bottom: 20px;
+  height: 300px;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
 }
 .item .img{
+  transition: all 1.2s ease;
+  vertical-align: top;
   width: 100%;
   height: 185px;
 }
-.item .info{
+.recommend .item .info{
   border: 1px solid #ececec;
+  border-top: 0;
   padding: 0 18px;
   height: 114px;
   line-height: 24px;
   overflow: hidden;
 }
-.item .info .p1{
+.recommend .item .info .p1{
+  padding-top: 5px;
   font-size: 16px;
   font-weight:bold;
 }
-/*游记*/
-.travels{
+.recommend .item .info .fl{
+  padding-top: 20px;
+}
+  /*游记*/
+.travels ul li{
+  float: left!important;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 20px;
   width: 275px;
-  margin-bottom: 20px;
+  height: 290px;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
 }
-.travels .img-top{
-  width: 100%;
-  height: 185px;
 
-}
-.travels .info{
+.travels .item .info{
   border: 1px solid #ececec;
   padding: 0 18px;
   height: 104px;
@@ -45,7 +82,7 @@
 
 }
 
-.travels .info .s1{
+.travels .item .info .s1{
   position: relative;
   float: left!important;
   margin-top: -25px;
@@ -56,14 +93,14 @@
   border-radius: 50%;
 
 }
-.travels .info .s1 .lazy{
+.travels .item .info .s1 .lazy{
   vertical-align: top;
   width: 100%;
   height: 100%;
   border-radius: 50%;
 
 }
-.travels .info .p1{
+.travels .item .info .p1{
   padding-top: 20px;
   font-size: 16px;
   font-weight:bold;

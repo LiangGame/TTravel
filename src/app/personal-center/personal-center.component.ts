@@ -45,7 +45,7 @@ export class PersonalCenterComponent implements OnInit {
   ngOnInit() {
     this.checkLogin();
     this.iconImg=true;
-    console.log(sessionStorage.getItem('userName'));;
+    console.log(sessionStorage.getItem('userName'));
   }
 
   uplodBg_toggle() {
