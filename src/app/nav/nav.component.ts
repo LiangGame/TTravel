@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-
+import {Router} from '@angular/router'
 @Component({
   moduleId: module.id,
   selector: 'app-nav',
@@ -12,7 +12,9 @@ export class NavComponent implements OnInit {
   userName: string;
   bgColor: boolean = false;
 
-  constructor() {
+  constructor(
+    private router:Router
+  ) {
 
   }
 
@@ -38,5 +40,8 @@ export class NavComponent implements OnInit {
   bgToggle() {
     this.bgColor = !this.bgColor;
   }
-
+  signOut() {
+    sessionStorage.clear();
+    this.router.navigate(['/index']);
+  }
 }
