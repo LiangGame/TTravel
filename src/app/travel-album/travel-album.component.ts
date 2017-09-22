@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TravelAlbumService } from './../services/travel-album.service';
+
 @Component({
   selector: 'app-travel-album',
   templateUrl: './travel-album.component.html',

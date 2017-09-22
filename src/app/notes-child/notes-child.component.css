@@ -144,26 +144,6 @@
   color: #666666;
   padding-top: 3px;
 }
-/*.icon-collect ul,.icon-share ul{*/
-  /*border-right: 1px solid #e8e8e6;*/
-  /*width: 120px;*/
-  /*height: 75px;*/
-  /*padding-top: 13px;*/
-  /*text-align: center;*/
-  /*margin-top: -39px;*/
-  /*float: right;*/
-  /*!*margin-right: ;*!*/
-/*}*/
-/*.container-content{*/
-  /*!*border-bottom:1px solid #e8e8e6;*!*/
-  /*position: relative;*/
-  /*z-index: 2;*/
-  /*top: -85px;*/
-/*}*/
-
-/*.container{*/
-  /*margin: auto;*/
-/*}*/
 .travel-list,.about{
   border: dashed 1px #cdcdcd;
   /*text-align:center ;*/
@@ -204,7 +184,6 @@
 }
 h3{
    margin-top: 25px;
-
  }
 p{
   font-size: 14px;
@@ -212,10 +191,9 @@ p{
   margin-top: 15px;
 }
 hr{
-  margin: 25px auto 25px 0px;
+  margin: 25px auto 25px 0;
   /*margin-top: 25px;*/
   /*margin-bottom: 25px;*/
-
   border: 3px solid #ff9d00;
   border-radius: 5px;
   width: 688px;

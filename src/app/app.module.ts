@@ -5,6 +5,8 @@ import { EqualValidator } from './register/equal-validator.directive';
 
 import { AppComponent } from './root/app.component';
 import { IndexComponent } from './index/index.component';
+import { HttpClientModule } from '@angular/common/http';
+
 // import { PersonalCenterComponent } from './personal-center/personal-center.component';
 import { ScenicComponent } from './scenic/scenic.component';
 import { TravelNotesComponent } from './travel-notes/travel-notes.component';
@@ -32,6 +34,7 @@ import {GlobalPropertyService} from './services/global-property.service';
 
 import { TravelAlbumComponent } from './travel-album/travel-album.component';
 import { LoopImgComponent } from './loop-img/loop-img.component';
+
 
 // import { RoutingDirective } from './Directives/routing.directive';
 
@@ -69,7 +72,8 @@ import { LoopImgComponent } from './loop-img/loop-img.component';
     BrowserModule,
     FormsModule,
     PersonalCenterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [GlobalPropertyService],
   bootstrap: [AppComponent]

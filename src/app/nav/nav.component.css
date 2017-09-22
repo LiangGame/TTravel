@@ -2,6 +2,11 @@
   width: 100%;
   float: left;
 }
+.down{
+  border: 1px solid rgba(202, 202, 202, 0.2);
+  margin-right: 50px;
+  padding-left: 20px;
+}
 .nav-rg{
   position: relative;
   margin-left: 260px;
