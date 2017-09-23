@@ -28,7 +28,7 @@
 <div class="middle">
   <div class="introduce">
     <p class="introduce_word">
-      {{scenics?.account}}
+      {{(scenics?.account).substring(0,200)+'...'}}
     </p>
   </div>
 
@@ -46,7 +46,7 @@
     </div>
   </div>
   <span class="middle_item">交通</span>
-  <p class="middle_inner">{{scenics?.traffic}}
+  <p class="middle_inner" [innerHTML]="scenics?.traffic">
     <!--到达西宫门：乘469、539路在颐和园西门站下；<br/>-->
     <!--到达北宫门：乘地铁4号线北宫门站D口出，或乘303、330、331、346、375、384、563、601、608、683、696、697、-->
     <!--718、特5、特10路在颐和园北宫门站下；<br/>-->
@@ -55,7 +55,7 @@
     <!--到达新建宫门：74、374、437、952路在颐和园新建宫门站下 。<br/>-->
   </p>
   <span class="middle_item">门票</span>
-  <p class="middle_inner">{{scenics?.ticket}}
+  <p class="middle_inner" [innerHTML]="scenics?.ticket">
     <!--淡季（11月1日至次年3月31日）：<br/>-->
     <!--公园门票20元/人，学生及老人等半价优惠10元/人，联票50元/人；<br/>-->
     <!--旺季（4月1日至10月31日）：<br/>-->
@@ -63,7 +63,7 @@
     <!--园中园需另购票：德和园5元/人，佛香阁10元/人，文昌院20元/人，苏州街澹宁堂10元/人；联票包括公园门票和园中园门票。<br/>-->
   </p>
   <span class="middle_item">开放时间</span>
-  <p class="middle_inner">{{scenics?.opentime}}
+  <p class="middle_inner" [innerHTML]="scenics?.opentime">
     <!--旺季 （4月1日至10月31日） ：<br/>-->
     <!--大门开放时间： 6:30 -&#45;&#45;18: 00<br/>-->
     <!--园中园开放时间： 8 :30-&#45;&#45;17 :00<br/>-->
