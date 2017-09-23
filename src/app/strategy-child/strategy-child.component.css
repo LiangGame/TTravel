@@ -73,8 +73,6 @@
   display: inline-block;
   width: 623px;
 
-
-
 }
 .name{
   font-weight: 600;
@@ -175,7 +173,7 @@ hr{
   border-radius: 5px;
   width: 688px;
 }
-
+/*电梯开始*/
 .siderbar{
   width: 370px;
   float: right;
@@ -243,6 +241,7 @@ hr{
   width: 270px;
   vertical-align: middle;
 }
+/*/*电梯结束*/
 .subtle{
   display: block;
   line-height: 30px;

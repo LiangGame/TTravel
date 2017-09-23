@@ -34,6 +34,10 @@ import {GlobalPropertyService} from './services/global-property.service';
 
 import { TravelAlbumComponent } from './travel-album/travel-album.component';
 import { LoopImgComponent } from './loop-img/loop-img.component';
+import { IndexScenicPipe } from './Pipes/index-scenic.pipe';
+import { ThemeStringPipe } from './Pipes/theme-string.pipe';
+import { IndexNotesPipe } from './Pipes/index-notes.pipe';
+import { TopicStringPipe } from './Pipes/topic-string.pipe';
 
 
 // import { RoutingDirective } from './Directives/routing.directive';
@@ -66,7 +70,11 @@ import { LoopImgComponent } from './loop-img/loop-img.component';
     EditorComponent,
     EqualValidator,
     LoopImgComponent,
-    CreateNotesComponent
+    CreateNotesComponent,
+    IndexScenicPipe,
+    ThemeStringPipe,
+    IndexNotesPipe,
+    TopicStringPipe
   ],
   imports: [
     BrowserModule,
