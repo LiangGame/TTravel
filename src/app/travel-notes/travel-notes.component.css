@@ -257,6 +257,7 @@ h3 {
   background: url("../../assets/images/goTop.png") no-repeat;
   background-position: 0;
   cursor: pointer;
+  display: none;
 }
 #to_top:hover {
   background-position: -28px 0;

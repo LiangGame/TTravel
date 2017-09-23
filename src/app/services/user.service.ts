@@ -1,17 +1,23 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
+import {URL} from '../config';
+import {URLS} from '../url.Data';
 @Injectable()
 export class UserService {
-  url:string='http://127.0.0.1:8889/users';
+  getUrl(): URL[] {
+    this.url = Promise.resolve(URLS).__zone_symbol__value[0].url;
+  }
+
+  url;
+  // url:string='http://127.0.0.1:8889/users';
   // url:string='http://10.40.4.21:8889/users';
 
-  constructor(
-    private http:HttpClient,
-  ) { }
+  constructor(private http: HttpClient,) {
+    this.getUrl();
+  }
 
-  addUser(user,callback) {
-    this.http.post(this.url+'/register',user).subscribe(
+  addUser(user, callback) {
+    this.http.post(this.url + '/users/register', user).subscribe(
       function (result) {
         callback(result);
       },
@@ -21,20 +27,8 @@ export class UserService {
     )
   }
 
-  getByPwd(user,callback) {
-    this.http.post(this.url + '/login', user ).subscribe(
-      function (result) {
-        callback(result);
-      },
-      function (error) {
-        console.log(error.message);
-      }
-    )
-  }
-
-
-  getUser(telephone,callback){
-    this.http.post(this.url+'/getUser',telephone).subscribe(
+  getByPwd(user, callback) {
+    this.http.post(this.url + '/users/login', user).subscribe(
       function (result) {
         callback(result);
       },
@@ -45,9 +39,21 @@ export class UserService {
   }
 
 
-  addUserIcon(IconFile,callback){
+  getUser(telephone, callback) {
+    this.http.post(this.url + '/users/getUser', telephone).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
+
+  addUserIcon(IconFile, callback) {
     console.log(IconFile);
-    this.http.post(this.url+'/upload',IconFile).subscribe(
+    this.http.post(this.url + '/users/upload', IconFile).subscribe(
       function (result) {
         callback(result);
       },
@@ -57,9 +63,9 @@ export class UserService {
     )
   }
 
-  updateUser(user,callback){
-    console.log(user+'---->>>user.service!!');
-    this.http.post(this.url+'/updateUser',user).subscribe(
+  updateUser(user, callback) {
+    console.log(user + '---->>>user.service!!');
+    this.http.post(this.url + '/users/updateUser', user).subscribe(
       function (result) {
         callback(result);
       },

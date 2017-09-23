@@ -13,78 +13,78 @@
   </div>
 </div>
 
-<div class="inner">
+<ul class="inner">
   <div class="inner_head"><h3>必游景点TOP5</h3></div>
-  <div class="inner_out">
+  <li class="inner_out" *ngFor="let item of data | searchScenic:searText;let index = index" (click)="details(item.id)">
     <div class="inner_left">
-      <h2><a href="#">1.故宫</a></h2><br/>
-      <p class="inner_left_word">中国乃至世界上保存最完整，规模最大的木质结构古建筑群，也是藏品超过百万件的世界级博物馆</p>
+      <h2><a>{{index + 1}}.{{item.title}}</a></h2><br/>
+      <p class="inner_left_word">{{item.info}}</p>
     </div>
     <div class="inner_right">
-      <a href="#">
-        <a href="#"><img src="../../assets/images/temporary/small/gg0.png"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/gg1.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/gg2.jpeg"></a>
+      <a>
+        <a><img src="../../assets/images/temporary/small/gg0.png"></a>
+        <a><img src="../../assets/images/temporary/small/gg1.jpeg"></a>
+        <a><img src="../../assets/images/temporary/small/gg2.jpeg"></a>
       </a>
     </div>
-  </div>
-  <hr/>
-  <div class="inner_out">
-    <div class="inner_left">
-      <h2><a href="#"> 2.颐和园</a></h2><br/>
-      <p class="inner_left_word">保存得最完整的皇家行宫御苑，被誉为“皇家园林博物馆”</p>
+  </li>
+  <!--  <hr/>
+    <div class="inner_out">
+      <div class="inner_left">
+        <h2><a href="#"> 2.颐和园</a></h2><br/>
+        <p class="inner_left_word">保存得最完整的皇家行宫御苑，被誉为“皇家园林博物馆”</p>
+      </div>
+      <div class="inner_right">
+        <a href="#">
+          <a href="#"><img src="../../assets/images/temporary/small/yhy0.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/yhy1.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/yhy2.jpeg"></a>
+        </a>
+      </div>
     </div>
-    <div class="inner_right">
-      <a href="#">
-        <a href="#"><img src="../../assets/images/temporary/small/yhy0.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/yhy1.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/yhy2.jpeg"></a>
-      </a>
+    <hr/>
+    <div class="inner_out">
+      <div class="inner_left">
+        <h2><a href="#">3.天安门广场</a></h2><br/>
+        <p class="inner_left_word">北京旅游的代表性景点之一，可以在这观看升降旗，广场上还有人民英雄纪念碑、毛主席纪念堂</p>
+      </div>
+      <div class="inner_right">
+        <a href="#">
+          <a href="#"><img src="../../assets/images/temporary/small/tam0.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/tam1.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/tam2.jpeg"></a>
+        </a>
+      </div>
     </div>
-  </div>
-  <hr/>
-  <div class="inner_out">
-    <div class="inner_left">
-      <h2><a href="#">3.天安门广场</a></h2><br/>
-      <p class="inner_left_word">北京旅游的代表性景点之一，可以在这观看升降旗，广场上还有人民英雄纪念碑、毛主席纪念堂</p>
+    <hr/>
+    <div class="inner_out">
+      <div class="inner_left">
+        <h2><a href="#">4.天坛</a></h2><br/>
+        <p class="inner_left_word">明清两代皇帝祭祀天地之神和祈祷五谷丰收的地方</p>
+      </div>
+      <div class="inner_right">
+        <a href="#">
+          <a href="#"><img src="../../assets/images/temporary/small/tt0.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/tt1.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/tt2.jpeg"></a>
+        </a>
+      </div>
     </div>
-    <div class="inner_right">
-      <a href="#">
-        <a href="#"><img src="../../assets/images/temporary/small/tam0.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/tam1.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/tam2.jpeg"></a>
-      </a>
-    </div>
-  </div>
-  <hr/>
-  <div class="inner_out">
-    <div class="inner_left">
-      <h2><a href="#">4.天坛</a></h2><br/>
-      <p class="inner_left_word">明清两代皇帝祭祀天地之神和祈祷五谷丰收的地方</p>
-    </div>
-    <div class="inner_right">
-      <a href="#">
-        <a href="#"><img src="../../assets/images/temporary/small/tt0.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/tt1.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/tt2.jpeg"></a>
-      </a>
-    </div>
-  </div>
-  <hr/>
-  <div class="inner_out">
-    <div class="inner_left">
-      <h2><a href="#">5.圆明园</a></h2><br/>
-      <p class="inner_left_word">清代皇家宫苑，曾经的万园之园，如今残垣断壁，诉说着过去难忘的历史”</p>
-    </div>
-    <div class="inner_right">
-      <a href="#">
-        <a href="#"><img src="../../assets/images/temporary/small/ymy0.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/ymy1.jpeg"></a>
-        <a href="#"><img src="../../assets/images/temporary/small/ymy2.jpeg"></a>
-      </a>
-    </div>
-  </div>
-</div>
+    <hr/>
+    <div class="inner_out">
+      <div class="inner_left">
+        <h2><a href="#">5.圆明园</a></h2><br/>
+        <p class="inner_left_word">清代皇家宫苑，曾经的万园之园，如今残垣断壁，诉说着过去难忘的历史”</p>
+      </div>
+      <div class="inner_right">
+        <a href="#">
+          <a href="#"><img src="../../assets/images/temporary/small/ymy0.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/ymy1.jpeg"></a>
+          <a href="#"><img src="../../assets/images/temporary/small/ymy2.jpeg"></a>
+        </a>
+      </div>
+    </div>-->
+</ul>
 
 
 <div class="hot_bg">
