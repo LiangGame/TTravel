@@ -20,12 +20,12 @@
         <li><a routerLink="travel-album">旅行相册</a></li>
         <!--<li><a routerLink="personal-center">个人中心</a></li>-->
       </ul>
-      <ul class="nav navbar-nav navbar-right" *ngIf="noLogin">
+      <ul class="nav navbar-nav navbar-right"  *ngIf="noLogin">
         <li><a routerLink="register">注册</a></li>
         <li><a routerLink="login">登录</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="isLogin">
-        <li data-toggle="dropdown"><a routerLink="personal-center">欢迎 : {{userName}}</a></li>
+        <li data-toggle="dropdown"><a routerLink="personal-center" >欢迎 : {{userName}}</a></li>
         <ul class="dropdown-menu down" aria-labelledby="dropdownMenu1">
           <li><a routerLink="personal-center">个人首页</a></li>
           <li><a routerLink="./WantToGo">我的想去</a></li>
