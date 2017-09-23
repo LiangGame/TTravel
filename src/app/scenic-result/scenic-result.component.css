@@ -57,7 +57,7 @@
 
 .middle{
   width: 1000px;
-  height: 800px;
+  /*height: 800px;*/
   margin: 5px auto;
   /*border: 1px solid firebrick;*/
 }
@@ -102,10 +102,13 @@
   /*border: 1px solid #801232;*/
 }
 .middle_item{
+  display: inline-block;
   font-size: 20px;
   line-height: 50px;
+  margin: 8px 0;
 }
 .middle_inner{
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 1.5em;
+  letter-spacing: 1px;
 }

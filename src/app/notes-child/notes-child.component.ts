@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var $: any; // 在angular中调用jQ前的万能语句
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {NotesService} from '../services/notes.service';
 
@@ -58,4 +59,3 @@ export class NotesChildComponent implements OnInit {
     });
   }
 }
-

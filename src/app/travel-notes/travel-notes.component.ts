@@ -44,6 +44,13 @@ export class TravelNotesComponent implements OnInit {
         $(window).scrollTop(height);
       }, 10);
     });
+   // // 加载更多
+   //  $('.load').click(function () {
+   //    $('.more').show();
+   //  }, function () {
+   //    $('.more').hide();
+   //  });
+
   }
 }
 

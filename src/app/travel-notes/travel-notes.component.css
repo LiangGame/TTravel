@@ -7,7 +7,7 @@
 /*}*/
 
 /*.img{*/
-  /*background:url("../../assets/images/background/lunbo03.jpeg")no-repeat;*/
+  /*background:url("../../assets/images/background/lunbo03.jpg")no-repeat;*/
   /*background-size: cover;*/
 /*}*/
 
@@ -56,7 +56,9 @@
 
 .title {
   font-size: 20px;
-  margin-top: 16px;
+  margin-top:12px;
+  margin-bottom: 6px;
+
 }
 
 /*.content{*/
@@ -111,8 +113,7 @@ h3 {
 }
 
 .media-heading {
-  padding-top: 20px;
-  padding-bottom: 15px;
+  padding: 8px 0;
 }
 
 .media-body {
@@ -166,9 +167,11 @@ h3 {
   line-height: 40px;
 
 }
-
+.other{
+  margin-top: 10px;
+}
 .content {
-  padding-top: 10px;
+  padding: 10px 0;
   color: #666;
 }
 
@@ -257,6 +260,7 @@ h3 {
   background: url("../../assets/images/goTop.png") no-repeat;
   background-position: 0;
   cursor: pointer;
+  display:none;
 }
 #to_top:hover {
   background-position: -28px 0;

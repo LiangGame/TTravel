@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class NotesService {
-  url: string = 'http://10.40.4.21:8889/index';
+  url: string = 'http://10.40.4.21:8889';
   constructor(private http: HttpClient,) { }
 
   getnotesItem(id,callback) {

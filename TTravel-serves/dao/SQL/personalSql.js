@@ -6,6 +6,6 @@ exports.sql={
   getcitys:'select * from address where provincename=?',
   gitcity:'select * from address where cityid = ?',
   // gitcityId:'select * from address where cityname = ?',
-  getNotes:'select * from travelNotes',
-  addNotes:'insert into user_travelnotes(title,content,user_id) values(?,?,?)'
+  getNotes:'select * from travelNotes WHERE telephone = ? ORDER BY id desc',
+  addNotes:'insert into user_travelnotes(title,content,pubtime,user_id) values(?,?,now(),?)'
 };
