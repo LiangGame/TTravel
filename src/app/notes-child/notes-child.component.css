@@ -211,7 +211,10 @@ hr{
   background: url("../../assets/images/goTop.png") no-repeat;
   background-position: 0;
   cursor: pointer;
+<<<<<<< HEAD
   display:none;
+=======
+>>>>>>> 828eebaa09cde592053f749a69c3a7e13c8b4c57
 }
 #to_top:hover {
   background-position: -28px 0;

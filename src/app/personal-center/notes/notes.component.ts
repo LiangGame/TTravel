@@ -16,6 +16,7 @@ export class NotesComponent implements OnInit {
   newNotes: any = [];
   _img: any = /<img\s+.*?>/;
   len: number = 0;
+  userId: any = {"userId":sessionStorage.getItem('userId')};
   pageIndex: number = 0;//当前页
   // recordSize: number;//数据总长度
   pageSize: number = 2;//每页显示内容数量
@@ -26,7 +27,7 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getNotes();
+    this.getNotes(this.userId);
     console.log(this.pageCount);
   }
 
@@ -36,9 +37,9 @@ export class NotesComponent implements OnInit {
   //   this.pageCount = Math.ceil(this.recordSize / this.pageSize);//总页数
   }
 
-  getNotes() {
+  getNotes(userId) {
     let that = this;
-    that.perSer.show_notes(function (result) {
+    that.perSer.show_notes(userId,function (result) {
       if (result) {
         // that.len = result.length;
         that.pageCount = Math.ceil(result.length / that.pageSize);//总页数

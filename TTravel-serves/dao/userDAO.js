@@ -78,20 +78,24 @@ exports.userDao={
     })
   },
   addUserIcon:function (telephone,iconName,callback) {
+    console.log(telephone);
+    console.log(iconName);
+    console.log('>>>>>>>>>>userDAO');
+
     pool.getConnection(function (error,client) {
       if(error){
         callback('e004');
         return;
       }
-      client.query(userSql.addUserIcon,[telephone,iconName],function (error,result) {
+      client.query(userSql.addUserIcon,[iconName,telephone],function (error,result) {
         if(error){
           console.log(error.message+' from getpasswordbyid');
           callback('e004');
           return;
         }
+        callback({"affectedRows":result.affectedRows,"icon":iconName});
 
-        callback(result[0][0].result);
-        // console.log(result[0][0].result);
+        // console.log({"affectedRows":result.affectedRows,"icon":iconName});
         client.release();
       })
     })

@@ -28,11 +28,11 @@
         <li data-toggle="dropdown"><a routerLink="personal-center" >欢迎 : {{userName}}</a></li>
         <ul class="dropdown-menu down" aria-labelledby="dropdownMenu1">
           <li><a routerLink="personal-center">个人首页</a></li>
-          <li><a routerLink="./WantToGo">我的想去</a></li>
-          <li><a routerLink="./footprint">我的足迹</a></li>
-          <li><a routerLink="./Notes">游记</a></li>
-          <li><a routerLink="./PhotoAlbum">照片</a></li>
-          <li><a routerLink="./Setting">设置</a></li>
+          <li><a routerLink="./personal-center/WantToGo">我的想去</a></li>
+          <li><a routerLink="./personal-center/footprint">我的足迹</a></li>
+          <li><a routerLink="./personal-center/Notes">游记</a></li>
+          <li><a routerLink="./personal-center/PhotoAlbum">照片</a></li>
+          <li><a routerLink="./personal-center/Setting">设置</a></li>
           <li role="separator" class="divider"></li>
           <li><a (click)="signOut()">退出</a></li>
         </ul>
