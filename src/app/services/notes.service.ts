@@ -1,18 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {GlobalPropertyService} from './global-property.service'
+
 
 @Injectable()
-export class IndexService {
-  url:string;
+export class NotesService {
+  url: string = 'http://127.0.0.1:8889';
+  // url: string = 'http://10.40.4.21:8889';
 
-  constructor(private http: HttpClient,
-              private glo: GlobalPropertyService) {
-    this.url = glo.serverUrl;
+  constructor(private http: HttpClient) {
   }
 
-
-  show_notes(callback) {
+  getNotes(callback){
     this.http.post(this.url + '/index/getNotes', '').subscribe(
       function (result) {
         callback(result);
@@ -20,19 +18,17 @@ export class IndexService {
       function (error) {
         console.log(error.message);
       }
-    );
-  };
+    )
+  }
 
-  show_scenic(callback) {
-    this.http.post(this.url + '/index/getScenic', '').subscribe(
+  getnotesItem(id, callback) {
+    this.http.post(this.url + '/index/notesDetails', id).subscribe(
       function (result) {
         callback(result);
       },
       function (error) {
         console.log(error.message);
       }
-    );
+    )
   }
-
 }
-

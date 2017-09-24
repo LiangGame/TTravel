@@ -5,6 +5,7 @@ var jwt=require('jwt-simple');
 var util=require('../utils/util');
 exports.checkToken=function (req,res,next) {
   var token=req.header('token') || req.query.token || req.body.token;
+  console.log(token);
   try {
     var decoded = jwt.decode(token, util.secret);
 
@@ -14,7 +15,7 @@ exports.checkToken=function (req,res,next) {
       res.json({stateCode:2});
     }
   }catch (e){
-    // console.log('HERE');
+    console.log('HERE');
     res.json({stateCode:2});
   }
 }

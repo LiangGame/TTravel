@@ -73,7 +73,7 @@
 /*============*/
 .bg{
   position: relative;
-  z-index: -1;
+  z-index: -2;
 }
 .head{
   height: 125px;
@@ -179,8 +179,11 @@
 
 
 .container-main{
-  margin-left: 243px;
-  margin-top: 30px;
+  padding: 25px 90px;
+  font-size: 14px;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  text-indent: 2em;
 }
 h3{
    margin-top: 25px;
@@ -204,7 +207,8 @@ hr{
 /*返回顶部*/
 #to_top {
   position: fixed;
-  right: 50px;
+  left: 50%;
+  margin-left: 600px;
   bottom: 130px;
   width: 30px;
   height: 64px;

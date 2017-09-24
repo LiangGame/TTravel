@@ -55,7 +55,7 @@ exports.perDao={
       })
     })
   },
-
+// 获取用户发表的游记
   getNotes:function (id,callback) {
     pool.getConnection(function (error,client) {
       if(error){
@@ -81,7 +81,7 @@ exports.perDao={
         return
       }
       console.log('>>>>>>>>>>>>>>>>addNotes>>>>>>>>personalDAO');
-      client.query(personalSql.addNotes,[body.title,body.content,1],function (error, result) {
+      client.query(personalSql.addNotes,[body.title,body.content,body.id],function (error, result) {
         if (error) {
           console.log(error.message + ' from addNotes');
           callback('e004');

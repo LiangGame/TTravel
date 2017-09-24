@@ -1,19 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {URL} from '../config';
-import {URLS} from '../url.Data';
+import {GlobalPropertyService} from './global-property.service'
+
 @Injectable()
 export class TravelAlbumService {
-  getUrl(): URL[] {
-    this.url = Promise.resolve(URLS).__zone_symbol__value[0].url;
-  }
-
-  url;
+  url:string;
   // url:string='http://127.0.0.1:8889/personal-center';
   // url: string = 'http://10.40.4.21:8889/index';
 
-  constructor(private http: HttpClient,) {
-    this.getUrl();
+  constructor(private http: HttpClient,
+              private glo: GlobalPropertyService) {
+    this.url = glo.serverUrl;
   }
 
 

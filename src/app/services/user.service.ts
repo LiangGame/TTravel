@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {URL} from '../config';
-import {URLS} from '../url.Data';
+import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {GlobalPropertyService} from './global-property.service';
+import {LocalStorage} from './local-storage.service';
+// import {headersToString} from "selenium-webdriver/http";
 @Injectable()
 export class UserService {
-  getUrl(): URL[] {
-    this.url = Promise.resolve(URLS).__zone_symbol__value[0].url;
-  }
-
-  url;
+  url: string;
   // url:string='http://127.0.0.1:8889/users';
   // url:string='http://10.40.4.21:8889/users';
 
-  constructor(private http: HttpClient,) {
-    this.getUrl();
+  constructor(private http: HttpClient,
+              private glo: GlobalPropertyService,
+              private ls:LocalStorage) {
+    this.url = glo.serverUrl
+    console.log(this.url);
   }
 
   addUser(user, callback) {
@@ -39,23 +39,11 @@ export class UserService {
   }
 
 
-  getUser(telephone, callback) {
-    this.http.post(this.url + '/users/getUser', telephone).subscribe(
+  getUserIcon(telephone, callback) {
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+    this.http.post(this.url + '/users/getUserIcon', telephone,{headers:_head}).subscribe(
       function (result) {
-        callback(result);
-      },
-      function (error) {
-        console.log(error.message);
-      }
-    )
-  }
-
-
-  addUserIcon(IconFile, callback) {
-    console.log(IconFile);
-    this.http.post(this.url + '/users/upload', IconFile).subscribe(
-      function (result) {
-        callback(result);
+        callback(result)
       },
       function (error) {
         console.log(error.message);
@@ -64,8 +52,9 @@ export class UserService {
   }
 
   updateUser(user, callback) {
+    let _head = new HttpHeaders({token:this.ls.get('token')});
     console.log(user + '---->>>user.service!!');
-    this.http.post(this.url + '/users/updateUser', user).subscribe(
+    this.http.post(this.url + '/users/updateUser', user,{headers:_head}).subscribe(
       function (result) {
         callback(result);
       },

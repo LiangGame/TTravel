@@ -15,7 +15,8 @@
 /*右侧栏固定滚动*/
 .about_fix{
   position: fixed !important;
-  left:907px;
+  left: 50%;
+  margin-left: 195px;
   max-width: 370px;
   top: 0;
 }
@@ -255,9 +256,9 @@ hr{
 /*返回顶部*/
 #to_top {
   position: fixed;
-  right: 50px;
+  left: 50%;
+  margin-left: 600px;
   bottom: 130px;
-  width: 30px;
   height: 64px;
   background: url("../../assets/images/goTop.png") no-repeat;
   background-position: 0;

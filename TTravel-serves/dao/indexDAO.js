@@ -39,5 +39,24 @@ exports.indexDao={
         client.release();
       })
     })
+  },
+  getNoteItem: function (id, callback) {
+    if (id) {
+      pool.getConnection(function (error, client) {
+        if (error) {
+          return
+        }
+        client.query(indexSql.getNoteItem,[id],function (error, result) {
+          if (error) {
+            console.log(error.message + ' from getScenicItem');
+            callback('e004');
+            return;
+          }
+          callback(result);
+          console.log(result);
+          client.release();
+        })
+      })
+    }
   }
 }

@@ -121,6 +121,10 @@ h3 {
   padding-top: 10px;
   margin-bottom: 16px;
   color: #666;
+  letter-spacing: 1px;
+  text-indent: 2em;
+  line-height: 1.5em;
+  font-size: 16px;
 }
 
 .item {
@@ -181,8 +185,8 @@ h3 {
 /*右侧栏固定滚动*/
 .about_fix{
   position: fixed;
-  left:91%;
-  margin-left: -290px;
+  left: 50%;
+  margin-left: 293px;
   max-width: 293px;
   top: 0;
 }
@@ -252,7 +256,8 @@ h3 {
 /*返回顶部*/
 #to_top {
   position: fixed;
-  right: 50px;
+  left: 50%;
+  margin-left: 600px;
   bottom: 130px;
   width: 30px;
   height: 64px;

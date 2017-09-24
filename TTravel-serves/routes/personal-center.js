@@ -36,7 +36,7 @@ router.post('/citys', function(req, res, next) {
   });
 });
 
-router.post('/notes',function (req,res,next) {
+router.post('/notes',ct.checkToken,function (req,res,next) {
   var notesBody = req.body;
   if(notesBody){
     personaldao.getNotes(notesBody,function (result) {
@@ -48,10 +48,10 @@ router.post('/notes',function (req,res,next) {
   }
 });
 
-router.post('/addNotes',function (req,res,next) {
+router.post('/addNotes',ct.checkToken,function (req,res,next) {
   var notesBody = req.body;
-  // console.log(notesBody);
-  // console.log('>>>>>>>>>>>>>>>>addNotes');
+  console.log(notesBody);
+  console.log('>>>>>>>>>>>>>>>>addNotes');
     personaldao.addNotes(notesBody,function (result) {
       if(result){
         if(result==1  ){

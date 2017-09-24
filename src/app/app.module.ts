@@ -37,7 +37,7 @@ import {PersonalCenterModule} from './personal-center/personal-center.module';
 // 导入服务
 import {GlobalPropertyService} from './services/global-property.service';
 import {ScenicService} from './services/scenic.service';
-
+import {LocalStorage} from './services/local-storage.service';
 // 管道
 import {SearchScenicPipe} from './pipes/search-scenic.pipe';
 
@@ -82,8 +82,10 @@ import {SearchScenicPipe} from './pipes/search-scenic.pipe';
     Ng2PaginationModule,
     HttpClientModule
   ],
-  providers: [GlobalPropertyService,
-    ScenicService],
+  providers: [
+    GlobalPropertyService,
+    ScenicService,
+    LocalStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule {

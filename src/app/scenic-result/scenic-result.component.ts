@@ -11,6 +11,7 @@ import {ActivatedRoute, Router, Params} from '@angular/router';
 })
 export class ScenicResultComponent implements OnInit {
   scenics:any;
+  images: any;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private secninSer:ScenicService
@@ -25,7 +26,7 @@ export class ScenicResultComponent implements OnInit {
 
   get_scenic(){
     this.route.params.subscribe((params: Params) => {
-      let id = this.route.queryParams.value['key'];
+      let id = (<Params>this.route.queryParams).value['key'];
       if (id) {
         let that = this;
         id = {"id":id};
@@ -34,7 +35,7 @@ export class ScenicResultComponent implements OnInit {
           // console.log('>>>>>>>>>');
           if(result){
             that.scenics = result[0];
-            console.log(result[0]);
+            that.images = result[0].url.split(',');
           }
         })
       }
@@ -42,3 +43,4 @@ export class ScenicResultComponent implements OnInit {
   }
 
 }
+1

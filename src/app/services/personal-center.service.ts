@@ -1,23 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {URL} from '../config';
-import {URLS} from '../url.Data';
+import {LocalStorage} from './local-storage.service';
+
 // declare var $:any;
 import {GlobalPropertyService} from './global-property.service';
 
 @Injectable()
 export class PersonalCenterService {
-  getUrl(): URL[] {
-    this.url = Promise.resolve(URLS).__zone_symbol__value[0].url;
-  }
-
-  url;
+  url:string;
   // url:string='http://127.0.0.1:8889/personal-center';
   // url: string = 'http://10.40.4.21:8889/personal-center';
 
   constructor(private http: HttpClient,
+              private ls:LocalStorage,
               private glo: GlobalPropertyService) {
-    this.getUrl();
+      this.url = glo.serverUrl;
   }
 
   show_province(callback) {
@@ -57,9 +54,11 @@ export class PersonalCenterService {
   }
 
   show_notes(userId, callback) {
-    this.http.post(this.url + '/personal-center/notes', userId).subscribe(
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+
+    this.http.post(this.url + '/personal-center/notes', userId,{headers:_head}).subscribe(
       function (result) {
-        console.log(result);
+        // console.log(result);
         callback(result);
       },
       function (error) {
@@ -69,8 +68,10 @@ export class PersonalCenterService {
   }
 
   addNotes(body, callback) {
-    body.title = body.title.notesTitle
-    this.http.post(this.url + '/personal-center/addNotes', body).subscribe(
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+
+    body.title = body.title.notesTitle;
+    this.http.post(this.url + '/personal-center/addNotes', body,{headers:_head}).subscribe(
       function (result) {
         callback(result);
       },
@@ -80,13 +81,5 @@ export class PersonalCenterService {
     )
   }
 
-  // uploadIcon(files, callback) {
-  //   let headers = new Headers({
-  //     "Accept": "application/json"
-  //   });
-  //   let options = new RequestOptions({headers});
-  //   this.http.post(this.url+'/upload', files, options).map(res => res.json()).catch(error => Observable.throw(error)).subscribe(data => console.log('success' + data),
-  //     error => console.log(error))
-  // }
 }
 

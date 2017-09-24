@@ -1,15 +1,25 @@
 import {Component, OnInit} from '@angular/core';
+import {NotesService} from '../services/notes.service';
+import {ActivatedRoute, Router, Params} from '@angular/router';
 
 declare var $: any; // 在angular中调用jQ前的万能语句
 
 @Component({
   selector: 'app-travel-notes',
   templateUrl: './travel-notes.component.html',
-  styleUrls: ['./travel-notes.component.css']
+  styleUrls: ['./travel-notes.component.css'],
+  providers: [NotesService]
+
 })
 
 export class TravelNotesComponent implements OnInit {
-  constructor() {
+  notes: any;
+  reg: any = /<[^>]+>/g;
+
+
+  constructor(private noteSer: NotesService,
+              private router: Router,) {
+    this.getNotes();
   }
 
   ngOnInit() {
@@ -17,7 +27,7 @@ export class TravelNotesComponent implements OnInit {
     // 右侧栏滚动到高度> 475位置时，固定不动（'about_fix'是单独在css中设置的固定时的样式）
     $(window).scroll(function () {
       if ($(window).scrollTop() > 475 && $(window).scrollTop() < 1900) {
-        console.log($(window).scrollTop());
+        // console.log($(window).scrollTop());
         $('.about').addClass('about_fix');
       } else {
         $('.about').removeClass('about_fix');
@@ -26,7 +36,7 @@ export class TravelNotesComponent implements OnInit {
     /*返回顶部*/
     $(window).scroll(function () {
       let height = $(window).scrollTop();
-      console.log(height);
+      // console.log(height);
       if (height > 475) {
         $('#to_top').show();
       } else if (height <= 475) {
@@ -44,13 +54,36 @@ export class TravelNotesComponent implements OnInit {
         $(window).scrollTop(height);
       }, 10);
     });
-   // // 加载更多
-   //  $('.load').click(function () {
-   //    $('.more').show();
-   //  }, function () {
-   //    $('.more').hide();
-   //  });
+    // // 加载更多
+    //  $('.load').click(function () {
+    //    $('.more').show();
+    //  }, function () {
+    //    $('.more').hide();
+    //  });
 
   }
+
+  getNotes() {
+    let that = this;
+    that.noteSer.getNotes(function (result) {
+      if (result) {
+        let reg = that.reg;
+        for (let i = 0; i < result.length; i++) {
+          result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
+          // console.log(((that.notes[0].content).replace(reg)));
+        }
+        that.notes = result;
+      } else {
+        console.log('here');
+      }
+    });
+  }
+
+  noteItem(noteId) {
+    if (noteId) {
+      this.router.navigate(['/noteschild'], {queryParams: {'key': noteId}});
+    }
+  }
+
 }
 

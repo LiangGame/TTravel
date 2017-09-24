@@ -17,7 +17,7 @@
         <h4>{{notes?.title}}</h4>
         <time class="pull-right">{{notes?.pubtime.split('T')[0]}}</time>
       </div>
-      <div class="middle" [innerHTML]="(notes?.content).substring(0,200)+'...'">
+      <div class="middle" [innerHTML]="(notes?.content).substring(0,150)+'...'">
 
       </div>
       <div class="bottom">

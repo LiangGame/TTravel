@@ -27,5 +27,17 @@ router.post('/getScenic',function (req,res,next) {
     }
     // console.log(result);
   });
+});
+router.post('/notesDetails',function (req,res,next) {
+  var notesId = req.body.id;
+  console.log(notesId);
+  if(notesId){
+    indexdao.getNoteItem(notesId,function (result) {
+      if(result){
+        // console.log(result);
+        res.json(result);
+      }
+    })
+  }
 })
 module.exports = router;

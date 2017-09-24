@@ -6,6 +6,11 @@ var fs=require('fs');
 var userdao = require('./../dao/userDAO').userDao;
 var util = require('./../utils/util');
 
+//产生令牌
+var jwt=require('jwt-simple');
+var moment = require('moment');
+var ct = require('./../utils/checkToken');
+
 var router = express.Router();
 var AVATAR_UPLOAD_FOLDER='/uploads/';
 router.get('/login', function (req, res, next) {
@@ -35,7 +40,12 @@ router.post('/login', function (req, res, next) {
             userdao.createToken(user.telephone, _token, function (result) {
               // console.log(result[0].userName);
               if (result.affectedRows == 1) {
-                res.json({"stateCode": 1, "token": _token,"userName":userName});
+                var expires = moment().add(7,'days').valueOf();
+                var token = jwt.encode({
+                  iss:user.telephone,
+                  exp:expires
+                },util.secret);
+                res.json({"stateCode": 1, "_token": _token,"userName":userName,token:token});
               }
             });
           } else {
@@ -47,6 +57,7 @@ router.post('/login', function (req, res, next) {
   }
 });
 router.post('/upload', function (request, response, next) {
+  console.log('here');
   var form = new formidable.IncomingForm();   //创建上传表单
   form.encoding = 'utf-8';
   form.parse(request, function (err, fields, files) {
@@ -158,7 +169,7 @@ router.post('/register', function (req, res, next) {
   // })
 });
 
-router.post('/getUser', function (req, res, next) {
+router.post('/getUserIcon',ct.checkToken,function (req, res, next) {
   var user_telephone=req.body.telephone;
   if(user_telephone){
     userdao.getUser(user_telephone,function (result) {
@@ -173,7 +184,7 @@ router.post('/getUser', function (req, res, next) {
   }
 });
 
-router.post('/updateUser',function (req,res,next) {
+router.post('/updateUser',ct.checkToken,function (req,res,next) {
   var user = req.body;
   console.log(user);
   if(user) {

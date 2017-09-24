@@ -27,12 +27,12 @@ export class CreateNotesComponent implements OnInit {
       that.title = notes.form.value;
       that.publishTopic(notes.form.value.notesTitle);
     }
-  }
+  };
 
   publishTopic(title) {
     let content = this.editor.clickHandle();
     console.log(content);
-    let topicContent = {"content": this.editor.clickHandle(), "title": this.title};
+    let topicContent = {"content": this.editor.clickHandle(), "title": this.title,"id":sessionStorage.getItem('user_id')};
     // console.log(topicContent);
     if (content=="<p><br></p>") {
       alert('请输入内容！');
@@ -47,6 +47,10 @@ export class CreateNotesComponent implements OnInit {
           that.editor.clear();
           alert('发布成功');
         } else if(result.stateCode === '002'){
+          that.title = title;
+          alert('发布失败');
+        }else {
+          that.title = title;
           alert('发布失败');
         }
       }
