@@ -11,7 +11,6 @@ import {ScenicService} from './../services/scenic.service';
 
 })
 export class ScenicSearchComponent implements OnInit {
-  // result: Array<Object>;
   private data:any;
   private key:any;
   private cityName:any;
@@ -49,6 +48,6 @@ export class ScenicSearchComponent implements OnInit {
     if(deta){
       this.router.navigate(['/scenic-result'],{queryParams:{'key':deta}});
     }
-  }
+  };
 
 }

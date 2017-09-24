@@ -43,4 +43,3 @@ export class ScenicResultComponent implements OnInit {
   }
 
 }
-1

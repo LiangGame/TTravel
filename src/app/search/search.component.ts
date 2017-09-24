@@ -5,7 +5,7 @@ declare var $: any; // 在angular中调用jQ前的万能语句
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
 

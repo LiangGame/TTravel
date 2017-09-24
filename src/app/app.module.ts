@@ -6,22 +6,22 @@ import{CommonModule} from '@angular/common';
 import {FileUploadModule} from 'ng2-file-upload';
 import {Ng2PaginationModule} from "ng2-pagination"
 
-import {AppComponent} from './root/app.component';
-import {IndexComponent} from './index/index.component';
-import {HttpClientModule} from '@angular/common/http';
+import { AppComponent } from './root/app.component';
+import { IndexComponent } from './index/index.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // import { PersonalCenterComponent } from './personal-center/personal-center.component';
-import {ScenicComponent} from './scenic/scenic.component';
-import {TravelNotesComponent} from './travel-notes/travel-notes.component';
-import {TravelStrategyComponent} from './travel-strategy/travel-strategy.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import {SearchComponent} from './search/search.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {NavComponent} from './nav/nav.component';
-import {FooterComponent} from './footer/footer.component';
-import {ScenicSearchComponent} from './scenic-search/scenic-search.component';
-import {ScenicResultComponent} from './scenic-result/scenic-result.component';
+import { ScenicComponent } from './scenic/scenic.component';
+import { TravelNotesComponent } from './travel-notes/travel-notes.component';
+import { TravelStrategyComponent } from './travel-strategy/travel-strategy.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { SearchComponent } from './search/search.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
+import { ScenicSearchComponent } from './scenic-search/scenic-search.component';
+import { ScenicResultComponent } from './scenic-result/scenic-result.component';
 import {CreateNotesComponent} from './create-notes/create-notes.component';
 import {EditorComponent} from './editor/editor.component';
 import {TravelAlbumComponent} from './travel-album/travel-album.component';
@@ -40,9 +40,17 @@ import {ScenicService} from './services/scenic.service';
 import {LocalStorage} from './services/local-storage.service';
 // 管道
 import {SearchScenicPipe} from './pipes/search-scenic.pipe';
+import { IndexScenicPipe } from './Pipes/index-scenic.pipe';
+import { ThemeStringPipe } from './Pipes/theme-string.pipe';
+import { IndexNotesPipe } from './Pipes/index-notes.pipe';
+import { TopicStringPipe } from './Pipes/topic-string.pipe';
+
+
+// import { RoutingDirective } from './Directives/routing.directive';
 
 // 导入指令
 // import { RoutingDirective } from './../Directives/routing.directive';
+
 
 
 @NgModule({
@@ -70,7 +78,11 @@ import {SearchScenicPipe} from './pipes/search-scenic.pipe';
     LoopImgComponent,
     CreateNotesComponent,
     SearchScenicPipe,
-    PageComponent
+    PageComponent,
+    IndexScenicPipe,
+    ThemeStringPipe,
+    IndexNotesPipe,
+    TopicStringPipe
   ],
   imports: [
     BrowserModule,
