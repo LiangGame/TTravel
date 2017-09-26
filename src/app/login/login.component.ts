@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ispassempty = true;
   ispassformat = true;
 
+
   constructor(private  userSer: UserService,
               private  localStorage:LocalStorage,
               private router: Router) {
@@ -27,7 +28,6 @@ export class LoginComponent implements OnInit {
     {
       height = document.documentElement.clientHeight;
     }
-    height -= 112;
     document.querySelector('.login-bgimg').setAttribute('style','height:' + height + 'px');
   }
   ontel( value: string ): void {
@@ -59,12 +59,12 @@ export class LoginComponent implements OnInit {
   toLogin(login_form) {
     // console.log(login_form.form.value.telephone);
     let that = this;
-    that.userSer.getByPwd(login_form.form.value, function (result) {
+    that.userSer.getByPwd(login_form.value, function (result) {
       if (result.stateCode == '1') {
         // 存储token到本地
         that.localStorage.set('token',result.token);
         sessionStorage.setItem('userName', result.userName);
-        sessionStorage.setItem('userId', login_form.form.value.telephone);
+        sessionStorage.setItem('userId', login_form.value.telephone);
         that.router.navigate(['/index']);
       } else {
         that.login_res = '用户名或密码错误';

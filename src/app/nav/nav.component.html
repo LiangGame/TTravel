@@ -29,12 +29,12 @@
       <ul class="nav navbar-nav navbar-right" *ngIf="isLogin">
         <li data-toggle="dropdown"><a >欢迎 : {{userName}}</a></li>
         <ul class="dropdown-menu down" aria-labelledby="dropdownMenu1">
-          <li><a routerLink="personal-center">个人首页</a></li>
-          <li><a routerLink="./personal-center/WantToGo">我的想去</a></li>
-          <li><a routerLink="./personal-center/footprint">我的足迹</a></li>
-          <li><a routerLink="./personal-center/Notes">游记</a></li>
-          <li><a routerLink="./personal-center/PhotoAlbum">照片</a></li>
-          <li><a routerLink="./personal-center/Setting">设置</a></li>
+          <li><a routerLink="personal-center"><span class="fa fa-home fa-lg" aria-hidden="true"> </span>    个人首页</a></li>
+          <li><a routerLink="./personal-center/WantToGo"><span class="fa fa-heart fa-lg" aria-hidden="true"> </span>    我的想去</a></li>
+          <li><a routerLink="./personal-center/footprint"><span class="fa fa-paw fa-lg" aria-hidden="true"> </span>    我的足迹</a></li>
+          <li><a routerLink="./personal-center/Notes"><span class="fa fa-book fa-lg" aria-hidden="true"> </span>    游记</a></li>
+          <li><a routerLink="./personal-center/PhotoAlbum"><span class="fa fa-camera-retro fa-lg" aria-hidden="true"> </span>    照片</a></li>
+          <li><a routerLink="./personal-center/Setting"><span class="fa fa-cog fa-lg" aria-hidden="true"> </span>     设置</a></li>
           <li role="separator" class="divider"></li>
           <li><a (click)="signOut()">退出</a></li>
         </ul>

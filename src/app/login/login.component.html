@@ -13,7 +13,7 @@
                 {{login_res}}
               </div>
               <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                <input type="text" (keyup.enter)="ontel(tel.value)"
+                <input type="text" autofocus tabindex="1" (keyup.enter)="ontel(tel.value)"
                        (blur)="ontel(tel.value)" class="form-control" #tel="ngModel" pattern="^1[34578]\d{9}$"
                        [(ngModel)]="_telephone"
                        id="telephone" name="telephone" placeholder="您的手机号" required>
@@ -30,7 +30,7 @@
                 </small>
               </div>
               <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-                <input type="password" (keyup.enter)="onpass(pass.value,loginForm)"
+                <input type="password" tabindex="2" (keyup.enter)="onpass(pass.value,loginForm)"
                        (blur)="onpass(pass.value)" class="form-control" #pass="ngModel" minlength="6" [(ngModel)]="_password"
                        id="password" name="password" placeholder="您的密码" required>
               </div>
