@@ -40,9 +40,7 @@ import {ScenicService} from './services/scenic.service';
 import {LocalStorage} from './services/local-storage.service';
 // 管道
 import {SearchScenicPipe} from './pipes/search-scenic.pipe';
-import { IndexScenicPipe } from './Pipes/index-scenic.pipe';
 import { ThemeStringPipe } from './Pipes/theme-string.pipe';
-import { IndexNotesPipe } from './Pipes/index-notes.pipe';
 import { TopicStringPipe } from './Pipes/topic-string.pipe';
 
 
@@ -79,9 +77,7 @@ import { TopicStringPipe } from './Pipes/topic-string.pipe';
     CreateNotesComponent,
     SearchScenicPipe,
     PageComponent,
-    IndexScenicPipe,
     ThemeStringPipe,
-    IndexNotesPipe,
     TopicStringPipe
   ],
   imports: [

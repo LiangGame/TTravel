@@ -66,5 +66,7 @@ li a:visited{
 .navbar {
   margin-bottom: 0;
 }
-
+.span_1{
+  margin-left: -5px;
+}
 
