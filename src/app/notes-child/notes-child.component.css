@@ -299,6 +299,13 @@ hr{
 .container-comment{
   position:relative;
 }
+.user{
+  height: 48px;
+  line-height: 48px;
+  background-color: #f6f6f6;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
 .user .name {
   color: #ff8a00;
   margin-right: 10px;
@@ -310,15 +317,35 @@ hr{
 }
 .item-info {
   width: 700px;
-  height: 48px;
-  line-height: 48px;
-  background-color: #f6f6f6;
+  margin-bottom: 25px;
+  padding-bottom: 8px;
   border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
-  margin-bottom: 70px;
+  background: #fefefe;
+  border-bottom: solid 1px #f6f6f6;
 }
 .con-wrap {
   padding-left: 68px;
   margin-top: 12px;
   position: relative;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  text-indent: 2em;
+}
+.commentBottom {
+  margin-left: 63px;
+  margin-top: 15px;
+  font-size: 12px;
+  padding-right: 15px;
+  color: #666666;
+}
+.delete{
+  color: #00B7FF;
+  display: none;
+}
+.delete:hover{
+  color: #ff9d00;
+}
+.item-info:hover span{
+  display: block;
+  cursor: pointer;
 }

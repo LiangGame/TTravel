@@ -28,19 +28,19 @@
   <h1 class="h11">热门游记</h1>
   <ul>
     <ng-container *ngFor="let topic of _notes">
-    <li (click)="detail_2(topic.id)">
+    <li (click)="detail_2(topic?.id)">
         <div class="item">
           <div class="big">
             <img class="img" src="../../assets/images/XinJiang/XJ_DanXiaDiMan.jpeg" alt="">
           </div>
           <div class="info">
       <span class="s1">
-        <img class="lazy" src="../../assets/user-img/user-icon.png" alt="">
+        <img class="lazy" src="http://10.40.4.21:8889/uploads/{{topic?.icon}}" alt="{{topic?.userName}}">
       </span>
             <div>
-              <span><a href="#">{{topic.userName}}</a></span>
+              <span><a href="#">{{topic?.userName}}</a></span>
             </div>
-            <p class="p1">{{topic.title | topicString}}</p>
+            <p class="p1">{{topic?.title | topicString}}</p>
           </div>
         </div>
     </li>

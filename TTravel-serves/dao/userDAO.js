@@ -268,5 +268,25 @@ exports.userDao={
         })
       })
     }
+  },
+  deleteNotesComment:function (commentId,callback) {
+    if(commentId){
+      pool.getConnection(function (error,client) {
+        if(error){
+          return;
+        }
+        client.query(userSql.deleteNotesComment,[commentId],function (error,result) {
+          if(error){
+            console.log(error.message+' from deleteNotesComment');
+            callback('e004');// 数据库错误
+            return;
+          }
+          // console.log(result);
+          // console.log('....>>>>deleteNotesComment');
+          callback(result);
+          client.release();
+        })
+      })
+    }
   }
 }
