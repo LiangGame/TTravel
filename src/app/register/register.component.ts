@@ -39,9 +39,6 @@ export class RegisterComponent implements OnInit {
   valid( value: string,myform ): void {
     this.IsSubmit[4] = false;
     let that = this;
-
-    // console.log('aaaaa');
-    // console.log(this.inv);
     if ( value == '' || value == null) {
       that.iscodeempty = false;
       that.iscodeformat = true;
@@ -61,8 +58,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
     $.idcode.setCode();
 
     $("#Txtidcode").keydown(function (e) {
