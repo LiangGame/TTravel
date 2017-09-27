@@ -1,5 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {check} from "@angular/tsc-wrapped/src/tsc";
 
 declare var $: any; // 在angular中调用jQ前的万能语句
 @Component({
@@ -8,12 +9,24 @@ declare var $: any; // 在angular中调用jQ前的万能语句
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  _check: boolean = false;
+  nav:string;
+  _checked: string = '';
+  checkNav: any = ['目的地', '游记', '攻略'];
 
-  constructor(
-    private router: Router
-  ) { }
+
+  constructor(private router: Router) {
+    $(function () {
+      $('label').click(function () {
+        var radioId = $(this).attr('name');
+        $('label').removeAttr('class') && $(this).attr('class', 'checked');
+        $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
+      });
+    });
+  }
 
   ngOnInit() {
+
     $('#travel_search').focus(function () {
       $('#search_key').show();
     });
@@ -22,14 +35,21 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  btnSearch(text){
-    // text={"cityName":text};
-    // console.log(text);
-    // let that = this;
-    if(text){
-      console.log(text);
-      // that.router.navigate(['/scenic_search'],{queryParams:{'key':text}});
-      this.router.navigate(['/scenic_search'],{queryParams:{'key':text}});
+  ngAfterViewInit(){
+    // $('.nav0').attr('class', 'checked');
+    // this._checked = "checked";
+  }
+
+  btnSearch(nav) {
+    console.log(nav.value);
+    let navItem = nav.value.nav;
+    let searchText = nav.value.searchText;
+    if (navItem == 0) {
+      this.router.navigate(['/scenic_search'], {queryParams: {'key': searchText}});
+    } else if (navItem == 1) {
+      this.router.navigate(['/travels'], {queryParams: {'key': searchText}});
+    } else if (navItem == 2) {
+      this.router.navigate(['/strategy'], {queryParams: {'key': searchText}});
     }
   }
 }

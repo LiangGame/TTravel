@@ -13,4 +13,20 @@ ul{
 a:link,a:hover,a:active,a:visited{
   text-decoration: none;
 }
-
+#userImg img,.photo-img>img{
+  width: 190px;
+  height: 180px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin: 15px 8px;
+}
+.z_file{
+  margin-top: 15px;
+}
+#commentIcon>img{
+  width: 48px;
+  height: 48px;
+}

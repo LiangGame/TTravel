@@ -101,9 +101,9 @@ h3 {
 }
 
 .num {
+  display: inline-block;
   color: #FF9D00;
   padding-right: 5px;
-
 }
 
 .icon-hand {
@@ -271,4 +271,7 @@ h3 {
   background-position: -28px 0;
 }
 
+
+
+/*==============================*/
 

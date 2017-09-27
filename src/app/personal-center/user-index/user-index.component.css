@@ -71,7 +71,14 @@
 .photo-img>img{
   /*text-align: center;*/
   /*width: 110px;*/
-  height: 120px;
+  /*height: 120px;*/
+}
+.more{
+  color: #00B7FF;
+}
+.more:hover{
+  color: #ff9d00;
+  cursor: pointer;
 }
 /*.photo-img{*/
   /*!*height: 150px;*!*/
@@ -96,8 +103,8 @@
 #message-board .board-icon{
   width: 90px;
   height: 90px;
-  background: url("../../../assets/images/temporary/small/gg0.png") no-repeat;
-  background-position: center;
+  /*background: url("../../../assets/images/temporary/small/gg0.png") no-repeat;*/
+  /*background-position: center;*/
   background-size: contain;
   border-radius: 50%;
   position: relative;
@@ -105,6 +112,7 @@
   margin-top: -55px;
   margin-right: 25px;
   margin-left: 25px;
+  overflow: hidden;
 }
 #board-container{
   position: relative;

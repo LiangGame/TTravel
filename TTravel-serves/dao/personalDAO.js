@@ -92,5 +92,23 @@ exports.perDao={
         client.release();
       })
     })
+  },
+  getUserImages:function (userId,callback) {
+    pool.getConnection(function (error,client) {
+      if(error){
+        return
+      }
+      client.query(personalSql.getUserImages,[userId],function (error,result) {
+        if(error){
+          console.log(error.message+' from getUserImages');
+          callback('e004');
+          return;
+        }
+        callback(result);
+        // console.log(result);
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>personalDAO>>>>getUserImages');
+        client.release();
+      })
+    })
   }
 }

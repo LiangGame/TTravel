@@ -54,7 +54,8 @@ export class PersonalCenterService {
   }
 
   show_notes(userId, callback) {
-    this.http.post(this.url + '/personal-center/notes', userId).subscribe(
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+    this.http.post(this.url + '/personal-center/notes', userId,{headers:_head}).subscribe(
       function (result) {
         console.log(result);
         callback(result);
@@ -66,8 +67,22 @@ export class PersonalCenterService {
   }
 
   addNotes(body, callback) {
+    let _head = new HttpHeaders({token:this.ls.get('token')});
     body.title = body.title.notesTitle;
-    this.http.post(this.url + '/personal-center/addNotes', body).subscribe(
+    this.http.post(this.url + '/personal-center/addNotes', body,{headers:_head}).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
+  getUserImages(userId,callback){
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+    // body.title = body.title.notesTitle;
+    this.http.post(this.url + '/personal-center/getUserImages', userId,{headers:_head}).subscribe(
       function (result) {
         callback(result);
       },

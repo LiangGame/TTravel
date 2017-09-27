@@ -145,9 +145,13 @@ export class RegisterComponent implements OnInit {
     that.userSer.addUser(confirmPassword_from.form.value, function (result) {
       console.log(result);
       if (result.stateCode == '6') {
-        sessionStorage.setItem('userName', confirmPassword_from.form.value.userName);
-        sessionStorage.setItem('userId', confirmPassword_from.form.value.telephone);
-        that.router.navigate(['/index']);
+        var user = {telephone:confirmPassword_from.form.value.telephone,password:confirmPassword_from.form.value.password}
+        that.userSer.getByPwd(user,function (result) {
+          // console.log(result);
+          // console.log(">>>>>>>>>>>>>>>>>>>>");
+          sessionStorage.setItem('user',JSON.stringify(result.users) )
+          that.router.navigate(['/index']);
+        })
       }
       if (result.stateCode == '7') {
         that.register_res = '用户已注册';

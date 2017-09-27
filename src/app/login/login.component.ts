@@ -51,11 +51,11 @@ export class LoginComponent implements OnInit {
     // console.log(login_form.form.value.telephone);
     let that = this;
     that.userSer.getByPwd(login_form.form.value, function (result) {
+      console.log(result);
       if (result.stateCode == '1') {
         // 存储token到本地
         that.localStorage.set('token',result.token);
-        sessionStorage.setItem('userName', result.userName);
-        sessionStorage.setItem('userId', login_form.form.value.telephone);
+        sessionStorage.setItem('user',JSON.stringify(result.users) )
         that.router.navigate(['/index']);
       } else {
         that.login_res = '用户名或密码错误';

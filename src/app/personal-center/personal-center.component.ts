@@ -24,7 +24,8 @@ export class PersonalCenterComponent implements OnInit {
   fixed: boolean = false;
   uplodBg: boolean = false;
   iconImg: boolean = false;
-  _telephone: any = sessionStorage.getItem("userId");
+  _telephone: any;
+  user:any = JSON.parse(sessionStorage.getItem('user'));
   Icon: any;
   // uploader:any;
 
@@ -56,7 +57,7 @@ export class PersonalCenterComponent implements OnInit {
     this.iconImg = true;
     // console.log(sessionStorage.getItem('userName'));
     this.iconImg=true;
-    console.log(sessionStorage.getItem('userName'));
+    // console.log(sessionStorage.getItem('userName'));
   }
 
   uplodBg_toggle() {
@@ -64,15 +65,15 @@ export class PersonalCenterComponent implements OnInit {
   }
 
   checkLogin(){
-    if(sessionStorage.getItem('userId')){
+    if(this.user.telephone){
       let that=this;
-      that.userSer.getUserIcon({"telephone":sessionStorage.getItem('userId')},function (result) {
-        console.log(result);
-        sessionStorage.setItem("sex",result[0].sex);
-        sessionStorage.setItem("user_id",result[0].id);
-        sessionStorage.setItem("city_id",result[0].city_id);
-        sessionStorage.setItem("birthday",result[0].birthday);
-        sessionStorage.setItem("signature",result[0].signature);
+      that.userSer.getUserIcon({"telephone":that.user.telephone},function (result) {
+        // console.log(result);
+        // sessionStorage.setItem("sex",result[0].sex);
+        // sessionStorage.setItem("user_id",result[0].id);
+        // sessionStorage.setItem("city_id",result[0].city_id);
+        // sessionStorage.setItem("birthday",result[0].birthday);
+        // sessionStorage.setItem("signature",result[0].signature);
 
         that.Icon=`<img src='http://127.0.0.1:8889/uploads/${result[0].icon}' width="100" height="100">`;
       })
@@ -106,7 +107,7 @@ export class PersonalCenterComponent implements OnInit {
   buildItemForm(fileItem:any, form: any): any {
     let that = this;
     if (!fileItem["realFileName"]) {
-      that._telephone = sessionStorage.getItem("userId");
+      that._telephone = JSON.parse(sessionStorage.getItem("user")).telephone;
       console.log("上传之前");
       // console.log(fileItem);
       form.append("telephone",that._telephone);

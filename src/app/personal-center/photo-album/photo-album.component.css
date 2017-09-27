@@ -4,3 +4,8 @@
   font-weight: 200;
   font-size: 21px;
 }
+#userImg img{
+  padding: 8px;
+  border-radius: 4px;
+  border: solid 1px #cccccc;
+}

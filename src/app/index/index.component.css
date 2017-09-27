@@ -65,7 +65,6 @@ li:hover{
   transition-duration: 1s;
   transition-timing-function: initial;
   transition-delay: initial;
-
 }
 .recommend .item .info{
   border: 1px solid #ececec;

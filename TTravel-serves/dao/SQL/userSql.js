@@ -2,10 +2,17 @@
  * Created by WWL on 2017/9/11.
  */
 exports.sql={
-  getPasswordById:'select userPassword,userName from user where telephone=?',
-  addUser:'insert into user(telephone,username,userPassword,city_id,userlv_id)values(?,?,?,?,?)',
+  getPasswordById:'select id,telephone,userName,userPassword,birthday,city_id,sex,icon,signature from user where telephone=?',
+  addUser:'insert into user(telephone,userName,userPassword,city_id,userlv_id)values(?,?,?,?,?)',
   createToken:'update user set token=? where telephone=?',
   getUser:'select id,userName,birthday,city_id,sex,icon,signature from `user` where telephone = ?',
   addUserIcon:'UPDATE `user` set icon=? where telephone=?',
-  updateUser:'UPDATE `user` set userName=?,sex=?,birthday=?,city_id=?,signature=? where telephone = ?'
+  adduserImg:'INSERT INTO userimage(url,user_id)VALUES(?,?)',
+  updateUser:'UPDATE `user` set userName=?,sex=?,birthday=?,city_id=?,signature=? where telephone = ?',
+  setLike:'INSERT INTO `like`(clickid,time,user_id,click_type_id) VALUES(?,NOW(),?,?)',
+  getNotesLike:'SELECT 1 FROM `like` WHERE clickid=? and user_id=? and click_type_id=? LIMIT 1',
+  setCollect:'INSERT INTO `collect`(collect_id,user_id,click_type_id) VALUES(?,?,?)',
+  getNotesCollect:'SELECT 1 FROM `collect` WHERE collect_id=? and user_id=? and click_type_id=? LIMIT 1',
+  setComment:'INSERT INTO `comment`(content,time,comment_id,user_id,click_type_id)VALUES(?,NOW(),?,?,?)',
+  getNotesComment:'SELECT *,(SELECT COUNT(comment_id) FROM comments WHERE comment_id = ? GROUP BY comment_id) commentNum FROM comments where comment_id = ?',
 };
