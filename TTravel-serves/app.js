@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var personal_center = require('./routes/personal-center');
+var scenic = require('./routes/scenic');
 
 var app = express();
 
@@ -24,9 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.all('*',function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild,token');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Credentials",true);
     if (req.method == 'OPTIONS') {
         res.sendStatus(200); //让options请求快速返回/
     }
@@ -35,9 +37,10 @@ app.all('*',function (req, res, next) {
     }
 });
 
-app.use('/', index);
+app.use('/index', index);
 app.use('/personal-center', personal_center);
 app.use('/users', users);
+app.use('/scenic',scenic);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

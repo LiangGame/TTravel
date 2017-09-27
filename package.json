@@ -22,9 +22,12 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.4",
+    "angularfire2": "^4.0.0-rc.2",
     "bootstrap": "^4.0.0-beta",
     "core-js": "^2.4.1",
     "ng2-file-upload": "^1.2.1",
+    "ng2-pagination": "^2.0.2",
+    "qiniu": "^7.0.8",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

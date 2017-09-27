@@ -1,14 +1,15 @@
 
-#head{
-  width: auto;
-  height: 50px;
-  background-color: #ff9d00;
-  /*border: 1px solid chocolate;*/
-}
+/*#head{*/
+  /*width: auto;*/
+  /*height: 50px;*/
+  /*background-color: #ff9d00;*/
+  /*!*border: 1px solid chocolate;*!*/
+/*}*/
 #site{
   width: 1000px;
-  height: 50px;
+  height: 30px;
   margin: 5px auto;
+  padding-top: 5px;
   /*border: 1px solid hotpink;*/
 }
 #introduce_bg{
@@ -36,9 +37,12 @@
 }
 .inner{
   width: 1000px;
-  height: 1550px;
+  /*height: 1550px;*/
   margin: 5px auto;
   /*border: 1px solid red;*/
+}
+.inner li:last-child{
+  border: none;
 }
 .inner_head{
   width: 1000px;
@@ -52,7 +56,7 @@
   height: 280px;
   position: relative;
   margin: 10px auto;
-  /*border: 1px solid red;*/
+  border-bottom: 1px solid #efefef;
 }
 .inner_left{
   width: 400px;

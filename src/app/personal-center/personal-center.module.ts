@@ -4,6 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule}     from '@angular/common';
 import {FileUploadModule} from 'ng2-file-upload';
+// import {Ng2PaginationModule} from "ng2-pagination";
+// import {PageComponent} from './../Pagination/page.component'
 
 import {PersonalCenterComponent} from '../personal-center/personal-center.component';
 import {UserIndexComponent} from './user-index/user-index.component';
@@ -27,6 +29,8 @@ import {PersonalCenterRoutingModule} from './personal-center-routing.module';
     NotesComponent,
     PhotoAlbumComponent,
     SettingComponent,
+    // PageComponent,
+
     // EditorComponent,
     // CreateNotesComponent,
 
@@ -37,6 +41,7 @@ import {PersonalCenterRoutingModule} from './personal-center-routing.module';
     HttpClientModule,
     CommonModule,
     FileUploadModule,
+    // Ng2PaginationModule,
     PersonalCenterRoutingModule
   ],
   providers: [],

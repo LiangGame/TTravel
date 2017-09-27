@@ -9,7 +9,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <h1 class="navbar-brand" routerLink="index">时光游</h1>
+      <h1 class="navbar-brand logo" routerLink="index">
+        时光游
+        <img src="../../assets/TTravel--LOGO.png" height="40" width="80"/></h1>
     </div>
     <div class="collapse navbar-collapse righht-nav" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -25,16 +27,17 @@
         <li><a routerLink="login">登录</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="isLogin">
-        <li data-toggle="dropdown"><a routerLink="personal-center">欢迎 : {{userName}}</a></li>
+        <li data-toggle="dropdown"><a >欢迎 : {{userName}}</a></li>
         <ul class="dropdown-menu down" aria-labelledby="dropdownMenu1">
-          <li><a routerLink="personal-center">个人首页</a></li>
-          <li><a routerLink="./WantToGo">我的想去</a></li>
-          <li><a routerLink="./footprint">我的足迹</a></li>
-          <li><a routerLink="./Notes">游记</a></li>
-          <li><a routerLink="./PhotoAlbum">照片</a></li>
-          <li><a routerLink="./Setting">设置</a></li>
+          <li><a routerLink="personal-center"><span class="fa fa-home fa-lg" aria-hidden="true"> </span>    个人首页</a></li>
+          <li><a routerLink="./personal-center/WantToGo"><span class="fa fa-heart fa-lg" aria-hidden="true"> </span>    我的想去</a></li>
+          <li><a routerLink="./personal-center/footprint"><span class="fa fa-paw fa-lg" aria-hidden="true"> </span>    我的足迹</a></li>
+          <li><a routerLink="./personal-center/Notes"><span class="fa fa-book fa-lg" aria-hidden="true"> </span>    游记</a></li>
+          <li><a routerLink="./personal-center/PhotoAlbum"><span class="fa fa-camera-retro fa-lg" aria-hidden="true"> </span>    照片</a></li>
+          <li><a routerLink="./personal-center/Setting"><span class="fa fa-cog fa-lg" aria-hidden="true"> </span>     设置</a></li>
           <li role="separator" class="divider"></li>
-          <li><a (click)="signOut()">退出</a></li>
+          <li><a (click)="signOut()"><span class="span_1"><img src="../../assets/images/029.png" height="30"
+                                          width="30"/></span>退出</a></li>
         </ul>
       </ul>
     </div>

@@ -55,13 +55,13 @@ exports.perDao={
       })
     })
   },
-
+// 获取用户发表的游记
   getNotes:function (id,callback) {
     pool.getConnection(function (error,client) {
       if(error){
         return
       }
-      client.query(personalSql.getNotes,function (error,result) {
+      client.query(personalSql.getNotes,[id.userId],function (error,result) {
         if(error){
           console.log(error.message+' from getNotes');
           callback('e004');
@@ -69,6 +69,7 @@ exports.perDao={
         }
         callback(result);
         console.log(result);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>personalDAO>>>>getNOtes');
         client.release();
       })
     })
@@ -79,11 +80,8 @@ exports.perDao={
       if (error) {
         return
       }
-      console.log(body);
-      console.log(body.title);
-      console.log(body.title);
       console.log('>>>>>>>>>>>>>>>>addNotes>>>>>>>>personalDAO');
-      client.query(personalSql.addNotes,[body.title,body.content,1],function (error, result) {
+      client.query(personalSql.addNotes,[body.title,body.content,body.id],function (error, result) {
         if (error) {
           console.log(error.message + ' from addNotes');
           callback('e004');

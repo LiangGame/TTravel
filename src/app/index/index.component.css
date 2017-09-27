@@ -40,6 +40,9 @@ ul:after {
   overflow: hidden;
 
 }
+li:hover{
+  cursor: Pointer;
+}
 .big{
   width: 275px;
   height: 185px;

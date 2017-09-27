@@ -198,14 +198,6 @@ export class SettingComponent implements OnInit {
     that.birthday = user_form.form.value.birthday;
     that.userSer.updateUser(user,function (result) {
 
-      // console.log(that.city_id+'>>>>>>id');
-
-      // if(result.stateCode == '6'){
-      //   that.router.navigate(['/index']);
-      // }else {
-      //   alert(result.stateCode);
-      //   that.register_res='用户名或密码错误';
-      // }
       sessionStorage.setItem('userName',that.userName);
       // that.userName=sessionStorage.getItem('userName');
       console.log(result);

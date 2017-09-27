@@ -6,19 +6,19 @@ declare var $: any; // 在angular中调用jQ前的万能语句
   styleUrls: ['./strategy-child.component.css']
 })
 export class StrategyChildComponent implements OnInit {
-tr = false;
+// tr = false;
 
   constructor() { }
 
   ngOnInit() {
     $('.all1').click(function () {
-      this.tr = true;
-      $('.tb').animate({height: '920px'}, 500);
+      // this.tr = true;
+      $('.tbdiv').animate({height: '920px'}, 500);
       $('.all1').hide();
       $('.all2').show();
       });
     $('.all2').click(function () {
-      $('.tb').animate({height: '460px'}, 500);
+      $('.tbdiv').animate({height: '460px'}, 500);
       $('.all2').hide();
       $('.all1').show();
       });

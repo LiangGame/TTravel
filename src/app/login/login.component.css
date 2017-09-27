@@ -8,18 +8,17 @@
 /*背景图片*/
 
 .login-bgimg{
-  height: 900px;
+  /*height: 900px;*/
   background:url(../../assets/images/background/login-img.jpg) no-repeat center center;
 }
 
 /*登录框位置*/
 .container{
-  padding:151px 15px;
   width: 400px;
 
 }
 .login-position{
-
+  padding-top: 51px;
 
 }
 /*登录框样式*/

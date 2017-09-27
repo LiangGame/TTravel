@@ -1,12 +1,10 @@
 <div id="search">
   <div id="head_search">
     <div class="search-container">
-      <input class="_text pull-left" id="travel_search" type="text" placeholder="输入想去的地方/攻略/游记">
-      <a routerLink="../scenic_search">
-        <input class="text_btn pull-left" type="button">
-        <span class="span"></span>
-      </a>
-
+      <input [(ngModel)]="text" name="searchText" class="_text pull-left" id="travel_search" type="text"
+             placeholder="您想去的地方/攻略/游记">
+      <input class="text_btn pull-left" type="button" (click)="btnSearch(text)">
+      <span class="span" (click)="btnSearch(text)"></span>
     </div>
     <div id="search_key">
       <p>热门城市</p>
