@@ -61,5 +61,17 @@ router.post('/addNotes',ct.checkToken,function (req,res,next) {
         }
       }
     });
+});
+
+router.post('/getUserImages',ct.checkToken,function (req,res,next) {
+  var userId = req.body.userId;
+  // console.log(userId);
+  // console.log('>>>>>>>>>>>>>>>>getUserImages');
+  personaldao.getUserImages(userId,function (result) {
+    if(result){
+      res.json(result);
+      // console.log(result);
+    }
+  });
 })
 module.exports = router;

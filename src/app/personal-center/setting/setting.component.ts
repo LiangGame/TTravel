@@ -34,11 +34,12 @@ export class SettingComponent implements OnInit {
   userName: string;
   readonly: string='readonly';
   nameBorder: boolean = false;
-  _telephone: string = sessionStorage.getItem('userId');
-  sex:string = sessionStorage.getItem('sex');
-  city_id: string = sessionStorage.getItem('city_id');
-  birthday: string = sessionStorage.getItem('birthday');
-  signature: string = sessionStorage.getItem('signature');
+  user:any = JSON.parse(sessionStorage.getItem('user'));
+  _telephone: string = this.user.telephone;
+  sex:string = this.user.sex;
+  city_id: string = this.user.city_id;
+  birthday: string = this.user.birthday;
+  signature: string = this.user.signature;
   men: string;
   wumen: string;
 
@@ -49,7 +50,7 @@ export class SettingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userName=sessionStorage.getItem('userName');
+    this.userName=this.user.userName;
     // 循环至当前年份
     for (let i = 0, y = this.nowYear; y >= 1950; i++) {
       this._years[i] = y;
@@ -188,7 +189,8 @@ export class SettingComponent implements OnInit {
   }
   _submit(user_form){
     let that = this;
-    let user = [user_form.form.value,{"telephone":sessionStorage.getItem('userId')}];
+    console.log(user_form.form.value);
+    let user = [user_form.form.value,{"telephone":this._telephone}];
     user_form.form.value.city = that._cityId[that._citys.indexOf(that._city)];
     if(!user_form.form.value.city){
       user_form.form.value.city = that.city_id;

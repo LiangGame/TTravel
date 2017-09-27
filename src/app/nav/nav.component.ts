@@ -24,8 +24,8 @@ export class NavComponent implements OnInit {
 
   ngAfterContentChecked() {
     let that = this;
-    if (sessionStorage.getItem('userName')) {
-      that.userName = sessionStorage.getItem('userName');  /*.substring(0,5)+"..."*/
+    if (sessionStorage.getItem('user')) {
+      that.userName = JSON.parse(sessionStorage.getItem('user')).userName;  /*.substring(0,5)+"..."*/
       let len = this.userName.length;
       if(len > 5){
         that.userName = that.userName.substring(0,5)+"...";

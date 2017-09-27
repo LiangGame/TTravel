@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {NotesService} from '../services/notes.service';
+import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router, Params} from '@angular/router';
+
+// 导入服务
+import {NotesService} from '../services/notes.service';
+import {LikeCollectService} from '../services/like-collect.service'
 
 declare var $: any; // 在angular中调用jQ前的万能语句
 
@@ -8,19 +11,26 @@ declare var $: any; // 在angular中调用jQ前的万能语句
   selector: 'app-travel-notes',
   templateUrl: './travel-notes.component.html',
   styleUrls: ['./travel-notes.component.css'],
-  providers: [NotesService]
+  providers: [NotesService, LikeCollectService]
 
 })
 
 export class TravelNotesComponent implements OnInit {
   notes: any;
   reg: any = /<[^>]+>/g;
+  _like: string;
+  key: any;
+  @Input() searText: string;
 
 
   constructor(private noteSer: NotesService,
+              private like: LikeCollectService,
+              private route: ActivatedRoute,
               private router: Router,) {
     this.getNotes();
   }
+
+
 
   ngOnInit() {
     // 在ngOnInit（）{}里面写jQ代码
@@ -61,6 +71,35 @@ export class TravelNotesComponent implements OnInit {
     //    $('.more').hide();
     //  });
 
+  };
+
+  // ngOnDestroy(){
+  //   this.getNotes();
+  //   console.log('=============================');
+  // }
+
+  ngAfterContentInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.key = (<Params>this.route.queryParams).value['key'];
+      console.log(this.key);
+      if (this.key) {
+        let that = this;
+        that.getNotes();
+        that.searText = that.key;
+        /* that.scenicSer.get_scenic(function (result) {
+         if (result) {
+         that.data = result;
+         for (let i = 0; i < result.length; i++) {
+         result[i].url = (result[i].url).split(',');
+         console.log(result[i].url);
+         }
+         that.searText = that.key;
+         } else {
+         console.log('error');
+         }
+         });*/
+      }
+    })
   }
 
   getNotes() {
@@ -70,7 +109,6 @@ export class TravelNotesComponent implements OnInit {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
           result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
-          // console.log(((that.notes[0].content).replace(reg)));
         }
         that.notes = result;
       } else {
@@ -83,6 +121,27 @@ export class TravelNotesComponent implements OnInit {
     if (noteId) {
       this.router.navigate(['/noteschild'], {queryParams: {'key': noteId}});
     }
+  }
+
+  // 游记点赞
+  setLike(event: Event, id) {
+    event.stopImmediatePropagation();     // 防止事件冒泡
+    console.log(id);
+    let userId = JSON.parse(sessionStorage.getItem('user')).id;
+    let notesID = {notesId: id, userId: userId, type: '1'};
+    let that = this;
+    that.like.getNotesLike(notesID, function (result) {
+      if (result.length == 0) {
+        that.like.notesLike(notesID, function (result) {
+          console.log(result);
+          console.log('>>>>>>>travel-notes');
+          if (result.stateCode == 'L001') {
+            that.getNotes();
+            console.log('888888888888');
+          }
+        })
+      }
+    })
   }
 
 }

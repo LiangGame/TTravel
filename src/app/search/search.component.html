@@ -1,11 +1,24 @@
 <div id="search">
   <div id="head_search">
-    <div class="search-container">
-      <input [(ngModel)]="text" name="searchText" class="_text pull-left" id="travel_search" type="text"
-             placeholder="您想去的地方/攻略/游记">
-      <input class="text_btn pull-left" type="button" (click)="btnSearch(text)">
-      <span class="span" (click)="btnSearch(text)"></span>
-    </div>
+    <form #navForm="ngForm" >
+      <ul class="_radio">
+        <input type="radio" id="nav0" [(ngModel)]="nav" name="nav" value="0" checked="{{_checked}}">
+        <label for="nav0" class="nav0"
+               style="color: #eee;font-weight: 100">目的地</label>
+        <input type="radio" id="nav1" [(ngModel)]="nav" name="nav" value="1">
+        <label for="nav1"
+               style="color: #eee;font-weight: 100">游记</label>
+        <input type="radio" id="nav2" [(ngModel)]="nav" name="nav" value="2">
+        <label for="nav2"
+               style="color: #eee;font-weight: 100">攻略</label>
+      </ul>
+      <div class="search-container">
+        <input [(ngModel)]="text" name="searchText" class="_text pull-left" id="travel_search" type="text"
+               placeholder="您想去的地方/攻略/游记">
+        <input class="text_btn pull-left" type="button" (click)="btnSearch(navForm)">
+        <span class="span" (click)="btnSearch(navForm)"></span>
+      </div>
+    </form>
     <div id="search_key">
       <p>热门城市</p>
       <p>

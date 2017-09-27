@@ -18,10 +18,10 @@
       <li>40 分享</li>
     </ul>
   </div>
-  <div class="icon-collect">
-    <ul>
-      <li class="fa fa-star-o fa-2x" aria-hidden="true"></li>
-      <li>26 收藏</li>
+  <div class="icon-collect" (click)="setCollect($event,notes?.id)">
+    <ul (click)="setCollect($event,notes?.id)">
+      <li class="fa fa-star-o fa-2x" aria-hidden="true" (click)="setCollect($event,notes?.id)"></li>
+      <li (click)="setCollect($event,notes?.id)">{{notes?.collect}} 收藏</li>
     </ul>
   </div>
 </div>
@@ -106,6 +106,41 @@
     结束了14日的旅行，重新回到忙碌规律的工作和生活。愿有生之年可以再有这般悠长的假期时光，有蓝<br>
     天白云，有阳光草地，有怡然自得。<br>
   </p>
+</div>
+<!--回复-->
+<div class="container-comment container" *ngIf="noLogin">
+
+  <div class="item-info" *ngFor="let comment of comments">
+    <div id="commentIcon" class="photo-icon">
+      <img src="http://127.0.0.1:8889/uploads/{{comment.icon}}" alt="">
+    </div>
+    <div class="user">
+      <a href="#" class="name">{{comment?.userName}}</a>
+      <a href="#" class="level">LV.{{comment?.lvName}}</a>
+    </div>
+    <div class="con-wrap">
+      {{comment?.content}}
+    </div>
+  </div>
+
+  <div class="reply">
+    <div class="tab">
+      <div class="reply-tab">回复游记</div>
+    </div>
+    <div class="tab-con">
+      <div class="photo-icon" [innerHTML]="userIcon">
+      </div>
+      <div class="reply-text">
+        <!--<input type="text" class="comment" width="610px" height="140px">-->
+        <form #commentForm="ngForm">
+          <textarea [(ngModel)]="commentText" name="comment" id="textarea" cols="30" rows="10"></textarea>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="reply-submit">
+    <div role="button" class="publish-reply text-center" (click)="notesComment(commentForm,notes?.id)">发表回复</div>
+  </div>
 </div>
 <div id="to_top"></div>
 

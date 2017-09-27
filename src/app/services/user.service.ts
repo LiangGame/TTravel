@@ -17,7 +17,8 @@ export class UserService {
   }
 
   addUser(user, callback) {
-    this.http.post(this.url + '/users/register', user).subscribe(
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+    this.http.post(this.url + '/users/register', user,{headers:_head}).subscribe(
       function (result) {
         callback(result);
       },

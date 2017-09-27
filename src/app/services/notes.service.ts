@@ -36,4 +36,27 @@ export class NotesService {
       }
     )
   }
+
+  notesComment(body,callback){
+    console.log(body);
+    this.http.post(this.url + '/users/notesComment', body).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
+  getnotesComment(id,callback){
+    this.http.post(this.url + '/users/getNotesComment', id).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
 }

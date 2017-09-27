@@ -3,6 +3,7 @@ import {EditorComponent} from './../../editor/editor.component'
 
 // 导入服务
 import {PersonalCenterService} from './../../services/personal-center.service';
+import {GlobalPropertyService} from './../../services/global-property.service';
 
 @Component({
   selector: 'app-user-index',
@@ -11,24 +12,33 @@ import {PersonalCenterService} from './../../services/personal-center.service';
   providers: [PersonalCenterService]
 })
 export class UserIndexComponent implements OnInit {
+  images: any = [];
+  user: any = JSON.parse(sessionStorage.getItem('user'));
   _notes: any;
   newNotes: string;
   reg: any = /<[^>]+>/g;
-  userId: any = {"userId":sessionStorage.getItem('userId')};
-    @ViewChild(EditorComponent)
+  userId: any;
+  noNotes: any = false;
+  userIcon: any = JSON.parse(sessionStorage.getItem('user')).icon;
+  @ViewChild(EditorComponent)
   editor: EditorComponent;
 
-  constructor(private perSer: PersonalCenterService,) {
+  constructor(private perSer: PersonalCenterService,
+              private glo: GlobalPropertyService,) {
+    this.userId = JSON.parse(sessionStorage.getItem('user')).telephone;
   }
 
   ngOnInit() {
     this.getNotes();
+    this.getuserImg();
   }
 
   getNotes() {
     let that = this;
+    that.userId = {userId: that.userId};
     that.perSer.show_notes(that.userId, function (result) {
-      if (result) {
+      if (result && result != '') {
+        that.noNotes = true;
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
           result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
@@ -36,13 +46,36 @@ export class UserIndexComponent implements OnInit {
         }
         that._notes = result;
         that.newNotes = result[0];
-        console.log(that._notes);
-        // console.log();
+        // console.log(that._notes);
+        // console.log(result);
       } else {
+        that.noNotes = false;
         console.log("error")
       }
     })
   };
 
-
+  getuserImg() {
+    let that = this;
+    that.userId = {userId: that.user.id};
+    that.perSer.getUserImages(that.userId, function (result) {
+      if (result) {
+        if(result.length <= 4){
+          for (let i = 0; i < result.length; i++) {
+            // console.log(result[0].url);
+            that.images[i] = result[i].url;
+            // that.images[i] = `<img src="${that.glo.serverUrl}/userImgs/${result[i].url}" alt="" class="pull-left" style="margin: 15px" width="190" height="180">`;
+          }
+        }else{
+          for (let i = 0; i < 4; i++) {
+            // console.log(result[0].url);
+            that.images[i] = result[i].url;
+            // that.images[i] = `<img src="${that.glo.serverUrl}/userImgs/${result[i].url}" alt="" class="pull-left" style="margin: 15px" width="190" height="180">`;
+          }
+        }
+        // that.images = result;
+        console.log(that.images);
+      }
+    })
+  }
 }
