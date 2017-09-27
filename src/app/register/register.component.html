@@ -15,7 +15,7 @@
           </div>
 
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-            <input autofocus type="text" tabindex="1" (keyup.enter)="ontel(tel.value)"
+            <input type="text" tabindex="1" (keyup.enter)="ontel(tel.value)"
                    (blur)="ontel(tel.value)" class="form-control" #tel="ngModel" pattern="^1[34578]\d{9}$" [(ngModel)]="_telephone"
                    id="telephone" name="telephone" placeholder="您的手机号" required>
           </div>
@@ -28,7 +28,7 @@
             </small>
           </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-            <input type="text" tabindex="2" (keyup.enter)="onname(name.value)"
+            <input type="text" autofocus tabindex="2" (keyup.enter)="onname(name.value)"
                    (blur)="onname(name.value)" class="form-control" #name="ngModel" [(ngModel)]="_name" id="names" name="userName"
                    placeholder="您的昵称" required>
           </div>
