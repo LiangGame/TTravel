@@ -116,7 +116,7 @@ export class NotesChildComponent implements OnInit {
       }
     })
   }
-
+ // 获取评论信息
   getNotesComment(notesId) {
     // console.log(notesId);
     // console.log('123123123123');
@@ -127,6 +127,24 @@ export class NotesChildComponent implements OnInit {
         that.comments = result;
         // console.log(result);
         // console.log('=====================================');
+      }
+    })
+  }
+
+  // 删除评论
+
+  delete(Id){
+    console.log(Id);
+    let commentId = {commentId:Id};
+    let that = this;
+    that.notesSer.deleteComment(commentId, function (result) {
+      console.log(result);
+      if (result) {
+        if(result == 1){
+          that.getNotesComment(that.notesId);
+        }else{
+          console.log('=====================================');
+        }
       }
     })
   }

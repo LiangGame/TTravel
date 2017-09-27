@@ -26,8 +26,8 @@ router.post('/login', function (req, res, next) {
     console.log(user);
     userdao.getPasswordById(user.telephone, function (result) {
       var users = result;
-      // console.log(result);
-      // console.log(result.userName + '----->>>>getPwd');
+      console.log(result);
+      console.log(result.userName + '----->>>>getPwd');
       // var userName = result[0].userName;
       if (result == 'e004') {
         res.json({"stateCode": result});
@@ -360,7 +360,7 @@ router.post('/notesComment',function (req,res,next) {
       }
     });
   }
-})
+});
 // 获取评论信息
 router.post('/getNotesComment',function (req,res,next) {
   var commentInfo = req.body;
@@ -371,6 +371,21 @@ router.post('/getNotesComment',function (req,res,next) {
         res.json(result);
         // console.log(result);
         // console.log('---->>>getNotesComment');
+      }
+    });
+  }
+});
+// 删除评论
+router.post('/deleteComment',function (req,res,next) {
+  var commentId = req.body.commentId;
+  console.log(commentId);
+  console.log('========================================');
+  if (commentId) {
+    userdao.deleteNotesComment(commentId, function (result) {
+      if (result) {
+        res.json(result.affectedRows);
+        // console.log(result);
+        // console.log('---->>>deleteComment');
       }
     });
   }

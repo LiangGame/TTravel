@@ -15,4 +15,5 @@ exports.sql={
   getNotesCollect:'SELECT 1 FROM `collect` WHERE collect_id=? and user_id=? and click_type_id=? LIMIT 1',
   setComment:'INSERT INTO `comment`(content,time,comment_id,user_id,click_type_id)VALUES(?,NOW(),?,?,?)',
   getNotesComment:'SELECT *,(SELECT COUNT(comment_id) FROM comments WHERE comment_id = ? GROUP BY comment_id) commentNum FROM comments where comment_id = ?',
+  deleteNotesComment:'DELETE FROM `comment` WHERE id = ?'
 };

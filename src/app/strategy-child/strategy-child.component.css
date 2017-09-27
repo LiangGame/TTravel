@@ -255,6 +255,7 @@ hr{
 }
 /*返回顶部*/
 #to_top {
+  width: 28px;
   position: fixed;
   left: 50%;
   margin-left: 600px;

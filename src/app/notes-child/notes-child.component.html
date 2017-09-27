@@ -119,7 +119,11 @@
       <a href="#" class="level">LV.{{comment?.lvName}}</a>
     </div>
     <div class="con-wrap">
-      {{comment?.content}}
+      {{comment?.content | themeString:120}}
+    </div>
+    <div class="commentBottom">
+      <time>{{(comment?.time).split('T')[0] +'/'+ ((comment?.time).split('T')[1]).split('.')[0]}}</time>
+      <span class="pull-right delete" (click)="delete(comment.id)">删除</span>
     </div>
   </div>
 
