@@ -44,11 +44,12 @@ export class SearchComponent implements OnInit {
     console.log(nav.value);
     let navItem = nav.value.nav;
     let searchText = nav.value.searchText;
-    if (navItem == 0) {
+    // console.log(!!searchText);
+    if (navItem == 0 && !!searchText) {
       this.router.navigate(['/scenic_search'], {queryParams: {'key': searchText}});
-    } else if (navItem == 1) {
+    } else if (navItem == 1 && !!searchText) {
       this.router.navigate(['/travels'], {queryParams: {'key': searchText}});
-    } else if (navItem == 2) {
+    } else if (navItem == 2 && !!searchText) {
       this.router.navigate(['/strategy'], {queryParams: {'key': searchText}});
     }
   }

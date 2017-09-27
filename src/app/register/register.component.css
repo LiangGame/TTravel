@@ -1,7 +1,12 @@
 /*背景图片*/
+.main{
+  min-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+}
 .res-bgimg{
-  height: 900px;
-  width: 100%;
+  /*width: 100%;*/
   background:url(../../assets/images/background/res-img.jpg) no-repeat;
 }
 /*注册框位置*/
@@ -9,7 +14,7 @@
   width: 400px;
 }
 .res-position{
-  padding-top: 151px;
+  padding-top: 51px;
 }
 /*注册框样式*/
 .login-css{
@@ -24,7 +29,16 @@
   margin-bottom: 0;
   color: red;
   box-shadow: none;
-
+  size: 16px;
+}
+.prompts{
+  padding: 0;
+  margin-left: 4.5px;
+  margin-bottom: 0;
+  color: red;
+  box-shadow: none;
+  size: 16px;
+  font-weight: normal;
 }
 #Txtidcode{
   height: 34px;

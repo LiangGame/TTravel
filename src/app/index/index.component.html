@@ -6,7 +6,7 @@
 <div class="container recommend">
   <h1 class="h11">今日推荐</h1>
   <ul class="ul">
-    <ng-container *ngFor="let theme of _scenic | indexScenic">
+    <ng-container *ngFor="let theme of _scenic">
     <li (click)="detail_1(theme.id)">
         <div class="item">
           <div class="big">
@@ -27,7 +27,7 @@
 <div class="container travels">
   <h1 class="h11">热门游记</h1>
   <ul>
-    <ng-container *ngFor="let topic of _notes | indexNotes">
+    <ng-container *ngFor="let topic of _notes">
     <li (click)="detail_2(topic.id)">
         <div class="item">
           <div class="big">

@@ -27,6 +27,8 @@ export class RegisterComponent implements OnInit {
   ispassformat = true;
   isrpassempty = true;
   isrpassformat = true;
+  iscodeempty = true;
+  iscodeformat = true;
   pwd;
   public user: User;
   register_res: string;
@@ -34,12 +36,31 @@ export class RegisterComponent implements OnInit {
   constructor(private  userSer: UserService,
               private router: Router) {
   }
-  valid(){
-    console.log('aaaaa');
-    this.setin()
-    console.log(this.inv);
+  valid( value: string,myform ): void {
+    let that = this;
+
+    // console.log('aaaaa');
+    // console.log(this.inv);
+    if ( value == '' || value == null) {
+      that.iscodeempty = false;
+      that.iscodeformat = true;
+    }else{
+      that.iscodeempty = true;
+      that.IsBy = $.idcode.validateCode();
+      if (!this.IsBy) {
+        this.iscodeformat = false;
+      }else if(this.IsBy){
+        this.iscodeformat = true;
+        this.iscodeempty = true;
+        this.addUser(myform);
+      }
+    }
+
   }
+
   ngOnInit() {
+
+
     $.idcode.setCode();
 
     $("#Txtidcode").keydown(function (e) {
@@ -57,7 +78,14 @@ export class RegisterComponent implements OnInit {
       password: '',
       confirmPassword: ''
     };
+    var height = 0;
+    if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+    {
+      height = document.documentElement.clientHeight;
+    }
+    document.querySelector('.res-bgimg').setAttribute('style','height:' + height + 'px');
   }
+
   //
   ontel( value: string ): void {
     let that = this;
@@ -70,6 +98,7 @@ export class RegisterComponent implements OnInit {
         that.istelformat = false;
       }else{
         that.istelformat = true;
+
       }
     }
     this.setin();
@@ -131,21 +160,26 @@ export class RegisterComponent implements OnInit {
   //   return false;
   // }
   // 用户注册
-  addUser(confirmPassword_from) {
-    this.IsBy = $.idcode.validateCode();
-    if (!this.IsBy) {
-      //验证码错误
-    }
+  addUser(register_form) {
+    // this.IsBy = $.idcode.validateCode();
+    // if (!this.IsBy) {
+    //   //验证码错误
+    //   this.iscodeformat = false;
+    // }else if(this.IsBy){
+    //   this.iscodeformat = true;
+    // }
     if (!(this.istelempty && this.istelformat
       && this.isname && this.ispassempty && this.ispassformat
       && this.isrpassempty && this.isrpassformat && this.IsBy)) {
       return;
     }
     let that = this;
-    that.userSer.addUser(confirmPassword_from.form.value, function (result) {
+    console.log('click.........');
+    console.log(register_form);
+    that.userSer.addUser(register_form.value, function (result) {
       console.log(result);
       if (result.stateCode == '6') {
-        var user = {telephone:confirmPassword_from.form.value.telephone,password:confirmPassword_from.form.value.password}
+        var user = {telephone:register_form.form.value.telephone,password:register_form.form.value.password}
         that.userSer.getByPwd(user,function (result) {
           // console.log(result);
           // console.log(">>>>>>>>>>>>>>>>>>>>");

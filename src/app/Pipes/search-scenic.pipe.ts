@@ -13,9 +13,6 @@ export class SearchScenicPipe implements PipeTransform {
           ||scenic.info.indexOf(args)!=-1
           ||scenic.cityname.indexOf(args)!=-1){
           return scenic;
-        }else {
-          return scenic;
-
         }
       })
       console.log('==================PIPES==================');

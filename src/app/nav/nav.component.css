@@ -1,11 +1,18 @@
 .navs{
   width: 100%;
-  float: left;
+
 }
 .down{
   border: 1px solid rgba(202, 202, 202, 0.2);
   margin-right: 50px;
-  padding-left: 20px;
+
+}
+.down a {
+  height: 35px;
+  background-color: white !important;
+}
+.down a:hover{
+  border: transparent;
 }
 .nav-rg{
   position: relative;
@@ -20,6 +27,8 @@
 a{
   font-size: 16px;
   color: white;
+  height: 50px;
+  box-sizing: border-box;
 }
 h1{
   color: white;
@@ -32,25 +41,32 @@ h1{
   margin-top: -30px;
 }
 ._float{
-  position: absolute;
-  z-index: 9999;
+  position: relative;
 }
 
 li a:hover{
   background: rgba(255, 255, 255, 0);
   color: #ff9d00;
   border-bottom: 2px solid #ff9d00;
+
 }
 li a:visited{
   background: #ff9d00;
 }
 
-.bgColor:hover,.bgColor:hover li>a{
-  background: #ffffff;
+.bgColor,.bgColor li>a{
+  background: #f6f6f6;
   color: #373737;
+  box-sizing: border-box;
 }
 
 .na{
   color:red;
+}
+.navbar {
+  margin-bottom: 0;
+}
+.span_1{
+  margin-left: -5px;
 }
 

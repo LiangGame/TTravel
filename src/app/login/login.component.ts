@@ -22,6 +22,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    var height = 0;
+    if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)
+    {
+      height = document.documentElement.clientHeight;
+    }
+    document.querySelector('.login-bgimg').setAttribute('style','height:' + height + 'px');
   }
   ontel( value: string ): void {
     let that = this;
@@ -31,7 +37,7 @@ export class LoginComponent implements OnInit {
       that.istelempty = true;
     }
   }
-  onpass( value: string ): void {
+  onpass( value: string,myform ): void {
     let that = this;
     if (value == '' || value == null) {
       that.ispassempty = false;
@@ -41,12 +47,14 @@ export class LoginComponent implements OnInit {
       if (value.length >= 6) {
         that.ispassformat = true;
         console.log('长度大于6个');
+        this.toLogin(myform);
       } else {
         that.ispassformat = false;
         console.log('长度小于6个');
       }
     }
   }
+
   toLogin(login_form) {
     // console.log(login_form.form.value.telephone);
     let that = this;

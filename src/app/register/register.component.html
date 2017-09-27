@@ -1,4 +1,4 @@
-
+<div class="main">
 <div class="res-bgimg">
   <div class="container res-position">
     <div class="login-frame col-lg-12 col-md-12 col-sm-12 col-xs-12 login-css">
@@ -15,7 +15,7 @@
           </div>
 
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-            <input type="text"  (keyup.enter)="ontel(tel.value)"
+            <input autofocus type="text" tabindex="1" (keyup.enter)="ontel(tel.value)"
                    (blur)="ontel(tel.value)" class="form-control" #tel="ngModel" pattern="^1[34578]\d{9}$" [(ngModel)]="_telephone"
                    id="telephone" name="telephone" placeholder="您的手机号" required>
           </div>
@@ -28,7 +28,7 @@
             </small>
           </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-            <input type="text" (keyup.enter)="onname(name.value)"
+            <input type="text" tabindex="2" (keyup.enter)="onname(name.value)"
                    (blur)="onname(name.value)" class="form-control" #name="ngModel" [(ngModel)]="_name" id="names" name="userName"
                    placeholder="您的昵称" required>
           </div>
@@ -44,7 +44,7 @@
           </small>
           </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-            <input type="password"  (keyup.enter)="onpass(pass.value)"
+            <input type="password" tabindex="3" (keyup.enter)="onpass(pass.value)"
                    (blur)="onpass(pass.value)" class="form-control" name="password" [ngModel]="user.pass"
                    required #pass="ngModel" placeholder="您的密码">
           </div>
@@ -60,14 +60,22 @@
             </small>
           </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-            <input type="password" (keyup.enter)="onrpass(rpass.value)"
+            <input type="password" tabindex="4" (keyup.enter)="onrpass(rpass.value)"
                    (blur)="onrpass(rpass.value)" class="form-control" name="rpass" [ngModel]="user.rpass"
                    required #rpass="ngModel" placeholder="确认密码">
           </div>
         </div>
         <div>
-
-          <input type="text" id="Txtidcode" #textcode (keyup.enter)="valid()"  class=" txtVerification" placeholder="请输入验证码">
+          <div class="alert prompts">
+            <small *ngIf="!iscodeempty">
+              请输入验证码
+            </small>
+            <small *ngIf="!iscodeformat">
+              验证码错误
+            </small>
+          </div>
+          <input tabindex="5" type="text" id="Txtidcode" #textcode (keyup.enter)="valid(textcode.value,registerForm)"
+                 (blur)="valid(textcode.value)" class=" txtVerification" placeholder="请输入验证码">
             <span id="idcode"></span>
         </div>
         <div class="form-group">
@@ -85,4 +93,4 @@
     </div>
   </div>
 </div>
-
+</div>
