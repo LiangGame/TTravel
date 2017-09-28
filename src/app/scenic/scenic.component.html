@@ -1,119 +1,563 @@
-
 <div class="top">
   <app-loop-img></app-loop-img>
   <app-search></app-search>
 </div>
 
-<div id="middle_head">
-    <h3 class="middle_head_name">探索精彩中国</h3>
-    <ul class="middle_head_ul">
-      <li><a href="javascript:void(0);">都市</a></li>
-      <li><a href="javascript:void(0);">塞外</a></li>
-      <li><a href="javascript:void(0);">古村小镇</a></li>
-      <li><a href="javascript:void(0);">名山</a></li>
-      <li><a href="javascript:void(0);">古迹</a></li>
-    </ul>
-</div>
 
-
-<div class="middle_window">
-  <div class="middle_pic">
-    <div class="middle_pic_div_1">
-      <a href="">
-        <img class="pic_width" src="../../assets/images/temporary/cq.jpg">
-        <h3>重庆</h3>
-        <div class="pic_width_inner">
-          <p class="pic_width_inner_word">
-            <em>重庆</em>
-            <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
-          </p>
+<div class="middle">
+  <h3 class="middle_name">探索精彩中国</h3>
+  <ul>
+    <li *ngFor="let menu of menus;let index = index" (click)="num=index">{{menu}}</li>
+  </ul>
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="0">
+        <div class="middle_pic">
+          <div class="middle_pic_1">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/1.city/H01.jpg">
+              <h3>重庆</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_2">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/1.city/H02.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_3">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/1.city/H03.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_4">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/1.city/S01.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_5">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/1.city/S02.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_6">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/1.city/Z01.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_7">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/1.city/Z02.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_8">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/1.city/Z03.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_9">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/1.city/Z04.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_10">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/1.city/Z05.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
         </div>
-      </a>
+      </div>
+      <div *ngSwitchCase="1">
+        <div class="middle_pic">
+          <div class="middle_pic_1">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/2.nature/04.jpeg">
+              <h3>重庆</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_2">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/2.nature/05.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_3">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/2.nature/06.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_4">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/2.nature/07.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_5">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/2.nature/08.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_6">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/2.nature/bg11.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_7">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/2.nature/H01.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_8">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/2.nature/H02.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_9">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/2.nature/H03.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_10">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/2.nature/XJ_DuKuGongLu.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="2">
+        <div class="middle_pic">
+          <div class="middle_pic_1">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/3.town/01.jpeg">
+              <h3>重庆</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_2">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/3.town/02.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_3">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/3.town/03.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_4">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/3.town/04.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_5">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/3.town/05.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_6">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/3.town/06.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_7">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/3.town/07.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_8">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/3.town/08.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_9">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/3.town/09.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_10">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/3.town/10.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="3">
+        <div class="middle_pic">
+          <div class="middle_pic_1">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/4.history/04.jpeg">
+              <h3>重庆</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_2">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/4.history/05.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_3">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/4.history/06.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_4">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/4.history/07.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_5">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/4.history/08.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_6">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/4.history/09.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_7">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/4.history/10.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_8">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/4.history/H03.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_9">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/4.history/H02.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_10">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/4.history/H01.jpeg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="4">
+        <div class="middle_pic">
+          <div class="middle_pic_1">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/5.darkness/04.jpg">
+              <h3>重庆</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_2">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/5.darkness/05.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_3">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/5.darkness/06.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_4">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/5.darkness/09.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_5">
+            <a href="">
+              <img class="pic_height" src="../../assets/images/Destination/5.darkness/10.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_6">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/5.darkness/014.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_7">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/5.darkness/H03.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_8">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/5.darkness/H01.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_9">
+            <a href="">
+              <img class="pic_square" src="../../assets/images/Destination/5.darkness/H02.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+          <div class="middle_pic_10">
+            <a href="">
+              <img class="pic_width" src="../../assets/images/Destination/5.darkness/S01.jpg">
+              <h3>海南</h3>
+              <div class="pic_inner">
+                <em>重庆</em>
+                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="middle_pic_div_2">
-      <a href="">
-        <img class="pic_square" src="../../assets/images/temporary/hn.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_3">
-      <a href="">
-        <img class="pic_height" src="../../assets/images/temporary/hq.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_4">
-      <a href="">
-        <img class="pic_square" src="../../assets/images/temporary/xj1.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_5">
-      <a href="">
-        <img class="pic_height" src="../../assets/images/temporary/hn1_fb.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_6">
-      <a href="">
-        <img class="pic_width" src="../../assets/images/temporary/xj4.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_7">
-      <a href="">
-        <img class="pic_square" src="../../assets/images/temporary/hlj.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_8">
-      <a href="">
-        <img class="pic_square" src="../../assets/images/temporary/hlj2.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_9">
-      <a href="">
-        <img class="pic_square" src="../../assets/images/temporary/zj.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-    <div class="middle_pic_div_10">
-      <a href="">
-        <img class="pic_width" src="../../assets/images/temporary/xz_fb.jpg">
-        <h3>海南</h3>
-      </a>
-    </div>
-  </div>
 </div>
-
-
 
 
 <!--<div id="down">-->
-  <!--<div id="down_head">-->
-    <!--<div class="down_head_name">-->
-      <!--<h3>地区列表</h3>-->
-    <!--</div>-->
-    <!--<ul>-->
-      <!--<li><a routerLink=". /east">华东地区</a></li>-->
-      <!--<li><a href="#">华北地区</a></li>-->
-      <!--<li><a href="#">华南地区</a></li>-->
-      <!--<li><a href="#">华中地区</a></li>-->
-      <!--<li><a href="#">东北地区</a></li>-->
-      <!--<li><a href="#">西北地区</a></li>-->
-      <!--<li><a href="#">西南地区</a></li>-->
-    <!--</ul>-->
-  <!--</div>-->
-  <!--<div id="down_inner">-->
-    <!--<div id="down_inner_east"></div>-->
-    <!--<div id="down_inner_north"></div>-->
-    <!--<div id="down_inner_south"></div>-->
-    <!--<div id="down_inner_middle"></div>-->
-    <!--<div id="down_inner_westsouth"></div>-->
-    <!--<div id="down_inner_westnorth"></div>-->
-    <!--<div id="down_inner_eastnorth"></div>-->
-  <!--</div>-->
+<!--<div id="down_head">-->
+<!--<div class="down_head_name">-->
+<!--<h3>地区列表</h3>-->
+<!--</div>-->
+<!--<ul>-->
+<!--<li><a routerLink=". /east">华东地区</a></li>-->
+<!--<li><a href="#">华北地区</a></li>-->
+<!--<li><a href="#">华南地区</a></li>-->
+<!--<li><a href="#">华中地区</a></li>-->
+<!--<li><a href="#">东北地区</a></li>-->
+<!--<li><a href="#">西北地区</a></li>-->
+<!--<li><a href="#">西南地区</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--<div id="down_inner">-->
+<!--<div id="down_inner_east"></div>-->
+<!--<div id="down_inner_north"></div>-->
+<!--<div id="down_inner_south"></div>-->
+<!--<div id="down_inner_middle"></div>-->
+<!--<div id="down_inner_westsouth"></div>-->
+<!--<div id="down_inner_westnorth"></div>-->
+<!--<div id="down_inner_eastnorth"></div>-->
+<!--</div>-->
 <!--</div>-->
 
 

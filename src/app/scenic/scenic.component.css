@@ -5,140 +5,136 @@
   height: 450px;
   width: 100%;
 }
-.pic_lgh{
-  width: 100%;
-  height: 450px;
+
+
+
+.middle{
+  width:985px ;
+  height: 930px;
+  margin: 40px auto;
+  /*border: 1px solid #010901;*/
+
 }
 
-#middle_head{
-  width:983px ;
-  height: 40px;
-  padding: 0;
-  margin: 40px auto 10px;
-  position: relative;
-  border: 1px solid deeppink;
-}
-.middle_head_name{
-  font-size: 24px;
-  line-height: 26px;
-  font-family: Hiragino Sans GB,Microsoft YaHei,\9ED1\4F53,\5b8b\4f53,sans-serif;
+
+.middle_name{
+  font-size: 26px;
   font-weight: 500;
+  line-height: 26px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: Hiragino Sans GB,Microsoft YaHei,\9ED1\4F53,\5b8b\4f53,sans-serif;
+  /*border: 1px solid #ff673e;*/
 
 }
-.middle_head_ul{
-  position: absolute;
-  right: 0;
-  top: 0;
-  border: 1px solid #3b1ee0;
+.middle ul{
+  display: block;
+  width: 760px;
+  height: 40px;
+  margin: 40px auto 10px;
+  /*border: 3px solid #d797ff;*/
 }
-.middle_head_ul li{
-  width: 90px;
+.middle ul li{
+  display: block;
+  float: left;
   list-style: none;
   text-align: center;
-  float: left;
-  /*margin-left: 14px;*/
-  /*padding: 0 8px 4px;*/
-  font-size: 14px;
-  line-height: 30px;
-  font-weight: 700;
-  border: 1px solid firebrick;
+  width: 150px;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+  /*border: 2px solid #040cb2;*/
 }
-.middle_head_ul a{
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-}
-.middle_head_ul a:hover{
+.middle ul li:hover{
   text-decoration: underline;
+  color: #ff9d00;
 }
 
-.middle_window{
-  width: 983px;
-  height: 630px;
-  margin:10px auto;
-  position: relative;
-  border: 1px solid red;
-}
+
+
+
+
+
+
+
+
 .middle_pic{
   width: 983px;
   height: 630px;
-  position: absolute;
-  border: 1px solid blue;
+  position: relative;
+  /*border: 1px solid blue;*/
 }
-
-.middle_pic_div_1{
+.middle_pic_1{
   width: 390px;
   height: 200px;
   position: absolute;
   left: 0;
   top: 0;
 }
-.middle_pic_div_2{
+.middle_pic_2{
   width: 192px;
   height: 200px;
   position: absolute;
   left: 395px;
   top: 0;
 }
-.middle_pic_div_3{
+.middle_pic_3{
   width: 192px;
   height: 405px;
   position: absolute;
   left: 592px;
   top: 0;
 }
-.middle_pic_div_4{
+.middle_pic_4{
   width: 192px;
   height: 200px;
   position: absolute;
   left: 789px;
   top: 0;
 }
-.middle_pic_div_5{
+.middle_pic_5{
   width: 192px;
   height: 405px;
   position: absolute;
   left: 0;
   top: 205px;
 }
-.middle_pic_div_6{
+.middle_pic_6{
   width: 390px;
   height: 200px;
   position: absolute;
   left: 197px;
   top: 205px;
 }
-.middle_pic_div_7{
+.middle_pic_7{
   width: 192px;
   height: 200px;
   position: absolute;
   left: 789px;
   top: 205px;
 }
-.middle_pic_div_8{
+.middle_pic_8{
   width: 192px;
   height: 200px;
   position: absolute;
   left: 197px;
   top: 410px;
 }
-.middle_pic_div_9{
+.middle_pic_9{
   width: 192px;
   height: 200px;
   position: absolute;
   left: 394px;
   top: 410px;
 }
-.middle_pic_div_10{
+.middle_pic_10{
    width: 390px;
    height: 200px;
    position: absolute;
    left: 591px;
    top: 410px;
  }
-
-
-.middle_window>div>div{
+.middle_pic>div{
   overflow: hidden;
   /*border: 1px solid darkorange;*/
 }
@@ -167,25 +163,22 @@
   transition-timing-function: initial;
   transition-delay: initial;
 }
-
-.pic_width:hover{
+.middle_pic>div:hover .pic_width{
   width: 429px;
   height: 220px;
 }
-.pic_square:hover{
+.middle_pic>div:hover .pic_square{
   width: 211px;
   height: 220px;
 }
-.pic_height:hover{
+.middle_pic>div:hover .pic_height{
   width: 211px;
   height: 445px;
 }
 
-.middle_window a{
-  display: block;
-}
 
-.middle_window h3{
+
+.middle_pic h3{
   position: absolute;
   left: 0;
   bottom: 0;
@@ -197,30 +190,39 @@
   padding: 0 10px;
   color: #fff;
 }
-.middle_window>div>div:hover h3{
+.middle_pic>div:hover h3{
   display: none;
 }
 
-.pic_width_inner{
+
+.middle_pic .pic_inner{
+  display: block;
+  width: 100%;
+  height: 65%;
   position: absolute;
   left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0;
+  top: 100%;
+  background: rgba(0,0,0,.5);
+  transition: top .5s;
   font-family: hiragino sans gb,Microsoft YaHei,\9ED1\4F53,\5b8b\4f53,sans-serif;
-  font-size: 10px;
-  line-height: 10px;
-  padding: 0 10px;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 10px 10px;
   color: #fff;
-  /*background: rgba(0,0,0,.5);*/
+}
+.middle_pic>div:hover .pic_inner{
+  position: absolute;
+  left: 0;
+  top: 35%;
 }
 
-.middle_window>div>div:hover p{
-  height: 60px;
+.middle_pic em{
+  display: block;
+  font-size: 25px;
+  line-height: 25px;
+  margin-bottom: 15px;
 }
-.pic_width_inner:hover{
 
-}
 
 
 
