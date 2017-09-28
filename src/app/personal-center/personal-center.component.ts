@@ -10,13 +10,14 @@ import {PersonalCenterService} from './../services/personal-center.service';
 import {GlobalPropertyService} from './../services/global-property.service'
 // import { window } from 'rxjs/operator/window';
 import {DOCUMENT} from "@angular/platform-browser";
+import {AuthGuard} from "../services/auth-guard.service";
 
 @Component({
   moduleId: module.id,
   selector: 'app-personal-center',
   templateUrl: './personal-center.component.html',
   styleUrls: ['./personal-center.component.css'],
-  providers: [GlobalPropertyService,UserService, PersonalCenterService]
+  providers: [GlobalPropertyService,UserService, PersonalCenterService,AuthGuard]
 
 })
 export class PersonalCenterComponent implements OnInit {

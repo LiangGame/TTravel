@@ -2,15 +2,14 @@
   margin-top:30px;
 
 }
-.main .top,.about {
+.route,.about {
   border:solid 1px #ECECEC;
   border-radius: 5px;
 }
 .main .top{
   width: 738px;
   float: left;
-  margin-right: 27px;
-
+  margin-right: 27px
 }
 /*右侧栏固定滚动*/
 .about_fix{
@@ -22,6 +21,8 @@
 }
 .about{
   position: relative;
+  /*left: 50%;*/
+  /*margin-left: 195px;*/
   width: 370px;
   height: 380px;
   overflow: hidden;

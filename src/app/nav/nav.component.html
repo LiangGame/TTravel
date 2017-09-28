@@ -28,16 +28,16 @@
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="isLogin">
         <li data-toggle="dropdown"><a >欢迎 : {{userName}}</a></li>
-        <ul class="dropdown-menu down" aria-labelledby="dropdownMenu1">
-          <li><a routerLink="personal-center"><span class="fa fa-home fa-lg" aria-hidden="true"> </span>    个人首页</a></li>
-          <li><a routerLink="./personal-center/WantToGo"><span class="fa fa-heart fa-lg" aria-hidden="true"> </span>    我的想去</a></li>
-          <li><a routerLink="./personal-center/footprint"><span class="fa fa-paw fa-lg" aria-hidden="true"> </span>    我的足迹</a></li>
-          <li><a routerLink="./personal-center/Notes"><span class="fa fa-book fa-lg" aria-hidden="true"> </span>    游记</a></li>
-          <li><a routerLink="./personal-center/PhotoAlbum"><span class="fa fa-camera-retro fa-lg" aria-hidden="true"> </span>    照片</a></li>
-          <li><a routerLink="./personal-center/Setting"><span class="fa fa-cog fa-lg" aria-hidden="true"> </span>     设置</a></li>
+        <ul id="menu-down" class="dropdown-menu down" aria-labelledby="dropdownMenu1">
+          <li><a routerLink="personal-center"><span class="fa fa-home " aria-hidden="true"> </span>    个人首页</a></li>
+          <li><a routerLink="./personal-center/WantToGo"><span class="fa fa-heart " aria-hidden="true"> </span>    我的想去</a></li>
+          <li><a routerLink="./personal-center/footprint"><span class="fa fa-paw " aria-hidden="true"> </span>    我的足迹</a></li>
+          <li><a routerLink="./personal-center/Notes"><span class="fa fa-book " aria-hidden="true"> </span>    游记</a></li>
+          <li><a routerLink="./personal-center/PhotoAlbum"><span class="fa fa-camera-retro " aria-hidden="true"> </span>    照片</a></li>
+          <li><a routerLink="./personal-center/Setting"><span class="fa fa-cog " aria-hidden="true"> </span>     设置</a></li>
           <li role="separator" class="divider"></li>
-          <li><a (click)="signOut()"><span class="span_1"><img src="../../assets/images/029.png" height="30"
-                                          width="30"/></span>退出</a></li>
+          <li><a (click)="signOut()"><span class="fa fa-sign-out" aria-hidden="true"></span>     退出</a></li>
+          <!--<img src="../../assets/images/029.png" height="30" width="30"/>-->
         </ul>
       </ul>
     </div>

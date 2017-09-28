@@ -1,7 +1,7 @@
-.navZ{
-  background: #333;
-  height: 51px;
-}
+/*.navZ{*/
+  /*background: #333;*/
+  /*height: 51px;*/
+/*}*/
 .create-container{
   margin-top: 15px;
   margin-bottom: 15px;
@@ -27,9 +27,20 @@
   outline: none ;
 }
 
-
-
-
+.modal-text{
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  margin-top: 50%;
+  box-shadow: 0 0 5px -1px #ff9d00;
+  border: none;
+}
+#modal{
+  position: absolute;
+  z-index: 9999999;
+}
 
 
 

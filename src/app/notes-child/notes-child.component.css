@@ -144,11 +144,14 @@
   color: #666666;
   padding-top: 3px;
 }
-.travel-list,.about{
-  border: dashed 1px #cdcdcd;
-  /*text-align:center ;*/
 
+/*右侧 相关推荐*/
+.travel-list{
+  border: dashed 1px #cdcdcd;
+  border-radius: 5px;
+  /*text-align:center ;*/
 }
+
 .travel-list ul{
   margin-left: 20px;
 }
@@ -179,7 +182,7 @@
 
 
 .container-main,.container-comment{
-  padding: 25px 90px;
+  /*padding: 25px 110px;*/
   font-size: 14px;
   line-height: 1.5em;
   letter-spacing: 1px;
@@ -348,4 +351,65 @@ hr{
 .item-info:hover span{
   display: block;
   cursor: pointer;
+}
+
+/*模态框*/
+.modal-text{
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  margin-top: 50%;
+  box-shadow: 0 0 5px -1px #ff9d00;
+  border: none;
+  color: #ff9d00;
+}
+#modal{
+  position: absolute;
+  z-index: 9999999;
+}
+/*删除按钮*/
+._middle{
+  font-size: 16px;
+  height: 70px;
+}
+._middle p span{
+  display: inline-block;
+  font-size: 18px;
+  color: #ff2b1d;
+}
+._footer{
+  padding: 0;
+}
+._yes,._no{
+  width: 299px;
+  height: 55px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+._yes{
+  background: #f6f6f6;
+  -webkit-border-bottom-left-radius: 4px;
+}
+._no{
+  background: #ff9d00;
+  border-left: solid 1px #fefefe;
+  -webkit-border-bottom-right-radius: 4px;
+  color: #fefefe;
+}
+._yes:hover{
+  background: #ff9d00;
+  color: #fefefe;
+}
+._yes:hover+._no{
+  background: #f6f6f6;
+  color: #333333;
+}
+/*._no:hover{*/
+  /*background: #f6f6f6;*/
+/*}*/
+.delete-content{
+  margin-top: 20%;
+  box-shadow: none;
 }

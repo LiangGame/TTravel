@@ -64,13 +64,12 @@
   font-size: 18px;
   color: white;
   background-color: #FFA800;
-
+  outline: none;
 }
 
 .p1{
   float: right;
 }
-
 input:focus{
   outline: none;
   border: 1px solid #ff9d00 !important;

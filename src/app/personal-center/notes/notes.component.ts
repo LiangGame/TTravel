@@ -4,11 +4,12 @@ import {PersonalCenterService} from './../../services/personal-center.service';
 
 
 import {EditorComponent} from './../../editor/editor.component'
+import {AuthGuard} from "../../services/auth-guard.service";
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.css'],
-  providers: [PersonalCenterService],
+  providers: [PersonalCenterService,AuthGuard],
 })
 export class NotesComponent implements OnInit {
   _notes: any = [];

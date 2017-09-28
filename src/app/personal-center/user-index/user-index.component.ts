@@ -4,12 +4,13 @@ import {EditorComponent} from './../../editor/editor.component'
 // 导入服务
 import {PersonalCenterService} from './../../services/personal-center.service';
 import {GlobalPropertyService} from './../../services/global-property.service';
+import {AuthGuard} from "../../services/auth-guard.service";
 
 @Component({
   selector: 'app-user-index',
   templateUrl: './user-index.component.html',
   styleUrls: ['./user-index.component.css'],
-  providers: [PersonalCenterService]
+  providers: [PersonalCenterService,AuthGuard]
 })
 export class UserIndexComponent implements OnInit {
   images: any = [];

@@ -13,12 +13,13 @@ import {NotesComponent} from './notes/notes.component';
 import {PhotoAlbumComponent} from './photo-album/photo-album.component';
 import {SettingComponent} from './setting/setting.component';
 // import { CreateNotesComponent } from '../create-notes/create-notes.component';
-
+import {AuthGuard} from './../services/auth-guard.service'
 // 配置路由表
 const routes: Routes = [
   {
     path: 'personal-center',
     component: PersonalCenterComponent,
+    canActivate: [AuthGuard],  //注意这里****
     children: [
       {path: 'index', component: UserIndexComponent},
       {path: 'footprint', component: FootprintComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard]
 })
 export class PersonalCenterRoutingModule {
 }
