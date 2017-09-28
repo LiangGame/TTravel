@@ -2,26 +2,26 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {EqualValidator} from './register/equal-validator.directive';
-import{CommonModule} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {FileUploadModule} from 'ng2-file-upload';
 import {Ng2PaginationModule} from "ng2-pagination"
 
-import { AppComponent } from './root/app.component';
-import { IndexComponent } from './index/index.component';
-import { HttpClientModule } from '@angular/common/http';
+import {AppComponent} from './root/app.component';
+import {IndexComponent} from './index/index.component';
+import {HttpClientModule} from '@angular/common/http';
 
 // import { PersonalCenterComponent } from './personal-center/personal-center.component';
-import { ScenicComponent } from './scenic/scenic.component';
-import { TravelNotesComponent } from './travel-notes/travel-notes.component';
-import { TravelStrategyComponent } from './travel-strategy/travel-strategy.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { SearchComponent } from './search/search.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { NavComponent } from './nav/nav.component';
-import { FooterComponent } from './footer/footer.component';
-import { ScenicSearchComponent } from './scenic-search/scenic-search.component';
-import { ScenicResultComponent } from './scenic-result/scenic-result.component';
+import {ScenicComponent} from './scenic/scenic.component';
+import {TravelNotesComponent} from './travel-notes/travel-notes.component';
+import {TravelStrategyComponent} from './travel-strategy/travel-strategy.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {SearchComponent} from './search/search.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {NavComponent} from './nav/nav.component';
+import {FooterComponent} from './footer/footer.component';
+import {ScenicSearchComponent} from './scenic-search/scenic-search.component';
+import {ScenicResultComponent} from './scenic-result/scenic-result.component';
 import {CreateNotesComponent} from './create-notes/create-notes.component';
 import {EditorComponent} from './editor/editor.component';
 import {TravelAlbumComponent} from './travel-album/travel-album.component';
@@ -40,8 +40,9 @@ import {ScenicService} from './services/scenic.service';
 import {LocalStorage} from './services/local-storage.service';
 // 管道
 import {SearchScenicPipe} from './pipes/search-scenic.pipe';
-import { ThemeStringPipe } from './Pipes/theme-string.pipe';
-import { TopicStringPipe } from './Pipes/topic-string.pipe';
+import {ThemeStringPipe} from './Pipes/theme-string.pipe';
+import {TopicStringPipe} from './Pipes/topic-string.pipe';
+import {SearchNotesPipe} from './Pipes/search-notes.pipe';
 
 
 // import { RoutingDirective } from './Directives/routing.directive';
@@ -49,10 +50,13 @@ import { TopicStringPipe } from './Pipes/topic-string.pipe';
 // 导入指令
 // import { RoutingDirective } from './../Directives/routing.directive';
 
+import {PaginatePipe,PaginationControlsComponent, PaginationService} from 'ng2-pagination';
+import { IndexNotesPipe } from './Pipes/index-notes.pipe';
 
 
 @NgModule({
   declarations: [
+    PageComponent,
     AppComponent,
     IndexComponent,
     // PersonalCenterComponent,
@@ -76,24 +80,31 @@ import { TopicStringPipe } from './Pipes/topic-string.pipe';
     LoopImgComponent,
     CreateNotesComponent,
     SearchScenicPipe,
-    PageComponent,
     ThemeStringPipe,
-    TopicStringPipe
+    TopicStringPipe,
+    SearchNotesPipe,
+    IndexNotesPipe,
+
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
     FileUploadModule,
+    Ng2PaginationModule,
+    HttpClientModule,
     PersonalCenterModule,
     AppRoutingModule,
-    Ng2PaginationModule,
-    HttpClientModule
+
   ],
   providers: [
     GlobalPropertyService,
     ScenicService,
-    LocalStorage],
+    LocalStorage,
+  ],
+  exports: [    Ng2PaginationModule,
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

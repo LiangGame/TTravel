@@ -30,18 +30,21 @@
     </div>
   </div>
   &lt;!&ndash;<div class="row title col-lg-12">推荐攻略</div>&ndash;&gt;
-</div>-->
+</div>--->
 
 <div id="main" class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-4" *ngFor="let strategy of strategys" (click)="strategyItem(strategy?.id)">
       <div class="thumbnail">
-        <a routerLink="../strategychild">
-          <img src="../../assets/images/background/bg03.jpg"
-             alt="通用的占位符缩略图"></a>
+        <a>
+          <img src="http://owpv96eru.bkt.clouddn.com{{strategy?.coverImg}}"
+             alt="{{strategy?.title}}" style="width: 350px;height: 233px">
+        </a>
         <div class="caption">
-          <h3>梯田.星辰.大海</h3>
-          <p>10天9晚休闲溜娃！</p>
+          <!--<h3>梯田.星辰.大海</h3>-->
+          <h3>{{strategy?.title | themeString:12}}</h3>
+          <!--<p>10天9晚休闲溜娃！</p>-->
+          <p>{{strategy?.info | themeString: 20}}</p>
           <!--<p>-->
             <!--<a href="#" class="btn btn-primary" role="button">-->
               <!--按钮-->
@@ -53,7 +56,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
+<!--    <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <img src="../../assets/images/background/bg05.jpg"
              alt="通用的占位符缩略图">
@@ -64,7 +67,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <img src="../../assets/images/background/bg01.jpg"
              alt="通用的占位符缩略图">
@@ -74,10 +77,10 @@
 
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
   <div class="row">
-    <div class="col-sm-6 col-md-4">
+<!--    <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <a routerLink="../strategychild">
           <img src="../../assets/images/background/bg12.jpg"
@@ -85,14 +88,14 @@
         <div class="caption">
           <h3>这抹白，内心平静。</h3>
           <p>用尽了力气，认识了你们</p>
-          <!--<p>-->
-          <!--<a href="#" class="btn btn-primary" role="button">-->
-          <!--按钮-->
-          <!--</a>-->
-          <!--<a href="#" class="btn btn-default" role="button">-->
-          <!--按钮-->
-          <!--</a>-->
-          <!--</p>-->
+          &lt;!&ndash;<p>&ndash;&gt;
+          &lt;!&ndash;<a href="#" class="btn btn-primary" role="button">&ndash;&gt;
+          &lt;!&ndash;按钮&ndash;&gt;
+          &lt;!&ndash;</a>&ndash;&gt;
+          &lt;!&ndash;<a href="#" class="btn btn-default" role="button">&ndash;&gt;
+          &lt;!&ndash;按钮&ndash;&gt;
+          &lt;!&ndash;</a>&ndash;&gt;
+          &lt;!&ndash;</p>&ndash;&gt;
         </div>
       </div>
     </div>
@@ -107,7 +110,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <img src="../../assets/images/background/bg14.jpg"
              alt="通用的占位符缩略图">
@@ -117,6 +120,6 @@
 
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 </div>

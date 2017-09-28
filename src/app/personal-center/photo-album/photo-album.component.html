@@ -1,11 +1,18 @@
-
 <div id="photo_container" class="img-box full">
   <h3>我的照片</h3>
   <section id="upImg" class=" img-section">
-    <div class="z_photo upimg-div clear" >
+    <div class="z_photo upimg-div clear">
+      <div id="userImg">
+        <ul>
+          <li *ngFor="let img of images">
+            <div [innerHtml]="img"></div>
+          </li>
+        </ul>
+      </div>
       <section class="z_file fl">
         <img src="../../../assets/user-img/a11.png" class="add-img">
-        <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+        <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp"
+               multiple ng2FileSelect [uploader]="uploader" (change)="upload($event)"/>
       </section>
     </div>
   </section>

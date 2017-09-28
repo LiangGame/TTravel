@@ -2,6 +2,9 @@
   width: 100%;
 
 }
+#menu-down li span{
+  color: #666666;
+}
 .down{
   border: 1px solid rgba(202, 202, 202, 0.2);
   margin-right: 50px;
@@ -38,7 +41,7 @@ h1{
   text-indent: -2000px;
 }
 .logo img{
-  margin-top: -35px;
+  margin-top: -30px;
 }
 ._float{
   position: relative;

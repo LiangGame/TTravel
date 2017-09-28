@@ -1,23 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, Params} from '@angular/router';
 import {NotesService} from './../services/notes.service';
+import {LikeCollectService} from '../services/like-collect.service';
+import {GlobalPropertyService} from './../services/global-property.service'
 
 declare var $: any; // 在angular中调用jQ前的万能语句
 @Component({
   selector: 'app-notes-child',
   templateUrl: './notes-child.component.html',
   styleUrls: ['./notes-child.component.css'],
-  providers: [NotesService],
+  providers: [NotesService, LikeCollectService, GlobalPropertyService],
 })
 export class NotesChildComponent implements OnInit {
   notes: any;
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private notesSer:NotesService
-  ) {
+  iconUrl: any;
+  userIcon: any;
+  notesId: any;
+  comments: any;
+  commentText: string = '';
+  noLogin: boolean = false;
+  commentInfo: string;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private notesSer: NotesService,
+              private like: LikeCollectService,
+              private glo: GlobalPropertyService) {
     this.get_note();
+    if (sessionStorage.getItem('user')) {
+      this.iconUrl = JSON.parse(sessionStorage.getItem('user')).icon;
+      this.noLogin = true;
+      this.getNotesComment(this.notesId);
+    }
+    this.userIcon = `<img src="${this.glo.serverUrl}/uploads/${this.iconUrl}" alt="" width="60" height="60">`;
   }
 
   ngOnInit() {
@@ -44,16 +59,19 @@ export class NotesChildComponent implements OnInit {
     });
   }
 
-  get_note(){
+  get_note() {
     this.route.params.subscribe((params: Params) => {
       let id = (<Params>this.route.queryParams).value['key'];
+      this.notesId = {notesId: id}
       if (id) {
         let that = this;
-        id = {"id":id};
-        that.notesSer.getnotesItem(id,function (result) {
+        id = {"id": id};
+        that.notesSer.getnotesItem(id, function (result) {
           // console.log(id);
           // console.log('>>>>>>>>>');
-          if(result){
+          if (result) {
+            // result[0].content = (result[0].content).replace(/&nbsp;/ig, '');
+            // result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
             that.notes = result[0];
             console.log(that.notes);
             // that.images = result[0].url.split(',');
@@ -62,4 +80,90 @@ export class NotesChildComponent implements OnInit {
       }
     });
   }
+
+  // 游记收藏
+  setCollect(event: Event, id) {
+    event.stopImmediatePropagation();     // 防止事件冒泡
+    console.log(id);
+    let userId = JSON.parse(sessionStorage.getItem('user')).id;
+    let notesID = {notesId: id, userId: userId, type: '1'};
+    console.log(notesID);
+    let that = this;
+    that.like.getNotesCollect(notesID, function (result) {
+      console.log(result);
+      if (result.length == 0) {
+        that.like.notesCollect(notesID, function (result) {
+          console.log(result);
+          console.log('>>>>>>>travel-notes');
+          if (result.stateCode == 'L001') { // 点赞成功
+            // console.log('123');
+            that.get_note();
+          }
+        })
+      }
+    })
+  }
+
+  // 游记评论
+
+  notesComment(commentForm, notesId) {
+    // console.log(commentForm);
+    let userId = JSON.parse(sessionStorage.getItem('user')).id;
+    let body = {comment: commentForm.value.comment, notesId: notesId, userId: userId, type: 1}
+    let that = this;
+    that.notesSer.notesComment(body, function (result) {
+      console.log(result);
+      if (result) {
+        $('#modal').modal({
+          backdrop: false
+        });
+        that.commentInfo = '评论成功  ';
+        that.getNotesComment(that.notesId);
+        that.commentText = '';
+        window.setTimeout(function () {
+          $('#modal').modal('hide');
+        }, 800);
+      }
+    })
+  }
+
+  // 获取评论信息
+  getNotesComment(notesId) {
+    // console.log(notesId);
+    // console.log('123123123123');
+    let that = this;
+    that.notesSer.getnotesComment(notesId, function (result) {
+      console.log(result);
+      if (result) {
+        that.comments = result;
+        // console.log(result);
+        // console.log('=====================================');
+      }
+    })
+  }
+
+  // 删除评论
+  isdelete() {
+    // $('#deleteModal').modal('show');
+    $('#deleteModal').modal({backdrop: false});
+  }
+
+  delete(Id) {
+    console.log(Id);
+    let commentId = {commentId: Id};
+    let that = this;
+    that.notesSer.deleteComment(commentId, function (result) {
+      console.log(result);
+      if (result) {
+        if (result == 1) {
+          $('#deleteModal').modal('hide');
+          that.getNotesComment(that.notesId);
+        } else {
+          console.log('=====================================');
+        }
+      }
+    })
+  }
+
+
 }

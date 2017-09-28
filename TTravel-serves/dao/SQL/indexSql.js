@@ -3,6 +3,6 @@
  */
 exports.sql={
   getNotes:'select * from travelnotes ORDER BY id desc',
-  getScenic:'select * from scenics',
+  getScenic:'SELECT * from scenics a1 LIMIT 0,8',
   getNoteItem:'select * from travelnotes where id = ?'
 };

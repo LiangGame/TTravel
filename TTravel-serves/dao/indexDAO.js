@@ -16,8 +16,8 @@ exports.indexDao={
           return;
         }
         callback(result);
-        // console.log(result);
-        // console.log('>>>>>>>>>>>>>>>>>>>>>>indexDAO>>>>getNOtes');
+        console.log(result);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>indexDAO>>>>getNOtes');
         client.release();
       })
     })
@@ -58,5 +58,5 @@ exports.indexDao={
         })
       })
     }
-  }
+  },
 }

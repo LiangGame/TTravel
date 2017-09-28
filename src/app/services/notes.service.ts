@@ -15,6 +15,7 @@ export class NotesService {
     this.url = glo.serverUrl;
   }
 
+  //获取全部游记
   getNotes(callback) {
     this.http.post(this.url + '/index/getNotes', '').subscribe(
       function (result) {
@@ -25,9 +26,43 @@ export class NotesService {
       }
     )
   }
-
+  //获取指定游记
   getnotesItem(id, callback) {
     this.http.post(this.url + '/index/notesDetails', id).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+  // 游记评论
+  notesComment(body,callback){
+    console.log(body);
+    this.http.post(this.url + '/users/notesComment', body).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+  // 获取游记评论信息
+  getnotesComment(id,callback){
+    this.http.post(this.url + '/users/getNotesComment', id).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+  // 删除游记评论
+  deleteComment(id,callback){
+    this.http.post(this.url + '/users/deleteComment', id).subscribe(
       function (result) {
         callback(result);
       },

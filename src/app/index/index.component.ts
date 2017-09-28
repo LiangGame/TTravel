@@ -32,10 +32,17 @@ export class IndexComponent implements OnInit {
     that.indexSer.show_scenic(function (result) {
       console.log('成功')
       if (result) {
+        for(let i = 0; i < result.length; i++){
+          if(result[i].url == '' || result[i].url == null){
+            continue;
+          }else{
+            result[i].url = (result[i].url).split(',');
+          }
+          // console.log(result[i].url);
+        }
         that._scenic = result;
         // that.newscenic=result[0];
         console.log(that._scenic);
-        // console.log();
       } else {
         console.log("error")
       }

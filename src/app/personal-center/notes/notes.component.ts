@@ -1,15 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-
 // 导入服务
 import {PersonalCenterService} from './../../services/personal-center.service';
 
 
 import {EditorComponent} from './../../editor/editor.component'
+import {AuthGuard} from "../../services/auth-guard.service";
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.css'],
-  providers: [PersonalCenterService]
+  providers: [PersonalCenterService,AuthGuard],
 })
 export class NotesComponent implements OnInit {
   _notes: any = [];
@@ -17,10 +17,12 @@ export class NotesComponent implements OnInit {
   newNotes: any = [];
   // _img: any = /<img\s+.*?>/;
   len: number = 0;
-  userId: any = {"userId":sessionStorage.getItem('userId')};
+  user: any = JSON.parse(sessionStorage.getItem('user'));
+  userId: any;
   @ViewChild(EditorComponent) editor: EditorComponent;
 
   constructor(private perSer: PersonalCenterService,) {
+    this.userId = {"userId": this.user.telephone}
   }
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class NotesComponent implements OnInit {
 
   getNotes(userId) {
     let that = this;
-    that.perSer.show_notes(userId,function (result) {
+    that.perSer.show_notes(userId, function (result) {
       if (result) {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {

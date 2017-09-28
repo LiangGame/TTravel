@@ -83,12 +83,12 @@
   border-bottom:1px solid #e8e8e6;
   position: relative;
   z-index: 2;
-  /*top: -85px;*/
+  top: 15px;
 }
 
 .container-top{
   position: relative;
-  z-index: 2;
+  z-index: -2;
   top: -85px;
   padding-left: 90px;
 }
@@ -144,11 +144,14 @@
   color: #666666;
   padding-top: 3px;
 }
-.travel-list,.about{
-  border: dashed 1px #cdcdcd;
-  /*text-align:center ;*/
 
+/*右侧 相关推荐*/
+.travel-list{
+  border: dashed 1px #cdcdcd;
+  border-radius: 5px;
+  /*text-align:center ;*/
 }
+
 .travel-list ul{
   margin-left: 20px;
 }
@@ -178,12 +181,12 @@
 }
 
 
-.container-main{
-  padding: 25px 90px;
+.container-main,.container-comment{
+  /*padding: 25px 110px;*/
   font-size: 14px;
   line-height: 1.5em;
   letter-spacing: 1px;
-  text-indent: 2em;
+  /*text-indent: 2em;*/
 }
 h3{
    margin-top: 25px;
@@ -222,3 +225,191 @@ hr{
 }
 
 
+/*====================================*/
+.reply {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.tab {
+  height: 44px;
+  width: 550px;
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 20px;
+  margin-left: 65px;
+}
+.reply-tab{
+  width: 180px;
+  padding-left: 58px;
+  line-height: 42px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #FF9D00;
+  border-bottom: 3px solid #FF9D00;
+}
+.item-info .photo-icon{
+  width: 48px;
+  height:48px;
+  border: solid 1px #cccccc;
+  border-radius: 50%;
+  float: left;
+  margin-right: 15px;
+  overflow: hidden;
+}
+.photo-icon{
+  width: 60px;
+  height:60px;
+  border: solid 1px #cccccc;
+  border-radius: 50%;
+  float: left;
+  margin-right: 15px;
+  overflow: hidden;
+}
+.reply-text {
+  padding: 5px;
+  float: left;
+}
+#textarea{
+  outline: 0;
+  /*border: 0;*/
+  padding: 8px;
+  width: 535px;
+  height: 180px;
+  resize: none;
+  color: #666;
+  line-height: 22px;
+}
+.reply-submit {
+  float: right;
+  margin-top: 20px;
+}
+.reply-submit{
+  display: block;
+  clear: both;
+  width: 160px;
+  height: 40px;
+  background-color: #ff9d00;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  margin-left: 160px;
+  /*top: -25px;*/
+}
+
+.container-comment{
+  position:relative;
+}
+.user{
+  height: 48px;
+  line-height: 48px;
+  background-color: #f6f6f6;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+.user .name {
+  color: #ff8a00;
+  margin-right: 10px;
+}
+.user .level {
+  color: #ef523d;
+  margin-right: 6px;
+  font-size: 12px;
+}
+.item-info {
+  width: 700px;
+  margin-bottom: 25px;
+  padding-bottom: 8px;
+  border-top-left-radius: 24px;
+  background: #fefefe;
+  border-bottom: solid 1px #f6f6f6;
+}
+.con-wrap {
+  padding-left: 68px;
+  margin-top: 12px;
+  position: relative;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  text-indent: 2em;
+}
+.commentBottom {
+  margin-left: 63px;
+  margin-top: 15px;
+  font-size: 12px;
+  padding-right: 15px;
+  color: #666666;
+}
+.delete{
+  color: #00B7FF;
+  display: none;
+}
+.delete:hover{
+  color: #ff9d00;
+}
+.item-info:hover span{
+  display: block;
+  cursor: pointer;
+}
+
+/*模态框*/
+.modal-text{
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  margin-top: 50%;
+  box-shadow: 0 0 5px -1px #ff9d00;
+  border: none;
+  color: #ff9d00;
+}
+#modal{
+  position: absolute;
+  z-index: 9999999;
+}
+/*删除按钮*/
+._middle{
+  font-size: 16px;
+  height: 70px;
+}
+._middle p span{
+  display: inline-block;
+  font-size: 18px;
+  color: #ff2b1d;
+}
+._footer{
+  padding: 0;
+}
+._yes,._no{
+  width: 299px;
+  height: 55px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+._yes{
+  background: #f6f6f6;
+  -webkit-border-bottom-left-radius: 4px;
+}
+._no{
+  background: #ff9d00;
+  border-left: solid 1px #fefefe;
+  -webkit-border-bottom-right-radius: 4px;
+  color: #fefefe;
+}
+._yes:hover{
+  background: #ff9d00;
+  color: #fefefe;
+}
+._yes:hover+._no{
+  background: #f6f6f6;
+  color: #333333;
+}
+/*._no:hover{*/
+  /*background: #f6f6f6;*/
+/*}*/
+.delete-content{
+  margin-top: 20%;
+  box-shadow: none;
+}
