@@ -78,45 +78,60 @@ export class TravelNotesComponent implements OnInit {
   //   console.log('=============================');
   // }
 
-  ngAfterContentInit() {
+
+  // this.route.params.subscribe((params: Params) => {
+  //   this.key = (<Params>this.route.queryParams).value['key'];
+  //   console.log(this.key);
+  //   if (this.key) {
+  //     let that = this;
+  //     that.getNotes();
+  //     that.searText = that.key;
+  //   }
+  // })
+
+
+  ngAfterContentChecked() {
+    console.log((decodeURI(location.search).split('=')[1]));
     this.route.params.subscribe((params: Params) => {
-      this.key = (<Params>this.route.queryParams).value['key'];
-      console.log(this.key);
-      if (this.key) {
-        let that = this;
-        that.getNotes();
-        that.searText = that.key;
-        /* that.scenicSer.get_scenic(function (result) {
-         if (result) {
-         that.data = result;
-         for (let i = 0; i < result.length; i++) {
-         result[i].url = (result[i].url).split(',');
-         console.log(result[i].url);
-         }
-         that.searText = that.key;
-         } else {
-         console.log('error');
-         }
-         });*/
-      }
-    })
+      this.key = (<Params>this.route.queryParams).value['key'];})
+    if(decodeURI(location.search).split('=')[1] == this.key){
+      this.searText = this.key;
+        // console.log('=============================================');
+    }
   }
 
   getNotes() {
     let that = this;
-    that.noteSer.getNotes(function (result) {
+    let num = {num:5};
+    that.noteSer.getNotes(num,function (result) {
       if (result) {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
           result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
-          if(result[i].comment=='' || result[i].comment==null){
-            result[i].comment = 0;
-          }
         }
         that.notes = result;
         console.log(that.notes);
       } else {
         console.log('here');
+      }
+    });
+  }
+
+  //加载更多
+  loadMore(){
+    let that = this;
+    let num = {num:5 + that.notes.length};
+    that.noteSer.getNotes(num,function (result) {
+      console.log(result);
+      if (result) {
+        let reg = that.reg;
+        for (let i = 0; i < result.length; i++) {
+          result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
+        }
+        that.notes = result;
+        // console.log(that.notes);
+      } else {
+        // console.log('here');
       }
     });
   }

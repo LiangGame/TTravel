@@ -8,7 +8,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/getNotes',function (req,res,next) {
-  indexdao.getNotes('',function (result) {
+  var num = req.body.num;
+  console.log(num);
+  console.log("===============================");
+  if(num == null || num == ''){
+    num = 5;
+  }
+  indexdao.getNotes(num,function (result) {
       if(result){
         res.json(result)
       }else{

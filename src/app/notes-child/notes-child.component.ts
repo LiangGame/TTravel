@@ -70,7 +70,7 @@ export class NotesChildComponent implements OnInit {
           // console.log(id);
           // console.log('>>>>>>>>>');
           if (result) {
-            // result[0].content = (result[0].content).replace(/&nbsp;/ig, '');
+            result[0].content = (result[0].content).replace(/&nbsp;/ig, '');
             // result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
             that.notes = result[0];
             console.log(that.notes);

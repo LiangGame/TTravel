@@ -4,12 +4,12 @@
 var pool=require('./db_pool').pool;
 var indexSql=require('./SQL/indexSql').sql;
 exports.indexDao={
-  getNotes:function (e,callback) {
+  getNotes:function (num,callback) {
     pool.getConnection(function (error,client) {
       if(error){
         return
       }
-      client.query(indexSql.getNotes,function (error,result) {
+      client.query(indexSql.getNotes,[num],function (error,result) {
         if(error){
           console.log(error.message+' from >>>>>>index >>>> getNotes');
           callback('e004');

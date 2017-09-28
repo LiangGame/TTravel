@@ -6,13 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchNotesPipe implements PipeTransform {
 
   transform(notes: any, args?: any): any {
-    // console.log(notes);
+    console.log(notes);
     // console.log(args);
-    // console.log('<<<<<<<<<<>>>>>>>>>>>>>>>');
-    if(args){
+    console.log('<<<<<<<<<<>>>>>>>>>>>>>>>');
+    var arg = args || '';
+    if(arg){
       var new_notes = notes.filter(function (notes,index) {
-        if(notes.title.indexOf(args)!=-1
-          ||notes.content.indexOf(args)!=-1){
+        if(notes.title.indexOf(arg)!=-1
+          ||notes.content.indexOf(arg)!=-1){
           return notes;
         }
       })

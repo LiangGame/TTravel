@@ -16,8 +16,8 @@ export class NotesService {
   }
 
   //获取全部游记
-  getNotes(callback) {
-    this.http.post(this.url + '/index/getNotes', '').subscribe(
+  getNotes(num,callback) {
+    this.http.post(this.url + '/index/getNotes', num).subscribe(
       function (result) {
         callback(result);
       },

@@ -48,6 +48,8 @@ export class SearchComponent implements OnInit {
     if (navItem == 0 && !!searchText) {
       this.router.navigate(['/scenic_search'], {queryParams: {'key': searchText}});
     } else if (navItem == 1 && !!searchText) {
+      // console.log(decodeURI(window.location.search));
+      // console.log(searchText);
       this.router.navigate(['/travels'], {queryParams: {'key': searchText}});
     } else if (navItem == 2 && !!searchText) {
       this.router.navigate(['/strategy'], {queryParams: {'key': searchText}});
