@@ -4,12 +4,13 @@ import {Router} from '@angular/router';
 // 导入服务
 import {PersonalCenterService} from './../../services/personal-center.service';
 import { UserService } from './../../services/user.service';
+import {AuthGuard} from "../../services/auth-guard.service";
 
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.css'],
-  providers: [PersonalCenterService,UserService]
+  providers: [PersonalCenterService,UserService,AuthGuard]
 })
 export class SettingComponent implements OnInit {
   _years: any = [];

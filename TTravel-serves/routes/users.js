@@ -216,8 +216,8 @@ router.post('/register', function (req, res, next) {
   console.log(user);
   console.log(('>>>>>>'));
   if (user) {
-    if (user.telephoone == '' || user.password == '') {
-      res.end('0');
+    if (user.telephoone == '' || user.password == '' || user.userName == '') {
+      res.json({"stateCode": '0'});
       return;
     }
     user.password = util.MD5(user.password);

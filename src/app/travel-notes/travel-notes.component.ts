@@ -108,9 +108,13 @@ export class TravelNotesComponent implements OnInit {
       if (result) {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
-          result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
+          result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
+          if(result[i].comment=='' || result[i].comment==null){
+            result[i].comment = 0;
+          }
         }
         that.notes = result;
+        console.log(that.notes);
       } else {
         console.log('here');
       }

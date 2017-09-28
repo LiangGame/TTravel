@@ -2,6 +2,9 @@
   width: 100%;
 
 }
+#menu-down li span{
+  color: #666666;
+}
 .down{
   border: 1px solid rgba(202, 202, 202, 0.2);
   margin-right: 50px;

@@ -19,6 +19,7 @@ export class NotesChildComponent implements OnInit {
   comments: any;
   commentText: string = '';
   noLogin: boolean = false;
+  commentInfo: string;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -69,6 +70,8 @@ export class NotesChildComponent implements OnInit {
           // console.log(id);
           // console.log('>>>>>>>>>');
           if (result) {
+            // result[0].content = (result[0].content).replace(/&nbsp;/ig, '');
+            // result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
             that.notes = result[0];
             console.log(that.notes);
             // that.images = result[0].url.split(',');
@@ -111,12 +114,20 @@ export class NotesChildComponent implements OnInit {
     that.notesSer.notesComment(body, function (result) {
       console.log(result);
       if (result) {
+        $('#modal').modal({
+          backdrop: false
+        });
+        that.commentInfo = '评论成功  ';
         that.getNotesComment(that.notesId);
         that.commentText = '';
+        window.setTimeout(function () {
+          $('#modal').modal('hide');
+        }, 800);
       }
     })
   }
- // 获取评论信息
+
+  // 获取评论信息
   getNotesComment(notesId) {
     // console.log(notesId);
     // console.log('123123123123');
@@ -132,21 +143,27 @@ export class NotesChildComponent implements OnInit {
   }
 
   // 删除评论
+  isdelete() {
+    // $('#deleteModal').modal('show');
+    $('#deleteModal').modal({backdrop: false});
+  }
 
-  delete(Id){
+  delete(Id) {
     console.log(Id);
-    let commentId = {commentId:Id};
+    let commentId = {commentId: Id};
     let that = this;
     that.notesSer.deleteComment(commentId, function (result) {
       console.log(result);
       if (result) {
-        if(result == 1){
+        if (result == 1) {
+          $('#deleteModal').modal('hide');
           that.getNotesComment(that.notesId);
-        }else{
+        } else {
           console.log('=====================================');
         }
       }
     })
   }
+
 
 }

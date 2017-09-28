@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FileItem, FileUploader} from 'ng2-file-upload';
 import {GlobalPropertyService} from './../../services/global-property.service';
 import {PersonalCenterService} from './../../services/personal-center.service'
+import {AuthGuard} from "../../services/auth-guard.service";
 
 // import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 // import * as $ from './../../../assets/js/up-img-js/imgUp.js';
@@ -10,7 +11,7 @@ declare var $: any;
   selector: 'app-photo-album',
   templateUrl: './photo-album.component.html',
   styleUrls: ['./photo-album.component.css'],
-  providers: [PersonalCenterService]
+  providers: [PersonalCenterService,AuthGuard]
 })
 export class PhotoAlbumComponent implements OnInit {
   userId: any;
