@@ -46,10 +46,13 @@ li:hover{
   overflow: hidden;
 }
 .item:hover{
-  -webkit-box-shadow: 0px 2px 151px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 2px 151px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 2px 151px 0px rgba(0,0,0,0.75);
+  /*-webkit-box-shadow: 0px 2px 151px 0px rgba(0,0,0,0.75);*/
+  /*-moz-box-shadow: 0px 2px 151px 0px rgba(0,0,0,0.75);*/
+  box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.75);
 }
+/*.scenicInfo:hover{*/
+  /*box-shadow: 5px 5px 50px -2px rgba(0,0,0,0.75) !important;*/
+/*}*/
 .item .img{
   vertical-align: top;
   width: 100%;
@@ -94,9 +97,8 @@ li:hover{
 .travels .item .info{
   border: 1px solid #ececec;
   padding: 0 18px;
-  height: 104px;
+  height: 80px;
   line-height: 24px;
-
 }
 
 .travels .item .info .s1{
@@ -118,7 +120,7 @@ li:hover{
 
 }
 .travels .item .info .p1{
-  padding-top: 20px;
+  padding-top: 8px;
   font-size: 16px;
   font-weight:bold;
   padding-bottom: 10px;

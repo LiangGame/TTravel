@@ -56,7 +56,25 @@ export class RegisterComponent implements OnInit {
     }
 
   }
+  valids( value: string,myform ): void {
+    this.IsSubmit[4] = false;
+    let that = this;
+    if ( value == '' || value == null) {
+      that.iscodeempty = false;
+      that.iscodeformat = true;
+    }else{
+      that.iscodeempty = true;
+      that.IsBy = $.idcode.validateCode();
+      if (!this.IsBy) {
+        this.iscodeformat = false;
+      }else if(this.IsBy){
+        this.iscodeformat = true;
+        this.iscodeempty = true;
+        this.IsSubmit[4] = true;
+      }
+    }
 
+  }
   ngOnInit() {
     $.idcode.setCode();
 

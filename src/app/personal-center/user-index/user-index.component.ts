@@ -43,6 +43,12 @@ export class UserIndexComponent implements OnInit {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
           result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
+          if(result[i].like == ''||result[i].like == null){
+            result[i].like=0;
+          }
+          if(result[i].comment == ''||result[i].comment == null){
+            result[i].comment=0;
+          }
           // console.log(((that.notes[0].content).replace(reg)));
         }
         that._notes = result;

@@ -3,8 +3,10 @@
   height: 50px;
   border-bottom: dashed 1px #d4d4d4;
 }
-#notes h4,h5{
+#notes h4,h5,#photo h4,h5,#message-board>h4{
   display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 #notes span,#photo span{
   display: inline-block;
@@ -39,11 +41,14 @@
   outline: none;
 }
 #notes_container .content{
-  background: #efefef;
+  background: #f6f6f6;
   padding: 15px 10px 15px 10px;
   border-radius: 8px;
   margin-top: 15px;
-  box-shadow: 8px 8px 10px -7px #999 ;
+  box-shadow: 8px 8px 10px -7px #ccc ;
+}
+#notes_container .content:hover h3{
+  color: #ff9d00;
 }
 .content .top{
   overflow: hidden;
@@ -96,7 +101,7 @@
   text-indent: 1em;
 }
 #message-board .content{
-  background: #efefef;
+  background: #f6f6f6;
   height: 205px;
   border-radius: 4px 4px 0 0;
 }
@@ -155,14 +160,14 @@
 #message-main ul{
   border-radius: 0 0 4px 4px;
   padding-top: 15px;
-  background: #efefef;
+  background: #f6f6f6;
 }
 #message-main ul li{
   margin-bottom: 15px;
   height: 80px;
-  background: #dfdfdf;
+  background: #f4f4f4;
   border-radius: 4px;
-  box-shadow: 5px 5px 10px -3px #777 ;
+  box-shadow: 5px 5px 10px -3px #ccc ;
 }
 #message-main li .board-icon{
   width: 50px;

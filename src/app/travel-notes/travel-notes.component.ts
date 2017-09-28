@@ -36,7 +36,8 @@ export class TravelNotesComponent implements OnInit {
     // 在ngOnInit（）{}里面写jQ代码
     // 右侧栏滚动到高度> 475位置时，固定不动（'about_fix'是单独在css中设置的固定时的样式）
     $(window).scroll(function () {
-      if ($(window).scrollTop() > 475 && $(window).scrollTop() < 1900) {
+      // && $(window).scrollTop() < 1900
+      if ($(window).scrollTop() > 475 ) {
         // console.log($(window).scrollTop());
         $('.about').addClass('about_fix');
       } else {
@@ -108,6 +109,9 @@ export class TravelNotesComponent implements OnInit {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
           result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
+          if(result[i].comment == '' || result[i].comment == null){
+            result[i].comment = 0;
+          }
         }
         that.notes = result;
         console.log(that.notes);

@@ -12,8 +12,8 @@
   border-radius: 8px;
   padding: 10px;
   box-sizing: border-box;
-  box-shadow: 8px 8px 10px -5px #999;
-  background: #efefef;
+  box-shadow: 8px 8px 10px -5px #ccc;
+  background: #f6f6f6;
   max-width: 285px;
   /*position: relative;*/
 }

@@ -159,7 +159,7 @@
 .travel-list li{
   font-size: 14px;
   float: left;
-  width: 200px;
+  /*width: 200px;*/
   margin-top: 18px;
   display: inline;
   height: 22px;
