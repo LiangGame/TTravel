@@ -27,7 +27,7 @@
 <div class="container travels">
   <h1 class="h11">热门游记</h1>
   <ul>
-    <ng-container *ngFor="let topic of _notes">
+    <ng-container *ngFor="let topic of _notes | indexNotes:8">
     <li (click)="detail_2(topic?.id)">
         <div class="item">
           <div class="big">

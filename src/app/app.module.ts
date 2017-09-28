@@ -51,6 +51,7 @@ import {SearchNotesPipe} from './Pipes/search-notes.pipe';
 // import { RoutingDirective } from './../Directives/routing.directive';
 
 import {PaginatePipe,PaginationControlsComponent, PaginationService} from 'ng2-pagination';
+import { IndexNotesPipe } from './Pipes/index-notes.pipe';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import {PaginatePipe,PaginationControlsComponent, PaginationService} from 'ng2-p
     ThemeStringPipe,
     TopicStringPipe,
     SearchNotesPipe,
+    IndexNotesPipe,
 
   ],
   imports: [

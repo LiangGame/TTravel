@@ -18,8 +18,8 @@ declare var $: any;
 })
 
 export class RegisterComponent implements OnInit {
-  inv = true;
-  IsBy = true;
+  IsSubmit=[false,false,false,false,false];
+  IsBy = false;
   istelempty = true;
   istelformat = true;
   isname = true;
@@ -37,10 +37,8 @@ export class RegisterComponent implements OnInit {
               private router: Router) {
   }
   valid( value: string,myform ): void {
+    this.IsSubmit[4] = false;
     let that = this;
-
-    // console.log('aaaaa');
-    // console.log(this.inv);
     if ( value == '' || value == null) {
       that.iscodeempty = false;
       that.iscodeformat = true;
@@ -52,6 +50,7 @@ export class RegisterComponent implements OnInit {
       }else if(this.IsBy){
         this.iscodeformat = true;
         this.iscodeempty = true;
+        this.IsSubmit[4] = true;
         this.addUser(myform);
       }
     }
@@ -59,8 +58,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
     $.idcode.setCode();
 
     $("#Txtidcode").keydown(function (e) {
@@ -88,31 +85,35 @@ export class RegisterComponent implements OnInit {
 
   //
   ontel( value: string ): void {
+    this.IsSubmit[0] = false;
     let that = this;
     if ( value == '' || value == null) {
       that.istelempty = false;
       that.istelformat = true;
     }else {
       that.istelempty = true;
-      if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(value))){
-        that.istelformat = false;
-      }else{
+      if ((/^1[3|4|5|7|8][0-9]{9}$/.test(value))){
         that.istelformat = true;
+        this.IsSubmit[0] = true;
+
+      }else{
+        that.istelformat = false;
 
       }
     }
-    this.setin();
   }
   onname( value: string ): void {
+    this.IsSubmit[1] = false;
     let that = this;
     if ( value == '' || value == null) {
     that.isname = false;
     }else {
       that.isname = true;
+      this.IsSubmit[1] = true;
     }
-    this.setin();
   }
   onpass( value: string ): void {
+    this.IsSubmit[2] = false;
     let that = this;
     that.pwd = value;
     if ( value == '' || value == null) {
@@ -123,15 +124,16 @@ export class RegisterComponent implements OnInit {
       if ( value.length >= 6 ) {
         that.ispassformat = true;
         console.log('长度大于6个');
+        this.IsSubmit[2] = true;
       }
       else {
         that.ispassformat = false;
         console.log('长度小于6个');
       }
     }
-    this.setin();
   }
   onrpass( value: string ): void {
+    this.IsSubmit[3] = false;
     let that = this;
     console.log(that.pwd + ':' + value);
     if (value == '' || value == null) {
@@ -143,14 +145,9 @@ export class RegisterComponent implements OnInit {
         that.isrpassformat = false;
       } else {
         that.isrpassformat = true;
+        this.IsSubmit[3] = true;
       }
     }
-    this.setin();
-  }
-  setin(){
-   this.inv=!(this.istelempty&& this.istelformat
-   &&this.isname&&this.ispassempty&&this.ispassformat
-   &&this.isrpassempty&&this.isrpassformat&&this.IsBy);
   }
   // 判断两次密码是否一致
   // ispass() {
@@ -161,37 +158,30 @@ export class RegisterComponent implements OnInit {
   // }
   // 用户注册
   addUser(register_form) {
-    // this.IsBy = $.idcode.validateCode();
-    // if (!this.IsBy) {
-    //   //验证码错误
-    //   this.iscodeformat = false;
-    // }else if(this.IsBy){
-    //   this.iscodeformat = true;
-    // }
-    if (!(this.istelempty && this.istelformat
-      && this.isname && this.ispassempty && this.ispassformat
-      && this.isrpassempty && this.isrpassformat && this.IsBy)) {
-      return;
-    }
-    let that = this;
-    console.log('click.........');
-    console.log(register_form);
-    that.userSer.addUser(register_form.value, function (result) {
-      console.log(result);
-      if (result.stateCode == '6') {
-        var user = {telephone:register_form.form.value.telephone,password:register_form.form.value.password}
-        that.userSer.getByPwd(user,function (result) {
-          // console.log(result);
-          // console.log(">>>>>>>>>>>>>>>>>>>>");
-          sessionStorage.setItem('user',JSON.stringify(result.users) )
-          that.router.navigate(['/index']);
-        })
-      }
-      if (result.stateCode == '7') {
-        that.register_res = '用户已注册';
-      }
+    if(this.IsSubmit[0] && this.IsSubmit[1] && this.IsSubmit[2] &&
+      this.IsSubmit[3] && this.IsSubmit[4]){
+      let that = this;
 
-    });
+      that.userSer.addUser(register_form.value, function (result) {
+        console.log(result);
+        if (result.stateCode == '6') {
+          var user = {telephone:register_form.form.value.telephone,password:register_form.form.value.password}
+          that.userSer.getByPwd(user,function (result) {
+            // console.log(result);
+            // console.log(">>>>>>>>>>>>>>>>>>>>");
+            sessionStorage.setItem('user',JSON.stringify(result.users) )
+            that.router.navigate(['/index']);
+          })
+        }
+        if (result.stateCode == '7') {
+          that.register_res = '用户已注册';
+        }
+
+      });
+    }
+
+
+
   }
 
   save(model: User, isValid: boolean) {
