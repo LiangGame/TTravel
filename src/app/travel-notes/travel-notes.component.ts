@@ -86,18 +86,6 @@ export class TravelNotesComponent implements OnInit {
         let that = this;
         that.getNotes();
         that.searText = that.key;
-        /* that.scenicSer.get_scenic(function (result) {
-         if (result) {
-         that.data = result;
-         for (let i = 0; i < result.length; i++) {
-         result[i].url = (result[i].url).split(',');
-         console.log(result[i].url);
-         }
-         that.searText = that.key;
-         } else {
-         console.log('error');
-         }
-         });*/
       }
     })
   }
