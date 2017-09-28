@@ -44,8 +44,10 @@ a:link,a:hover,a:active,a:visited{
   border-radius: 5px;
   width: 688px;
 }
-#notes-content h1,h3,h4,h5,h6{
+#notes-content h1,h2,h3,h4,h5,h6{
   margin-top: 15px;
+  margin-bottom: 15px;
+  border: none;
 }
 #notes-content h3{
   color: #ff9d00;

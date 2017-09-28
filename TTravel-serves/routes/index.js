@@ -12,7 +12,7 @@ router.post('/getNotes',function (req,res,next) {
   console.log(num);
   console.log("===============================");
   if(num == null || num == ''){
-    num = 5;
+    num = 8;
   }
   indexdao.getNotes(num,function (result) {
       if(result){

@@ -2,7 +2,7 @@
  * Created by WWL on 2017/9/11.
  */
 var options={
-  host:'127.0.0.1',
+  host:'10.40.4.21',
   port:'3306',
   user:'root',
   password:'root',
