@@ -16,7 +16,7 @@
 input{
   outline: none;
   border: none;
-  background: #efefef;
+  background: #f6f6f6;
   height: 25px;
   line-height: 25px;
   font-size: 14px;
@@ -60,7 +60,7 @@ textarea{
 #btn input{
   width: 100px;
   height: 35px;
-  background: #d4d4d4;
+  background: #f6f6f6;
   border-radius: 4px;
   color: #333;
   font-size: 16px;

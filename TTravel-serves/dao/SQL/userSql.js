@@ -7,7 +7,7 @@ exports.sql={
   createToken:'update user set token=? where telephone=?',
   getUser:'select id,userName,birthday,city_id,sex,icon,signature from `user` where telephone = ?',
   addUserIcon:'UPDATE `user` set icon=? where telephone=?',
-  adduserImg:'INSERT INTO userimage(url,user_id)VALUES(?,?)',
+  adduserImg:'INSERT INTO userimage(url,time,user_id)VALUES(?,NOW(),?)',
   updateUser:'UPDATE `user` set userName=?,sex=?,birthday=?,city_id=?,signature=? where telephone = ?',
   setLike:'INSERT INTO `like`(clickid,time,user_id,click_type_id) VALUES(?,NOW(),?,?)',
   getNotesLike:'SELECT 1 FROM `like` WHERE clickid=? and user_id=? and click_type_id=? LIMIT 1',
