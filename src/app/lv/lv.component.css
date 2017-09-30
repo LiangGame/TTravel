@@ -1,0 +1,177 @@
+#lv-container{
+  margin-top: 25px;
+}
+#lv-container h3{
+  color: #333333;
+  font-weight: 100;
+}
+#lv-container b{
+  display: inline-block;
+  color: rgba(255, 165, 0, 0.67);
+  font-weight: 500;
+  cursor: default;
+  text-shadow: 0px 0px 8px #ff9f26,
+  0px 0px 8px #ffffd2;
+}
+#lv-container b:hover{
+  text-shadow: 5px 5px 15px 0 #333;
+}
+.mature-progress .mature-progress-top {
+  position: relative;
+  padding-left: 15px;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.mature-progress .mature-progress-top:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  left: 0;
+  top: 10px;
+  background: #ff9d00;
+  border-radius: 5px;
+}
+
+.mature-progress .mature-progress-bottom {
+  border-radius: 5px;
+  position: relative;
+  height: 125px;
+  margin: 0 auto;
+  width: 850px;
+}
+
+.mature-progress .mature-progress-bottom p > span {
+  color: #ff9d00;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box {
+  height: 105px;
+  padding: 10px 0 0 10px;
+  position: absolute;
+  top: 40px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box.bgtwos {
+  z-index: 1;
+  top: 55px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box.bgtwos dl dt {
+  background: none;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box.v0 dl:nth-of-type(1) dt {
+  background: radial-gradient(#ffc752 20%, #ff9d00 85%); /* 标准的语法 */
+  box-shadow: 0 0 5px 2px #ff9d00;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box.v1 dl:nth-of-type(2) dt {
+  background: radial-gradient(#ffc752 20%, #ff9d00 85%); /* 标准的语法 */
+  box-shadow: 0 0 5px 2px #ff9d00;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box.v2 dl:nth-of-type(3) dt {
+  background: radial-gradient(#ffc752 20%, #ff9d00 85%); /* 标准的语法 */
+  box-shadow: 0 0 5px 2px #ff9d00;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box.v3 dl:nth-of-type(4) dt {
+  background: radial-gradient(#ffc752 20%, #ff9d00 85%); /* 标准的语法 */
+  box-shadow: 0 0 5px 2px #ff9d00;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box.v4 dl:nth-of-type(5) dt {
+  background: radial-gradient(#ffc752 20%, #ff9d00 85%); /* 标准的语法 */
+  box-shadow: 0 0 5px 2px #ff9d00;
+}
+.mature-progress .mature-progress-bottom .mature-progress-box.v5 dl:nth-of-type(6) dt {
+  background: radial-gradient(#ffc752 20%, #ff9d00 85%); /* 标准的语法 */
+  box-shadow: 0 0 5px 2px #ff9d00;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box dl {
+  width: 70px;
+  text-align: center;
+  float: left;
+  margin-right: 65px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box dl dt {
+  width: 40px;
+  height: 40px;
+  background: #999999;
+  color: #fff;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box dl dd {
+  padding-top: 5px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box {
+  position: absolute;
+  width: 676px;
+  height: 15px;
+  border-radius: 10px;
+  background: #fff;
+  z-index: 2;
+  top: 22px;
+  left: 22px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i {
+  position: absolute;
+  height: 15px;
+  background: linear-gradient(to right, #ffdc34, #ff9d00); /* 标准的语法 */
+  box-shadow: 0 0 3px 0px #ff9d00;
+  left: 36px;
+  top: 0;
+  width: 0;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i.progress-box-2 {
+  left: 171px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i.progress-box-3 {
+  left: 305px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i.progress-box-4 {
+  left: 440px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i.progress-box-5 {
+  left: 576px;
+}
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i.progress-box-6 {
+  left: 0px;
+}
+table{
+  width: 850px;
+  margin: 0 auto;
+  margin-top: 45px;
+  text-align: center;
+}
+table tr th{
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  border: solid 1px #ff9d00;
+}
+table tr td{
+  padding: 5px;
+  font-size: 16px;
+  width: 50%;
+  border: solid 1px #ff9d00;
+}

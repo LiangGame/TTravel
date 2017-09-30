@@ -20,7 +20,7 @@ import {ScenicResultComponent} from './scenic-result/scenic-result.component';
 import {NotesChildComponent} from './notes-child/notes-child.component';
 import {StrategyChildComponent} from './strategy-child/strategy-child.component';
 import {CreateNotesComponent} from './create-notes/create-notes.component'
-
+import {LvComponent} from './lv/lv.component'
 // 配置路由表
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
@@ -37,6 +37,7 @@ const routes: Routes = [
   {path: 'scenic_search', component: ScenicSearchComponent},
   {path: 'scenic-result', component: ScenicResultComponent},
   {path: 'CreateNotes', component: CreateNotesComponent},
+  {path: 'lv', component: LvComponent},
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 

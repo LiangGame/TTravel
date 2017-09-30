@@ -115,7 +115,12 @@
   color: #EA3C1A;
   font-size: 0.9em;
   font-weight: bold;
-
+}
+.author-name:hover{
+  border-bottom: solid 1px #ff9d00;
+}
+.level:hover{
+  border-bottom: solid 1px #EA3C1A;
 }
 .author .time{
   color: #999999;
@@ -295,11 +300,12 @@ hr{
   color: #fff;
   position: absolute;
   left: 50%;
-  margin-left: 160px;
+  margin-left: 230px;
   /*top: -25px;*/
 }
 
 .container-comment{
+  padding-left: 180px;
   position:relative;
   margin-top: 35px;
 }

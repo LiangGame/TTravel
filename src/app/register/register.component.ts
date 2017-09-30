@@ -187,7 +187,7 @@ export class RegisterComponent implements OnInit {
           that.userSer.getByPwd(user,function (result) {
             // console.log(result);
             // console.log(">>>>>>>>>>>>>>>>>>>>");
-            sessionStorage.setItem('user',JSON.stringify(result.users) )
+            sessionStorage.setItem('user',JSON.stringify(result.users[0]))
             that.router.navigate(['/index']);
           })
         }
