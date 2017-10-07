@@ -23,7 +23,7 @@ router.get('/login', function (req, res, next) {
 // 登录
 router.post('/login', function (req, res, next) {
   var user = req.body;
-  if (user) {
+  if (user.telephone&&user.password) {
     console.log(user);
     userdao.getPasswordById(user.telephone, function (result) {
       if (result == 'e004') {
@@ -226,7 +226,22 @@ router.post('/getUserIcon', ct.checkToken, function (req, res, next) {
         console.log('获取头像失败!');
       } else {
         res.json(result);
+        console.log(result);
         console.log('获取头像成功!');
+      }
+    })
+  }
+});
+router.post('/getUser',ct.checkToken,function (req,res,next) {
+  var user_telephone = req.body.telephone;
+  if (user_telephone) {
+    userdao.getUser(user_telephone, function (result) {
+      if (result.length == 0) {
+        res.json({"icon": "icon_default.jpg"});
+        console.log('获取用户基本资料失败!');
+      } else {
+        res.json(result);
+        console.log('获取用户基本资料成功!');
       }
     })
   }
@@ -234,6 +249,7 @@ router.post('/getUserIcon', ct.checkToken, function (req, res, next) {
 // 修改个人信息
 router.post('/updateUser', ct.checkToken, function (req, res, next) {
   var user = req.body;
+  console.log(user);
   if (user) {
     userdao.updateUser(user, function (result) {
       if (result) {

@@ -40,6 +40,7 @@ li{
   padding: 5px;
   border-radius: 4px;
   box-shadow: 6px 8px 10px -3px #ccc;
+  cursor: default;
 }
 #container li .s{
   transform:rotate(90deg);
@@ -70,6 +71,8 @@ li{
   border-radius: 4px;
 }
 #container .middle{
+  color: #ff9d00;
+  /*font-size: 16px;*/
   padding: 8px;
 }
 #container .content button{

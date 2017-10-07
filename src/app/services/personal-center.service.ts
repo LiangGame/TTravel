@@ -92,13 +92,31 @@ export class PersonalCenterService {
     )
   }
 
-  // uploadIcon(files, callback) {
-  //   let headers = new Headers({
-  //     "Accept": "application/json"
-  //   });
-  //   let options = new RequestOptions({headers});
-  //   this.http.post(this.url+'/upload', files, options).map(res => res.json()).catch(error => Observable.throw(error)).subscribe(data => console.log('success' + data),
-  //     error => console.log(error))
-  // }
+  addFootPorint(body,callback){
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+
+    this.http.post(this.url + '/personal-center/addFootPrint', body,{headers:_head}).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
+  getAllFootPorint(userId,callback){
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+    let id = {userId:userId}
+    this.http.post(this.url + '/personal-center/getAllFootPrint', id).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
 }
 

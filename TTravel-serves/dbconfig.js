@@ -5,7 +5,7 @@ var options={
   host:'59.110.218.93',
   port:'3306',
   user:'root',
-  password:'wangji8520',
+  password:'root',
   database:'ttraveldb'
 };
 

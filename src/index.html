@@ -19,10 +19,30 @@
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.idcode.js"></script>
+  <!--高德地图ip定位-->
+  <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=95dcdfa3cc6aff9d9a33fbb2d0beefdc&plugin=AMap.CitySearch"></script>
+  <!--<script>
+    var citysearch = new AMap.CitySearch();
+    //自动获取用户IP，返回当前城市
+    citysearch.getLocalCity(function(status, result) {
+      if (status === 'complete' && result.info === 'OK') {
+        if (result && result.city && result.bounds) {
+          var cityinfo = result.city;
+          var citybounds = result.bounds;
+//          console.log(cityinfo);
+//          console.log(citybounds);
+//          document.getElementById('tip').innerHTML = '您当前所在城市：'+cityinfo;
+        }
+      } else {
+//        document.getElementById('tip').innerHTML = result.info;
+      }
+    });
+  </script>-->
   <!--<script src="assets/js/up-img-js/imgPlugin.js"></script>-->
   <!--<script src="assets/js/up-img-js/imgUp.js"></script>-->
 </head>
 <body>
+  <!--<app-root [(cityinfo)]="cityinfo"></app-root>-->
   <app-root></app-root>
 </body>
 </html>

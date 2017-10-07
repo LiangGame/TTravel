@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/getNotes',function (req,res,next) {
   var num = req.body.num;
-  console.log(num);
+  // console.log(num);
   console.log("===============================");
   if(num == null || num == ''){
     num = 8;
@@ -24,8 +24,9 @@ router.post('/getNotes',function (req,res,next) {
     });
 });
 router.post('/getScenic',function (req,res,next) {
-  console.log('here');
-  indexdao.getScenic('',function (result) {
+  var city = req.body.city;
+  console.log('当前城市 >>>' + city);
+  indexdao.getScenic(city,function (result) {
     if(result){
       res.json(result)
     }else{
@@ -36,7 +37,7 @@ router.post('/getScenic',function (req,res,next) {
 });
 router.post('/notesDetails',function (req,res,next) {
   var notesId = req.body.id;
-  console.log(notesId);
+  // console.log(notesId);
   if(notesId){
     indexdao.getNoteItem(notesId,function (result) {
       if(result){
@@ -45,5 +46,17 @@ router.post('/notesDetails',function (req,res,next) {
       }
     })
   }
+});
+
+
+router.post('/getHotNotes',function (req,res,next) {
+  indexdao.getHotNotes('',function (result) {
+    if(result){
+      res.json(result);
+    }else{
+      res.json({"stateCode":''})
+    }
+    // console.log(result);
+  });
 })
 module.exports = router;

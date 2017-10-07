@@ -9,6 +9,7 @@ export class ScenicService {
   // url: string = 'http://127.0.0.1:8889/scenic';
   public scenicInfo: any;
 
+
   constructor(private http: HttpClient,
               private glo: GlobalPropertyService) {
     this.url = glo.serverUrl;
@@ -44,4 +45,18 @@ export class ScenicService {
       }
     )
   }
+
+  getHotScenic(callback) {
+    let that = this;
+    this.http.post(that.url + '/scenic/getHotScenic', '').subscribe(
+      function (result) {
+        // console.log(result);
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
 }

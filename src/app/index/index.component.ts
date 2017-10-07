@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 declare var $: any;
+declare var AMap: any;
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/Rx';
 // 导入服务
 import {IndexService} from './../services/index.service';
 import {UserService} from "../services/user.service";
@@ -13,11 +16,12 @@ import {UserService} from "../services/user.service";
   providers: [IndexService, UserService]
 })
 export class IndexComponent implements OnInit {
-  _scenic: any;
-  _notes: any;
+  _scenic: any = [];
+  _notes: any = [];
   newscenic: string;
   newNotes: string;
   user: any;
+  // cityinfo:any;
   // credits: number;
 
   constructor(private indexSer: IndexService,
@@ -25,14 +29,13 @@ export class IndexComponent implements OnInit {
               private router: Router,
               private userSer: UserService) {
     this.user = JSON.parse(sessionStorage.getItem('user'));
-
-
+    this.getScenic();
+    this.getNotes();
+    this.getHeroes();
   }
 
   ngOnInit() {
-    this.getScenic();
-    this.getNotes();
-
+    let that =this;
     if(!!sessionStorage.getItem('token')){
       $('#modal').modal({
         backdrop: false
@@ -41,7 +44,11 @@ export class IndexComponent implements OnInit {
         $('#modal').modal('hide');
         sessionStorage.removeItem('token');
       },2000);
-    }
+    };
+
+  }
+  ngAfterContentInit(){
+
   }
 
   getScenic() {
@@ -55,16 +62,17 @@ export class IndexComponent implements OnInit {
           } else {
             result[i].url = (result[i].url).split(',');
           }
-          // console.log(result[i].url);
         }
         that._scenic = result;
-        // that.newscenic=result[0];
         console.log(that._scenic);
       } else {
         console.log("error")
       }
     })
   }
+
+
+
 
   getNotes() {
     let that = this;
@@ -92,5 +100,9 @@ export class IndexComponent implements OnInit {
     }
   }
 
+
+  getHeroes() {
+    this.indexSer.getHeroesSlowly().then(heroes => this._scenic = heroes);
+  }
 
 }

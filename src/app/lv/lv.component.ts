@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
+import {AuthGuard} from "../services/auth-guard.service";
 declare var $: any;
 @Component({
   selector: 'app-lv',
   templateUrl: './lv.component.html',
   styleUrls: ['./lv.component.css'],
-  providers: [UserService]
+  providers: [UserService,AuthGuard]
 })
 export class LvComponent implements OnInit {
   _number: any;

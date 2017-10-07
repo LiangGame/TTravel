@@ -5,40 +5,77 @@
       <div class="bg-img"></div>
     </div>
   </div>
+  <!--<div class="container-fluid nav-shadow" [class.nav_fixed]="fixed">
+    <div class="row">
+      <ul id="personal-nav" class="col-md-8 col-md-offset-3">
+        <li routerLink="./index">我的首页</li>
+        <li routerLink="./WantToGo">我的想去</li>
+        <li routerLink="./footprint">我的足迹</li>
+        <li routerLink="./Notes">我的游记</li>
+        <li routerLink="./PhotoAlbum">我的照片</li>
+      </ul>
+    </div>
+  </div>-->
   <!--主要内容区-->
   <div id="container" class="container">
     <!--左侧导航区-->
-    <div #nav [class.fixed]="fixed" id="user_nav" class="col-xl-12 col-sm-3 col-md-3 col-lg-3">
+    <div #nav id="user_nav" [class.fixed]="fixed" class="col-xl-12 col-sm-3 col-md-3 col-lg-3">
       <!--用户头像显示-->
       <div id="user_icon" class="text-center">
         <div class="row icon-container">
           <div [innerHTML]="Icon" class="iconImg"></div>
-          <!--<img src="../../../assets/user-img/user-icon.png" height="100" width="100"/>-->
           <div class="uplodBg" *ngIf="uplodBg">
             <span class="fa fa-camera fa-2x"></span>
           </div>
           <input type="file" [(ngModel)]="userIcon" name="userIcon" class="icon-file" (mouseover)="uplodBg_toggle()"
                  (mouseout)="uplodBg_toggle()" ng2FileSelect [uploader]="uploader" (change)="uplodImg($event)">
         </div>
-        <div class="row">
-          <h4 class="col-md-6 col-lg-6 text-right">56 关注</h4>
-          <h4 class="col-md-6 col-lg-6 text-left">20 粉丝</h4>
+        <!--展示个人信息-->
+        <div id="userInfo" class="row">
+          <h3>{{user?.userName}} </h3>
+          <span class="fa fa-mars fa-lg man" *ngIf="man">  </span>
+          <span class="fa fa-venus fa-lg wumen" *ngIf="wumen">  </span>
+          <div class="col-md-12 text-center" style="margin-top: 8px">
+            <span class="lv col-md-5">等级: <i routerLink="../lv">Lv.{{user?.lvName}}</i></span>
+            <span class="address col-md-5">现居: <i>{{user?.cityname}}</i></span>
+            <i style="margin-left: -15px; color: #666;outline: none" class="fa fa-gear fa-lg col-md-1"
+               routerLink="./Setting"></i>
+          </div>
+          <div style="margin: 8px auto;">
+            <span style="color: #333333;">个性签:  </span><span class="signature">  {{user?.signature}}</span>
+          </div>
+          <!--          &lt;!&ndash;添加关注按钮&ndash;&gt;
+                    <div class="followBtn">
+                      <button>+ 添加关注</button>
+                    </div>-->
         </div>
-      </div>
-      <!--导航-->
-      <nav class="row text-left">
-        <ul>
-          <li><span class="fa fa-home fa-lg" aria-hidden="true"> </span><a routerLink="./index">个人首页</a></li>
-          <li><span class="fa fa-heart fa-lg" aria-hidden="true"> </span><a routerLink="./WantToGo">我的想去</a></li>
-          <li><span class="fa fa-paw fa-lg" aria-hidden="true"> </span><a routerLink="./footprint">我的足迹</a></li>
-          <li><span class="fa fa-book fa-lg" aria-hidden="true"> </span><a routerLink="./Notes">游记</a></li>
-          <li><span class="fa fa-camera-retro fa-lg" aria-hidden="true"> </span><a routerLink="./PhotoAlbum">照片</a></li>
-          <li><span class="fa fa-cog fa-lg" aria-hidden="true"> </span><a routerLink="./Setting">设置</a></li>
+        <ul id="personal-nav" class="col-md-12">
+          <li routerLink="./index">我的首页</li>
+          <!--<li routerLink="./WantToGo">我的想去</li>-->
+          <li routerLink="./footprint">我的足迹</li>
+          <li routerLink="./Notes">我的游记</li>
+          <li routerLink="./PhotoAlbum">我的照片</li>
         </ul>
-      </nav>
-      <!--卷角-->
-      <!--<div class="cor"></div>-->
-      <!--<div class="cor-y"></div>-->
+        <!--<div style="margin-bottom: 15px; border: none">
+          <h5 class="col-md-4 col-lg-4 _border">56<br>关注</h5>
+          <h5 class="col-md-4 col-lg-4 _border">20<br>粉丝</h5>
+          <h5 class="col-md-4 col-lg-4">{{user?.userlv}}<br>时光</h5>
+        </div>-->
+        <!--<div class=" text-center follow">
+          <div class="_top">
+            <h4>我的粉丝</h4>
+            <ul>
+              <li>我的粉丝</li>
+            </ul>
+          </div>
+          <div class="_top">
+            <h4>我的关注</h4>
+            <ul>
+              <li>我的关注</li>
+            </ul>
+          </div>
+        </div>-->
+      </div>
     </div>
     <!--右侧显示区--->
     <div id="main" class="col-xl-12 col-sm-9 col-md-9 col-lg-9 pull-right">

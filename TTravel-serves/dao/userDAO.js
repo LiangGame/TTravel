@@ -116,23 +116,25 @@ exports.userDao={
     }
     this.getPasswordById(user[1].telephone,function (result) {
       var user_name = result.userName;
-      if(result.length==1){
-        pool.getConnection(function (error,client) {
-          if(error){
-            return;
-          }
-          client.query(userSql.updateUser,[user[0].userName,user[0].userSex,birthday,user[0].city,user[0].Signature,user[1].telephone],function (error,result) {
+      if(result){
+        if(result.id!=''||result.id!=null){
+          pool.getConnection(function (error,client) {
             if(error){
-              console.log(error.message);
-              callback('e004');
               return;
             }
-            callback({"stateCode":result.affectedRows,"userName":user_name});
-            client.release();
+            client.query(userSql.updateUser,[user[0].userName,user[0].userSex,birthday,user[0].city,user[0].Signature,user[1].telephone],function (error,result) {
+              if(error){
+                console.log(error.message);
+                callback('e004');
+                return;
+              }
+              callback({"stateCode":result.affectedRows,"userName":user_name});
+              client.release();
+            })
           })
-        })
+        }
       }else {
-        callback('5');
+        callback('5');/*改用不存在*/
       }
     })
   },

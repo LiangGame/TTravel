@@ -10,8 +10,9 @@ declare var $: any; // 在angular中调用jQ前的万能语句
 })
 export class SearchComponent implements OnInit {
   _check: boolean = false;
-  nav:string;
+  nav: string;
   _checked: string = '';
+  hotcity: any = ['西藏', '重庆', '成都', '海南', '台湾', '上海', '青海', '湖北', '云南', '江西', '浙江', '黑龙江'];
   checkNav: any = ['目的地', '游记', '攻略'];
 
 
@@ -30,12 +31,12 @@ export class SearchComponent implements OnInit {
     $('#travel_search').focus(function () {
       $('#search_key').show();
     });
-    $('#travel_search').blur(function () {
-      $('#search_key').hide();
-    });
+    // $('#travel_search').blur(function () {
+    //   $('#search_key').hide();
+    // });
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     // $('.nav0').attr('class', 'checked');
     // this._checked = "checked";
   }
@@ -48,11 +49,16 @@ export class SearchComponent implements OnInit {
     if (navItem == 0 && !!searchText) {
       this.router.navigate(['/scenic_search'], {queryParams: {'key': searchText}});
     } else if (navItem == 1 && !!searchText) {
-      // console.log(decodeURI(window.location.search));
-      // console.log(searchText);
       this.router.navigate(['/travels'], {queryParams: {'key': searchText}});
     } else if (navItem == 2 && !!searchText) {
       this.router.navigate(['/strategy'], {queryParams: {'key': searchText}});
     }
+  }
+
+  hotSearch(event) {
+    if (event.target.innerHTML) {
+      this.router.navigate(['/scenic_search'], {queryParams: {'key': event.target.innerHTML}});
+    }
+    // console.log(event.target.innerHTML);
   }
 }

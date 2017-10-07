@@ -9,4 +9,6 @@ exports.sql={
   getNotes:'select * from travelNotes WHERE telephone = ? ORDER BY id desc',
   addNotes:'insert into user_travelnotes(title,content,pubtime,user_id) values(?,?,now(),?)',
   getUserImages:'SELECT * FROM userimage WHERE  user_id = ?',
+  addFootprint:'INSERT INTO user_footmark(time,scenic_id,user_id)VALUES(NOW(),?,?)',
+  getAllFootPrint:'SELECT * FROM footmark WHERE userId = ?',
 };

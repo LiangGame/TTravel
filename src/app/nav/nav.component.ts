@@ -40,7 +40,7 @@ export class NavComponent implements OnInit {
   }
 
   signOut() {
-    sessionStorage.setItem('token',this.user.token);
+    // sessionStorage.setItem('token',this.user.token);
     sessionStorage.removeItem('user');
     this.router.navigate(['/index']);
   }

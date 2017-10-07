@@ -71,4 +71,15 @@ export class NotesService {
       }
     )
   }
+  // 获取点赞最多的游记
+  getHotNotes(callback){
+    this.http.post(this.url + '/index/getHotNotes', '').subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
 }

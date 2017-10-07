@@ -3,5 +3,6 @@
  */
 exports.sql={
   getScenics:'select * FROM scenics',
-  getScenicItem:'select * from scenics where id = ?'
+  getScenicItem:'select * from scenics where id = ?',
+  getHotScenic:'select * from cityInfo'
 };

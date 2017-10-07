@@ -14,8 +14,8 @@
 <div class="container-fluid icon ">
   <div class="icon-share">
     <ul>
-      <li class="fa fa-share fa-2x" aria-hidden="true"></li>
-      <li>40 分享</li>
+      <li class="fa fa-commenting-o fa-2x" aria-hidden="true"></li>
+      <li>{{notes?.comment}} 评论</li>
     </ul>
   </div>
   <div class="icon-collect" (click)="setCollect($event,notes?.id)">
@@ -122,8 +122,8 @@
       <img src="http://127.0.0.1:8889/uploads/{{comment.icon}}" alt="">
     </div>
     <div class="user">
-      <a href="#" class="name">{{comment?.userName}}</a>
-      <a href="#" class="level">LV.{{comment?.lvName}}</a>
+      <a routerLink="../personal-center" class="name">{{comment?.userName}}</a>
+      <a routerLink="../lv" class="level">Lv.{{comment?.lvName}}</a>
     </div>
     <div class="con-wrap">
       {{comment?.content | themeString:120}}

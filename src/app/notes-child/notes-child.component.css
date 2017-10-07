@@ -116,9 +116,6 @@
   font-size: 0.9em;
   font-weight: bold;
 }
-.author-name:hover{
-  border-bottom: solid 1px #ff9d00;
-}
 .level:hover{
   border-bottom: solid 1px #EA3C1A;
 }

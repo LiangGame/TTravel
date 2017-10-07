@@ -4,6 +4,7 @@ import {NotesService} from './../services/notes.service';
 import {LikeCollectService} from '../services/like-collect.service';
 import {GlobalPropertyService} from './../services/global-property.service'
 import {UserService} from "../services/user.service";
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 
 declare var $: any; // 在angular中调用jQ前的万能语句
 @Component({
@@ -187,6 +188,5 @@ export class NotesChildComponent implements OnInit {
       });
     }
   }
-
 
 }

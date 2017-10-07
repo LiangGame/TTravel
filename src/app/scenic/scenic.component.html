@@ -12,17 +12,17 @@
     <div [ngSwitch]="num">
       <div *ngSwitchCase="0">
         <div class="middle_pic">
-          <div class="middle_pic_1">
-            <a href="">
-              <img class="pic_width" src="../../assets/images/Destination/1.city/H01.jpg">
-              <h3>重庆</h3>
+          <div class="middle_pic_{{index+1}}" *ngFor="let hotScenic of city;let index = index">
+            <a (click)="getScenic(hotScenic.cityname)">
+              <img class="{{hotScenic?.class}}" src="../../assets/images/Destination/1.city/{{hotScenic?.img}}">
+              <h3>{{hotScenic?.cityname}}</h3>
               <div class="pic_inner">
-                <em>重庆</em>
-                <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
+                <em>{{hotScenic?.cityname}}</em>
+                <span>{{hotScenic?.cityinfo | themeString:30}}</span>
               </div>
             </a>
           </div>
-          <div class="middle_pic_2">
+          <!--<div class="middle_pic_2">
             <a href="">
               <img class="pic_square" src="../../assets/images/Destination/1.city/H02.jpg">
               <h3>海南</h3>
@@ -111,7 +111,7 @@
                 <span>重庆是一座依山而建的城市，被称为“山城”，火锅是他的一大特色</span>
               </div>
             </a>
-          </div>
+          </div>-->
         </div>
       </div>
       <div *ngSwitchCase="1">

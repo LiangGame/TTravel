@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {ScenicService} from './../services/scenic.service';
 import {ActivatedRoute, Router, Params} from '@angular/router';
+import {PersonalCenterService} from "../services/personal-center.service";
 
 
 @Component({
   selector: 'app-scenic-result',
   templateUrl: './scenic-result.component.html',
   styleUrls: ['./scenic-result.component.css'],
-  providers: [ScenicService],
+  providers: [ScenicService,PersonalCenterService],
 })
 export class ScenicResultComponent implements OnInit {
   scenics:any;
-  images: any;
+  images: any = [];
+  modalInfo:string;
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private secninSer:ScenicService
+              private secninSer:ScenicService,
+              private personalSer:PersonalCenterService
     ) {
     this.get_scenic();
     // console.log(this.scenics);
@@ -40,6 +43,21 @@ export class ScenicResultComponent implements OnInit {
         })
       }
     });
+  }
+
+  footprint(id){
+    console.log('景点ID:'+id);
+    let body = {userId:JSON.parse(sessionStorage.getItem('user')).id,scenicId:id};
+    let that = this;
+    that.personalSer.addFootPorint(body,function (result) {
+      if(result){
+        if(result.stateCode == '001'){
+          that.modalInfo = '添加成功!';
+        }else {
+          that.modalInfo = '添加失败!';
+        }
+      }
+    })
   }
 
 }

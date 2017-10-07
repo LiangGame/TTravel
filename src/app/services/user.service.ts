@@ -51,6 +51,18 @@ export class UserService {
       }
     )
   }
+  // 获取用户信息
+  getUser(telephone,callback){
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+    this.http.post(this.url + '/users/getUser', {telephone:telephone},{headers:_head}).subscribe(
+      function (result) {
+        callback(result)
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
 // 修改个人信息
   updateUser(user, callback) {
     let _head = new HttpHeaders({token:this.ls.get('token')});

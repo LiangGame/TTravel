@@ -110,5 +110,41 @@ exports.perDao={
         client.release();
       })
     })
+  },
+  // 添加足迹
+  addFootprint:function (body,callback) {
+    pool.getConnection(function (error,client) {
+      if (error) {
+        return
+      }
+      console.log('>>>>>>>>>>>>>>>>addFootprint>>>>>>>>personalDAO');
+      client.query(personalSql.addFootprint,[body.scenicId,body.userId],function (error, result) {
+        if (error) {
+          console.log(error.message + ' from addFootprint');
+          callback('e004');
+          return;
+        }
+        callback(result.affectedRows)
+        // console.log(result.affectedRows);
+        client.release();
+      })
+    })
+  },
+  // 获取游记
+  getAllFootPrint:function (userId,callback) {
+    pool.getConnection(function (error,client) {
+      if(error){
+        return
+      }
+      client.query(personalSql.getAllFootPrint,[userId],function (error,result) {
+        if(error){
+          console.log(error.message+' from getAllFootPrint');
+          callback('e004');
+          return;
+        }
+        callback(result);
+        client.release();
+      })
+    })
   }
 }

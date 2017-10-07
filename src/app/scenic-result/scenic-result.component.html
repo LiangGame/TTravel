@@ -1,7 +1,7 @@
 
 
 <div id="location">
-  <h4>目的地>北京>景点</h4>
+  <h4>目的地>{{scenics?.cityname}}</h4>
 </div>
 
 
@@ -10,7 +10,9 @@
     <span class="head_name_word">{{scenics?.title}}<br/>Summer place</span>
   </div>
   <div class="history">
-    <a href="#"><img src="../../assets/images/temporary/details/history.png"></a>
+    <span class="fa fa-map-signs fa-lg" (click)="footprint(scenics.id)"></span><br>
+    <a href="">去过</a>
+    <!--<a href="#"><img src="../../assets/images/temporary/details/history.png"></a>-->
     <!--<a href="#"><img src="#"></a>-->
   </div>
 </div>
@@ -76,6 +78,16 @@
     <!--静园时间为 19:00<br/>-->
   </p>
 </div>
-<hr/>
+<!--模态框-->
+<div>
+  <div id="modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm _modal" role="document">
+      <div class="modal-content modal-text">
+        {{modalInfo}}
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
