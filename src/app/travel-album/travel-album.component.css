@@ -1,60 +1,183 @@
-.container{
-  width: 1100px;
+.bg-album{
+  background: url("../../assets/images/background/album-img.jpg");
+  height: 3000px;
+  z-index: -99;
+  margin-bottom: -35px;
 }
-.top-img{
-  height: 450px;
+.calendar {
+  margin-bottom: 20px;
+}
+.hd {
+  height: 50px;
+  width: 980px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.hd-title {
+  float: left;
+  width: 268px;
+  height: 57px;
+  background: url(../../assets/TTravel--LOGO.png) no-repeat 0 0;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+.hd dl {
+  float: right;
+}
+.hd dt {
+  float: right;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 26px;
+  color: #4c4844;
+}
+.hd dd {
+  float: right;
+  padding-top: 33px;
+}
+.hd .sel-year1 {
+  margin-right: 5px;
+  float: left;
+  height: 17px;
+  padding: 0;
+  line-height: 16px;
+  font-size: 11px;
+  overflow: hidden;
+}
+.hd .cur-month {
+  margin: 0 10px 0 20px;
+  font-size: 50px;
+}
+.month-tab {
+  margin: 10px auto;
+  width: 980px;
+  height: 50px;
+  overflow: hidden;
+}
+.month-tab ul {
+  margin-left: -40px;
+}
+/*ul, li, ol {*/
+  /*list-style: none;*/
+  /*padding: 0;*/
+  /*margin: 0;*/
+/*}*/
+.month-tab li {
+  display: inline;
+  margin-left: 40px;
+  float: left;
+  width: 45px;
+  height: 50px;
+  text-align: center;
+  line-height: 48px;
+  font-size: 20px;
+}
+.week-bar {
+  height: 33px;
+  margin: 10px 0 25px;
+  position: relative;
+}
+.week-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.5;
 }
-li:hover{
-  cursor: Pointer;
-}
-.main{
-  width: 100%;
-  margin: 40px 0;
-  border: 1px solid #e6e6e6;
+.week-bar ul{
+  position: relative;
+  width: 1000px;
+  height: 33px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
-._left{
+.week-bar li {
   float: left;
-  width: 20%;
-  border-right: 1px solid #e6e6e6;
+  display: inline;
+  width: 125px;
+  height: 30px;
+  overflow: hidden;
+  font-size: 20px;
+  color: #999;
+  text-align: center;
+  margin-left: 15px;
 }
-._left h3{
-  padding: 15px;
-  border-bottom: 1px solid #e6e6e6;
-}
-._left img{
-  width: 177px;
-  height: 118px;
-}
-._left ul{
-  padding: 15px;
-}
-._left li{
-  padding-bottom: 15px;
-}
-p{
-  margin-top: -20px;
-}
-._right{
-  float: right;
-  width: 80%;
 
+.bd {
+  width: 100%;
+  position: relative;
 }
-._right h3{
-  padding: 30px 20px;
+.bd .viewport {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
 }
-._right ul{
-  padding: 15px;
-
+.overview {
+  width: 1000px;
+  height: auto;
 }
-._right li{
+.month-panel li {
+  display: inline;
   float: left;
-  padding-left: 5px;
-  padding-bottom: 15px;
+  margin: 6px 0 0 6px;
+  width: 135px;
+  height: 84px;
+  position: relative;
+  overflow: hidden;
+  /*border: white solid 1px;*/
 }
-._right img{
-  width: 201px;
-  height: 134px;
+.month-panel .wu{
+  border: solid 1px white;
+}
+li span {
+  display: block;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+.month-panel li em {
+  position: absolute;
+  left: 5px;
+  bottom: 3px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: normal;
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0,0,0,1);
+}
+.month-panel .mark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  line-height: 78px;
+  display: none;
+}
+.month-panel .mark a {
+  color: #fff;
+  font-size: 24px;
+}
+.month-panel .mark a:hover{
+  text-decoration: underline;
+}
+.month-panel .mark .user {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  padding: 2px 0 0 2px;
+  background-color: #fff;
+  line-height: 0;
+}
+.month-panel>li:hover .mark {
+  display: block;
 }
