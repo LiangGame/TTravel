@@ -1,10 +1,10 @@
 #container{
   width: 100%;
   height: 500px;
-  background: #efefef;
+  background: #f6f6f6;
   border: 1px solid #e3e3e3;
   border-radius: 8px;
-  box-shadow: 8px 8px 10px -5px #999;
+  box-shadow: 8px 8px 10px -5px #ccc;
 }
 #container .setting-container{
   padding: 15px;
@@ -16,7 +16,7 @@
 input{
   outline: none;
   border: none;
-  background: #efefef;
+  background: #f6f6f6;
   height: 25px;
   line-height: 25px;
   font-size: 14px;
@@ -60,7 +60,7 @@ textarea{
 #btn input{
   width: 100px;
   height: 35px;
-  background: #d4d4d4;
+  background: #f6f6f6;
   border-radius: 4px;
   color: #333;
   font-size: 16px;
@@ -108,4 +108,20 @@ textarea{
 }
 #user_form ._float{
   position: relative;
+}
+/*模态框*/
+.modal-text{
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  margin-top: 50%;
+  box-shadow: 0 0 5px -1px #ff9d00;
+  border: none;
+  color: #ff9d00;
+}
+#modal{
+  position: absolute;
+  z-index: 9999999;
 }

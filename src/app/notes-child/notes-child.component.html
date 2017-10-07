@@ -1,21 +1,21 @@
-<img src="../../assets/images/XiZang/2.NaMuCuo/NMC01.jpeg"
+<img src="http://owpv96eru.bkt.clouddn.com/images/background/bg-notes.jpeg"
      height="450" width="100%" class="bg"/>
 
 
 <div class="container container-top">
-  <img src="../../assets/images/background/bg07.jpg" class="head img-circle"/>
+  <img src="http://127.0.0.1:8889/uploads/{{notes?.icon}}" class="head img-circle"/>
   <div class="title">{{notes?.title}}<!--回忆走过的七彩云南--></div>
 </div>
-<div class="author ">
-  天涯海角（杭州）
-  <span class="level">LV.16</span>
-  <span class="time">2017-06-20  12：30</span>
+<div class="author">
+  <span class="author-name" style="font-size: 18px;cursor: pointer"> {{notes?.userName}}</span>
+  <span class="level" style="font-size: 16px;cursor: pointer" routerLink="../lv">LV.{{notes?.lvName}}</span>
+  <span class="time" style="font-size: 16px">{{notes?.pubtime | localeDate:''}}</span>
 </div>
 <div class="container-fluid icon ">
   <div class="icon-share">
     <ul>
-      <li class="fa fa-share fa-2x" aria-hidden="true"></li>
-      <li>40 分享</li>
+      <li class="fa fa-commenting-o fa-2x" aria-hidden="true"></li>
+      <li>{{notes?.comment}} 评论</li>
     </ul>
   </div>
   <div class="icon-collect" (click)="setCollect($event,notes?.id)">
@@ -27,18 +27,18 @@
 </div>
 
 <div>
-  <div>
+  <div style="padding: 0 120px">
     <div class="container">
-      <div class="col-md-7 travel-list">
+      <div style="margin-left: 220px;min-width: 685px" class="col-md-7 travel-list">
         <ul>
-          <li>出发时间<span>/</span>2017-05-16</li>
-          <li>出行天数<span>/</span>12天</li>
-          <li>人物<span>/</span>好友/伙伴</li>
-          <li>人均费用<span>/</span>4700RMB</li>
+          <li><span class="fa fa-history fa-lg" style="color: #ff9d00"></span> 出发时间<span>/</span>2017-05-16</li>
+          <li><span class="fa fa-hourglass-2  fa-lg"style="color: #ff9d00"></span> 出行天数<span>/</span>12天</li>
+          <li><span class="fa fa-user  fa-lg"style="color: #ff9d00"></span> 人物<span>/</span>好友/伙伴</li>
+          <li><span class="fa fa-jpy  fa-lg"style="color: #ff9d00"></span>  人均费用<span>/</span>4700RMB</li>
         </ul>
       </div>
     </div>
-    <div class="container-main container" [innerHTML]="notes?.content">
+    <div style="text-align: center" id="notes-content" class="container-main container" [innerHTML]="notes?.content">
       <h2>只因这里，是彼此的心之所向。</h2>
       <hr>
       <p>
@@ -110,7 +110,6 @@
     </div>
   </div>
   <div id="rightRead">
-
   </div>
 
 </div>
@@ -123,14 +122,14 @@
       <img src="http://127.0.0.1:8889/uploads/{{comment.icon}}" alt="">
     </div>
     <div class="user">
-      <a href="#" class="name">{{comment?.userName}}</a>
-      <a href="#" class="level">LV.{{comment?.lvName}}</a>
+      <a routerLink="../personal-center" class="name">{{comment?.userName}}</a>
+      <a routerLink="../lv" class="level">Lv.{{comment?.lvName}}</a>
     </div>
     <div class="con-wrap">
       {{comment?.content | themeString:120}}
     </div>
     <div class="commentBottom">
-      <time>{{(comment?.time).split('T')[0] +'/'+ ((comment?.time).split('T')[1]).split('.')[0]}}</time>
+      <time>{{comment?.time | localeDate:''}}</time>
       <span class="pull-right delete" (click)="isdelete()">删除</span>
       <!--确认删除模态框-->
       <div>

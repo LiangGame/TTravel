@@ -4,10 +4,10 @@
     <span class="pull-left more" routerLink="./Notes"> &gt;&gt;&gt;更多 </span>
     <h5 class="pull-right">{{_notes?.length}}篇游记</h5>
   </div>
-  <div id="notes_container" >
+  <div id="notes_container">
     <div class="content" *ngIf="noNotes">
       <div class="top">
-        <h3  class="pull-left">{{newNotes?.title}}</h3>
+        <h3 class="pull-left">{{newNotes?.title}}</h3>
         <time class="pull-right">
           {{(newNotes?.pubtime)?.split('T')[0]}}
         </time>
@@ -39,75 +39,44 @@
         <img *ngFor="let img of images" class="pull-left" src="http://127.0.0.1:8889/userImgs/{{img}}">
         <!--<img *ngFor="let img of images" class="img-responsive" src="../../../assets/images/temporary/small/gg0.png">-->
       </div>
-      <!--<div class="col-md-3 col-lg-3 photo-img">-->
-        <!--<img  class="img-responsive" src="../../../assets/images/temporary/small/tt0.jpeg">-->
-      <!--</div>-->
-      <!--<div class="col-md-3 col-lg-3 photo-img">-->
-        <!--<img class="img-responsive" src="../../../assets/images/temporary/small/ymy1.jpeg">-->
-      <!--</div>-->
-      <!--<div class="col-md-3 col-lg-3 photo-img">-->
-        <!--<img class="img-responsive" src="../../../assets/images/temporary/cq.jpg">-->
-      <!--</div>-->
-      <!--<div class="col-md-3 col-lg-3 photo-img">-->
-        <!--<img class="img-responsive" src="../../../assets/images/temporary/small/tam1.jpeg">-->
-      <!--</div>-->
     </div>
   </div>
-  <div id="message-board" class="col-md-12 col-lg-12">
-    <h4>留言板</h4>
-    <div class="content">
-      <div class="col-md-4 col-lg-4 board-icon">
-        <div class="row">
-          <img src="http://127.0.0.1:8889/uploads/{{userIcon}}" alt="" width="90" height="90">
+  <!--  <div id="message-board" class="col-md-12 col-lg-12">
+      <h4>留言板</h4>
+      <div class="content">
+        <div class="col-md-4 col-lg-4 board-icon">
+          <div class="row">
+            <img src="http://127.0.0.1:8889/uploads/{{userIcon}}" alt="" width="90" height="90">
+          </div>
         </div>
-      </div>
-      <div id="board-container" class="col-md-8 col-lg-8">
-        <div class="board-left"></div>
-        <textarea placeholder="我来过，我想说....." class="col-md-12 col-lg-12"></textarea>
-        <div class="bottom col-md-12 col-lg-12">
-          <span class="pull-left">0/200 字</span>
-          <button class="pull-right text-center">留言</button>
+        <div id="board-container" class="col-md-8 col-lg-8">
+          <div class="board-left"></div>
+          <textarea placeholder="我来过，我想说....." class="col-md-12 col-lg-12"></textarea>
+          <div class="bottom col-md-12 col-lg-12">
+            <span class="pull-left">0/200 字</span>
+            <button class="pull-right text-center">留言</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="message-main" class="col-md-12 col-lg-12">
-    <ul class="col-md-12 col-lg-12">
-      <li>
-        <div class="pull-left board-icon"></div>
-        <div class="pull-right col-md-11 col-lg-11 content">
-          <h4>admin</h4>
-          <p>留言内容留言内容留言内容留言内容留言内容</p>
-          <time class="pull-left">2017-8-8</time><span class="pull-right">删除</span>
-        </div>
-      </li>
-      <li>
-        <div class="pull-left board-icon"></div>
-        <div class="pull-right col-md-11 col-lg-11   content">
-          <h4>admin</h4>
-          <p>留言内容留言内容留言内容留言内容留言内容</p>
-          <time class="pull-left">2017-8-8</time><span class="pull-right">删除</span>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <!-- 模态框 -->
-<!--  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">编辑游记</h4>
-        </div>
-        <div class="modal-body">
-          <app-editor (onPostData)="PostData($event)"></app-editor>
-          <button (click)="publishTopic()">获取内容</button>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">确认</button>
-          <button type="button" class="btn btn-primary">取消</button>
-        </div>
-      </div>
-    </div>
-  </div>-->
+    <div id="message-main" class="col-md-12 col-lg-12">
+      <ul class="col-md-12 col-lg-12">
+        <li>
+          <div class="pull-left board-icon"></div>
+          <div class="pull-right col-md-11 col-lg-11 content">
+            <h4>admin</h4>
+            <p>留言内容留言内容留言内容留言内容留言内容</p>
+            <time class="pull-left">2017-8-8</time><span class="pull-right">删除</span>
+          </div>
+        </li>
+        <li>
+          <div class="pull-left board-icon"></div>
+          <div class="pull-right col-md-11 col-lg-11   content">
+            <h4>admin</h4>
+            <p>留言内容留言内容留言内容留言内容留言内容</p>
+            <time class="pull-left">2017-8-8</time><span class="pull-right">删除</span>
+          </div>
+        </li>
+      </ul>
+    </div>-->
 </div>

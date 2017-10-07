@@ -12,6 +12,7 @@ import {WantToGoComponent} from './want-to-go/want-to-go.component';
 import {NotesComponent} from './notes/notes.component';
 import {PhotoAlbumComponent} from './photo-album/photo-album.component';
 import {SettingComponent} from './setting/setting.component';
+// import {LvComponent} from '../lv/lv.component'
 // import { CreateNotesComponent } from '../create-notes/create-notes.component';
 import {AuthGuard} from './../services/auth-guard.service'
 // 配置路由表
@@ -27,7 +28,7 @@ const routes: Routes = [
       {path: 'Notes', component: NotesComponent},
       {path: 'PhotoAlbum', component: PhotoAlbumComponent},
       {path: 'Setting', component: SettingComponent},
-      // {path: 'CreateNotes', component: CreateNotesComponent},
+      // {path: 'lv', component: LvComponent},
       {path: '', component: UserIndexComponent}
     ]
   }

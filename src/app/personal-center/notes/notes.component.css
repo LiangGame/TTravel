@@ -21,9 +21,9 @@
 }
 #container .content{
   margin-top: 15px;
-  background: #d4d4d4;
+  background: #f6f6f6;
   height: 250px;
-  box-shadow: 8px 8px 10px -1px #bfbfbf;
+  box-shadow: 8px 8px 10px -3px #ccc;
   border-radius: 4px;
 }
 #container .notes-left img{

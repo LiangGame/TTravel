@@ -8,15 +8,15 @@
   <h1 class="h11">今日推荐</h1>
   <ul class="ul">
     <ng-container *ngFor="let theme of _scenic">
-    <li (click)="detail_1(theme.id)">
-        <div class="item">
+    <li (click)="detail_1(theme?.id)">
+        <div class="item scenicInfo">
           <div class="big">
           <img class="img" src="http://owpv96eru.bkt.clouddn.com{{theme?.url[0]}}" alt="">
         </div>
-          <div class="info">
-            <p class="p1">{{theme.info | themeString}}</p>
+          <div class="info ">
+            <p class="p1">{{theme?.info | themeString}}</p>
             <div class="bottom">
-              <span class="fl">{{theme.title}}</span>
+              <span class="fl">{{theme?.title}}</span>
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
     <li (click)="detail_2(topic?.id)">
         <div class="item">
           <div class="big">
-            <img class="img" src="../../assets/images/XinJiang/XJ_DanXiaDiMan.jpeg" alt="">
+            <img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">
           </div>
           <div class="info">
       <span class="s1">
@@ -47,4 +47,14 @@
     </li>
     </ng-container>
   </ul>
+</div>
+<!--模态框-->
+<div>
+  <div id="modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm _modal" role="document">
+      <div class="modal-content modal-text">
+        登录成功! 时光+2
+      </div>
+    </div>
+  </div>
 </div>

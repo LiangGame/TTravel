@@ -16,8 +16,6 @@ exports.userDao={
           callback('e004');
           return;
         }
-        // console.log(result[0]);
-        // console.log('----->>>>userDAO.getPwd');
         callback(result[0]);
         client.release();
       })
@@ -25,19 +23,15 @@ exports.userDao={
   },
   addUser:function (user,callback) {
     this.getPasswordById(user.telephone,function (result) {
-      // console.log(!!result);
-      // console.log('<<<<<<>>>>>');
-      // console.log(user);
       if(!result){
         pool.getConnection(function (error,client) {
           if(error){
             console.log(error);
             return
           }
-          client.query(userSql.addUser,[user.telephone,user.userName,user.password,1,1],function (error,result) {
+          client.query(userSql.addUser,[user.telephone,user.userName,user.password,1,0],function (error,result) {
             if(error){
               console.log(error);
-              // console.log('><><><>');
               callback('e004');
               return;
             }
@@ -60,7 +54,6 @@ exports.userDao={
           callback('e004');
           return;
         }
-
         callback(result);
         client.release();
       })
@@ -77,15 +70,12 @@ exports.userDao={
           callback('e004');
           return;
         }
-
         callback(result);
         client.release();
       })
     })
   },
   addUserIcon:function (telephone,iconName,callback) {
-    // console.log(telephone);
-    // console.log(iconName);
     console.log('>>>>>>>>>>userDAO');
     pool.getConnection(function (error,client) {
       if(error){
@@ -99,16 +89,11 @@ exports.userDao={
           return;
         }
         callback({"affectedRows":result.affectedRows,"icon":iconName});
-
-        // console.log({"affectedRows":result.affectedRows,"icon":iconName});
         client.release();
       })
     })
   },
   addUserImg:function (userId,imgName,callback) {
-    console.log(userId);
-    console.log(imgName);
-    console.log('>>>>>>>>>>addUserImg');
     pool.getConnection(function (error,client) {
       if(error){
         callback('e004');
@@ -121,7 +106,6 @@ exports.userDao={
           return;
         }
         callback({"affectedRows":result.affectedRows,"img":imgName});
-        // console.log({"affectedRows":result.affectedRows,"icon":iconName});
         client.release();
       })
     })
@@ -131,26 +115,26 @@ exports.userDao={
       var birthday = user[0].years+'-'+user[0].month+'-'+user[0].day;
     }
     this.getPasswordById(user[1].telephone,function (result) {
-      // console.log(result.userName+'>>>>>>updatePwd')
       var user_name = result.userName;
-      if(result.length==1){
-        pool.getConnection(function (error,client) {
-          if(error){
-            return;
-          }
-          client.query(userSql.updateUser,[user[0].userName,user[0].userSex,birthday,user[0].city,user[0].Signature,user[1].telephone],function (error,result) {
+      if(result){
+        if(result.id!=''||result.id!=null){
+          pool.getConnection(function (error,client) {
             if(error){
-              console.log(error.message);
-              callback('e004');
               return;
             }
-            console.log(result);
-            callback({"stateCode":result.affectedRows,"userName":user_name});
-            client.release();
+            client.query(userSql.updateUser,[user[0].userName,user[0].userSex,birthday,user[0].city,user[0].Signature,user[1].telephone],function (error,result) {
+              if(error){
+                console.log(error.message);
+                callback('e004');
+                return;
+              }
+              callback({"stateCode":result.affectedRows,"userName":user_name});
+              client.release();
+            })
           })
-        })
+        }
       }else {
-        callback('5');
+        callback('5');/*改用不存在*/
       }
     })
   },
@@ -184,8 +168,6 @@ exports.userDao={
             callback('e004');// 数据库错误
             return;
           }
-          // console.log(result);
-          // console.log('....>>>>getNOtesLike');
           callback(result);
           client.release();
         })
@@ -222,8 +204,6 @@ exports.userDao={
             callback('e004');// 数据库错误
             return;
           }
-          // console.log(result);
-          // console.log('....>>>>getNOtesLike');
           callback(result);
           client.release();
         })
@@ -249,7 +229,6 @@ exports.userDao={
     }
   },
   getNotesComment:function (commentInfo,callback) {
-    // console.log(commentInfo.id);
     if(commentInfo){
       pool.getConnection(function (error,client) {
         if(error){
@@ -261,8 +240,6 @@ exports.userDao={
             callback('e004');// 数据库错误
             return;
           }
-          console.log(result);
-          console.log('....>>>>getNotesComment');
           callback(result);
           client.release();
         })
@@ -281,8 +258,42 @@ exports.userDao={
             callback('e004');// 数据库错误
             return;
           }
-          // console.log(result);
-          // console.log('....>>>>deleteNotesComment');
+          callback(result);
+          client.release();
+        })
+      })
+    }
+  },
+  getCredits:function (userId,callback) {
+    if(userId){
+      pool.getConnection(function (error,client) {
+        if(error){
+          return;
+        }
+        client.query(userSql.getCredits,[userId],function (error,result) {
+          if(error){
+            console.log(error.message+' from getCredits');
+            callback('e004');// 数据库错误
+            return;
+          }
+          callback(result);
+          client.release();
+        })
+      })
+    }
+  },
+  addCredits:function (userId,creits,callback) {
+    if(userId&&creits){
+      pool.getConnection(function (error,client) {
+        if(error){
+          return;
+        }
+        client.query(userSql.addCredits,[creits,userId],function (error,result) {
+          if(error){
+            console.log(error.message+' from addCredits');
+            callback('e004');// 数据库错误
+            return;
+          }
           callback(result);
           client.release();
         })

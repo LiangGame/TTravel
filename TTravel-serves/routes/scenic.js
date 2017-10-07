@@ -30,6 +30,18 @@ router.post('/getScenicItem',function (req,res,next) {
       }
     })
   }
+});
+router.post('/getHotScenic',function (req,res) {
+  // var id = req.body.id;
+  // console.log(id);
+  // if(id){
+    scenicDao.getHotScenic('',function (result) {
+      if(result){
+        // console.log(result);
+        res.json(result);
+      }
+    })
+  // }
 })
 
 module.exports = router;

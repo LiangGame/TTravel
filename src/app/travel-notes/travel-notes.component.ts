@@ -20,6 +20,7 @@ export class TravelNotesComponent implements OnInit {
   reg: any = /<[^>]+>/g;
   _like: string;
   key: any;
+  hotNotes: any;
   @Input() searText: string;
 
 
@@ -28,15 +29,16 @@ export class TravelNotesComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router,) {
     this.getNotes();
+    this.getHotNotes();
   }
-
 
 
   ngOnInit() {
     // 在ngOnInit（）{}里面写jQ代码
     // 右侧栏滚动到高度> 475位置时，固定不动（'about_fix'是单独在css中设置的固定时的样式）
     $(window).scroll(function () {
-      if ($(window).scrollTop() > 475 && $(window).scrollTop() < 1900) {
+      // && $(window).scrollTop() < 1900
+      if ($(window).scrollTop() > 475) {
         // console.log($(window).scrollTop());
         $('.about').addClass('about_fix');
       } else {
@@ -73,38 +75,55 @@ export class TravelNotesComponent implements OnInit {
 
   };
 
-  // ngOnDestroy(){
-  //   this.getNotes();
-  //   console.log('=============================');
-  // }
-
-  ngAfterContentInit() {
+  ngAfterContentChecked() {
+    // console.log((decodeURI(location.search).split('=')[1]));
     this.route.params.subscribe((params: Params) => {
       this.key = (<Params>this.route.queryParams).value['key'];
-      console.log(this.key);
-      if (this.key) {
-        let that = this;
-        that.getNotes();
-        that.searText = that.key;
-      }
     })
+    if (decodeURI(location.search).split('=')[1] == this.key) {
+      this.searText = this.key;
+      // console.log('=============================================');
+    }
   }
 
   getNotes() {
     let that = this;
-    that.noteSer.getNotes(function (result) {
+    let num = {num: 5};
+    that.noteSer.getNotes(num, function (result) {
       if (result) {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
           result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
-          if(result[i].comment=='' || result[i].comment==null){
+          if (result[i].comment == '' || result[i].comment == null) {
             result[i].comment = 0;
           }
         }
         that.notes = result;
-        console.log(that.notes);
+        // console.log(that.notes);
       } else {
-        console.log('here');
+        console.log('没获取到游记数据!');
+      }
+    });
+  }
+
+  //加载更多
+  loadMore() {
+    let that = this;
+    let num = {num: 5 + that.notes.length};
+    that.noteSer.getNotes(num, function (result) {
+      // console.log(result);
+      if (result) {
+        let reg = that.reg;
+        for (let i = 0; i < result.length; i++) {
+          result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
+          if (result[i].comment == '' || result[i].comment == null) {
+            result[i].comment = 0;
+          }
+        }
+        that.notes = result;
+        // console.log(that.notes);
+      } else {
+        // console.log('here');
       }
     });
   }
@@ -118,20 +137,41 @@ export class TravelNotesComponent implements OnInit {
   // 游记点赞
   setLike(event: Event, id) {
     event.stopImmediatePropagation();     // 防止事件冒泡
-    console.log(id);
-    let userId = JSON.parse(sessionStorage.getItem('user')).id;
-    let notesID = {notesId: id, userId: userId, type: '1'};
     let that = this;
-    that.like.getNotesLike(notesID, function (result) {
-      if (result.length == 0) {
-        that.like.notesLike(notesID, function (result) {
-          console.log(result);
-          console.log('>>>>>>>travel-notes');
-          if (result.stateCode == 'L001') {
-            that.getNotes();
-            console.log('888888888888');
-          }
-        })
+    // console.log(id);
+    if (sessionStorage.getItem('user')) {
+      let userId = JSON.parse(sessionStorage.getItem('user')).id;
+      let notesID = {notesId: id, userId: userId, type: '1'};
+      that.like.getNotesLike(notesID, function (result) {
+        if (result.length == 0) {
+          that.like.notesLike(notesID, function (result) {
+            // console.log(result);
+            // console.log('>>>>>>>travel-notes');
+            if (result.stateCode == 'L001') {
+              that.getNotes();
+              // console.log('888888888888');
+            }
+          })
+        }
+      })
+    }else{
+      $('#modal').modal({
+        backdrop: false
+      });
+      window.setTimeout(function () {
+        $('#modal').modal('hide');
+      },2000);
+    }
+  }
+
+// 相关阅读
+  getHotNotes() {
+    let that = this;
+    that.noteSer.getHotNotes(function (result) {
+      if (result) {
+        that.hotNotes = result;
+        console.log('相关阅读');
+        console.log(that.hotNotes);
       }
     })
   }

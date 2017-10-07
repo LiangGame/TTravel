@@ -7,19 +7,98 @@
   background: url("http://owpv96eru.bkt.clouddn.com/images/background/bg.jpeg") no-repeat;
   background-size: 100% 450px;
 }
+.nav-shadow{
+  width: 100%;
+  z-index: 999999;
+  background: #f6f6f6;
+  box-shadow: 3px 3px 5px 0 #ccc;
+}
+#personal-nav{
+  margin-top: 15px;
+}
+#personal-nav li{
+  padding: 8px  !important;
+  margin: 0 !important;
+  text-align: center;
+  font-size: 18px;
+  cursor: default;
+  outline: none;
+}
+#personal-nav li:hover{
+  color: #FF9D00;
+}
+#userInfo h3{
+  display: inline-block;
+  margin-top: 8px;
+  color: #666;
+  font-size: 20px;
+}
+#userInfo .man{
+  color: #00B7FF;
+}
+#userInfo .wumen{
+  color: #ff65c7;
+}
+#userInfo .lv{
+  display: inline-block;
+  color: #333333;
+  padding-right: 5px;
+  border-right: 1px solid #cccccc;
+}
+#userInfo .lv i{
+  display: inline-block;
+  font-style: normal;
+  color: #EA3C1A;
+  cursor: default;
+}
+#userInfo .lv i:hover{
+  border-bottom: 1px solid #EA3C1A;
+}
+#userInfo .address{
+  /*padding: 5px 0;*/
+  color: #333333;
+}
+#userInfo .address i{
+  font-style: normal;
+  color: #333333;
+}
+
+.followBtn button{
+  margin: 8px auto;
+  padding: 5px 8px;
+  background: #FF9D00;
+  color: #eeeeee;
+  border-radius: 4px;
+}
+.signature{
+  display: inline-block;
+  color: #333333 !important;
+  padding-top: 8px;
+}
+.follow ul li{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+._top{
+  margin-top: 15px;
+}
 #user_nav{
   border: 1px solid #dfdfdf;
   border-radius: 8px;
   padding: 10px;
   box-sizing: border-box;
-  box-shadow: 8px 8px 10px -5px #999;
-  background: #efefef;
+  box-shadow: 8px 8px 10px -5px #ccc;
+  background: #f6f6f6;
   max-width: 285px;
   /*position: relative;*/
 }
+.nav_fixed{
+  position: fixed;
+  top:0px;
+}
 .fixed{
   position: fixed;
-  top:0;
+  top:0px;
 }
 
 /*========卷角========================*/
@@ -103,11 +182,14 @@
   left: 50%;
   margin-left: -14px;
 }
-#user_icon h4{
-  margin-top: 15px;
-  margin-bottom: 10px;
+#user_icon h5{
+  border-top: 1px solid #d5d5d5;
+  border-bottom: 1px solid #d5d5d5;
+  font-size: 16px;
+  line-height: 1.5em;
+  padding: 8px 0;
 }
-#user_icon h4:first-child{
+#user_icon ._border{
   border-right: 1px solid #d5d5d5;
 }
 #user_nav ul{

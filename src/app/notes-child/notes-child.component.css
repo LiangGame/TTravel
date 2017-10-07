@@ -115,7 +115,9 @@
   color: #EA3C1A;
   font-size: 0.9em;
   font-weight: bold;
-
+}
+.level:hover{
+  border-bottom: solid 1px #EA3C1A;
 }
 .author .time{
   color: #999999;
@@ -159,7 +161,7 @@
 .travel-list li{
   font-size: 14px;
   float: left;
-  width: 200px;
+  /*width: 200px;*/
   margin-top: 18px;
   display: inline;
   height: 22px;
@@ -295,12 +297,14 @@ hr{
   color: #fff;
   position: absolute;
   left: 50%;
-  margin-left: 160px;
+  margin-left: 230px;
   /*top: -25px;*/
 }
 
 .container-comment{
+  padding-left: 180px;
   position:relative;
+  margin-top: 35px;
 }
 .user{
   height: 48px;

@@ -30,7 +30,7 @@ exports.scenicDao = {
         if (error) {
           return
         }
-        client.query(scenicSql.getScenicItem,[id],function (error, result) {
+        client.query(scenicSql.getScenicItem, [id], function (error, result) {
           if (error) {
             console.log(error.message + ' from getScenicItem');
             callback('e004');
@@ -41,5 +41,22 @@ exports.scenicDao = {
         })
       })
     }
+  },
+  getHotScenic: function (e, callback) {
+    pool.getConnection(function (error, client) {
+      if (error) {
+        return
+      }
+      client.query(scenicSql.getHotScenic, function (error, result) {
+        if (error) {
+          console.log(error.message + ' from getHotScenic');
+          callback('e004');
+          return;
+        }
+        callback(result);
+        client.release();
+      })
+    })
   }
+
 }

@@ -11,6 +11,8 @@ import {ActivatedRoute, Router, Params} from '@angular/router';
 })
 export class TravelStrategyComponent implements OnInit {
   strategys: any;
+  key: any;
+  searText: string;
 
   constructor(private gySer: StrategyService,
               private route: ActivatedRoute,
@@ -19,6 +21,14 @@ export class TravelStrategyComponent implements OnInit {
 
   ngOnInit() {
     this.getStrategys();
+  }
+
+  ngAfterContentChecked() {
+    this.route.params.subscribe((params: Params) => {
+      this.key = (<Params>this.route.queryParams).value['key'];})
+    if(decodeURI(location.search).split('=')[1] == this.key){
+      this.searText = this.key;
+    }
   }
 
   getStrategys() {

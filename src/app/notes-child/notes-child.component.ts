@@ -3,13 +3,15 @@ import {ActivatedRoute, Router, Params} from '@angular/router';
 import {NotesService} from './../services/notes.service';
 import {LikeCollectService} from '../services/like-collect.service';
 import {GlobalPropertyService} from './../services/global-property.service'
+import {UserService} from "../services/user.service";
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 
 declare var $: any; // 在angular中调用jQ前的万能语句
 @Component({
   selector: 'app-notes-child',
   templateUrl: './notes-child.component.html',
   styleUrls: ['./notes-child.component.css'],
-  providers: [NotesService, LikeCollectService, GlobalPropertyService],
+  providers: [NotesService, LikeCollectService, GlobalPropertyService, UserService],
 })
 export class NotesChildComponent implements OnInit {
   notes: any;
@@ -20,16 +22,20 @@ export class NotesChildComponent implements OnInit {
   commentText: string = '';
   noLogin: boolean = false;
   commentInfo: string;
+  credits: number;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private notesSer: NotesService,
               private like: LikeCollectService,
-              private glo: GlobalPropertyService) {
+              private glo: GlobalPropertyService,
+              private userSer: UserService) {
     this.get_note();
     if (sessionStorage.getItem('user')) {
       this.iconUrl = JSON.parse(sessionStorage.getItem('user')).icon;
       this.noLogin = true;
+      // console.log('====================================');
+      // console.log(this.notesId);
       this.getNotesComment(this.notesId);
     }
     this.userIcon = `<img src="${this.glo.serverUrl}/uploads/${this.iconUrl}" alt="" width="60" height="60">`;
@@ -67,11 +73,8 @@ export class NotesChildComponent implements OnInit {
         let that = this;
         id = {"id": id};
         that.notesSer.getnotesItem(id, function (result) {
-          // console.log(id);
-          // console.log('>>>>>>>>>');
           if (result) {
-            // result[0].content = (result[0].content).replace(/&nbsp;/ig, '');
-            // result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
+            result[0].content = (result[0].content).replace(/&nbsp;/ig, '');
             that.notes = result[0];
             console.log(that.notes);
             // that.images = result[0].url.split(',');
@@ -117,27 +120,26 @@ export class NotesChildComponent implements OnInit {
         $('#modal').modal({
           backdrop: false
         });
-        that.commentInfo = '评论成功  ';
+        that.commentInfo = '评论成功! 时光 +5';
         that.getNotesComment(that.notesId);
         that.commentText = '';
+        that.getCredits(JSON.parse(sessionStorage.getItem('user')).telephone);
         window.setTimeout(function () {
           $('#modal').modal('hide');
-        }, 800);
+        }, 2000);
       }
     })
   }
 
   // 获取评论信息
   getNotesComment(notesId) {
-    // console.log(notesId);
-    // console.log('123123123123');
     let that = this;
     that.notesSer.getnotesComment(notesId, function (result) {
-      console.log(result);
       if (result) {
         that.comments = result;
-        // console.log(result);
-        // console.log('=====================================');
+        console.log('===================获取评论数据==================');
+        console.log(result);
+        console.log('================================================');
       }
     })
   }
@@ -153,17 +155,38 @@ export class NotesChildComponent implements OnInit {
     let commentId = {commentId: Id};
     let that = this;
     that.notesSer.deleteComment(commentId, function (result) {
-      console.log(result);
+      // console.log(result);
       if (result) {
         if (result == 1) {
           $('#deleteModal').modal('hide');
           that.getNotesComment(that.notesId);
         } else {
-          console.log('=====================================');
+          // console.log('=====================================');
         }
       }
     })
   }
 
+  getCredits(userId) {
+    if (userId) {
+      let that = this;
+      that.userSer.getCredits({telephone: userId}, function (result) {
+        console.log(result);
+        if (result) {
+          if (result != '' || result != null) {
+            that.credits = +result[0].userlv;
+            console.log('==========获取数据成功---->>>getCredits=========');
+            that.userSer.addCredits({telephone: userId, creits: (+that.credits + 5)}, function (result) {
+              if (result.affectedRows == 1) {
+                // that.router.navigate(['/index']);
+                console.log(result);
+                console.log('评论成功,时光+5');
+              }
+            });
+          }
+        }
+      });
+    }
+  }
 
 }

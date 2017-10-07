@@ -52,6 +52,9 @@ import {SearchNotesPipe} from './Pipes/search-notes.pipe';
 
 import {PaginatePipe,PaginationControlsComponent, PaginationService} from 'ng2-pagination';
 import { IndexNotesPipe } from './Pipes/index-notes.pipe';
+import { LocaleDatePipe } from './Pipes/locale-date.pipe';
+import { LvComponent } from './lv/lv.component';
+import { SearchStrategyPipe } from './Pipes/search-strategy.pipe';
 
 
 @NgModule({
@@ -84,6 +87,9 @@ import { IndexNotesPipe } from './Pipes/index-notes.pipe';
     TopicStringPipe,
     SearchNotesPipe,
     IndexNotesPipe,
+    LocaleDatePipe,
+    LvComponent,
+    SearchStrategyPipe,
 
   ],
   imports: [

@@ -11,24 +11,21 @@ export class NavComponent implements OnInit {
   noLogin: boolean = false;
   userName: string;
   bgColor: boolean = false;
-
-  constructor(
-    private router:Router
-  ) {
-
+  user:any;
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
-
   }
 
   ngAfterContentChecked() {
     let that = this;
+    that.user = JSON.parse(sessionStorage.getItem('user'));
     if (sessionStorage.getItem('user')) {
-      that.userName = JSON.parse(sessionStorage.getItem('user')).userName;  /*.substring(0,5)+"..."*/
+      that.userName = that.user.userName;
       let len = this.userName.length;
-      if(len > 5){
-        that.userName = that.userName.substring(0,5)+"...";
+      if (len > 5) {
+        that.userName = that.userName.substring(0, 5) + "...";
       }
       that.isLogin = true;
       that.noLogin = false;
@@ -37,11 +34,14 @@ export class NavComponent implements OnInit {
       that.noLogin = true;
     }
   }
+
   bgToggle() {
     this.bgColor = !this.bgColor;
   }
+
   signOut() {
-    sessionStorage.clear();
+    // sessionStorage.setItem('token',this.user.token);
+    sessionStorage.removeItem('user');
     this.router.navigate(['/index']);
   }
 }

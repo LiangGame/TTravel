@@ -22,9 +22,9 @@
     <div id="search_key">
       <p>热门城市</p>
       <p>
-        <span><a href="#">西藏</a></span>
-        <span><a href="#">重庆</a></span>
-        <span><a href="#">四川</a></span>
+        <span><a *ngFor="let hotCity of hotcity" (click)="hotSearch($event)">{{hotCity}}</a></span>
+        <!--<span><a href="#">重庆</a></span>
+        <span><a (click)="hotSearch($event)">成都</a></span>
         <span><a href="#">海南</a></span>
         <span><a href="#">台湾</a></span>
         <span><a href="#">上海</a></span>
@@ -33,8 +33,7 @@
         <span><a href="#">云南</a></span>
         <span><a href="#">江西</a></span>
         <span><a href="#">浙江</a></span>
-        <span><a href="#">黑龙江</a></span>
-
+        <span><a href="#">黑龙江</a></span>-->
       </p>
     </div>
   </div>

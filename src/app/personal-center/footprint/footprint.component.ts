@@ -1,17 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthGuard} from "../../services/auth-guard.service";
+import {PersonalCenterService} from "../../services/personal-center.service";
+import {ActivatedRoute, Router, Params} from '@angular/router';
+
 
 @Component({
   selector: 'app-footprint',
   templateUrl: './footprint.component.html',
   styleUrls: ['./footprint.component.css'],
-  providers:[AuthGuard]
+  providers: [AuthGuard,
+    PersonalCenterService,]
 })
 export class FootprintComponent implements OnInit {
+  userId: any;
+  footprints: any = [];
 
-  constructor() { }
+  constructor(private personalSer: PersonalCenterService,
+              private route: ActivatedRoute,
+              private router: Router,) {
+    if (sessionStorage
+
+        .getItem(
+          'user'
+        )) {
+      this
+        .userId = JSON.parse(sessionStorage.getItem('user')).id;
+    }
+
+    this.getFootPrint(this.userId);
+  }
 
   ngOnInit() {
+  }
+
+  getFootPrint(userId) {
+    let that = this;
+    that.personalSer.getAllFootPorint(userId, function (result) {
+      if (result) {
+        for (let i = 0; i < result.length; i++) {
+          result[i].url = (result[i].url).split(',')[0];
+        }
+        that.footprints = result;
+        console.log(that.footprints);
+      }
+    })
+  }
+
+  getScenicItem(scenicId) {
+    if (scenicId) {
+      this.router.navigate(['/scenic-result'], {queryParams: {'key': scenicId}});
+    }
   }
 
 }

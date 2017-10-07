@@ -1,23 +1,24 @@
 <div id="container" class="col-md-12 col-lg-12">
   <div class="title">
     <h5>我的足迹</h5>
-    <button class="pull-right">+ 足迹</button>
+    <!--<button class="pull-right">+ 足迹</button>-->
   </div>
   <div class="content">
     <ul>
-      <li class="col-md-4 col-lg-4">
+      <li class="col-md-4 col-lg-4" *ngFor="let footprint of footprints" (click)="getScenicItem(footprint.scenicId)">
         <div class="top">
-          <img src="../../../assets/images/XiZang/3.DaZhaoCi/DZC01.jpeg"/>
+          <img src="http://owpv96eru.bkt.clouddn.com{{footprint?.url}}"/>
         </div>
         <div class="middle text-center">
-          去过0个景点<br>
-          <a>查看全部</a>
+          {{footprint?.title}}<br>
+          <a>{{footprint?.cityname}}</a>
         </div>
         <div class="bottom">
-          <button>+ 添加足迹</button>
+          <!--<button>+ 添加足迹</button>-->
+          <button>我去过</button>
         </div>
       </li>
-      <li class="col-md-4 col-lg-4">
+<!--      <li class="col-md-4 col-lg-4">
         <div class="top">
           <img src="../../../assets/images/XiZang/3.DaZhaoCi/DZC02.jpeg"/>
         </div>
@@ -52,12 +53,13 @@
         <div class="bottom">
           <button>+ 添加足迹</button>
         </div>
-      </li>
-      <li class="col-md-4 col-lg-4">
+      </li>-->
+      <!--添加游记-->
+      <!--<li class="col-md-4 col-lg-4">
         <div class="s"></div>
         <div class="h"></div>
         <button class="add">+ 添加足迹</button>
-      </li>
+      </li>-->
     </ul>
   </div>
 </div>

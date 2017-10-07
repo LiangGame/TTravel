@@ -1,4 +1,4 @@
-import {Component, OnInit,Input} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router, Params} from '@angular/router';
 // 导入服务
 import {ScenicService} from './../services/scenic.service';
@@ -11,10 +11,12 @@ import {ScenicService} from './../services/scenic.service';
 
 })
 export class ScenicSearchComponent implements OnInit {
-  private data:any;
-  private key:any;
-  private cityName:any;
-  @Input() searText:string;
+  private data: any;
+  private key: any;
+  // private cityName:any;
+  city: any;
+  cityinfo: any;
+  @Input() searText: string;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -28,15 +30,22 @@ export class ScenicSearchComponent implements OnInit {
         let that = this;
         that.scenicSer.get_scenic(function (result) {
           if (result) {
-            for(let i = 0; i < result.length; i++){
-              if(result[i].url == '' || result[i].url == null){
+            for (let i = 0; i < result.length; i++) {
+              if (result[i].url == '' || result[i].url == null) {
                 continue;
-              }else{
+              } else {
                 result[i].url = (result[i].url).split(',');
+              }
+              that.city = result[0].cityname;
+              if (result[i].cityname.indexOf(that.key) != -1
+                || result[i].title.indexOf(that.key) != -1
+                || result[i].info.indexOf(that.key) != -1) {
+                // console.log(result[i].cityinfo);
+                that.cityinfo = result[i].cityinfo;
               }
               // console.log(result[i].url);
             }
-            that.data=result;
+            that.data = result;
             that.searText = that.key;
           } else {
             console.log('error');
@@ -46,11 +55,11 @@ export class ScenicSearchComponent implements OnInit {
     })
   }
 
-  details(deta){
+  details(deta) {
     console.log(deta);
 
-    if(deta){
-      this.router.navigate(['/scenic-result'],{queryParams:{'key':deta}});
+    if (deta) {
+      this.router.navigate(['/scenic-result'], {queryParams: {'key': deta}});
     }
   };
 

@@ -44,3 +44,77 @@ a:link,a:hover,a:active,a:visited{
   border-radius: 5px;
   width: 688px;
 }
+/*#notes-content>h1,h2,h3,h5,h6{*/
+  /*margin-top: 15px;*/
+  /*margin-bottom: 15px;*/
+  /*border: none;*/
+/*}*/
+#notes-content h3{
+  color: #ff9d00;
+}
+#notes-content p{
+  font-size: 14px;
+  line-height: 1.5em;
+}
+#notes-content img{
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+#notes-content hr{
+  border: none;
+}
+#message-board h4{
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+/*等级进度条*/
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i span {
+  position: absolute;
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  background: #fff;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: normal;
+  font-size: 12px;
+  font-style: normal;
+  border: #cccccc solid 1px;
+  right: -80px;
+  top: -50px;
+  padding: 0 10px;
+  /*width: 135px;*/
+  text-align: center;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i span:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #ccc transparent transparent transparent;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.mature-progress .mature-progress-bottom .mature-progress-box .progress-box i span:after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  bottom: -19px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+
+
+
