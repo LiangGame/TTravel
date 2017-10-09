@@ -11,7 +11,7 @@
     <li (click)="detail_1(theme?.id)">
         <div class="item scenicInfo">
           <div class="big">
-          <img class="img" src="http://owpv96eru.bkt.clouddn.com{{theme?.url[0]}}" alt="">
+          <img class="img" src="http://owpv96eru.bkt.clouddn.com{{theme?.url[1]}}" alt="">
         </div>
           <div class="info ">
             <p class="p1">{{theme?.info | themeString}}</p>
@@ -31,12 +31,12 @@
     <ng-container *ngFor="let topic of _notes | indexNotes:8">
     <li (click)="detail_2(topic?.id)">
         <div class="item">
-          <div class="big">
-            <img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">
+          <div id="indexNotes" class="big" [innerHTML]="topic?.content">
+            <!--<img class="img" src="http://owpv96eru.bkt.clouddn.com{{topic?.coverimg}}" alt="">-->
           </div>
           <div class="info">
       <span class="s1">
-        <img class="lazy" src="http://10.40.4.21:8889/uploads/{{topic?.icon}}" alt="{{topic?.userName}}">
+        <img class="lazy" src="http://10.40.4.17:8889/uploads/{{topic?.icon}}" alt="{{topic?.userName}}">
       </span>
             <div>
               <span><a href="#">{{topic?.userName}}</a></span>

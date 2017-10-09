@@ -5,7 +5,7 @@ var fs = require('fs');
 
 var userdao = require('./../dao/userDAO').userDao;
 var util = require('./../utils/util');
-
+var sms = require('./../utils/yanzheng');
 //产生令牌
 var jwt = require('jwt-simple');
 var moment = require('moment');
@@ -14,6 +14,7 @@ var ct = require('./../utils/checkToken');
 var router = express.Router();
 var AVATAR_UPLOAD_FOLDER = '/uploads/';
 var userImgs = '/userImgs/';
+var wangEditor = '/wangEditor/'
 router.get('/login', function (req, res, next) {
   var user = req.query;
   console.log('here');
@@ -66,6 +67,7 @@ router.post('/login', function (req, res, next) {
 });
 // 上传头像
 router.post('/upload', function (request, response, next) {
+  var _key;
   var form = new formidable.IncomingForm();   //创建上传表单
   form.encoding = 'utf-8';
   form.parse(request, function (err, fields, files) {
@@ -74,9 +76,12 @@ router.post('/upload', function (request, response, next) {
       response.json({"stateCode": 'e005'});
       return;
     }
-
+    for(var key in files){
+      _key = key
+    }
+    // console.log(files[_key]);
     var extName = '';  //后缀名
-    switch (files.uploadedfile.type) {
+    switch (files[_key].type) {
       case 'image/jpeg':
         extName = 'jpeg';
         break;
@@ -102,7 +107,7 @@ router.post('/upload', function (request, response, next) {
       var newPath = form.uploadDir + avatarName;
       // console.log("newpath---"+newPath);
       // fs.renameSync(files.user_icon.path, newPath);  //重命名
-      fs.readFile(files.uploadedfile.path, function (error, data) {
+      fs.readFile(files[_key].path, function (error, data) {
         if (error) {
           return;
         }
@@ -185,6 +190,65 @@ router.post('/upImgs', function (request, response, next) {
       });
     }
   })
+});
+// 富文本上传图片
+router.post('/wangEditorupload', function (request, response, next) {
+  var _key;
+  var form = new formidable.IncomingForm();   //创建上传表单
+  form.encoding = 'utf-8';
+  form.parse(request, function (err, fields, files) {
+    if (err) {
+      response.locals.error = err;
+      response.json({"stateCode": 'e005'});
+      return;
+    }
+    for(var key in files){
+      _key = key
+    }
+    // console.log(files[_key]);
+    var extName = '';  //后缀名
+    switch (files[_key].type) {
+      case 'image/jpeg':
+        extName = 'jpeg';
+        break;
+      case 'image/jpg':
+        extName = 'jpg';
+        break;
+      case 'image/png':
+        extName = 'png';
+        break;
+      case 'image/x-png':
+        extName = 'png';
+        break;
+    }
+    if (extName.length == 0) {
+      response.json({"stateCode": 'e005'});
+      return;
+    } else {
+      form.uploadDir = "../public" + wangEditor;     //设置上传目录
+      form.resloadDir = "http://127.0.0.1:8889" + wangEditor;
+      form.keepExtensions = true;     //保留后缀
+      form.maxFieldsSize = 3 * 1024;   //文件大小
+      var avatarName = util.createUnique() + '.' + extName;
+      // 'public/uploads/d23242343242.jpg'
+      var newPath = form.uploadDir + avatarName;
+      // console.log("newpath---"+newPath);
+      // fs.renameSync(files.user_icon.path, newPath);  //重命名
+      fs.readFile(files[_key].path, function (error, data) {
+        if (error) {
+          return;
+        }
+        fs.writeFile(newPath, data, function (error) {
+          if (error) {
+            return;
+          }
+          response.json({errno: 0,data:[form.resloadDir+avatarName]});
+        })
+      });
+    }
+  })
+
+
 });
 // 注册
 router.post('/register', function (req, res, next) {
@@ -399,7 +463,23 @@ router.post('/addCredits',ct.checkToken,function (req,res,next) {
       }
     });
   }
-})
+});
+//验证手机号验证码
+router.get('/verify', function (req, res, next) {
+  var tel=req.query.telephone;
+  console.log(req.query);
+  var content = '';
+  while (content.length < 4) {
+    content += Math.floor(Math.random() * 9);
+  }
+  sms.sendMessage(tel,"SMS_101135072","{\"content\":\"" + content + "\"}",function (result) {
+    console.log('users中的短信验证：')
+    console.log(result)
+    res.send({"result":result.Code,"infoNum":content});
+  });
+
+});
+
 
 
 module.exports = router;

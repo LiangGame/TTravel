@@ -1,3 +1,4 @@
+/*
 .bg-album{
   background: url("../../assets/images/background/album-img.jpg");
   height: 3000px;
@@ -56,11 +57,11 @@
 .month-tab ul {
   margin-left: -40px;
 }
-/*ul, li, ol {*/
-  /*list-style: none;*/
-  /*padding: 0;*/
-  /*margin: 0;*/
-/*}*/
+!*ul, li, ol {*!
+  !*list-style: none;*!
+  !*padding: 0;*!
+  !*margin: 0;*!
+!*}*!
 .month-tab li {
   display: inline;
   margin-left: 40px;
@@ -126,7 +127,7 @@
   height: 84px;
   position: relative;
   overflow: hidden;
-  /*border: white solid 1px;*/
+  !*border: white solid 1px;*!
 }
 .month-panel .wu{
   border: solid 1px white;
@@ -181,3 +182,6 @@ img {
 .month-panel>li:hover .mark {
   display: block;
 }
+*/
+
+

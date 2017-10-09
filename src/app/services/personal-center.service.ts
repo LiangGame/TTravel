@@ -57,7 +57,7 @@ export class PersonalCenterService {
     let _head = new HttpHeaders({token:this.ls.get('token')});
     this.http.post(this.url + '/personal-center/notes', userId,{headers:_head}).subscribe(
       function (result) {
-        console.log(result);
+        // console.log(result);
         callback(result);
       },
       function (error) {

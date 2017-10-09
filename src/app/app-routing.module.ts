@@ -20,6 +20,7 @@ import {ScenicResultComponent} from './scenic-result/scenic-result.component';
 import {NotesChildComponent} from './notes-child/notes-child.component';
 import {StrategyChildComponent} from './strategy-child/strategy-child.component';
 import {CreateNotesComponent} from './create-notes/create-notes.component';
+
 import {LvComponent} from './lv/lv.component';
 import {AuthGuard} from "./services/auth-guard.service";
 // 配置路由表

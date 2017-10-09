@@ -8,18 +8,29 @@
 /*背景图片*/
 
 .login-bgimg{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /*height: 100%;*/
   /*height: 900px;*/
-  background:url(../../assets/images/background/login-img.jpg) no-repeat center center;
+  background:url(../../assets/images/background/login-img.jpg) no-repeat;
+  background-size: 100% 100%;
 }
-
+#login_form{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin-top: -133px;
+  margin-left: -185px;
+}
 /*登录框位置*/
 .container{
   width: 400px;
 
 }
 .login-position{
-  padding-top: 51px;
-
+  /*padding-top: 51px;*/
 }
 /*登录框样式*/
 .login-css{
@@ -45,7 +56,7 @@
 }
 
 .p1{
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   float: right;
 }
 

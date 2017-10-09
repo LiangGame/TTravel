@@ -70,12 +70,14 @@
 }
 .introduce{
   width: 1000px;
-  height: 80px;
+  /*height: 80px;*/
   margin: 30px auto;
   /*border: 1px solid #1130ff;*/
 }
 .introduce_word{
-  font-size: 18px;
+  font-size: 14px;
+  text-indent: 2em;
+  letter-spacing: 1px;
 }
 #three{
   width: 1000px;

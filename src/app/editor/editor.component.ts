@@ -23,7 +23,7 @@ export class EditorComponent implements OnInit {
     this.editor = new wangEditor(editordom);
     this.editor.customConfig.uploadImgShowBase64 = true;
     this.editor.customConfig.showLinkImg = false;
-    // this.editor.customConfig.uploadImgServer = '/users/upload';
+    this.editor.customConfig.uploadImgServer = 'http://127.0.0.1:8889/users/wangEditorupload';
     this.editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
     this.editor.customConfig.uploadImgMaxLength = 10;
     // this.editor.customConfig.uploadFileName = '';

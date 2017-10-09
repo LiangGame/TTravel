@@ -37,32 +37,32 @@
 
     <div class="col-md-9 col-lg-9 pull-left">
       <div class="row title col-lg-12">推荐游记</div>
-      <div class="media col-md-12" *ngFor="let note of notes | searchNotes:searText" (click)="noteItem(note?.id)">
-        <h3 class="media-heading">{{note?.title}}
+      <div class="media col-md-12" *ngFor="let note of newNotes | searchNotes:searText" (click)="noteItem(note?.notes.id)">
+        <h3 class="media-heading">{{note?.notes.title}}
           <!--西藏行摄之旅，带你寻找藏在封闭隐世里的极美仙境-->
-          <button class="state" (click)="setLike($event,note?.id)">
+          <button class="state" (click)="setLike($event,note?.notes.id)">
             <span type="button" class="num">时光顶
-              <span class="fa fa-thumbs-up fa-lg icon-hand"></span> {{note?.like}}
+              <span class="fa fa-thumbs-up fa-lg icon-hand"></span> {{note?.notes.like}}
             </span>
           </button>
         </h3>
 
-        <div class="media-left media-middle">
-          <a routerLink="../noteschild">
-            <img class="media-object" src="http://owpv96eru.bkt.clouddn.com{{note?.coverimg}}" height="160" width="240"
-                 alt="...">
+        <div id="travel-notes" class="media-left media-middle">
+          <a routerLink="../noteschild" [innerHTML]="note?.coverimg[0]">
+            <!--<img class="media-object" src="http://owpv96eru.bkt.clouddn.com{{note?.coverimg}}" height="160" width="240"-->
+                 <!--alt="...">-->
           </a>
         </div>
 
-        <div class="media-body" [innerHTML]="(note?.content).substring(0,215)+'...'">
+        <div class="media-body" [innerHTML]="(note?.notes.content).substring(0,215)+'...'">
           <!--在旅行成为一种行色匆匆的消遣方式时，我更喜欢从中发掘慢一点的游玩模式，比如，逛当地的市集。-->
           <!--在国外，市集是未被商业包装的地方，是不加任何掩饰和夸张，可以最直接迅速接近当地人生活的地方。-->
           <!--而国内则相反，一些周末独有的创意市集和主题市集是为了丰富平时较为单一的商业街区，甚至可以说-->
           <!--很多创意市集上的东西比起实体店来的更有趣吧。-->
         </div>
         <div class="item">
-          <span class="author">作者：{{note?.userName}}</span>
-          <span class="view">评论：{{note?.comment}}</span>
+          <span class="author">作者：{{note?.notes.userName}}</span>
+          <span class="view">评论：{{note?.notes.comment}}</span>
         </div>
       </div>
       <!--复制=====================-->
@@ -299,13 +299,16 @@
       <div class="yuedu">
         <div class=" title col-lg-12">相关阅读</div>
         <div class="about-main" *ngFor="let hot of hotNotes">
-          <a (click)="noteItem(hot.id)">
+          <a (click)="noteItem(hot.notes.id)">
             <ul class="wrap">
               <li class="about-item">
-                <img src="http://owpv96eru.bkt.clouddn.com{{hot?.coverimg}}" height="80" width="80"/>
+                <div id="hotNotes-images" class="pull-left" [innerHTML]="hot?.coverimg[0]">
+
+                </div>
+                <!--<img src="http://owpv96eru.bkt.clouddn.com{{hot?.coverimg}}" height="80" width="80"/>-->
                 <div class="canwrap">
-                  <p class="subtitle">{{hot?.title}}<!--【自由爱自驾】打包一份原味香港，剪影一段往日时光。--></p>
-                  <p class="fa fa-street-view num"> {{hot?.like}}</p>
+                  <p class="subtitle">{{hot?.notes.title}}<!--【自由爱自驾】打包一份原味香港，剪影一段往日时光。--></p>
+                  <p class="fa fa-street-view num"> {{hot?.notes.like}}</p>
                 </div>
               </li>
             </ul>

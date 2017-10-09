@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {HttpClient,HttpHeaders,HttpParams} from '@angular/common/http';
 import {GlobalPropertyService} from './global-property.service';
 import {LocalStorage} from './local-storage.service';
 // import {headersToString} from "selenium-webdriver/http";
@@ -93,6 +93,18 @@ export class UserService {
     console.log(info);
     let _head = new HttpHeaders({token:this.ls.get('token')});
     this.http.post(this.url + '/users/addCredits', info,{headers:_head}).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+  // 验证码
+  sendCode(tel,callback){
+    let telephone = new HttpParams().set('telephone', tel);
+    this.http.get(this.url + '/users/verify', {params:telephone} ).subscribe(
       function (result) {
         callback(result);
       },

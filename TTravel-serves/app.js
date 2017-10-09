@@ -11,6 +11,7 @@ var personal_center = require('./routes/personal-center');
 var scenic = require('./routes/scenic');
 var strategys = require('./routes/strategy');
 var admin = require('./routes/admin');
+// var url = ['http://localhost:8000','http://localhost:4200']
 
 var app = express();
 
@@ -27,16 +28,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.all('*',function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+  if( req.headers.origin == 'http://localhost:8000' || req.headers.origin == 'http://localhost:4200' ){
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild,token');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Credentials",true);
     if (req.method == 'OPTIONS') {
-        res.sendStatus(200); //让options请求快速返回/
+      res.sendStatus(200); //让options请求快速返回/
     }
     else {
-        next();
+      next();
     }
+  }
 });
 
 app.use('/index', index);

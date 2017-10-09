@@ -57,6 +57,22 @@ exports.scenicDao = {
         client.release();
       })
     })
+  },
+  getCitys:function (e,callback) {
+    pool.getConnection(function (error, client) {
+      if (error) {
+        return
+      }
+      client.query(scenicSql.getCitys, function (error, result) {
+        if (error) {
+          console.log(error.message + ' from getCitys');
+          callback('e004');
+          return;
+        }
+        callback(result);
+        client.release();
+      })
+    })
   }
 
 }

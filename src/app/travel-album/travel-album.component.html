@@ -1,4 +1,4 @@
-<div class="bg-album">
+<!--<div class="bg-album">
   <div class="calendar">
     <div class="hd">
       <span class="hd-title"></span>
@@ -782,4 +782,28 @@
       </div>
     </div>
   </div>
+</div>-->
+
+
+<div class="bg_img"></div>
+<div class="container main">
+  <ul class="grid cs-style-4">
+    <li *ngFor="let img of notes | paginate: { itemsPerPage: 9, currentPage: p }" class="pull-left"
+        (click)="getNotesItem(img.id)">
+      <figure>
+        <div id="album" [innerHTML]="img?.content"></div>
+        <figcaption>
+          <h4>【{{img?.title}}】</h4>
+          <span>{{img?.pubtime | localeDate:''}}</span>
+          <a>{{img?.userName}}</a>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
 </div>
+<div style="margin-top: 15px; background: rgba(51,51,51,0.7)">
+  <div style="margin: 0 auto; width: 340px; font-size: 16px">
+    <pagination-controls style="width: 400px" (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+

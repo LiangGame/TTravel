@@ -15,7 +15,7 @@ export class NotesComponent implements OnInit {
   _notes: any = [];
   reg: any = /<[^>]+>/g;
   newNotes: any = [];
-  // _img: any = /<img\s+.*?>/;
+  _img: any = /<img\s+.*?>/g;
   len: number = 0;
   user: any = JSON.parse(sessionStorage.getItem('user'));
   userId: any;
@@ -39,6 +39,10 @@ export class NotesComponent implements OnInit {
       if (result) {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
+          // console.log((result[i].content).match(that._img));
+          if((result[i].content).match(that._img)){
+            that.newNotes.push({coverimg:(result[i].content).match(that._img),notes:result[i]})
+          }
           result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
           if(result[i].like==''||result[i].like==null){
             result[i].like=0;
@@ -46,10 +50,8 @@ export class NotesComponent implements OnInit {
           if(result[i].comment==''||result[i].comment==null){
             result[i].comment=0;
           }
-          // console.log(((that.notes[0].content).replace(reg)));
         }
-        that._notes = result;
-        console.log(result);
+        console.log(that.newNotes);
       } else {
         console.log("error")
       }

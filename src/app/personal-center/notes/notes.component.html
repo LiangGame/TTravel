@@ -4,28 +4,28 @@
       <button routerLink="../../CreateNotes" class="pull-right">+ 游记</button>
     </h5>
   </div>
-  <div class="content" *ngFor="let notes of _notes| paginate: { itemsPerPage: 5, currentPage: p }">
+  <div class="content" *ngFor="let notes of newNotes| paginate: { itemsPerPage: 5, currentPage: p }">
     <div class="col-md-5 col-lg-5 notes-left">
-      <div class="row"> <!--[innerHTML]="_img.exec(notes.content)"-->
-        <img src="http://owpv96eru.bkt.clouddn.com{{notes?.coverimg}}" alt="">
+      <div id="notes-image" class="row" [innerHTML]="notes?.coverimg[0]"> <!--[innerHTML]="_img.exec(notes.content)"-->
+        <!--<img src="http://owpv96eru.bkt.clouddn.com{{notes?.coverimg}}" alt="">-->
 
         <!--<img src="../../../assets/images/XiZang/2.NaMuCuo/NMC01.jpeg" alt="">-->
       </div>
     </div>
     <div class="col-md-7 col-lg-7 notes-right">
       <div class="top">
-        <h4>{{notes?.title}}</h4>
-        <time class="pull-right">{{notes?.pubtime.split('T')[0]}}</time>
+        <h4>{{notes?.notes.title}}</h4>
+        <time class="pull-right">{{notes?.notes.pubtime.split('T')[0]}}</time>
       </div>
-      <div class="middle" [innerHTML]="(notes?.content).substring(0,150)+'...'">
+      <div class="middle" [innerHTML]="(notes?.notes.content).substring(0,150)+'...'">
 
       </div>
       <div class="bottom">
         <div class="pull-right">
-          <span class="fa fa-thumbs-up fa-lg"></span><span>{{notes?.like}}</span>
+          <span class="fa fa-thumbs-up fa-lg"></span><span>{{notes?.notes.like}}</span>
         </div>
         <div class="pull-right">
-          <span class="fa fa-commenting-o fa-lg"></span><span>{{notes?.comment}}</span>
+          <span class="fa fa-commenting-o fa-lg"></span><span>{{notes?.notes.comment}}</span>
         </div>
       </div>
     </div>

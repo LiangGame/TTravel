@@ -21,6 +21,7 @@ export class IndexComponent implements OnInit {
   newscenic: string;
   newNotes: string;
   user: any;
+  reg: any = /<img\s+.*?>/g;
   // cityinfo:any;
   // credits: number;
 
@@ -78,8 +79,13 @@ export class IndexComponent implements OnInit {
     let that = this;
     that.indexSer.show_notes(function (result) {
       if (result) {
+        for (let i = 0; i < result.length; i++) {
+          if ((result[i].content).match(that.reg)) {
+            result[i].content = ((result[i].content).match(that.reg)[0]);
+          }
+        }
         that._notes = result;
-        that.newNotes = result[0];
+        // that.newNotes = result[0];
         console.log(that._notes);
         // console.log();
       } else {

@@ -59,4 +59,17 @@ export class ScenicService {
     )
   }
 
+  getCitys(callback){
+    let that = this;
+    this.http.post(that.url + '/scenic/getCitys', '').subscribe(
+      function (result) {
+        // console.log(result);
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
 }

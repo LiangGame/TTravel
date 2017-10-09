@@ -3801,6 +3801,8 @@ UploadImg.prototype = {
                     if ((typeof result === 'undefined' ? 'undefined' : _typeof(result)) !== 'object') {
                         try {
                             result = JSON.parse(result);
+                          console.log('wangEditor');
+                          console.log(result);
                         } catch (ex) {
                             // hook - fail
                             if (hooks.fail && typeof hooks.fail === 'function') {
@@ -3853,7 +3855,7 @@ UploadImg.prototype = {
 
             // 自定义 headers
             objForEach(uploadImgHeaders, function (key, val) {
-                xhr.setRequestHeader(key, val);
+                xhr.setRequestHeader( val);
             });
 
             // 跨域传 cookie

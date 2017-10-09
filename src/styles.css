@@ -87,7 +87,7 @@ a:link,a:hover,a:active,a:visited{
   right: -80px;
   top: -50px;
   padding: 0 10px;
-  /*width: 135px;*/
+  width: 145px;
   text-align: center;
 }
 
@@ -115,6 +115,29 @@ a:link,a:hover,a:active,a:visited{
   margin-left: -10px;
 }
 
+#album img{
+  width: 340px;
+  height: 220px;
+}
 
-
-
+/*个人中心游记coverimg*/
+#notes-image img{
+  max-width: 310px !important;
+  height: 250px !important;
+  border-radius: 4px 0 0 4px !important;
+}
+/*游记展示页面 coverimg*/
+#travel-notes img{
+  max-width: 240px !important;
+  height: 160px !important;
+}
+/*游记展示页面相关阅读 coverimg*/
+#hotNotes-images img{
+  width: 80px;
+  height: 80px;
+}
+/*首页推荐游记 coverimg*/
+#indexNotes img{
+  width: 275px;
+  height: 185px;
+}

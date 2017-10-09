@@ -183,6 +183,9 @@ h3 {
   /*padding-top: 15px;*/
 }
 /*右侧栏固定滚动*/
+#hotNotes-images{
+  display: inline-block;
+}
 .about_fix{
   position: fixed;
   left: 50%;

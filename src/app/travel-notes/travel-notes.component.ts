@@ -18,9 +18,11 @@ declare var $: any; // 在angular中调用jQ前的万能语句
 export class TravelNotesComponent implements OnInit {
   notes: any;
   reg: any = /<[^>]+>/g;
+  newNotes: any = [];
+  _img: any = /<img\s+.*?>/g;
   _like: string;
   key: any;
-  hotNotes: any;
+  hotNotes: any = [];
   @Input() searText: string;
 
 
@@ -93,13 +95,19 @@ export class TravelNotesComponent implements OnInit {
       if (result) {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
+          if((result[i].content).match(that._img)){
+            that.newNotes.push({coverimg:(result[i].content).match(that._img),notes:result[i]})
+          }
           result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
           if (result[i].comment == '' || result[i].comment == null) {
             result[i].comment = 0;
           }
+          if (result[i].like == '' || result[i].like == null) {
+            result[i].like = 0;
+          }
         }
-        that.notes = result;
-        // console.log(that.notes);
+        // that.notes = result;
+        console.log(that.newNotes);
       } else {
         console.log('没获取到游记数据!');
       }
@@ -169,7 +177,18 @@ export class TravelNotesComponent implements OnInit {
     let that = this;
     that.noteSer.getHotNotes(function (result) {
       if (result) {
-        that.hotNotes = result;
+        for (let i = 0; i < result.length; i++) {
+          if((result[i].content).match(that._img)){
+            that.hotNotes.push({coverimg:(result[i].content).match(that._img),notes:result[i]})
+          }
+          if (result[i].comment == '' || result[i].comment == null) {
+            result[i].comment = 0;
+          }
+          if (result[i].like == '' || result[i].like == null) {
+            result[i].like = 0;
+          }
+        }
+        // that.hotNotes = result;
         console.log('相关阅读');
         console.log(that.hotNotes);
       }

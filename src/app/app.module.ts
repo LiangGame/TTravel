@@ -33,7 +33,6 @@ import {PageComponent} from './Pagination/page.component'
 import {AppRoutingModule} from './app-routing.module';
 // 导入子模块
 import {PersonalCenterModule} from './personal-center/personal-center.module';
-
 // 导入服务
 import {GlobalPropertyService} from './services/global-property.service';
 import {ScenicService} from './services/scenic.service';

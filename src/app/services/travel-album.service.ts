@@ -15,9 +15,11 @@ export class TravelAlbumService {
 
 
   show_notes(callback) {
-    this.http.post(this.url + '/getNotes', '').subscribe(
+    this.http.post(this.url + '/index/getNotes', {num:100}).subscribe(
       function (result) {
-        callback(result);
+        if(result){
+          callback(result);
+        }
       },
       function (error) {
         console.log(error.message);
