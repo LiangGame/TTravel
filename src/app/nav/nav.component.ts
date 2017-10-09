@@ -16,29 +16,10 @@ export class NavComponent implements OnInit {
   user:any;
   userIcon:any;
   constructor(private router: Router) {
+
   }
 
   ngOnInit() {
-    // 禁用点击展开
-    $(document).ready(function(){
-      $(document).off('click.bs.dropdown.data-api');
-    });
-
-    $(document).ready(function(){
-      dropdownOpen();//调用
-    });
-    // 鼠标划过就展开子菜单，免得需要点击才能展开
-    function dropdownOpen() {
-      var $dropdownLi = $('.dropdown');
-      // console.log($dropdownLi);
-      $dropdownLi.mouseover(function() {
-        // console.log($(this));
-        $(this).addClass('open');
-      }).mouseout(function() {
-        $(this).removeClass('open');
-      });
-    }
-
 
   }
 
@@ -69,4 +50,5 @@ export class NavComponent implements OnInit {
     sessionStorage.removeItem('user');
     this.router.navigate(['/index']);
   }
+
 }

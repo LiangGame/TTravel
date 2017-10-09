@@ -28,7 +28,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.all('*',function (req, res, next) {
-  if( req.headers.origin == 'http://localhost:8000' || req.headers.origin == 'http://localhost:4200' ){
+  if( req.headers.origin == 'http://localhost:8000' || req.headers.origin == 'http://localhost:4200'
+    || req.headers.origin == 'http://localhost'){
     res.header("Access-Control-Allow-Origin", req.headers.origin);
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild,token');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');

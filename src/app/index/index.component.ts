@@ -38,9 +38,7 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     let that =this;
     if(!!sessionStorage.getItem('token')){
-      $('#modal').modal({
-        backdrop: false
-      });
+      $('#modal').modal({backdrop: false});
       window.setTimeout(function () {
         $('#modal').modal('hide');
         sessionStorage.removeItem('token');
