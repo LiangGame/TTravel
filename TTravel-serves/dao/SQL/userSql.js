@@ -17,5 +17,6 @@ exports.sql={
   getNotesComment:'SELECT *,(SELECT COUNT(comment_id) FROM comments WHERE comment_id = ? GROUP BY comment_id) commentNum FROM comments where comment_id = ?',
   deleteNotesComment:'DELETE FROM `comment` WHERE id = ?',
   getCredits:'SELECT userlv from users where telephone = ?',
-  addCredits:'UPDATE `user` SET userlv = ? WHERE telephone = ?'
+  addCredits:'UPDATE `user` SET userlv = ? WHERE telephone = ?',
+  updateTopInfo:'UPDATE user_travelnotes SET starTime = ?,useTime = ?,cost=?,person = ? WHERE id = ?',
 };

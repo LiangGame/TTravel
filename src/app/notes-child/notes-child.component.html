@@ -31,11 +31,20 @@
     <div class="container">
       <div style="margin-left: 220px;min-width: 685px" class="col-md-7 travel-list">
         <ul>
-          <li><span class="fa fa-history fa-lg" style="color: #ff9d00"></span> 出发时间<span>/</span>2017-05-16</li>
-          <li><span class="fa fa-hourglass-2  fa-lg"style="color: #ff9d00"></span> 出行天数<span>/</span>12天</li>
-          <li><span class="fa fa-user  fa-lg"style="color: #ff9d00"></span> 人物<span>/</span>好友/伙伴</li>
-          <li><span class="fa fa-jpy  fa-lg"style="color: #ff9d00"></span>  人均费用<span>/</span>4700RMB</li>
+          <li><span class="fa fa-history fa-lg" style="color: #ff9d00"></span> 出发时间<span>/</span>
+            {{notes?.starTime | localeDate:'date'}}
+          </li>
+          <li><span class="fa fa-hourglass-2  fa-lg"style="color: #ff9d00"></span> 出行天数<span>/</span>
+            {{notes?.useTime}}天
+          </li>
+          <li><span class="fa fa-user  fa-lg"style="color: #ff9d00"></span> 人物<span>/</span>
+            {{notes?.person}}
+          </li>
+          <li><span class="fa fa-jpy  fa-lg"style="color: #ff9d00"></span>  人均费用<span>/</span>
+            {{notes?.cost}}RMB
+          </li>
         </ul>
+        <span class="notesEditBtn" (click)="editTopInfo()">编辑</span>
       </div>
     </div>
     <div style="text-align: center" id="notes-content" class="container-main container" [innerHTML]="notes?.content">
@@ -129,7 +138,7 @@
       {{comment?.content | themeString:120}}
     </div>
     <div class="commentBottom">
-      <time>{{comment?.time | localeDate:''}}</time>
+      <time>{{comment?.time | localeDate: ''}}</time>
       <span class="pull-right delete" (click)="isdelete()">删除</span>
       <!--确认删除模态框-->
       <div>
@@ -189,4 +198,61 @@
 </div>
 
 
+<!--编辑头部信息-->
+<div id="topInfo" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div id="topInfo-content" class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">填写基本信息</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" #topInfoForm="ngForm">
+          <div *ngIf="!!topInfoError">{{topInfoError}}</div>
+          <div class="form-group">
+            <label for="starTime" class="col-sm-2 control-label">出发时间</label>
+            <div class="col-sm-8">
+              <input type="date" class="form-control" id="starTime" name="starTime" [ngModel]="starTime">
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+          <div class="form-group">
+            <label for="useTime" class="col-sm-2 control-label">出行天数</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="useTime" name="useTime" [ngModel]="useTime">
+            </div>
+            <div class="col-sm-2 unit">
+              <div class="row">天</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="person" class="col-sm-2 control-label">人&nbsp;&nbsp;&nbsp;&nbsp;物</label>
+            <div class="col-sm-8">
+              <select class="" id="person" name="person" [ngModel]="person">
+                <option value="一个人">一个人</option>
+                <option value="情侣/夫妻">情侣/夫妻</option>
+                <option value="亲子">亲子</option>
+                <option value="家庭出游">家庭出游</option>
+                <option value="和朋友">和朋友</option>
+                <option value="其他">其他</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cost" class="col-sm-2 control-label">人均费用</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="cost" name="cost" [ngModel]="cost">
+            </div>
+            <div class="col-sm-2 unit">
+              <div class="row">元</div></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn topInfoBtn" (click)="topInfo(notes.id,topInfoForm)">确定</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 

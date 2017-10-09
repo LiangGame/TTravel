@@ -146,5 +146,22 @@ exports.perDao={
         client.release();
       })
     })
+  },
+  // 获取用户收藏游记
+  getUserCollect:function (userId,callback) {
+    pool.getConnection(function (error,client) {
+      if(error){
+        return
+      }
+      client.query(personalSql.getUserCollect,[userId],function (error,result) {
+        if(error){
+          console.log(error.message+' from getUserCollect');
+          callback('e004');
+          return;
+        }
+        callback(result);
+        client.release();
+      })
+    })
   }
 }

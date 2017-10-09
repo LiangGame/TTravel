@@ -299,5 +299,23 @@ exports.userDao={
         })
       })
     }
+  },
+  updateTopInfo:function (notesId,topInfo,callback) {
+    if(notesId&&topInfo){
+      pool.getConnection(function (error,client) {
+        if(error){
+          return;
+        }
+        client.query(userSql.updateTopInfo,[topInfo.starTime,topInfo.useTime,topInfo.cost,topInfo.person,notesId],function (error,result) {
+          if(error){
+            console.log(error.message+' from updateTopInfo');
+            callback('e004');// 数据库错误
+            return;
+          }
+          callback(result);
+          client.release();
+        })
+      })
+    }
   }
 }

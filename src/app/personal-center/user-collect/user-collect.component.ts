@@ -1,43 +1,36 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-// 导入服务
+import { Component, OnInit } from '@angular/core';
 import {PersonalCenterService} from './../../services/personal-center.service';
 
 
-import {EditorComponent} from './../../editor/editor.component'
 import {AuthGuard} from "../../services/auth-guard.service";
+
 @Component({
-  selector: 'app-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.css'],
-  providers: [PersonalCenterService,AuthGuard],
+  selector: 'app-user-collect',
+  templateUrl: './user-collect.component.html',
+  styleUrls: ['./user-collect.component.css'],
+  providers: [PersonalCenterService,AuthGuard]
+
 })
-export class NotesComponent implements OnInit {
-  _check: any = [];
-  ischeck: any = [];
-  nocheck: any = [];
+export class UserCollectComponent implements OnInit {
   reg: any = /<[^>]+>/g;
   newNotes: any = [];
   _img: any = /<img\s+.*?>/g;
-  len: number = 0;
   user: any = JSON.parse(sessionStorage.getItem('user'));
-  userId: any;
-  @ViewChild(EditorComponent) editor: EditorComponent;
+  userId:any;
 
-  constructor(private perSer: PersonalCenterService,) {
-    this.userId = {"userId": this.user.telephone}
+  constructor(
+    private perSer:PersonalCenterService
+  ) {
+    this.userId = {"userId": this.user.id}
   }
 
   ngOnInit() {
-    this.getNotes(this.userId);
+    this.getUserCollect(this.userId);
   }
 
-  ngAfterViewInit() {
-
-  }
-
-  getNotes(userId) {
+  getUserCollect(userId) {
     let that = this;
-    that.perSer.show_notes(userId, function (result) {
+    that.perSer.getUserCollect(userId, function (result) {
       if (result) {
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
@@ -51,13 +44,6 @@ export class NotesComponent implements OnInit {
           };
           if(result[i].comment==''||result[i].comment==null){
             result[i].comment=0;
-          }
-          if(that.newNotes[i].notes.check == '0'){
-            that._check.push(that.newNotes[i]);
-          }else if(that.newNotes[i].notes.check == '1'){
-            that.ischeck.push(that.newNotes[i]);
-          }else {
-            that.nocheck.push(that.newNotes[i]);
           }
         }
         console.log(that.newNotes);

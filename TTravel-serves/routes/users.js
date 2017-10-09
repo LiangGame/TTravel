@@ -479,7 +479,24 @@ router.get('/verify', function (req, res, next) {
   });
 
 });
-
-
+// 修改游记头部信息
+router.post('/updateTopInfo',function (req,res) {
+  var notesId = req.body.notesId;
+  var topInfo = req.body.topInfo;
+  console.log(notesId);
+  console.log(topInfo);
+  console.log('=========修改游记头部信息==========');
+  if (notesId&&topInfo) {
+    userdao.updateTopInfo(notesId,topInfo,function (result) {
+      if (result.affectedRows == 1) {
+        res.json({stateCode:'001'});
+        console.log('修改游记头部信息成功');
+      }else {
+        res.json({stateCode:'002'});
+        console.log('修改游记头部信息失败');
+      }
+    });
+  }
+})
 
 module.exports = router;

@@ -108,7 +108,20 @@ export class PersonalCenterService {
   getAllFootPorint(userId,callback){
     let _head = new HttpHeaders({token:this.ls.get('token')});
     let id = {userId:userId}
-    this.http.post(this.url + '/personal-center/getAllFootPrint', id).subscribe(
+    this.http.post(this.url + '/personal-center/getAllFootPrint', id,{headers:_head}).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
+
+  getUserCollect(userId,callback){
+    let _head = new HttpHeaders({token:this.ls.get('token')});
+    let id = {userId:userId}
+    this.http.post(this.url + '/personal-center/getUserCollect', id).subscribe(
       function (result) {
         callback(result);
       },

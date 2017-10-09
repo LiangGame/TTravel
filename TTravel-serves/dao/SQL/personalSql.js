@@ -11,4 +11,5 @@ exports.sql={
   getUserImages:'SELECT * FROM userimage WHERE  user_id = ?',
   addFootprint:'INSERT INTO user_footmark(time,scenic_id,user_id)VALUES(NOW(),?,?)',
   getAllFootPrint:'SELECT * FROM footmark WHERE userId = ?',
+  getUserCollect:'SELECT * FROM usercollect WHERE user_id = ?'
 };

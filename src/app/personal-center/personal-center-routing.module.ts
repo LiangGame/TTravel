@@ -12,6 +12,8 @@ import {WantToGoComponent} from './want-to-go/want-to-go.component';
 import {NotesComponent} from './notes/notes.component';
 import {PhotoAlbumComponent} from './photo-album/photo-album.component';
 import {SettingComponent} from './setting/setting.component';
+import { UserCollectComponent } from './user-collect/user-collect.component';
+
 // import {LvComponent} from '../lv/lv.component'
 // import { CreateNotesComponent } from '../create-notes/create-notes.component';
 import {AuthGuard} from './../services/auth-guard.service'
@@ -28,6 +30,7 @@ const routes: Routes = [
       {path: 'Notes', component: NotesComponent},
       {path: 'PhotoAlbum', component: PhotoAlbumComponent},
       {path: 'Setting', component: SettingComponent},
+      {path: 'collect', component: UserCollectComponent},
       // {path: 'lv', component: LvComponent},
       {path: '', component: UserIndexComponent}
     ]

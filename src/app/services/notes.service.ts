@@ -82,4 +82,15 @@ export class NotesService {
       }
     )
   }
+  // 修改头部信息
+  updateTopInfo(body,callback){
+    this.http.post(this.url + '/users/updateTopInfo', body).subscribe(
+      function (result) {
+        callback(result);
+      },
+      function (error) {
+        console.log(error.message);
+      }
+    )
+  }
 }

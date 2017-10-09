@@ -99,8 +99,20 @@ router.post('/getAllFootPrint',function (req,res) {
       res.json('');
     }
   });
+});
+// 获取用户收藏游记
+router.post('/getUserCollect',function (req,res) {
+  var userId = req.body.userId;
+  personaldao.getUserCollect(userId, function (result) {
+    if (result) {
+      console.log('=============getUserCollect==============');
+      console.log(result);
+      res.json(result);
+    }else {
+      res.json('');
+    }
+  });
 })
-
 
 
 module.exports = router;

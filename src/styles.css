@@ -140,4 +140,13 @@ a:link,a:hover,a:active,a:visited{
 #indexNotes img{
   width: 275px;
   height: 185px;
+  vertical-align: top;
+  transition-property: all;
+  transition-duration: 0.4s;
+  transition-timing-function: initial;
+  transition-delay: initial;
+}
+#indexNotes img:hover{
+  width: 288px;
+  height: 194px;
 }

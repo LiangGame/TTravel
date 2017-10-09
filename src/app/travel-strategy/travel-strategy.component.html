@@ -9,7 +9,7 @@
 
 <div id="main" class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-4" *ngFor="let strategy of strategys | searchStrategy:searText| paginate: { itemsPerPage: 3, currentPage: p }" (click)="strategyItem(strategy?.id)">
+    <div class="col-sm-6 col-md-4" *ngFor="let strategy of strategys | searchStrategy:searText| paginate: { itemsPerPage: 6, currentPage: p }" (click)="strategyItem(strategy?.id)">
       <div class="thumbnail">
         <a>
           <img src="http://owpv96eru.bkt.clouddn.com{{strategy?.coverImg}}"

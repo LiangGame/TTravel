@@ -270,6 +270,7 @@
 }
 #down_inner ul li span{
   cursor: default;
+  letter-spacing: 1px;
   /*height: 25px;*/
   /*height: 1000px;*/
   /*margin: 5px auto;*/

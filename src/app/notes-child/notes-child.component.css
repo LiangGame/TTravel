@@ -176,6 +176,12 @@
 .travel-list li:last-child {
    margin-bottom: 20px;
  }
+.notesEditBtn{
+  display: inline-block;
+  margin-top: 18px !important;
+  padding-left: 40px;
+  cursor: pointer;
+}
 
 .travel-list span{
   color: #ff9d00;
@@ -417,3 +423,22 @@ hr{
   margin-top: 20%;
   box-shadow: none;
 }
+/*头部信息模态框*/
+.topInfoBtn{
+  background: #ff9d00;
+  color: #fefefe;
+}
+#topInfo-content{
+  box-shadow: none !important;
+}
+#topInfo .unit{
+  height: 34px;
+  line-height: 30px;
+  font-size: 18px;
+}
+#topInfo input:focus,#topInfo select:focus {
+  outline: none;
+  border: 1px solid #ff9d00;
+  box-shadow: 0px 0px 8px -1px #ff9d00;
+}
+

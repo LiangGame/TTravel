@@ -4,14 +4,17 @@ import {NotesService} from './../services/notes.service';
 import {LikeCollectService} from '../services/like-collect.service';
 import {GlobalPropertyService} from './../services/global-property.service'
 import {UserService} from "../services/user.service";
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 declare var $: any; // 在angular中调用jQ前的万能语句
 @Component({
   selector: 'app-notes-child',
   templateUrl: './notes-child.component.html',
   styleUrls: ['./notes-child.component.css'],
-  providers: [NotesService, LikeCollectService, GlobalPropertyService, UserService],
+  providers: [NotesService,
+    LikeCollectService,
+    GlobalPropertyService,
+    UserService],
 })
 export class NotesChildComponent implements OnInit {
   notes: any;
@@ -23,6 +26,7 @@ export class NotesChildComponent implements OnInit {
   noLogin: boolean = false;
   commentInfo: string;
   credits: number;
+  topInfoError:any;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -186,6 +190,31 @@ export class NotesChildComponent implements OnInit {
           }
         }
       });
+    }
+  }
+
+  editTopInfo() {
+    $('#topInfo').modal({backdrop: false});
+  }
+
+  topInfo(notesId,topInfoForm) {
+    console.log(topInfoForm.value);
+    console.log(notesId);
+    let that = this;
+    let body = {notesId:notesId,topInfo:topInfoForm.value};
+    if(notesId&&topInfoForm.value){
+      that.notesSer.updateTopInfo(body,function (result) {
+        if(result){
+          if(result.stateCode == '001'){
+            this.get_note();
+            $('#topInfo').modal('hide');
+            console.log('游记头部信息修改成功');
+          }else {
+            that.topInfoError = '修改失败!';
+            console.log('游记头部信息修改失败');
+          }
+        }
+      })
     }
   }
 

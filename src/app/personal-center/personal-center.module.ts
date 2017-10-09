@@ -14,6 +14,8 @@ import {WantToGoComponent} from './want-to-go/want-to-go.component';
 import {NotesComponent} from './notes/notes.component';
 import {PhotoAlbumComponent} from './photo-album/photo-album.component';
 import {SettingComponent} from './setting/setting.component';
+import { UserCollectComponent } from './user-collect/user-collect.component';
+
 // import {EditorComponent} from './../editor/editor.component';
 // import { CreateNotesComponent } from '../create-notes/create-notes.component';
 
@@ -29,6 +31,7 @@ import {PersonalCenterRoutingModule} from './personal-center-routing.module';
     NotesComponent,
     PhotoAlbumComponent,
     SettingComponent,
+    UserCollectComponent,
     // PageComponent,
 
     // EditorComponent,
