@@ -534,59 +534,186 @@
 </div>
 
 
-<div class="container">
-  <ul class="row">
-    <li *ngFor="let east of east" style="width: 490px;margin: 15px 8px" class="pull-left">
-      <div class="col-md-2">
-        <h4 style="display: inline-block;font-size: 16px;"><u>{{east?.provincename}}</u></h4>
-      </div>
-      <div class="col-md-10">
+<div id="down" class="container">
+  <div id="down_head">
+    <div class="down_head_name">
+      <h3>目的地列表</h3>
+    </div>
+    <ul>
+      <li *ngFor="let menu of type;let index = index" (click)="typeNum=index">{{menu}}</li>
+      <!--      <li><a routerLink=". /east">华东地区</a></li>
+            <li><a >华北地区</a></li>
+            <li><a >华南地区</a></li>
+            <li><a >华中地区</a></li>
+            <li><a >东北地区</a></li>
+            <li><a >西北地区</a></li>
+            <li><a >西南地区</a></li>-->
+    </ul>
+  </div>
+
+
+  <div id="down_inner" class="container" [ngSwitch]="typeNum">
+    <div id="down_inner_east" *ngSwitchCase="0">
+      <div>
+        <ul>
+          <li *ngFor="let east of east" style="margin: 15px 0px" class="col-md-6">
+            <div class="col-md-3 text-center">
+              <h4 style="display: inline-block;font-size: 16px;"><u>{{east?.provincename}}</u></h4>
+            </div>
+            <div class="col-md-9">
         <span style="padding: 1px 5px;display:inline-block;" *ngFor="let ecity of east?.city.split(',')"
               (click)="getScenic(ecity)">
         {{ecity}}
         </span>
+            </div>
+          </li>
+        </ul>
       </div>
-    </li>
-  </ul>
+    </div>
+    <div id="down_inner_north" *ngSwitchCase="1">
+      <div class="container">
+        <ul class="row">
+          <li *ngFor="let north of north" style="margin: 15px 0px" class="col-md-6 pull-left">
+            <div class="col-md-2">
+              <h4 style="display: inline-block;font-size: 16px;"><u>{{north?.provincename}}</u></h4>
+            </div>
+            <div class="col-md-10">
+        <span style="padding: 1px 5px;display:inline-block;" *ngFor="let ncity of north?.city.split(',')"
+              (click)="getScenic(ncity)">
+        {{ncity}}
+        </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="down_inner_south" *ngSwitchCase="2">
+      <div class="container">
+        <ul class="row">
+          <li *ngFor="let south of south" style="margin: 15px 0px" class="col-md-6 pull-left">
+            <div class="col-md-2">
+              <h4 style="display: inline-block;font-size: 16px;"><u>{{south?.provincename}}</u></h4>
+            </div>
+            <div class="col-md-10">
+        <span style="padding: 1px 5px;display:inline-block;" *ngFor="let scity of south?.city.split(',')"
+              (click)="getScenic(scity)">
+        {{scity}}
+        </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="down_inner_middle" *ngSwitchCase="3">
+      <div class="container">
+        <ul class="row">
+          <li *ngFor="let middle of west" style="margin: 15px 0px" class="col-md-6 pull-left">
+            <div class="col-md-2">
+              <h4 style="display: inline-block;font-size: 16px;"><u>{{middle?.provincename}}</u></h4>
+            </div>
+            <div class="col-md-10">
+        <span style="padding: 1px 5px;display:inline-block;" *ngFor="let mcity of middle?.city.split(',')"
+              (click)="getScenic(mcity)">
+        {{mcity}}
+        </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="down_inner_eastnorth" *ngSwitchCase="4">
+      <div class="container">
+        <ul class="row">
+          <li *ngFor="let eastnorth of north_east" style="margin: 15px 0px" class="col-md-6 pull-left">
+            <div class="col-md-2">
+              <h4 style="display: inline-block;font-size: 16px;"><u>{{eastnorth?.provincename}}</u></h4>
+            </div>
+            <div class="col-md-10">
+        <span style="padding: 1px 5px;display:inline-block;" *ngFor="let encity of eastnorth?.city.split(',')"
+              (click)="getScenic(encity)">
+        {{encity}}
+        </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="down_inner_westnorth" *ngSwitchCase="5">
+      <div class="container">
+        <ul class="row">
+          <li *ngFor="let westnorth of north_west" style="margin: 15px 0px" class="col-md-6 pull-left">
+            <div class="col-md-2">
+              <h4 style="display: inline-block;font-size: 16px;"><u>{{westnorth?.provincename}}</u></h4>
+            </div>
+            <div class="col-md-10">
+        <span style="padding: 1px 5px;display:inline-block;" *ngFor="let wncity of westnorth?.city.split(',')"
+              (click)="getScenic(wncity)">
+        {{wncity}}
+        </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="down_inner_westsouth" *ngSwitchCase="6">
+      <div class="container">
+        <ul class="row">
+          <li *ngFor="let westsouth of south_west" style="margin: 15px 0px" class="col-md-6 pull-left">
+            <div class="col-md-2">
+              <h4 style="display: inline-block;font-size: 16px;"><u>{{westsouth?.provincename}}</u></h4>
+            </div>
+            <div class="col-md-10">
+        <span style="padding: 1px 5px;display:inline-block;" *ngFor="let wscity of westsouth?.city.split(',')"
+              (click)="getScenic(wscity)">
+        {{wscity}}
+        </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<!--<div id="down">-->
-<!--<div id="down_head">-->
-<!--<div class="down_head_name">-->
-<!--<h3>地区列表</h3>-->
-<!--</div>-->
-<!--<ul>-->
-<!--<li><a routerLink=". /east">华东地区</a></li>-->
-<!--<li><a href="#">华北地区</a></li>-->
-<!--<li><a href="#">华南地区</a></li>-->
-<!--<li><a href="#">华中地区</a></li>-->
-<!--<li><a href="#">东北地区</a></li>-->
-<!--<li><a href="#">西北地区</a></li>-->
-<!--<li><a href="#">西南地区</a></li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--<div id="down_inner">-->
-<!--<div id="down_inner_east">-->
-<!--<h4>华东地区</h4>-->
-<!--<ul>-->
-<!--<li>江苏</li>-->
-<!--</ul>-->
-<!--<ul>-->
-<!---->
-<!--</ul>-->
-<!--<ul></ul>-->
-<!--<ul></ul>-->
-<!--<ul></ul>-->
-<!--<ul></ul>-->
-<!--<ul></ul>-->
-<!--</div>-->
-<!--<div id="down_inner_north"></div>-->
-<!--<div id="down_inner_south"></div>-->
-<!--<div id="down_inner_middle"></div>-->
-<!--<div id="down_inner_westsouth"></div>-->
-<!--<div id="down_inner_westnorth"></div>-->
-<!--<div id="down_inner_eastnorth"></div>-->
-<!--</div>-->
-<!--</div>-->
+
+<!--<div id="down">
+<div id="down_head">
+<div class="down_head_name">
+<h3>地区列表</h3>
+</div>
+<ul>
+<li><a routerLink=". /east">华东地区</a></li>
+<li><a href="#">华北地区</a></li>
+<li><a href="#">华南地区</a></li>
+<li><a href="#">华中地区</a></li>
+<li><a href="#">东北地区</a></li>
+<li><a href="#">西北地区</a></li>
+<li><a href="#">西南地区</a></li>
+</ul>
+</div>
+<div id="down_inner">
+<div id="down_inner_east">
+<h4>华东地区</h4>
+<ul>
+<li>江苏</li>
+</ul>
+<ul>
+
+</ul>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+</div>
+<div id="down_inner_north"></div>
+<div id="down_inner_south"></div>
+<div id="down_inner_middle"></div>
+<div id="down_inner_westsouth"></div>
+<div id="down_inner_westnorth"></div>
+<div id="down_inner_eastnorth"></div>
+</div>
+</div>-->
 
 

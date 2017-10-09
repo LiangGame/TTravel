@@ -12,6 +12,8 @@ import {ScenicService} from "../services/scenic.service";
 export class ScenicComponent implements OnInit {
   private num = 0;
   menus: any = ['俯瞰城市', '山水相依', '最爱小镇', '古迹遗址', '魅力夜色'];
+  type: any = ['华东地区','华北地区','华南地区','华中地区','东北地区','西北地区','西南地区'];
+  typeNum:number = 0;
   city: any = [];
   nature: any = [];
   town: any = [];
