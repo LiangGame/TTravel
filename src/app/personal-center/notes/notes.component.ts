@@ -12,7 +12,9 @@ import {AuthGuard} from "../../services/auth-guard.service";
   providers: [PersonalCenterService,AuthGuard],
 })
 export class NotesComponent implements OnInit {
-  _notes: any = [];
+  _check: any = [];
+  ischeck: any = [];
+  nocheck: any = [];
   reg: any = /<[^>]+>/g;
   newNotes: any = [];
   _img: any = /<img\s+.*?>/g;
@@ -49,6 +51,13 @@ export class NotesComponent implements OnInit {
           };
           if(result[i].comment==''||result[i].comment==null){
             result[i].comment=0;
+          }
+          if(that.newNotes[i].notes.check == '0'){
+            that._check.push(that.newNotes[i]);
+          }else if(that.newNotes[i].notes.check == '1'){
+            that.ischeck.push(that.newNotes[i]);
+          }else {
+            that.nocheck.push(that.newNotes[i]);
           }
         }
         console.log(that.newNotes);

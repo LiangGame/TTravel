@@ -121,7 +121,7 @@ a:link,a:hover,a:active,a:visited{
 }
 
 /*个人中心游记coverimg*/
-#notes-image img{
+.notes-image img{
   max-width: 310px !important;
   height: 250px !important;
   border-radius: 4px 0 0 4px !important;

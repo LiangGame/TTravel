@@ -63,7 +63,7 @@ export class CreateNotesComponent implements OnInit {
         if (result.stateCode == '001') {
           that.title = '';
           that.editor.clear();
-          that.setInfo = '发布成功 时光 +10';
+          that.setInfo = '发布成功,正在审核... 时光 +10';
           $('#modal').modal({
             backdrop: false
           });

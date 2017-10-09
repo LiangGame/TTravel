@@ -1,13 +1,16 @@
-#container{
+#container {
   padding: 25px;
 }
-#container h5{
+
+#container h5 {
   border-bottom: dashed 1px #d4d4d4;
   padding: 8px 10px;
   font-weight: 200;
   font-size: 21px;
+  margin-bottom: 15px;
 }
-#container .title button{
+
+#container .title button {
   margin-right: 50px;
   background: #FF9D00;
   border: none;
@@ -19,35 +22,42 @@
   position: relative;
   top: -10px;
 }
-#container .content{
+
+#container .content {
   margin-top: 15px;
   background: #f6f6f6;
   height: 250px;
   box-shadow: 8px 8px 10px -3px #ccc;
   border-radius: 4px;
 }
-#container .notes-left img{
+
+#container .notes-left img {
   max-width: 310px !important;
   height: 250px !important;
   border-radius: 4px 0 0 4px !important;
 }
-#container .notes-right{
+
+#container .notes-right {
   /*background: red;*/
   height: 250px;
   padding: 15px 8px 10px 8px;
   position: relative;
 }
-#container .notes-right .top{
+
+#container .notes-right .top {
   overflow: hidden;
   margin-bottom: 8px;
 }
-#container .notes-right h4{
+
+#container .notes-right h4 {
   display: inline-block;
 }
-#container .notes-right time{
+
+#container .notes-right time {
   padding-right: 35px;
 }
-#container .notes-right .middle{
+
+#container .notes-right .middle {
   text-indent: 2em;
   font-size: 16px;
   line-height: 1.5em;
@@ -55,25 +65,42 @@
   margin-bottom: 8px;
   padding: 0 15px;
 }
-#container .notes-right .bottom{
+
+#container .notes-right .bottom {
   position: absolute;
   bottom: 15px;
   right: 45px;
 }
-#container .notes-right .bottom span{
+
+#container .notes-right .bottom span {
   margin-right: 8px;
 }
-#container .notes-right .bottom span:hover{
+
+#container .notes-right .bottom span:hover {
   color: #ff9d00;
 }
+
 /*分页==============*/
-.pagination li a{
+.pagination li a {
   border: solid 1px #d1d1d1;
   color: #ff9d00;
 
 }
-.pagination li a:hover{
+
+.pagination li a:hover {
   color: white;
-  background:#FFD891;
+  background: #FFD891;
   border: solid 1px #FFD891;
+}
+
+.panel-heading span i {
+  display: inline-block;
+  background: #ff9d00;
+  color: #eeeeee;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-style: normal;
+  text-align: center;
 }
