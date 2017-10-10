@@ -7,13 +7,14 @@ import 'rxjs/Rx';
 // 导入服务
 import {IndexService} from './../services/index.service';
 import {UserService} from "../services/user.service";
+import {GlobalPropertyService} from "../services/global-property.service";
 
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
-  providers: [IndexService, UserService]
+  providers: [IndexService, UserService,GlobalPropertyService]
 })
 export class IndexComponent implements OnInit {
   _scenic: any = [];
@@ -22,13 +23,16 @@ export class IndexComponent implements OnInit {
   newNotes: string;
   user: any;
   reg: any = /<img\s+.*?>/g;
+  url:any;
+  qnUrl:any;
   // cityinfo:any;
   // credits: number;
 
   constructor(private indexSer: IndexService,
               private route: ActivatedRoute,
               private router: Router,
-              private userSer: UserService) {
+              private userSer: UserService,
+              private glo:GlobalPropertyService) {
     this.user = JSON.parse(sessionStorage.getItem('user'));
     this.getScenic();
     this.getNotes();
@@ -36,6 +40,8 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.url = this.glo.serverUrl;
+    this.qnUrl = this.glo.qiniuUrl;
     let that =this;
     if(!!sessionStorage.getItem('token')){
       $('#modal').modal({backdrop: false});
@@ -44,7 +50,7 @@ export class IndexComponent implements OnInit {
         sessionStorage.removeItem('token');
       },2000);
     };
-
+    window.scrollTo(0,0);
   }
   ngAfterContentInit(){
 

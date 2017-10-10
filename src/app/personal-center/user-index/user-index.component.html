@@ -1,7 +1,7 @@
 <div>
   <div id="notes" class="text-center">
     <h4 class="pull-left">我的游记</h4>
-    <span class="pull-left more" routerLink="./Notes"> &gt;&gt;&gt;更多 </span>
+    <span class="pull-left more" routerLink="../Notes"> &gt;&gt;&gt;更多 </span>
     <h5 class="pull-right">{{_notes?.length}}篇游记</h5>
   </div>
   <div id="notes_container">
@@ -30,13 +30,13 @@
   </div>
   <div id="photo" class="text-center">
     <h4 class="pull-left">我的照片</h4>
-    <span class="more pull-left" routerLink="./PhotoAlbum"> &gt;&gt;&gt;更多 </span>
+    <span class="more pull-left" routerLink="../PhotoAlbum"> &gt;&gt;&gt;更多 </span>
     <h5 class="pull-right">{{images?.length}}张照片</h5>
   </div>
   <div id="photo_container">
     <div class="photos-content">
       <div class="photo-img row">
-        <img *ngFor="let img of images" class="pull-left" src="http://127.0.0.1:8889/userImgs/{{img}}">
+        <img *ngFor="let img of images" class="pull-left" src="{{url}}/userImgs/{{img}}">
         <!--<img *ngFor="let img of images" class="img-responsive" src="../../../assets/images/temporary/small/gg0.png">-->
       </div>
     </div>

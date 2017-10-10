@@ -23,6 +23,7 @@
     "@angular/router": "^4.2.4",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.4",
     "angularfire2": "^4.0.0-rc.2",
+    "animate.css": "^3.5.2",
     "bootstrap": "^4.0.0-beta",
     "core-js": "^2.4.1",
     "ng2-file-upload": "^1.2.1",

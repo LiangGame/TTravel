@@ -48,7 +48,7 @@
         </h3>
 
         <div id="travel-notes" class="media-left media-middle">
-          <a routerLink="../noteschild" [innerHTML]="note?.coverimg[0]">
+          <a [innerHTML]="note?.coverimg[0]">
             <!--<img class="media-object" src="http://owpv96eru.bkt.clouddn.com{{note?.coverimg}}" height="160" width="240"-->
                  <!--alt="...">-->
           </a>
@@ -386,8 +386,10 @@
 </div>
 
 <!--模态框-->
+
 <div>
-  <div id="modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div id="modal" class="modal fade bs-example-modal-sm" tabindex="-1"
+       role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm _modal" role="document">
       <div class="modal-content modal-text">
         您还没有登录!

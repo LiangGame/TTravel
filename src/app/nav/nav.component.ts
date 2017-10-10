@@ -1,26 +1,33 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
-declare var $:any;
+import {GlobalPropertyService} from "../services/global-property.service";
+
+declare var $: any;
 
 @Component({
   moduleId: module.id,
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
+  providers: [GlobalPropertyService]
+
 })
 export class NavComponent implements OnInit {
   isLogin: boolean = false;
   noLogin: boolean = false;
   userName: string;
   bgColor: boolean = false;
-  user:any;
-  userIcon:any;
-  constructor(private router: Router) {
+  user: any;
+  userIcon: any;
+  url: any;
+
+  constructor(private router: Router,
+              private glo: GlobalPropertyService) {
 
   }
 
   ngOnInit() {
-
+    this.url = this.glo.serverUrl;
   }
 
   ngAfterContentChecked() {

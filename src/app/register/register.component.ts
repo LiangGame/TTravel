@@ -84,6 +84,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     $.idcode.setCode();
 
     $("#Txtidcode").keydown(function (e) {
@@ -178,7 +179,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onphoneCode(value: string): void {
+  onphoneCode(value: string,myform): void {
     this.IsSubmit[5] = false;
     let that = this;
     // console.log(that.pwd + ':' + value);
@@ -192,6 +193,7 @@ export class RegisterComponent implements OnInit {
       } else {
         that.isphoneCodeformat = true;
         this.IsSubmit[5] = true;
+        this.addUser(myform);
       }
     }
   }

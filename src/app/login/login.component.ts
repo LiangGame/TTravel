@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
       height = document.documentElement.clientHeight;
     }
     document.querySelector('.login-bgimg').setAttribute('style', 'height:' + height + 'px');
+    window.scrollTo(0,0);
   }
 
   ontel(value: string): void {

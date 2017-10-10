@@ -69,6 +69,8 @@ export class PersonalCenterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.url = this.glo.serverUrl;
+    window.scrollTo(0,0);
     this.checkLogin();
     this.iconImg = true;
     // console.log(sessionStorage.getItem('userName'));
@@ -91,7 +93,7 @@ export class PersonalCenterComponent implements OnInit {
         // sessionStorage.setItem("birthday",result[0].birthday);
         // sessionStorage.setItem("signature",result[0].signature);
 
-        that.Icon = `<img src='http://127.0.0.1:8889/uploads/${result[0].icon}' width="100" height="100">`;
+        that.Icon = `<img src='${that.url}/uploads/${result[0].icon}' width="100" height="100">`;
       })
     }
   }
@@ -107,7 +109,7 @@ export class PersonalCenterComponent implements OnInit {
         // alert('上传文件成功')
         // 上传文件后获取服务器返回的数据
         let tempRes = JSON.parse(response);
-        console.log(tempRes);
+        // console.log(tempRes);
         if (tempRes.affectedRows == 1) {
           that.Icon = `<img src='http://127.0.0.1:8889/uploads/${tempRes.icon}' width="100" height="100">`;
         }

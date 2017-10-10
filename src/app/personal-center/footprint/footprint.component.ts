@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthGuard} from "../../services/auth-guard.service";
 import {PersonalCenterService} from "../../services/personal-center.service";
 import {ActivatedRoute, Router, Params} from '@angular/router';
+import {GlobalPropertyService} from '../../services/global-property.service'
 
 
 @Component({
@@ -9,15 +10,18 @@ import {ActivatedRoute, Router, Params} from '@angular/router';
   templateUrl: './footprint.component.html',
   styleUrls: ['./footprint.component.css'],
   providers: [AuthGuard,
-    PersonalCenterService,]
+    PersonalCenterService,
+    GlobalPropertyService]
 })
 export class FootprintComponent implements OnInit {
+  qnurl: any;
   userId: any;
   footprints: any = [];
 
   constructor(private personalSer: PersonalCenterService,
               private route: ActivatedRoute,
-              private router: Router,) {
+              private router: Router,
+              private glo:GlobalPropertyService) {
     if (sessionStorage
 
         .getItem(
@@ -31,6 +35,7 @@ export class FootprintComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.qnurl = this.glo.qiniuUrl;
   }
 
   getFootPrint(userId) {

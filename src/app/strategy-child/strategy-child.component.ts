@@ -65,19 +65,8 @@ export class StrategyChildComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
 
-
-/*    $('.all1').click(function () {
-      // this.tr = true;
-      $('.tbdiv').animate({height: '920px'}, 500);
-      $('.all1').hide();
-      $('.all2').show();
-    });
-    $('.all2').click(function () {
-      $('.tbdiv').animate({height: '460px'}, 500);
-      $('.all2').hide();
-      $('.all1').show();
-    });*/
     $(window).scroll(function () {
       if ($(window).scrollTop() > 475) {
         // console.log($(window).scrollTop());

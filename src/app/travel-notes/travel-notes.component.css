@@ -282,16 +282,16 @@ h3 {
   height: 50px;
   line-height: 50px;
   font-size: 18px;
-  margin-top: 50%;
+  /*margin-top: 50%;*/
+  margin: 0 auto;
   box-shadow: 0 0 5px -1px #ff9d00;
   border: none;
   color: #ff9d00;
 }
 #modal{
-  position: absolute;
+  /*position: absolute;*/
   z-index: 9999999;
 }
 
 
 /*==============================*/
-

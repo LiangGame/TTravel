@@ -32,7 +32,7 @@
             </small>
           </div>
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
-            <input tabindex="2" type="text" id="Txtidcode" #textcode (keyup.enter)="valid(textcode.value,registerForm)"
+            <input tabindex="2" type="text" id="Txtidcode" #textcode
                    (blur)="valids(textcode.value)" class=" txtVerification" placeholder="请输入验证码">
             <span id="idcode"></span>
           </div>
@@ -95,7 +95,7 @@
           <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
             <input type="text" tabindex="6"
                    (blur)="onphoneCode(phoneCode.value)" class="form-phoneCode pull-left" name="phoneCode" [ngModel]="user.phoneCode"
-                   required #phoneCode="ngModel" placeholder="手机验证码">
+                   required #phoneCode="ngModel" placeholder="手机验证码" (keyup.enter)="onphoneCode(phoneCode.value,registerForm)">
             <button class="codeBtn pull-left" [class._disabled]="!isphoneCode" [disabled]="!isphoneCode" name="phoneCodeBtn" (click)="getPhoneCode(tel.value)">获取验证码</button>
           </div>
         </div>

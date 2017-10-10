@@ -7,7 +7,7 @@
     <ul>
       <li class="col-md-4 col-lg-4" *ngFor="let footprint of footprints" (click)="getScenicItem(footprint.scenicId)">
         <div class="top">
-          <img src="http://owpv96eru.bkt.clouddn.com{{footprint?.url}}"/>
+          <img src="{{qnurl}}{{footprint?.url}}"/>
         </div>
         <div class="middle text-center">
           {{footprint?.title}}<br>

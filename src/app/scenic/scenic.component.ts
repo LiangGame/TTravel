@@ -35,6 +35,7 @@ export class ScenicComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
   }
 
   getHotScenic() {

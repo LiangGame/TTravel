@@ -32,6 +32,7 @@ export class TravelAlbumComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
   }
 
   getNotesItem(notesId) {

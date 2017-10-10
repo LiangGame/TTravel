@@ -11,7 +11,7 @@
     <li (click)="detail_1(theme?.id)">
         <div class="item scenicInfo">
           <div class="big">
-          <img class="img" src="http://owpv96eru.bkt.clouddn.com{{theme?.url[1]}}" alt="">
+          <img class="img" src="{{qnUrl}}{{theme?.url[1]}}" alt="">
         </div>
           <div class="info ">
             <p class="p1">{{theme?.info | themeString}}</p>
@@ -36,7 +36,7 @@
           </div>
           <div class="info">
       <span class="s1">
-        <img class="lazy" src="http://127.0.0.1:8889/uploads/{{topic?.icon}}" alt="{{topic?.userName}}">
+        <img class="lazy" src="{{url}}/uploads/{{topic?.icon}}" alt="{{topic?.userName}}">
       </span>
             <div>
               <span><a href="#">{{topic?.userName}}</a></span>

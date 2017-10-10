@@ -168,6 +168,8 @@ export class LvComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    window.scrollTo(0,0);
+  }
 
 }

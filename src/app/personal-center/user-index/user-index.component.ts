@@ -13,6 +13,7 @@ import {AuthGuard} from "../../services/auth-guard.service";
   providers: [PersonalCenterService,AuthGuard]
 })
 export class UserIndexComponent implements OnInit {
+  url: any;
   images: any = [];
   user: any = JSON.parse(sessionStorage.getItem('user'));
   _notes: any;
@@ -30,6 +31,7 @@ export class UserIndexComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.url = this.glo.serverUrl;
     this.getNotes();
     this.getuserImg();
   }
@@ -42,7 +44,7 @@ export class UserIndexComponent implements OnInit {
         that.noNotes = true;
         let reg = that.reg;
         for (let i = 0; i < result.length; i++) {
-          result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '');
+          result[i].content = ((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/\——/ig, '');
           if(result[i].like == ''||result[i].like == null){
             result[i].like=0;
           }
@@ -81,7 +83,7 @@ export class UserIndexComponent implements OnInit {
           }
         }
         // that.images = result;
-        console.log(that.images);
+        // console.log(that.images);
       }
     })
   }

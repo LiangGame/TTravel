@@ -26,7 +26,7 @@ export class CreateNotesComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    window.scrollTo(0,0);
   }
 
   setNotes(notes) {

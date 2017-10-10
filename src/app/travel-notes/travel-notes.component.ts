@@ -36,6 +36,7 @@ export class TravelNotesComponent implements OnInit {
 
 
   ngOnInit() {
+    window.scrollTo(0,0);
     // 在ngOnInit（）{}里面写jQ代码
     // 右侧栏滚动到高度> 475位置时，固定不动（'about_fix'是单独在css中设置的固定时的样式）
     $(window).scroll(function () {
@@ -68,12 +69,6 @@ export class TravelNotesComponent implements OnInit {
         $(window).scrollTop(height);
       }, 10);
     });
-    // // 加载更多
-    //  $('.load').click(function () {
-    //    $('.more').show();
-    //  }, function () {
-    //    $('.more').hide();
-    //  });
 
   };
 
@@ -93,7 +88,9 @@ export class TravelNotesComponent implements OnInit {
     let num = {num: 5};
     that.noteSer.getNotes(num, function (result) {
       if (result) {
+        console.log(result);
         let reg = that.reg;
+        that.newNotes = [];
         for (let i = 0; i < result.length; i++) {
           if((result[i].content).match(that._img)){
             that.newNotes.push({coverimg:(result[i].content).match(that._img),notes:result[i]})
@@ -117,19 +114,26 @@ export class TravelNotesComponent implements OnInit {
   //加载更多
   loadMore() {
     let that = this;
-    let num = {num: 5 + that.notes.length};
+    let num = {num: 5 + that.newNotes.length};
     that.noteSer.getNotes(num, function (result) {
       // console.log(result);
       if (result) {
         let reg = that.reg;
+        that.newNotes = [];
         for (let i = 0; i < result.length; i++) {
+          if((result[i].content).match(that._img)){
+            that.newNotes.push({coverimg:(result[i].content).match(that._img),notes:result[i]})
+          }
           result[i].content = (((result[i].content).replace(reg, '')).replace(/&nbsp;/ig, '').replace(/——/ig, ''));
           if (result[i].comment == '' || result[i].comment == null) {
             result[i].comment = 0;
           }
+          if (result[i].like == '' || result[i].like == null) {
+            result[i].like = 0;
+          }
         }
-        that.notes = result;
-        // console.log(that.notes);
+        // that.newNotes = result;
+        console.log(that.newNotes);
       } else {
         // console.log('here');
       }
@@ -163,6 +167,15 @@ export class TravelNotesComponent implements OnInit {
         }
       })
     }else{
+      // 设置模态框弹出位置
+      $('#modal').on('show.bs.modal', function (e) {
+        // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
+        $(this).css('display', 'block');
+        var modalHeight=$(window).height() / 2 - $('#modal .modal-dialog').height() * 3;
+        $(this).find('.modal-dialog').css({
+          'margin-top': modalHeight
+        })
+      });
       $('#modal').modal({
         backdrop: false
       });

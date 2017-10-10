@@ -1,9 +1,9 @@
-<img src="http://owpv96eru.bkt.clouddn.com/images/background/bg-notes.jpeg"
+<img src="{{qnUrl}}/images/background/bg-notes.jpeg"
      height="450" width="100%" class="bg"/>
 
 
 <div class="container container-top">
-  <img src="http://127.0.0.1:8889/uploads/{{notes?.icon}}" class="head img-circle"/>
+  <img src="{{url}}/uploads/{{notes?.icon}}" class="head img-circle"/>
   <div class="title">{{notes?.title}}<!--回忆走过的七彩云南--></div>
 </div>
 <div class="author">
@@ -128,7 +128,7 @@
 
   <div class="item-info" *ngFor="let comment of comments">
     <div id="commentIcon" class="photo-icon">
-      <img src="http://127.0.0.1:8889/uploads/{{comment.icon}}" alt="">
+      <img src="{{url}}/uploads/{{comment.icon}}" alt="">
     </div>
     <div class="user">
       <a routerLink="../personal-center" class="name">{{comment?.userName}}</a>

@@ -2,15 +2,17 @@ import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute, Router, Params} from '@angular/router';
 // 导入服务
 import {ScenicService} from './../services/scenic.service';
+import {GlobalPropertyService} from '../services/global-property.service';
 
 @Component({
   selector: 'app-scenic-search',
   templateUrl: './scenic-search.component.html',
   styleUrls: ['./scenic-search.component.css'],
-  providers: [ScenicService],
+  providers: [ScenicService, GlobalPropertyService],
 
 })
 export class ScenicSearchComponent implements OnInit {
+  qnUrl: any;
   private data: any;
   private key: any;
   // private cityName:any;
@@ -20,10 +22,13 @@ export class ScenicSearchComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private scenicSer: ScenicService) {
+              private scenicSer: ScenicService,
+              private glo: GlobalPropertyService) {
   }
 
   ngOnInit() {
+    this.qnUrl = this.glo.qiniuUrl;
+    window.scrollTo(0, 0);
     this.route.params.subscribe((params: Params) => {
       this.key = (<Params>this.route.queryParams).value['key'];
       if (this.key) {

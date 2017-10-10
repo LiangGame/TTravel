@@ -27,6 +27,8 @@ export class NotesChildComponent implements OnInit {
   commentInfo: string;
   credits: number;
   topInfoError:any;
+  url: any;
+  qnUrl: any;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -46,6 +48,9 @@ export class NotesChildComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.url = this.glo.serverUrl;
+    this.qnUrl = this.glo.qiniuUrl;
+    window.scrollTo(0,0);
     /*返回顶部*/
     $(window).scroll(function () {
       let height = $(window).scrollTop();
