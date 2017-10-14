@@ -18,7 +18,7 @@ declare var $: any;
 })
 
 export class RegisterComponent implements OnInit {
-  IsSubmit = [false, false, false, false, false,false];
+  IsSubmit = [false, false, false, false, false, false];
   IsBy = false;
   istelempty = true;
   istelformat = true;
@@ -36,6 +36,9 @@ export class RegisterComponent implements OnInit {
   pwd;
   public user: User;
   register_res: string;
+  get: string = '获取验证码';
+  one: boolean = false;
+  s: number = 60;
 
   constructor(private  userSer: UserService,
               private router: Router) {
@@ -84,7 +87,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     $.idcode.setCode();
 
     $("#Txtidcode").keydown(function (e) {
@@ -179,7 +182,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onphoneCode(value: string,myform): void {
+  onphoneCode(value: string, myform): void {
     this.IsSubmit[5] = false;
     let that = this;
     // console.log(that.pwd + ':' + value);
@@ -208,7 +211,7 @@ export class RegisterComponent implements OnInit {
   // 用户注册
   addUser(register_form) {
     if (this.IsSubmit[0] && this.IsSubmit[1] && this.IsSubmit[2] &&
-      this.IsSubmit[3] && this.IsSubmit[4]&& this.IsSubmit[5]) {
+      this.IsSubmit[3] && this.IsSubmit[4] && this.IsSubmit[5]) {
       let that = this;
       // console.log(register_form);
       // console.log('===================================');
@@ -234,9 +237,22 @@ export class RegisterComponent implements OnInit {
   }
 
   getPhoneCode(tel) {
-    console.log(tel);
     let that = this;
-    this.userSer.sendCode(tel,function (result) {
+    this.get = '重新获取';
+    this.one = true
+    that.isphoneCode = false;
+    var Interval = setInterval(function () {
+      that.s = that.s - 1;
+      if(that.s == 0){
+        that.one = false;
+        that.s = 60;
+        that.isphoneCode = true;
+        clearInterval(Interval);
+        return;
+      }
+    }, 1000);
+    console.log(tel);
+    this.userSer.sendCode(tel, function (result) {
       that.phoneCode = result.infoNum;
       // console.log(that.phoneCode);
     })

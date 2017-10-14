@@ -64,7 +64,9 @@ export class LoginComponent implements OnInit {
   toLogin(login_form) {
     if (login_form) {
       let that = this;
+      // console.log('here');
       that.userSer.getByPwd(login_form.form.value, function (result) {
+        // console.log(result);
         if (result.stateCode == '1') {
           // 存储token到本地
           that.localStorage.set('token', result.token);
@@ -72,6 +74,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('token',result.users[0].token);
           that.getCredits(login_form.form.value.telephone);
         } else {
+          // console.log('here');
           that.login_res = '用户名或密码错误';
         }
       });

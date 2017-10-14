@@ -4,6 +4,6 @@
 exports.sql={
   getScenics:'select * FROM scenics',
   getScenicItem:'select * from scenics where id = ?',
-  getHotScenic:'select * from cityInfo',
+  getHotScenic:'select * from cityinfo',
   getCitys:'SELECT * FROM citys',
 };

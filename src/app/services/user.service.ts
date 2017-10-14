@@ -13,7 +13,7 @@ export class UserService {
               private glo: GlobalPropertyService,
               private ls:LocalStorage) {
     this.url = glo.serverUrl
-    console.log(this.url);
+    // console.log(this.url);
   }
   // 添加用户
   addUser(user, callback) {
@@ -31,6 +31,7 @@ export class UserService {
   getByPwd(user, callback) {
     this.http.post(this.url + '/users/login', user).subscribe(
       function (result) {
+        // console.log(result);
         callback(result);
       },
       function (error) {

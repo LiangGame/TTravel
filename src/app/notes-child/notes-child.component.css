@@ -376,7 +376,7 @@ hr{
   color: #ff9d00;
 }
 #modal{
-  position: absolute;
+  /*position: absolute;*/
   z-index: 9999999;
 }
 /*删除按钮*/

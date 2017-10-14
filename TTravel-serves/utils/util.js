@@ -203,3 +203,4 @@ exports.formatLongString=function (str,len) {
 }
 
 exports.secret='com.TTravel';//私钥
+exports.Url = 'http://59.110.218.93:8889';//服务器地址

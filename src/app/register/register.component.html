@@ -96,7 +96,7 @@
             <input type="text" tabindex="6"
                    (blur)="onphoneCode(phoneCode.value)" class="form-phoneCode pull-left" name="phoneCode" [ngModel]="user.phoneCode"
                    required #phoneCode="ngModel" placeholder="手机验证码" (keyup.enter)="onphoneCode(phoneCode.value,registerForm)">
-            <button class="codeBtn pull-left" [class._disabled]="!isphoneCode" [disabled]="!isphoneCode" name="phoneCodeBtn" (click)="getPhoneCode(tel.value)">获取验证码</button>
+            <button class="codeBtn pull-left" [class._disabled]="!isphoneCode" [disabled]="!isphoneCode" name="phoneCodeBtn" (click)="getPhoneCode(tel.value)">{{get}}<span *ngIf="one">({{s}}秒后)</span></button>
           </div>
         </div>
 

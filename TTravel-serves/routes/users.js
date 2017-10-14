@@ -57,10 +57,11 @@ router.post('/login', function (req, res, next) {
                   res.json({"stateCode": 2});
                 }
               })
+            }else{
+              res.json({"stateCode": 9});
             }
           }
         }
-
       }
     })
   }
@@ -226,7 +227,7 @@ router.post('/wangEditorupload', function (request, response, next) {
       return;
     } else {
       form.uploadDir = "../public" + wangEditor;     //设置上传目录
-      form.resloadDir = "http://127.0.0.1:8889" + wangEditor;
+      form.resloadDir = util.Url + wangEditor;
       form.keepExtensions = true;     //保留后缀
       form.maxFieldsSize = 3 * 1024;   //文件大小
       var avatarName = util.createUnique() + '.' + extName;

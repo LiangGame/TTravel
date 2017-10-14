@@ -31,6 +31,7 @@ const routes: Routes = [
       {path: 'PhotoAlbum', component: PhotoAlbumComponent},
       {path: 'Setting', component: SettingComponent},
       {path: 'collect', component: UserCollectComponent},
+      // {path: 'CreateNotes', component: UserCollectComponent},
       // {path: 'lv', component: LvComponent},
       {path: '', component: UserIndexComponent}
     ]

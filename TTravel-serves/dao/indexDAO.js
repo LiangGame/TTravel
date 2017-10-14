@@ -25,6 +25,7 @@ exports.indexDao={
   getScenic:function (city,callback) {
     pool.getConnection(function (error,client) {
       if(error){
+        console.log(error);
         return
       }
       client.query(indexSql.getScenic,['%'+city+'%'],function (error,result) {

@@ -1,29 +1,34 @@
 
 import {Component, OnInit, ElementRef, Renderer, Output, EventEmitter } from '@angular/core';
 import * as wangEditor from '../../assets/js/wangEditor.js';
+import {GlobalPropertyService} from "../services/global-property.service";
 // import wangEditorCss as wangEditor from '../../assets/css/wangEditor.css';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css']
+  styleUrls: ['./editor.component.css'],
+  providers:[GlobalPropertyService]
 })
 export class EditorComponent implements OnInit {
+  url:any;
   private editor: any;
   @Output() onPostData = new EventEmitter();
   constructor(
     private el: ElementRef,
+    private glo:GlobalPropertyService,
     private renderer: Renderer
   ) { }
 
   ngOnInit() {
+    this.url = this.glo.serverUrl;
   }
   ngAfterViewInit() {
     let editordom = this.el.nativeElement.querySelector('#editorElem');
     this.editor = new wangEditor(editordom);
     this.editor.customConfig.uploadImgShowBase64 = true;
     this.editor.customConfig.showLinkImg = false;
-    this.editor.customConfig.uploadImgServer = 'http://127.0.0.1:8889/users/wangEditorupload';
+    this.editor.customConfig.uploadImgServer = this.url+'/users/wangEditorupload';
     this.editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
     this.editor.customConfig.uploadImgMaxLength = 10;
     // this.editor.customConfig.uploadFileName = '';

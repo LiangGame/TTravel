@@ -2,11 +2,11 @@
  * Created by WWL on 2017/9/11.
  */
 var options={
-  host:'127.0.0.1',
+  host:'bdm316868502.my3w.com',
   port:'3306',
-  user:'root',
-  password:'root',
-  database:'ttraveldb'
+  user:'bdm316868502',
+  password:'Wangji8520',
+  database:'bdm316868502_db'
 };
 
 exports.options = options;

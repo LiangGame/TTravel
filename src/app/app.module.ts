@@ -54,7 +54,8 @@ import { IndexNotesPipe } from './Pipes/index-notes.pipe';
 import { LocaleDatePipe } from './Pipes/locale-date.pipe';
 import { LvComponent } from './lv/lv.component';
 import { SearchStrategyPipe } from './Pipes/search-strategy.pipe';
-
+// 解决不能刷新
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,8 @@ import { SearchStrategyPipe } from './Pipes/search-strategy.pipe';
     GlobalPropertyService,
     ScenicService,
     LocalStorage,
+    // 解决不能刷新问题
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   exports: [    Ng2PaginationModule,
 
