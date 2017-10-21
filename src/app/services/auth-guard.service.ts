@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
   isLogin:string = sessionStorage.getItem('user');
   canActivate() {
     let that = this;
-    console.log(this.isLogin);
+    // console.log(this.isLogin);
     if(this.isLogin){
       return true;
     }else {

@@ -46,7 +46,7 @@ export class FootprintComponent implements OnInit {
           result[i].url = (result[i].url).split(',')[0];
         }
         that.footprints = result;
-        console.log(that.footprints);
+        // console.log(that.footprints);
       }
     })
   }

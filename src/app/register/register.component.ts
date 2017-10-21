@@ -154,12 +154,12 @@ export class RegisterComponent implements OnInit {
       that.ispassempty = true;
       if (value.length >= 6) {
         that.ispassformat = true;
-        console.log('长度大于6个');
+        // console.log('长度大于6个');
         this.IsSubmit[2] = true;
       }
       else {
         that.ispassformat = false;
-        console.log('长度小于6个');
+        // console.log('长度小于6个');
       }
     }
   }
@@ -167,7 +167,7 @@ export class RegisterComponent implements OnInit {
   onrpass(value: string): void {
     this.IsSubmit[3] = false;
     let that = this;
-    console.log(that.pwd + ':' + value);
+    // console.log(that.pwd + ':' + value);
     if (value == '' || value == null) {
       that.isrpassempty = false;
       that.isrpassformat = true;
@@ -216,7 +216,7 @@ export class RegisterComponent implements OnInit {
       // console.log(register_form);
       // console.log('===================================');
       that.userSer.addUser(register_form.value, function (result) {
-        console.log(result);
+        // console.log(result);
         if (result.stateCode == '6') {
           var user = {telephone: register_form.form.value.telephone, password: register_form.form.value.password}
           that.userSer.getByPwd(user, function (result) {
@@ -251,7 +251,7 @@ export class RegisterComponent implements OnInit {
         return;
       }
     }, 1000);
-    console.log(tel);
+    // console.log(tel);
     this.userSer.sendCode(tel, function (result) {
       that.phoneCode = result.infoNum;
       // console.log(that.phoneCode);
@@ -261,6 +261,6 @@ export class RegisterComponent implements OnInit {
 
   save(model: User, isValid: boolean) {
     // call API to save customer
-    console.log(model, isValid);
+    // console.log(model, isValid);
   }
 }

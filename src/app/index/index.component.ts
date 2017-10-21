@@ -36,7 +36,7 @@ export class IndexComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem('user'));
     this.getScenic();
     this.getNotes();
-    this.getHeroes();
+
   }
 
   ngOnInit() {
@@ -59,7 +59,7 @@ export class IndexComponent implements OnInit {
   getScenic() {
     let that = this;
     that.indexSer.show_scenic(function (result) {
-      console.log('成功')
+      // console.log('成功')
       if (result) {
         for (let i = 0; i < result.length; i++) {
           if (result[i].url == '' || result[i].url == null) {
@@ -69,7 +69,7 @@ export class IndexComponent implements OnInit {
           }
         }
         that._scenic = result;
-        console.log(that._scenic);
+        // console.log(that._scenic);
       } else {
         console.log("error")
       }
@@ -90,7 +90,7 @@ export class IndexComponent implements OnInit {
         }
         that._notes = result;
         // that.newNotes = result[0];
-        console.log(that._notes);
+        // console.log(that._notes);
         // console.log();
       } else {
         console.log("error");
@@ -111,8 +111,6 @@ export class IndexComponent implements OnInit {
   }
 
 
-  getHeroes() {
-    this.indexSer.getHeroesSlowly().then(heroes => this._scenic = heroes);
-  }
+
 
 }

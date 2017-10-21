@@ -15,7 +15,7 @@ export class SearchScenicPipe implements PipeTransform {
           return scenic;
         }
       })
-      console.log('==================PIPES==================');
+      // console.log('==================PIPES==================');
       return new_scenic;
     }else{
       return scenic;

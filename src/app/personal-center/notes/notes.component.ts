@@ -60,8 +60,8 @@ export class NotesComponent implements OnInit {
           if (result[i].comment == '' || result[i].comment == null) {
             result[i].comment = 0;
           }
-          console.log(i);
-          console.log(that.newNotes);
+          // console.log(i);
+          // console.log(that.newNotes);
 
           if (that.newNotes[i].notes.check == '0') {
             that._check.push(that.newNotes[i]);
@@ -73,7 +73,7 @@ export class NotesComponent implements OnInit {
 
         }
       } else {
-        console.log("error")
+        // console.log("error")
       }
     })
 

@@ -32,7 +32,7 @@ export class PhotoAlbumComponent implements OnInit {
         var file = document.getElementById(idFile);
         var imgContainer = $(this).parents(".z_photo"); //存放图片的父亲元素
         var fileList: any = (<HTMLInputElement>file).files; //获取的图片文件11111
-        console.log(fileList + "======filelist=====");
+        // console.log(fileList + "======filelist=====");
         var input = $(this).parent();//文本框的父亲元素
         var imgArr = [];
         //遍历得到的图片文件
@@ -110,7 +110,7 @@ export class PhotoAlbumComponent implements OnInit {
           var newStr = file.name.split("").reverse().join("");
           if (newStr.split(".")[0] != null) {
             var type = newStr.split(".")[0].split("").reverse().join("");
-            console.log(type + "===type===");
+            // console.log(type + "===type===");
             if ($.inArray(type, defaults.fileType) > -1) {
               // 类型符合，可以上传
               if (file.size >= defaults.fileSize) {
@@ -154,7 +154,7 @@ export class PhotoAlbumComponent implements OnInit {
           that.images[i] = `<img src="${that.glo.serverUrl}/userImgs/${result[i].url}" alt="" class="pull-left" style="margin: 15px" width="190" height="180">`;
         }
         // that.images = result;
-        console.log(that.images);
+        // console.log(that.images);
       }
     })
   }
@@ -187,7 +187,7 @@ export class PhotoAlbumComponent implements OnInit {
     let that = this;
     if (!fileItem["realFileName"]) {
       that.userId = JSON.parse(sessionStorage.getItem("user")).id;
-      console.log("上传之前");
+      // console.log("上传之前");
       // console.log(fileItem);
       form.append("userId", that.userId);
     }

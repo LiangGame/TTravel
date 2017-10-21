@@ -39,7 +39,7 @@ export class NotesService {
   }
   // 游记评论
   notesComment(body,callback){
-    console.log(body);
+    // console.log(body);
     this.http.post(this.url + '/users/notesComment', body).subscribe(
       function (result) {
         callback(result);

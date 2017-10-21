@@ -54,7 +54,7 @@ export class ScenicResultComponent implements OnInit {
   }
 
   footprint(id) {
-    console.log('景点ID:' + id);
+    // console.log('景点ID:' + id);
     let body = {userId: JSON.parse(sessionStorage.getItem('user')).id, scenicId: id};
     let that = this;
     that.personalSer.addFootPorint(body, function (result) {

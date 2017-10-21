@@ -46,9 +46,9 @@ export class UserCollectComponent implements OnInit {
             result[i].comment=0;
           }
         }
-        console.log(that.newNotes);
+        // console.log(that.newNotes);
       } else {
-        console.log("error")
+        // console.log("error")
       }
     })
   }

@@ -16,8 +16,8 @@ exports.strategyDao={
           return;
         }
         callback(result);
-        console.log(result);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>strategyDAO>>>>getStrategys');
+        // console.log(result);
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>strategyDAO>>>>getStrategys');
         client.release();
       })
     })
@@ -34,8 +34,8 @@ exports.strategyDao={
           return;
         }
         callback(result);
-        console.log(result);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>strategyDAO>>>>getStrategyDetails');
+        // console.log(result);
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>strategyDAO>>>>getStrategyDetails');
         client.release();
       })
     })

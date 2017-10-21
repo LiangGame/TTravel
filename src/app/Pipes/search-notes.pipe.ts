@@ -6,9 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchNotesPipe implements PipeTransform {
 
   transform(notes: any, args?: any): any {
-    console.log(notes);
+    // console.log(notes);
     // console.log(args);
-    console.log('<<<<<<<<<<>>>>>>>>>>>>>>>');
+    // console.log('<<<<<<<<<<>>>>>>>>>>>>>>>');
     var arg = args || '';
     if(arg){
       var new_notes = notes.filter(function (notes,index) {

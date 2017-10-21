@@ -67,7 +67,7 @@ export class UserService {
 // 修改个人信息
   updateUser(user, callback) {
     let _head = new HttpHeaders({token:this.ls.get('token')});
-    console.log(user + '---->>>user.service!!');
+    // console.log(user + '---->>>user.service!!');
     this.http.post(this.url + '/users/updateUser', user,{headers:_head}).subscribe(
       function (result) {
         callback(result);
@@ -91,9 +91,9 @@ export class UserService {
   }
   // 增加积分
   addCredits(info,callback){
-    console.log(info);
+    // console.log(info);
     let _head = new HttpHeaders({token:this.ls.get('token')});
-    this.http.post(this.url + '/users/addCredits', info,{headers:_head}).subscribe(
+    this.http.post(this.url + '/users/addCred/its', info,{headers:_head}).subscribe(
       function (result) {
         callback(result);
       },

@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/getNotes',function (req,res,next) {
   var num = req.body.num;
   // console.log(num);
-  console.log("===============================");
+  // console.log("===============================");
   if(num == null || num == ''){
     num = 8;
   }
@@ -23,9 +23,10 @@ router.post('/getNotes',function (req,res,next) {
       // console.log(result);
     });
 });
+
 router.post('/getScenic',function (req,res,next) {
   var city = req.body.city;
-  console.log('当前城市 >>>' + city);
+  // console.log('当前城市 >>>' + city);
   indexdao.getScenic(city,function (result) {
     if(result){
       res.json(result)

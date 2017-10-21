@@ -76,7 +76,7 @@ exports.userDao={
     })
   },
   addUserIcon:function (telephone,iconName,callback) {
-    console.log('>>>>>>>>>>userDAO');
+    // console.log('>>>>>>>>>>userDAO');
     pool.getConnection(function (error,client) {
       if(error){
         callback('e004');

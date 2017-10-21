@@ -14,13 +14,13 @@ router.post('/getStrategy',function (req,res,next) {
     }else{
       res.json({"stateCode":''})
     }
-    console.log(result);
-    console.log('==================getStrategy=====================');
+    // console.log(result);
+    // console.log('==================getStrategy=====================');
   });
 });
 router.post('/strategyDetails',function (req,res,next) {
   var id = req.body.styategyId;
-  console.log(id);
+  // console.log(id);
   if(id){
     strategyDao.getStrategyDetails(id,function (result) {
       if(result){

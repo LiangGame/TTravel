@@ -8,10 +8,10 @@ var util = require('./../utils/util');
 router.post('/login', function (req, res) {
   var user = req.body;
   if (user.telephone && user.password) {
-    console.log(user);
+    // console.log(user);
     admindao.getPasswordById(user.telephone, function (result) {
-      console.log('登录返回数据');
-      console.log(result);
+      // console.log('登录返回数据');
+      // console.log(result);
       if (result == 'e004') {
         res.json({"stateCode": result});
       } else {
@@ -21,7 +21,7 @@ router.post('/login', function (req, res) {
           } else {
             if (result.password == util.MD5(user.password)) {
               res.json({"stateCode": 1});
-              console.log('登录成功!');
+              // console.log('登录成功!');
             } else {
               res.json({"stateCode": 2});
             }
@@ -35,7 +35,7 @@ router.post('/login', function (req, res) {
 router.post('/getAll', function (req, res, next) {
   // var check = req.body;
   // console.log(check);
-  console.log("===============================");
+  // console.log("===============================");
   admindao.getAll('', function (result) {
     if (result) {
       res.json(result)
@@ -47,8 +47,8 @@ router.post('/getAll', function (req, res, next) {
 });
 router.post('/isCheck', function (req, res, next) {
   var check = req.body;
-  console.log(check);
-  console.log("===============================");
+  // console.log(check);
+  // console.log("===============================");
   admindao.isCheck(check, function (result) {
     if (result) {
       res.json(result.affectedRows)

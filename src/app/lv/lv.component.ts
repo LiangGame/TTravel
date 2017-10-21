@@ -160,8 +160,8 @@ export class LvComponent implements OnInit {
                 }, 1)
               }
             });
-            console.log(that._number);
-            console.log('==========获取数据成功---->>>getCredits=========');
+            // console.log(that._number);
+            // console.log('==========获取数据成功---->>>getCredits=========');
           }
         }
       });

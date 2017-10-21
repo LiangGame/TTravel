@@ -42,22 +42,22 @@ export class TravelStrategyComponent implements OnInit {
     that.gySer.getStrategy(function (result) {
       if (result) {
         that.strategys = result;
-        console.log(that.strategys);
+        // console.log(that.strategys);
       } else {
-        console.log('here');
+        // console.log('here');
       }
     });
   };
 
   strategyItem(strategyId) {
-    console.log(strategyId);
+    // console.log(strategyId);
     if (strategyId) {
       this.router.navigate(['/strategychild'], {queryParams: {'key': strategyId}});
     }
   }
 
   add(event) {
-      console.log('只执行一次');
+      // console.log('只执行一次');
       $(event.target).addClass('animated infinite swing');
       window.setTimeout(function () {
         $(event.target).removeClass('animated infinite swing');

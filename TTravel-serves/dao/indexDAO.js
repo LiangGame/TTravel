@@ -17,7 +17,7 @@ exports.indexDao={
         }
         callback(result);
         // console.log(result);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>indexDAO>>>>getNOtes');
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>indexDAO>>>>getNOtes');
         client.release();
       })
     })
@@ -48,7 +48,7 @@ exports.indexDao={
             }
             if(result){
               // console.log(result);
-              console.log('默认');
+              // console.log('默认');
               callback(result);
             }
           })
@@ -72,7 +72,7 @@ exports.indexDao={
             return;
           }
           callback(result);
-          console.log(result);
+          // console.log(result);
           client.release();
         })
       })
@@ -91,7 +91,7 @@ exports.indexDao={
         }
         callback(result);
         // console.log(result);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>indexDAO>>>>getHotNotes');
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>indexDAO>>>>getHotNotes');
         client.release();
       })
     })

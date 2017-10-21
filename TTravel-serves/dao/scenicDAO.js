@@ -6,7 +6,7 @@ var scenicSql = require('./SQL/scenicSql').sql;
 exports.scenicDao = {
   getScenic: function (callback) {
     // console.log(body);
-    console.log('>>>>>>>>>>>>>>>>>scenicDAO');
+    // console.log('>>>>>>>>>>>>>>>>>scenicDAO');
     pool.getConnection(function (error, client) {
       if (error) {
         return
@@ -17,8 +17,8 @@ exports.scenicDao = {
           callback('e004');
           return;
         }
-        console.log(result);
-        console.log('----->>>>userDAO.getScenic');
+        // console.log(result);
+        // console.log('----->>>>userDAO.getScenic');
         callback(result);
         client.release();
       })

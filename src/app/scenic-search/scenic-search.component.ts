@@ -53,7 +53,7 @@ export class ScenicSearchComponent implements OnInit {
             that.data = result;
             that.searText = that.key;
           } else {
-            console.log('error');
+            // console.log('error');
           }
         });
       }
@@ -61,7 +61,7 @@ export class ScenicSearchComponent implements OnInit {
   }
 
   details(deta) {
-    console.log(deta);
+    // console.log(deta);
 
     if (deta) {
       this.router.navigate(['/scenic-result'], {queryParams: {'key': deta}});

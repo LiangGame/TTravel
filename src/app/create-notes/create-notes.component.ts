@@ -95,24 +95,24 @@ export class CreateNotesComponent implements OnInit {
   };
 
   PostData(event): void {
-    console.log(event + '---->>>postData');
+    // console.log(event + '---->>>postData');
   };
 
   getCredits(userId) {
     if (userId) {
       let that = this;
       that.userSer.getCredits({telephone: userId}, function (result) {
-        console.log(result);
+        // console.log(result);
         if (result) {
           if (result != '' || result != null) {
             that.credits = +result[0].userlv;
-            console.log('==========获取数据成功---->>>getCredits=========');
+            // console.log('==========获取数据成功---->>>getCredits=========');
             that.userSer.addCredits({telephone: userId, creits: (+that.credits + 10)}, function (result) {
-              if (result.affectedRows == 1) {
+              // if (result.affectedRows == 1) {
                 // that.router.navigate(['/index']);
-                console.log(result);
-                console.log('发布游记成功,时光+10');
-              }
+                // console.log(result);
+                // console.log('发布游记成功,时光+10');
+              // }
             });
           }
         }

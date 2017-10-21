@@ -59,7 +59,7 @@ export class UserIndexComponent implements OnInit {
         // console.log(result);
       } else {
         that.noNotes = false;
-        console.log("error")
+        // console.log("error")
       }
     })
   };

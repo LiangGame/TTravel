@@ -25,14 +25,14 @@ export class StrategyChildComponent implements OnInit {
               private gySer: StrategyService) {
     this.route.params.subscribe((params: Params) => {
       this.key = (<Params>this.route.queryParams).value['key'];
-      console.log(this.key);
+      // console.log(this.key);
       if (this.key) {
         let that = this;
         let styategyId = {styategyId: this.key}
         // console.log(styategyId);
         that.gySer.getStrategyItem(styategyId, function (result) {
-          console.log(result);
-          console.log('===================strategy-child=====================');
+          // console.log(result);
+          // console.log('===================strategy-child=====================');
           if (result) {
             if(result[0].route_title && result[0].route_content){
               result[0].route_title = (result[0].route_title).split(',');
@@ -53,11 +53,11 @@ export class StrategyChildComponent implements OnInit {
             }
             // console.log(result);
             // console.log('===================strategy-child=====================');
-            console.log(that.MoreRoute);
+            // console.log(that.MoreRoute);
             that.data = result[0];
             that.searText = that.key;
           } else {
-            console.log('error');
+            // console.log('error');
           }
         });
       }

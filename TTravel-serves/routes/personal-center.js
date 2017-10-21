@@ -43,15 +43,15 @@ router.post('/notes', ct.checkToken, function (req, res, next) {
       if (result) {
         res.json(result)
       }
-      console.log(result);
+      // console.log(result);
     });
   }
 });
 
 router.post('/addNotes', ct.checkToken, function (req, res, next) {
   var notesBody = req.body;
-  console.log(notesBody);
-  console.log('>>>>>>>>>>>>>>>>addNotes');
+  // console.log(notesBody);
+  // console.log('>>>>>>>>>>>>>>>>addNotes');
   personaldao.addNotes(notesBody, function (result) {
     if (result) {
       if (result == 1) {
@@ -77,8 +77,8 @@ router.post('/getUserImages', ct.checkToken, function (req, res, next) {
 // 添加足迹
 router.post('/addFootprint',ct.checkToken, function (req, res) {
   var footPrintBody = req.body;
-  console.log(footPrintBody);
-  console.log('>>>>>>>>>>>>>>>>addFootprint');
+  // console.log(footPrintBody);
+  // console.log('>>>>>>>>>>>>>>>>addFootprint');
   personaldao.addFootprint(footPrintBody, function (result) {
     if (result) {
       if (result == 1) {
@@ -105,8 +105,8 @@ router.post('/getUserCollect',function (req,res) {
   var userId = req.body.userId;
   personaldao.getUserCollect(userId, function (result) {
     if (result) {
-      console.log('=============getUserCollect==============');
-      console.log(result);
+      // console.log('=============getUserCollect==============');
+      // console.log(result);
       res.json(result);
     }else {
       res.json('');

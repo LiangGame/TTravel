@@ -32,7 +32,7 @@ exports.adminDao={
         }
         callback(result);
         // console.log(result);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>adminDAO>>>>getAll');
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>adminDAO>>>>getAll');
         client.release();
       })
     })
@@ -49,8 +49,8 @@ exports.adminDao={
           return;
         }
         callback(result);
-        console.log(result);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>adminDAO>>>>isCheck');
+        // console.log(result);
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>adminDAO>>>>isCheck');
         client.release();
       })
     })

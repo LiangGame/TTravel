@@ -86,16 +86,16 @@ export class LoginComponent implements OnInit {
     if (userId) {
       let that = this;
       that.userSer.getCredits({telephone:userId}, function (result) {
-        console.log(result);
+        // console.log(result);
         if (result) {
           if (result != '' || result != null) {
             that.credits = +result[0].userlv;
-            console.log('==========获取数据成功---->>>getCredits=========');
+            // console.log('==========获取数据成功---->>>getCredits=========');
             that.userSer.addCredits({telephone: userId, creits: (+that.credits + 2)}, function (result) {
               if (result.affectedRows == 1) {
                 that.router.navigate(['/index']);
-                console.log(result);
-                console.log('登录成功,积分+2');
+                // console.log(result);
+                // console.log('登录成功,积分+2');
               }
             });
           }

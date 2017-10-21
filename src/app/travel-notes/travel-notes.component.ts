@@ -104,9 +104,9 @@ export class TravelNotesComponent implements OnInit {
           }
         }
         // that.notes = result;
-        console.log(that.newNotes);
+        // console.log(that.newNotes);
       } else {
-        console.log('没获取到游记数据!');
+        // console.log('没获取到游记数据!');
       }
     });
   }
@@ -133,7 +133,7 @@ export class TravelNotesComponent implements OnInit {
           }
         }
         // that.newNotes = result;
-        console.log(that.newNotes);
+        // console.log(that.newNotes);
       } else {
         // console.log('here');
       }
@@ -202,8 +202,8 @@ export class TravelNotesComponent implements OnInit {
           }
         }
         // that.hotNotes = result;
-        console.log('相关阅读');
-        console.log(that.hotNotes);
+        // console.log('相关阅读');
+        // console.log(that.hotNotes);
       }
     })
   }

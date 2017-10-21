@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
   }
 
   btnSearch(nav) {
-    console.log(nav.value);
+    // console.log(nav.value);
     let navItem = nav.value.nav;
     let searchText = nav.value.searchText;
     // console.log(!!searchText);

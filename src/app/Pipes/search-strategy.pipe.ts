@@ -14,7 +14,7 @@ export class SearchStrategyPipe implements PipeTransform {
           return strategy;
         }
       })
-      console.log('==================PIPES==================');
+      // console.log('==================PIPES==================');
       return new_strategy;
     } else {
       return strategy;

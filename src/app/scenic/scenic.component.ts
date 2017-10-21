@@ -60,7 +60,7 @@ export class ScenicComponent implements OnInit {
   }
 
   getScenic(cityname) {
-    console.log(cityname);
+    // console.log(cityname);
     if (cityname) {
       this.router.navigate(['/scenic_search'], {queryParams: {'key': cityname}});
     }
@@ -87,20 +87,20 @@ export class ScenicComponent implements OnInit {
             that.north_east.push(result[i]);
           }
         }
-        console.log('华东地区');
-        console.log(that.east);
-        console.log('华南地区');
-        console.log(that.south);
-        console.log('华中地区');
-        console.log(that.west);
-        console.log('华北地区');
-        console.log(that.north);
-        console.log('西南地区');
-        console.log(that.south_west);
-        console.log('西北地区');
-        console.log(that.north_west);
-        console.log('东北地区');
-        console.log(that.north_east);
+        // console.log('华东地区');
+        // console.log(that.east);
+        // console.log('华南地区');
+        // console.log(that.south);
+        // console.log('华中地区');
+        // console.log(that.west);
+        // console.log('华北地区');
+        // console.log(that.north);
+        // console.log('西南地区');
+        // console.log(that.south_west);
+        // console.log('西北地区');
+        // console.log(that.north_west);
+        // console.log('东北地区');
+        // console.log(that.north_east);
       }
     })
   }

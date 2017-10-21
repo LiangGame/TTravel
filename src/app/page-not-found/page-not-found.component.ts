@@ -1,23 +1,27 @@
 import {Component, OnInit} from '@angular/core';
-declare var $:any;
+import {Router} from '@angular/router';
+
+declare var $: any;
+
 @Component({
   selector: 'app-page-not-found',
   templateUrl: './page-not-found.component.html',
   styleUrls: ['./page-not-found.component.css']
 })
 export class PageNotFoundComponent implements OnInit {
+  time: number = 6;
 
-  constructor() {
+  constructor(private router: Router,) {
   }
 
   ngOnInit() {
-
-      $(function () {
-        var h = $(window).height();
-        $('body').height(h);
-        $('.mianBox').height(h);
-        centerWindow(".tipInfo");
-      });
+    let that = this;
+    $(function () {
+      var h = $(window).height();
+      $('body').height(h);
+      $('.mianBox').height(h);
+      centerWindow(".tipInfo");
+    });
 
     //2.将盒子方法放入这个方，方便法统一调用
     function centerWindow(a) {
@@ -46,14 +50,12 @@ export class PageNotFoundComponent implements OnInit {
     }
 
     (function () {
-      var wait = document.getElementById('wait'), href = document.getElementById('href').href;
       var interval = setInterval(function () {
-        var time = --wait.innerHTML;
-        if (time <= 0) {
-          location.href = href;
+        that.time--;
+        if (that.time <= 0) {
+          that.router.navigate(['/index']);
           clearInterval(interval);
-        }
-        ;
+        };
       }, 1000);
     })();
   }

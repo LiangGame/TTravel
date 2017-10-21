@@ -50,7 +50,7 @@ exports.perDao={
           return;
         }
         callback(result);
-        console.log(result);
+        // console.log(result);
         client.release()  ;
       })
     })
@@ -68,8 +68,8 @@ exports.perDao={
           return;
         }
         callback(result);
-        console.log(result);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>personalDAO>>>>getNOtes');
+        // console.log(result);
+        // console.log('>>>>>>>>>>>>>>>>>>>>>>personalDAO>>>>getNOtes');
         client.release();
       })
     })
@@ -80,7 +80,7 @@ exports.perDao={
       if (error) {
         return
       }
-      console.log('>>>>>>>>>>>>>>>>addNotes>>>>>>>>personalDAO');
+      // console.log('>>>>>>>>>>>>>>>>addNotes>>>>>>>>personalDAO');
       client.query(personalSql.addNotes,[body.title,body.content,body.id],function (error, result) {
         if (error) {
           console.log(error.message + ' from addNotes');
@@ -117,8 +117,8 @@ exports.perDao={
       if (error) {
         return
       }
-      console.log('>>>>>>>>>>>>>>>>addFootprint>>>>>>>>personalDAO');
-      client.query(personalSql.addFootprint,[body.scenicId,body.userId],function (error, result) {
+      // console.log('>>>>>>>>>>>>>>>>addFootprint>>>>>>>>personalDAO');
+        client.query(personalSql.addFootprint,[body.scenicId,body.userId],function (error, result) {
         if (error) {
           console.log(error.message + ' from addFootprint');
           callback('e004');

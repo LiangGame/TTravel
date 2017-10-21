@@ -207,7 +207,7 @@ export class SettingComponent implements OnInit {
             that._province = result[0].provincename;
             that._city = result[0].cityname;
           } else {
-            console.log('error   >>>>>getCity');
+            // console.log('error   >>>>>getCity');
           }
         });
       }
@@ -217,7 +217,7 @@ export class SettingComponent implements OnInit {
 // 修改个人资料
   _submit(user_form) {
     let that = this;
-    console.log(user_form.form.value);
+    // console.log(user_form.form.value);
     let user = [user_form.form.value, {"telephone": this._telephone}];
     user_form.form.value.city = that._cityId[that._citys.indexOf(that._city)];
     if (!user_form.form.value.city) {
@@ -236,8 +236,8 @@ export class SettingComponent implements OnInit {
         },2000);
         sessionStorage.setItem('userName', that.userName);
         // that.userName=sessionStorage.getItem('userName');
-        console.log(result);
-        console.log('>>>>>submit');
+        // console.log(result);
+        // console.log('>>>>>submit');
       }
 
     })

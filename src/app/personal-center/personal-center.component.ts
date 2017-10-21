@@ -126,7 +126,7 @@ export class PersonalCenterComponent implements OnInit {
     let that = this;
     if (!fileItem["realFileName"]) {
       that._telephone = JSON.parse(sessionStorage.getItem("user")).telephone;
-      console.log("上传之前");
+      // console.log("上传之前");
       // console.log(fileItem);
       form.append("telephone", that._telephone);
     }

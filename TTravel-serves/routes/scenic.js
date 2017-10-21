@@ -6,7 +6,7 @@ var router = express.Router();
 var scenicDao = require('./../dao/scenicDAO').scenicDao;
 
 router.get('/getScenic', function (req, res, next) {
-  console.log('<<<<<<<<<<<<<<<<<<<<');
+  // console.log('<<<<<<<<<<<<<<<<<<<<');
   scenicDao.getScenic(function (result) {
     if (result) {
       res.json(result);
@@ -16,7 +16,7 @@ router.get('/getScenic', function (req, res, next) {
 });
 router.post('/getScenicItem', function (req, res, next) {
   var id = req.body.id;
-  console.log(id);
+  // console.log(id);
   if (id) {
     scenicDao.getScenicItem(id, function (result) {
       if (result) {
