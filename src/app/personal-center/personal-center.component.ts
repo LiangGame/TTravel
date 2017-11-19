@@ -111,7 +111,7 @@ export class PersonalCenterComponent implements OnInit {
         let tempRes = JSON.parse(response);
         // console.log(tempRes);
         if (tempRes.affectedRows == 1) {
-          that.Icon = `<img src='http://127.0.0.1:8889/uploads/${tempRes.icon}' width="100" height="100">`;
+          that.Icon = `<img src='${that.url}/uploads/${tempRes.icon}' width="100" height="100">`;
         }
         // console.log(that.Icon);
       } else {

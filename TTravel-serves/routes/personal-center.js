@@ -35,7 +35,7 @@ router.post('/citys', function (req, res, next) {
     });
   });
 });
-
+// 获取用户游记
 router.post('/notes', ct.checkToken, function (req, res, next) {
   var notesBody = req.body;
   if (notesBody) {
@@ -47,7 +47,7 @@ router.post('/notes', ct.checkToken, function (req, res, next) {
     });
   }
 });
-
+// 写游记
 router.post('/addNotes', ct.checkToken, function (req, res, next) {
   var notesBody = req.body;
   // console.log(notesBody);
@@ -62,7 +62,7 @@ router.post('/addNotes', ct.checkToken, function (req, res, next) {
     }
   });
 });
-
+// 获取用户照片
 router.post('/getUserImages', ct.checkToken, function (req, res, next) {
   var userId = req.body.userId;
   // console.log(userId);
@@ -89,7 +89,7 @@ router.post('/addFootprint',ct.checkToken, function (req, res) {
     }
   });
 });
-// 获取游记
+// 获取全部游记
 router.post('/getAllFootPrint',function (req,res) {
   var userId = req.body.userId;
   personaldao.getAllFootPrint(userId, function (result) {

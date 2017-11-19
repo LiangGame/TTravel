@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.all('*', function (req, res, next) {
   console.log(req.headers.origin);
-  if (req.headers.origin == 'http://localhost:8000' || req.headers.origin == 'http://localhost:4200'
+  if (req.headers.origin == 'http://localhost:8100' || req.headers.origin == 'http://localhost:4200'
     || req.headers.origin == 'http://localhost' || req.headers.origin == 'http://www.wwliang.cn'
   || req.headers.origin == 'http://wwliang.cn'||req.headers.origin == 'http://59.110.218.93') {
     res.header("Access-Control-Allow-Origin", req.headers.origin);

@@ -93,7 +93,7 @@ export class UserService {
   addCredits(info,callback){
     // console.log(info);
     let _head = new HttpHeaders({token:this.ls.get('token')});
-    this.http.post(this.url + '/users/addCred/its', info,{headers:_head}).subscribe(
+    this.http.post(this.url + '/users/addCredits', info,{headers:_head}).subscribe(
       function (result) {
         callback(result);
       },

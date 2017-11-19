@@ -2,6 +2,8 @@
   margin-top: 0px;
   height: 450px;
 }
+
 .item img {
   height: 450px !important;
+  width: 100%;
 }

@@ -118,7 +118,7 @@ exports.perDao={
         return
       }
       // console.log('>>>>>>>>>>>>>>>>addFootprint>>>>>>>>personalDAO');
-        client.query(personalSql.addFootprint,[body.scenicId,body.userId],function (error, result) {
+      client.query(personalSql.addFootprint,[body.scenicId,body.userId],function (error, result) {
         if (error) {
           console.log(error.message + ' from addFootprint');
           callback('e004');
